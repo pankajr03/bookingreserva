@@ -1,0 +1,2259 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Booknetic SaaS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-07 21:49+0400\n"
+"PO-Revision-Date: 2025-01-01 19:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: Türkçe\n"
+"Language: tr-TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ../app\n"
+"X-Poedit-KeywordsList: bkntcsaas__\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Backend/Base/view/disabled.php:10 Backend/Base/view/index.php:38
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: Backend/Base/view/disabled.php:10
+msgid "( it can take some time, please wait... )"
+msgstr "( biraz zaman alabilir, lütfen bekleyin... )"
+
+#: Backend/Base/view/disabled.php:20
+msgid "Your plugin is disabled. Please activate the plugin."
+msgstr "Eklentiniz devre dışı bırakıldı. Lütfen eklentiyi etkinleştirin."
+
+#: Backend/Base/view/disabled.php:23
+#, php-format
+msgid "Reason: %s"
+msgstr "Nedeni: %s"
+
+#: Backend/Base/view/index.php:14
+msgid "Are you sure?"
+msgstr "Emin misin?"
+
+#: Backend/Base/view/index.php:15
+msgid "Deleted!"
+msgstr "Silindi!"
+
+#: Backend/Base/view/index.php:18
+msgid "Select..."
+msgstr "Seçmek..."
+
+#: Backend/Base/view/index.php:19
+msgid "Please firstly choose a service!"
+msgstr "Lütfen öncelikle bir hizmet seçin!"
+
+#: Backend/Base/view/index.php:20 Backend/Payments/Ajax.php:72
+#: Backend/Plans/Ajax.php:105 Backend/Settings/Ajax.php:612
+#: Backend/Settings/Ajax.php:630 Backend/Tenants/Ajax.php:109
+#: Frontend/Controller/Ajax.php:73 Frontend/Controller/Ajax.php:201
+#: Frontend/Controller/Ajax.php:217 Frontend/Controller/Ajax.php:224
+#: Frontend/Controller/Ajax.php:236 Frontend/Controller/Ajax.php:258
+#: Frontend/Controller/Ajax.php:265 Frontend/Controller/Ajax.php:282
+#: Frontend/Controller/Ajax.php:377 Frontend/Controller/Ajax.php:436
+#: Frontend/Controller/Ajax.php:441
+msgid "Please fill in all required fields correctly!"
+msgstr "Lütfen gerekli tüm alanları doğru doldurunuz!"
+
+#: Backend/Base/view/index.php:21
+msgid "This time slot is not available!"
+msgstr "Bu zaman aralığı mevcut değil!"
+
+#: Backend/Base/view/index.php:24
+msgid "Are you sure you want to delete?"
+msgstr "Silmek istediğine emin misin?"
+
+#: Backend/Base/view/index.php:25
+msgid "Rows deleted!"
+msgstr "Satırlar silindi!"
+
+#: Backend/Base/view/index.php:26
+msgid "DELETE"
+msgstr "SİL"
+
+#: Backend/Base/view/index.php:27 Backend/Payments/view/modal/add_new.php:38
+#: Backend/Plans/view/modal/add_new.php:39
+#: Backend/Settings/view/modal/workflow_action_edit.php:83
+#: Backend/Tenants/view/modal/add_new.php:42
+msgid "CANCEL"
+msgstr "İPTAL"
+
+#: Backend/Base/view/index.php:28
+msgid "Dear user"
+msgstr "Sevgili kullanıcı"
+
+#: Backend/Base/view/index.php:31
+msgid "Group appointment"
+msgstr "Grup randevusu"
+
+#: Backend/Base/view/index.php:34
+msgid "Select services..."
+msgstr "Hizmetler'i seçin..."
+
+#: Backend/Base/view/index.php:35
+msgid "Changes has been saved!"
+msgstr "Değişiklikler kaydedildi!"
+
+#: Backend/Base/view/index.php:41
+msgid "Fill the form correctly!"
+msgstr "Formu doğru doldurun!"
+
+#: Backend/Base/view/index.php:42
+msgid "Saved succesfully!"
+msgstr "Başarıyla kaydedildi!"
+
+#: Backend/Base/view/index.php:43
+msgid "Please type email!"
+msgstr "Lütfen e-posta yazın!"
+
+#: Backend/Base/view/index.php:44
+msgid "Please type phone number!"
+msgstr "Lütfen telefon numaranızı yazın!"
+
+#: Backend/Base/view/index.php:47
+msgid "Are you sure that you want to delete this service extra?"
+msgstr "Bu hizmeti fazladan silmek istediğinizden emin misiniz?"
+
+#: Backend/Base/view/index.php:48
+msgid "No more Staff exists for select!"
+msgstr "Seçim için daha fazla Personel yok!"
+
+#: Backend/Base/view/index.php:49
+msgid "Are you sure to delete this special day?"
+msgstr "Bu özel günü sildiğinizden emin misiniz?"
+
+#: Backend/Base/view/index.php:50
+msgid "time(s) per month"
+msgstr "aylık süre(ler)"
+
+#: Backend/Base/view/index.php:51
+msgid "time(s) per week"
+msgstr "haftalık zaman(lar)"
+
+#: Backend/Base/view/index.php:52
+msgid "Every n day(s)"
+msgstr "Her gün(ler)"
+
+#: Backend/Base/view/index.php:53
+msgid "Are you sure you want to delete this service?"
+msgstr "Bu hizmeti silmek istediğinizden emin misiniz?"
+
+#: Backend/Base/view/index.php:54
+msgid "Are you sure you want to delete this category?"
+msgstr "Bu kategoriyi silmek istediğinizden emin misiniz?"
+
+#: Backend/Base/view/index.php:55
+msgid "Category name"
+msgstr "Kategori adı"
+
+#: Backend/Base/view/index.php:58
+msgid "January"
+msgstr "Ocak"
+
+#: Backend/Base/view/index.php:59
+msgid "February"
+msgstr "Şubat"
+
+#: Backend/Base/view/index.php:60
+msgid "March"
+msgstr "Mart"
+
+#: Backend/Base/view/index.php:61
+msgid "April"
+msgstr "Nisan"
+
+#: Backend/Base/view/index.php:62
+msgid "May"
+msgstr "Mayıs"
+
+#: Backend/Base/view/index.php:63
+msgid "June"
+msgstr "Haziran"
+
+#: Backend/Base/view/index.php:64
+msgid "July"
+msgstr "Temmuz"
+
+#: Backend/Base/view/index.php:65
+msgid "August"
+msgstr "Ağustos"
+
+#: Backend/Base/view/index.php:66
+msgid "September"
+msgstr "Eylül"
+
+#: Backend/Base/view/index.php:67
+msgid "October"
+msgstr "Ekim"
+
+#: Backend/Base/view/index.php:68
+msgid "November"
+msgstr "Kasım"
+
+#: Backend/Base/view/index.php:69
+msgid "December"
+msgstr "Aralık"
+
+#: Backend/Base/view/index.php:72
+msgid "Mon"
+msgstr "Mon"
+
+#: Backend/Base/view/index.php:73
+msgid "Tue"
+msgstr "Sal"
+
+#: Backend/Base/view/index.php:74
+msgid "Wed"
+msgstr "Evlendirmek"
+
+#: Backend/Base/view/index.php:75
+msgid "Thu"
+msgstr "Perşembe"
+
+#: Backend/Base/view/index.php:76
+msgid "Fri"
+msgstr "Cumartesi"
+
+#: Backend/Base/view/index.php:77
+msgid "Sat"
+msgstr "Oturtuyordu"
+
+#: Backend/Base/view/index.php:78
+msgid "Sun"
+msgstr "Pazar"
+
+#: Backend/Base/view/index.php:80
+msgid "Your session has expired. Please refresh the page and try again."
+msgstr "Oturumunuzun süresi doldu. Lütfen sayfayı yenileyin ve tekrar deneyin."
+
+#: Backend/Base/view/index.php:81
+#| msgid "Congratulations!"
+msgid "Congratulations, you are a beta user!"
+msgstr "Tebrikler!"
+
+#: Backend/Base/view/index.php:195 Config.php:646
+msgid "Boostore"
+msgstr "Boostore'un"
+
+#: Backend/Base/view/index.php:202
+msgid "Back to WordPress"
+msgstr "WordPress'e geri dön"
+
+#: Backend/Base/view/index.php:252
+msgid "Contact Us"
+msgstr "Bize Ulaşın"
+
+#: Backend/Base/view/index.php:270
+msgid "Discord community"
+msgstr "Discord topluluğu"
+
+#: Backend/Base/view/index.php:283
+msgid "Contact support"
+msgstr "İletişim desteği"
+
+#: Backend/Base/view/index.php:287
+msgid "Get informed"
+msgstr "Bilgi alın"
+
+#: Backend/Base/view/index.php:292
+#, fuzzy
+#| msgid "URL of documentation"
+msgid "Documentation"
+msgstr "Dokümantasyon URL'si"
+
+#: Backend/Base/view/index.php:298
+msgid "FAQ"
+msgstr "SSS"
+
+#: Backend/Base/view/index.php:304
+msgid "Blog"
+msgstr "Blog"
+
+#: Backend/Base/view/index.php:310 Backend/Base/view/index.php:315
+msgid "Join beta"
+msgstr "Betaya katılın"
+
+#: Backend/Base/view/index.php:337
+msgid "Beta user request confirmation"
+msgstr "Beta kullanıcı istek onayı"
+
+#: Backend/Base/view/index.php:347
+msgid ""
+"Thank you for joining our Beta program! Your participation is invaluable to "
+"us and helps improve our product. 🚀"
+msgstr ""
+"Thank you for joining our Beta program! Your participation is invaluable to "
+"us and helps improve our product. 🚀"
+
+#: Backend/Base/view/index.php:348
+msgid "Why use the Beta?"
+msgstr "Neden Beta kullanılmalı?"
+
+#: Backend/Base/view/index.php:350
+msgid "For You: Get early access to new features and enhancements."
+msgstr "Sizin için: Yeni özelliklere ve geliştirmelere erken erişim elde edin."
+
+#: Backend/Base/view/index.php:351
+msgid "For Us: Your feedback helps us refine and enhance the plugin."
+msgstr ""
+"Bizim için: Geri bildirimleriniz eklentiyi iyileştirmemize ve geliştirmemize "
+"yardımcı olur."
+
+#: Backend/Base/view/index.php:353
+msgid ""
+"As a valued member of our Beta Program, you have the unique opportunity to "
+"utilize Booknetic Beta in a second domain exclusively for staging or testing "
+"purposes. This benefit is currently available only to our Beta users, "
+"empowering you to:"
+msgstr ""
+"Beta Programımızın değerli bir üyesi olarak, Booknetic Beta'yı yalnızca "
+"hazırlama veya test amacıyla ikinci bir alanda kullanmak için eşsiz bir "
+"fırsata sahipsiniz. Bu avantaj şu anda sadece Beta kullanıcılarımız "
+"tarafından kullanılabilir ve size şunları yapma yetkisi verir:"
+
+#: Backend/Base/view/index.php:355
+msgid ""
+"Safely Experiment: Test new features and configurations in a controlled "
+"staging environment without affecting your main website."
+msgstr ""
+"Güvenle Deneyin: Yeni özellikleri ve yapılandırmaları ana web sitenizi "
+"etkilemeden kontrollü bir hazırlık ortamında test edin."
+
+#: Backend/Base/view/index.php:356
+msgid ""
+"Provide Feedback: Your insights are crucial. Directly influence the "
+"development of Booknetic by sharing your experiences and suggestions."
+msgstr ""
+"Geri Bildirim Sağlayın: Görüşleriniz çok önemli. Deneyimlerinizi ve "
+"önerilerinizi paylaşarak Booknetic'in gelişimini doğrudan etkileyin."
+
+#: Backend/Base/view/index.php:359
+msgid "Important Note:"
+msgstr "Önemli Not:"
+
+#: Backend/Base/view/index.php:360
+msgid ""
+" We recommend using the Beta in a staging environment (subdomain) to avoid "
+"any oversights. If needed, you can request direct support. We’ll allow Beta "
+"usage on your staging subdomain."
+msgstr ""
+" Herhangi bir gözden kaçmayı önlemek için Beta'yı bir hazırlama ortamında "
+"(alt alan adı) kullanmanızı öneririz. Gerekirse doğrudan destek talep "
+"edebilirsiniz. Aşama alt alan adınızda Beta kullanımına izin vereceğiz."
+
+#: Backend/Base/view/index.php:362
+msgid ""
+"Remember, the staging environment is a mirror of your production site, "
+"allowing you to assess the impact of updates in real-time without any risk "
+"to your live operations."
+msgstr ""
+"Hazırlama ortamının üretim sitenizin bir aynası olduğunu ve canlı "
+"operasyonlarınız üzerinde herhangi bir risk oluşturmadan güncellemelerin "
+"etkisini gerçek zamanlı olarak değerlendirmenize olanak tanıdığını unutmayın."
+
+#: Backend/Base/view/index.php:369
+msgid "Accept outlined"
+msgstr "Belirtilenleri kabul et"
+
+#: Backend/Base/view/index.php:373
+#, fuzzy
+#| msgid "Canceled"
+msgid "Cancel"
+msgstr "İptal edildi"
+
+#: Backend/Base/view/index.php:374
+msgid "Request"
+msgstr "İstek"
+
+#: Backend/Base/view/index.php:386
+msgid "Hello"
+msgstr "Merhaba"
+
+#: Backend/Base/view/index.php:393
+#: Backend/Settings/view/modal/email_settings.php:86
+msgid "Log out"
+msgstr "Çıkış yap"
+
+#: Backend/Billing/Ajax.php:74
+msgid "You don't have enough balance!"
+msgstr "Cüzdanınızda yeterli bakiyeniz yok!"
+
+#: Backend/Billing/Ajax.php:228
+msgid "Please enter a valid deposit!"
+msgstr "Lütfen geçerli bir depozito girin!"
+
+#: Backend/Billing/Ajax.php:254
+msgid "Location"
+msgstr "Konum"
+
+#: Backend/Billing/Ajax.php:255
+msgid "Service"
+msgstr "Hizmet"
+
+#: Backend/Billing/Ajax.php:256
+msgid "Staff"
+msgstr "Personel"
+
+#: Backend/Billing/Ajax.php:257
+msgid "Service Extras"
+msgstr "Hizmet İlaveleri"
+
+#: Backend/Billing/Controller.php:22 Config.php:658
+msgid "Billing"
+msgstr "Fatura"
+
+#: Backend/Billing/Controller.php:26
+msgid "DATE"
+msgstr "TARİH"
+
+#: Backend/Billing/Controller.php:27
+msgid "EVENT"
+msgstr "ETKiNLiK"
+
+#: Backend/Billing/Controller.php:31
+msgid "Deposit added"
+msgstr "Depozito eklendi"
+
+#: Backend/Billing/Controller.php:35
+msgid "Payment received"
+msgstr "Ödeme alındı"
+
+#: Backend/Billing/Controller.php:39 Backend/Tenants/Controller.php:40
+msgid "Subscribed"
+msgstr "Abone"
+
+#: Backend/Billing/Controller.php:44 Backend/Payments/view/tab/details.php:32
+#: Backend/Tenants/view/tab/details.php:65
+msgid "Plan"
+msgstr "PLAN"
+
+#: Backend/Billing/Controller.php:45 Backend/Payments/Controller.php:65
+msgid "AMOUNT"
+msgstr "ÜCRET"
+
+#: Backend/Billing/Controller.php:47 Backend/Payments/Controller.php:67
+msgid "PAYMENT METHOD"
+msgstr "ÖDEME YÖNTEMİ"
+
+#: Backend/Billing/Controller.php:52 Backend/Payments/Controller.php:77
+#: Backend/Tenants/Controller.php:36
+msgid "STATUS"
+msgstr "DURUM"
+
+#: Backend/Billing/Controller.php:56 Backend/Payments/Controller.php:38
+#: Backend/Payments/Controller.php:81
+msgid "Pending"
+msgstr "Ödeme Bekleniyor"
+
+#: Backend/Billing/Controller.php:60
+msgid "OK"
+msgstr "TAMAM"
+
+#: Backend/Billing/Controller.php:64
+msgid "NOT OK"
+msgstr "HATA"
+
+#: Backend/Billing/view/index.php:19
+msgid "Your plan has expired."
+msgstr "Planınızın süresi doldu."
+
+#: Backend/Billing/view/index.php:22
+#, php-format
+msgid "Your current plan is %s."
+msgstr "Mevcut planınız %s'dir."
+
+#: Backend/Billing/view/index.php:23
+#, php-format
+msgid "The plan expiration date is %s."
+msgstr "Planın son kullanma tarihi %s'dir."
+
+#: Backend/Billing/view/index.php:28
+msgid "CANCEL SUBSCRIPTION"
+msgstr "ABONELİĞİ İPTAL ET"
+
+#: Backend/Billing/view/index.php:30
+msgid "CURRENT PLAN"
+msgstr "MEVCUT PLAN"
+
+#: Backend/Billing/view/index.php:31
+msgid "UPGRADE PLAN"
+msgstr "PLANI YÜKSELT"
+
+#: Backend/Billing/view/index.php:36
+#, php-format
+msgid "Your balance: %s"
+msgstr "Bakiyeniz: %s"
+
+#: Backend/Billing/view/index.php:37
+#: Backend/Billing/view/modal/add_deposit.php:56
+msgid "ADD DEPOSIT"
+msgstr "DEPOZİTO EKLE"
+
+#: Backend/Billing/view/index.php:44
+msgid "Choose a plan"
+msgstr "Bir plan seçin"
+
+#: Backend/Billing/view/index.php:45
+msgid "Upgrade your account"
+msgstr "Hesabınızı yükseltin"
+
+#: Backend/Billing/view/index.php:48
+#: Backend/Billing/view/modal/add_deposit.php:35
+#: Backend/Payments/Controller.php:52 Backend/Payments/Controller.php:74
+#: Backend/Payments/view/tab/details.php:63
+#: Providers/Common/ShortCodeServiceImpl.php:58
+msgid "Monthly"
+msgstr "Aylık"
+
+#: Backend/Billing/view/index.php:53
+#: Backend/Billing/view/modal/add_deposit.php:36
+#: Backend/Payments/Controller.php:53 Backend/Payments/Controller.php:74
+#: Backend/Payments/view/tab/details.php:64
+#: Providers/Common/ShortCodeServiceImpl.php:58
+msgid "Annually"
+msgstr "Yıllık"
+
+#: Backend/Billing/view/index.php:68 Backend/Billing/view/index.php:74
+#, php-format
+msgid "%d%% off ( Normally %s )"
+msgstr "%d%% indirim ( Normalde %s )"
+
+#: Backend/Billing/view/index.php:70
+msgid "per month"
+msgstr "aylık"
+
+#: Backend/Billing/view/index.php:76
+msgid "per year"
+msgstr "yılda"
+
+#: Backend/Billing/view/index.php:87
+msgid "SELECTED"
+msgstr "SEÇİLİ"
+
+#: Backend/Billing/view/index.php:92
+msgid "CHOOSE"
+msgstr "Seç"
+
+#: Backend/Billing/view/index.php:106
+msgid "back"
+msgstr "geri"
+
+#: Backend/Billing/view/index.php:108
+msgid "Select payment method"
+msgstr "Ödeme yöntemini seçin"
+
+#: Backend/Billing/view/index.php:109
+#, php-format
+msgid "You have chosen %s plan"
+msgstr "%s planını seçtiniz"
+
+#: Backend/Billing/view/index.php:117 Backend/Payments/Controller.php:45
+#: Backend/Payments/view/tab/details.php:56
+#: Providers/Common/ShortCodeServiceImpl.php:57
+#: Providers/Helpers/Helper.php:644
+msgid "Credit card"
+msgstr "Kredi kartı"
+
+#: Backend/Billing/view/index.php:128
+msgid "Balance"
+msgstr "Cüzdan"
+
+#: Backend/Billing/view/index.php:134
+msgid "No available payment methods!"
+msgstr "Mevcut ödeme yöntemi yok!"
+
+#: Backend/Billing/view/index.php:145
+msgid "Payment Successful"
+msgstr "Ödeme Başarılı"
+
+#: Backend/Billing/view/index.php:146
+msgid "It might take some time to activate your new plan."
+msgstr "Yeni planınızı aktif hale getirmek biraz zaman alabilir."
+
+#: Backend/Billing/view/index.php:148 Backend/Billing/view/index.php:161
+#: Backend/Billing/view/index.php:174
+#: Backend/Billing/view/modal/add_deposit.php:57
+#: Backend/Billing/view/modal/current_plan.php:23
+#: Backend/Billing/view/modal/share_page.php:59
+#: Backend/Plans/view/modal/add_new.php:72 Providers/Helpers/Helper.php:47
+msgid "CLOSE"
+msgstr "KAPAT"
+
+#: Backend/Billing/view/index.php:158
+msgid "Payment Canceled"
+msgstr "Ödeme İptal Edildi"
+
+#: Backend/Billing/view/index.php:159
+msgid "We aren't able to process your payment. Please try again."
+msgstr "Ödemenizi işleme koyamayız. Lütfen tekrar deneyin."
+
+#: Backend/Billing/view/index.php:171
+msgid "Payment Pending"
+msgstr "Ödeme Bekleniyor"
+
+#: Backend/Billing/view/index.php:172
+msgid "We have received your payment request and it is currently pending"
+msgstr "Ödeme talebinizi aldık ve şu anda beklemede"
+
+#: Backend/Billing/view/index.php:188
+msgid "Are you sure you want to cancel subscription?"
+msgstr "Aboneliğinizi iptal etmek istediğinizden emin misiniz?"
+
+#: Backend/Billing/view/index.php:189
+msgid "YES"
+msgstr "EVET"
+
+#: Backend/Billing/view/index.php:190
+msgid "NO"
+msgstr "hayır"
+
+#: Backend/Billing/view/modal/add_deposit.php:13
+msgid "Add deposit"
+msgstr "Depozito ekle"
+
+#: Backend/Billing/view/modal/add_deposit.php:20
+msgid "Price calculator"
+msgstr "Fiyat Hesaplayıcısı"
+
+#: Backend/Billing/view/modal/add_deposit.php:25
+msgid "Select plan"
+msgstr "Plan seç"
+
+#: Backend/Billing/view/modal/add_deposit.php:33
+#: Backend/Payments/Controller.php:50 Backend/Payments/view/tab/details.php:61
+msgid "Payment cycle"
+msgstr "Ödeme döngüsü"
+
+#: Backend/Billing/view/modal/add_deposit.php:40
+msgid "Calculate"
+msgstr "Hesapla"
+
+#: Backend/Billing/view/modal/add_deposit.php:47
+#: Backend/Payments/view/tab/details.php:45
+msgid "Amount"
+msgstr "Miktar"
+
+#: Backend/Billing/view/modal/share_page.php:21
+msgid "Share your page"
+msgstr "Sayfanızı paylaşın"
+
+#: Backend/Billing/view/modal/share_page.php:30
+msgid "Your page URL"
+msgstr "Sayfa url'niz"
+
+#: Backend/Billing/view/modal/share_page.php:32
+msgid "Schedule time with me"
+msgstr "Benimle zaman planlayın"
+
+#: Backend/Billing/view/modal/share_page.php:32
+#, php-format
+msgid "You can see my real-time availability and schedule time with me at %s"
+msgstr ""
+"Gerçek zamanlı kullanılabilirliğimi görebilir ve benimle %s adresinden zaman "
+"planlayabilirsiniz"
+
+#: Backend/Billing/view/modal/share_page.php:32
+msgid "Send link via Email"
+msgstr "Bağlantıyı E-posta ile gönder"
+
+#: Backend/Billing/view/modal/share_page.php:38
+msgid "The QR for your page"
+msgstr "Sayfanız için QR"
+
+#: Backend/Billing/view/modal/share_page.php:42
+msgid "Click to download QR"
+msgstr "Qr'yi indirmek için tıklayın"
+
+#: Backend/Billing/view/modal/share_page.php:48
+msgid "Add to your Website"
+msgstr "Web sitenize ekleyin"
+
+#: Backend/Customfields/Helpers/FormElements.php:173
+#: Backend/Customfields/Helpers/FormElements.php:225
+msgid "Choice 1"
+msgstr "Seçim 1"
+
+#: Backend/Customfields/Helpers/FormElements.php:180
+#: Backend/Customfields/Helpers/FormElements.php:232
+msgid "Choice 2"
+msgstr "Seçim 2"
+
+#: Backend/Customfields/Helpers/FormElements.php:277
+msgid "BROWSE"
+msgstr "taramak"
+
+#: Backend/Customfields/view/edit_form.php:28
+msgid "Tenant custom fields"
+msgstr "Müşteri özel alanları"
+
+#: Backend/Customfields/view/edit_form.php:30
+msgid "SAVE FORM"
+msgstr "FORMU KAYDET"
+
+#: Backend/Customfields/view/edit_form.php:40
+msgid "Elements"
+msgstr "Elementler"
+
+#: Backend/Customfields/view/edit_form.php:47
+#: Backend/Customfields/view/edit_form.php:158
+msgid "Label"
+msgstr "Etiket"
+
+#: Backend/Customfields/view/edit_form.php:52
+msgid "Text input"
+msgstr "Metin girişi"
+
+#: Backend/Customfields/view/edit_form.php:57
+msgid "Textarea"
+msgstr "Metin Alanı"
+
+#: Backend/Customfields/view/edit_form.php:62
+msgid "Number input"
+msgstr "Sayı girişi"
+
+#: Backend/Customfields/view/edit_form.php:67
+msgid "Date input"
+msgstr "Tarih girişi"
+
+#: Backend/Customfields/view/edit_form.php:72
+msgid "Time input"
+msgstr "Zaman girişi"
+
+#: Backend/Customfields/view/edit_form.php:77
+msgid "Select"
+msgstr "Seçmek"
+
+#: Backend/Customfields/view/edit_form.php:82
+msgid "Check-box"
+msgstr "Kutucuk"
+
+#: Backend/Customfields/view/edit_form.php:87
+msgid "Radio buttons"
+msgstr "Radyo düğmeleri"
+
+#: Backend/Customfields/view/edit_form.php:92
+msgid "File"
+msgstr "Dosya"
+
+#: Backend/Customfields/view/edit_form.php:97
+msgid "Link"
+msgstr "Bağlantı"
+
+#: Backend/Customfields/view/edit_form.php:108
+msgid "Form"
+msgstr "Form"
+
+#: Backend/Customfields/view/edit_form.php:153
+msgid "Options"
+msgstr "Seçenekler"
+
+#: Backend/Customfields/view/edit_form.php:159
+msgid "Max: 255 symbol"
+msgstr "Maks: 255 sembol"
+
+#: Backend/Customfields/view/edit_form.php:165
+msgid "Placeholder"
+msgstr "Tutucu"
+
+#: Backend/Customfields/view/edit_form.php:166
+#: Backend/Customfields/view/edit_form.php:207
+msgid "Max: 200 symbol"
+msgstr "Maks: 200 sembol"
+
+#: Backend/Customfields/view/edit_form.php:172
+msgid "Min length"
+msgstr "Minimum uzunluk"
+
+#: Backend/Customfields/view/edit_form.php:176
+msgid "Max length"
+msgstr "Maksimum uzunluk"
+
+#: Backend/Customfields/view/edit_form.php:183
+msgid "Help text"
+msgstr "Yardım metni"
+
+#: Backend/Customfields/view/edit_form.php:184
+msgid "Max: 500 symbol"
+msgstr "Maks: 500 sembol"
+
+#: Backend/Customfields/view/edit_form.php:190
+msgid "Allowed file formats"
+msgstr "İzin verilen dosya biçimleri"
+
+#: Backend/Customfields/view/edit_form.php:199
+msgid "Is required"
+msgstr "Gereklidir"
+
+#: Backend/Customfields/view/edit_form.php:206
+#: Frontend/view/signup_complete.php:15
+msgid "URL"
+msgstr "URL"
+
+#: Backend/Customfields/view/edit_form.php:214
+msgid "Choices"
+msgstr "Seçimler"
+
+#: Backend/Customfields/view/edit_form.php:216
+msgid "Add new"
+msgstr "Yeni ekle"
+
+#: Backend/Dashboard/view/index.php:20
+#, fuzzy
+#| msgid "Add new"
+msgid "new"
+msgstr "Yeni ekle"
+
+#: Backend/Dashboard/view/index.php:23
+#, php-format
+msgid "%s addon just released"
+msgstr "%s eklentisi yeni yayınlandı"
+
+#: Backend/Dashboard/view/index.php:36 Config.php:605
+msgid "Dashboard"
+msgstr "Gösterge Paneli"
+
+#: Backend/Dashboard/view/index.php:45 Backend/Tenants/Controller.php:24
+#: Config.php:610
+msgid "Tenants"
+msgstr "Müşteri"
+
+#: Backend/Dashboard/view/index.php:52
+msgid "Appointments"
+msgstr "Randevular"
+
+#: Backend/Dashboard/view/index.php:59
+msgid "Income of the month"
+msgstr "Ayın geliri"
+
+#: Backend/Dashboard/view/index.php:66
+msgid "Income of the previous month"
+msgstr "Bir önceki ayın geliri"
+
+#: Backend/Payments/Ajax.php:23 Backend/Tenants/Ajax.php:27
+#: Backend/Tenants/Ajax.php:374
+msgid "Tenant not found!"
+msgstr "Müşteri bulunamadı!"
+
+#: Backend/Payments/Ajax.php:49 Backend/Plans/Ajax.php:61
+msgid "DETAILS"
+msgstr "DETAY"
+
+#: Backend/Payments/Ajax.php:83
+msgid "Payment not found or permission denied!"
+msgstr "Ödeme bulunamadı veya izin reddedildi!"
+
+#: Backend/Payments/Controller.php:27 Backend/Plans/Controller.php:18
+#: Backend/Tenants/Controller.php:21
+msgid "Edit"
+msgstr "Düzenlemek"
+
+#: Backend/Payments/Controller.php:29
+#: Backend/Payments/view/modal/add_new.php:39
+msgid "ADD PAYMENT"
+msgstr "ÖDEME EKLE"
+
+#: Backend/Payments/Controller.php:31
+#: Backend/Settings/view/modal/payment_gateways_settings.php:45
+#: Backend/Settings/view/modal/payment_split_payments_settings.php:28
+#: Backend/Settings/view/modal/payments_settings.php:19 Config.php:615
+msgid "Payments"
+msgstr "Ödemeler"
+
+#: Backend/Payments/Controller.php:35
+msgid "Status"
+msgstr "Durum"
+
+#: Backend/Payments/Controller.php:37 Backend/Payments/Controller.php:85
+msgid "Paid"
+msgstr "Ödendi"
+
+#: Backend/Payments/Controller.php:42 Backend/Payments/view/tab/details.php:52
+msgid "Payment method"
+msgstr "Ödeme yöntemi"
+
+#: Backend/Payments/Controller.php:44 Backend/Payments/view/tab/details.php:55
+#: Backend/Settings/view/modal/payment_gateways_settings.php:16
+#: Providers/Common/ShortCodeServiceImpl.php:57
+msgid "Paypal"
+msgstr "Paypal"
+
+#: Backend/Payments/Controller.php:46 Backend/Payments/view/tab/details.php:54
+#: Providers/Helpers/Helper.php:653
+msgid "Offline"
+msgstr "Çevrimdışı"
+
+#: Backend/Payments/Controller.php:57
+msgid "DATE TIME"
+msgstr "TARİH SAAT"
+
+#: Backend/Payments/Controller.php:59
+msgid "TENANT"
+msgstr "MÜŞTERİ"
+
+#: Backend/Payments/Controller.php:64 Backend/Tenants/Controller.php:34
+msgid "PLAN"
+msgstr "PLAN"
+
+#: Backend/Payments/Controller.php:72
+msgid "PAYMENT CYCLE"
+msgstr "ÖDEME DÖNGÜSÜ"
+
+#: Backend/Payments/Controller.php:89
+msgid "Canceled"
+msgstr "İptal edildi"
+
+#: Backend/Payments/view/modal/add_new.php:14
+msgid "Add Payment"
+msgstr "Ödeme Ekle"
+
+#: Backend/Payments/view/modal/add_new.php:39
+msgid "SAVE PAYMENT"
+msgstr "ÖDEMEYİ KAYDET"
+
+#: Backend/Payments/view/tab/details.php:17
+msgid "Tenant"
+msgstr "MÜŞTERİ"
+
+#: Backend/Payments/view/tab/details.php:71
+msgid "Payment date"
+msgstr "Ödeme tarihi"
+
+#: Backend/Plans/Ajax.php:30
+msgid "Plan not found!"
+msgstr "Plan bulunamadı!"
+
+#: Backend/Plans/Ajax.php:67
+msgid "PERMISSIONS"
+msgstr "İZİNLER"
+
+#: Backend/Plans/Ajax.php:73
+msgid "LIMITS"
+msgstr "SINIR"
+
+#: Backend/Plans/Ajax.php:114
+msgid "Plan not found or permission denied!"
+msgstr "Plan bulunamadı veya izin reddedildi!"
+
+#: Backend/Plans/Controller.php:17
+msgid "Set as trial plan"
+msgstr "Deneme planı olarak ayarla"
+
+#: Backend/Plans/Controller.php:19 Backend/Tenants/Controller.php:22
+msgid "Delete"
+msgstr "Sil"
+
+#: Backend/Plans/Controller.php:21 Config.php:620
+msgid "Plans"
+msgstr "Planlar"
+
+#: Backend/Plans/Controller.php:23 Backend/Plans/view/modal/add_new.php:40
+msgid "ADD PLAN"
+msgstr "PLAN EKLE"
+
+#: Backend/Plans/Controller.php:27 Backend/Tenants/Controller.php:30
+msgid "ID"
+msgstr "KİMLİK"
+
+#: Backend/Plans/Controller.php:28
+msgid "NAME"
+msgstr "İSİM"
+
+#: Backend/Plans/Controller.php:30
+msgid "Default plan"
+msgstr "Varsayılan plan"
+
+#: Backend/Plans/Controller.php:32
+msgid "PRICE"
+msgstr "FİYAT"
+
+#: Backend/Plans/Controller.php:34
+msgid "Free"
+msgstr "Ücretsiz"
+
+#: Backend/Plans/Controller.php:36
+msgid "ORDER NUMBER"
+msgstr "SİPARİŞ numarası"
+
+#: Backend/Plans/Controller.php:54
+msgid "You can not delete plans that is assigned as a default plan"
+msgstr "Varsayılan plan olarak atanan planları silemezsiniz"
+
+#: Backend/Plans/Controller.php:60
+msgid "You can not delete plans that is assigned as an expire plan"
+msgstr "Sona erme planı olarak atanan planları silemezsiniz"
+
+#: Backend/Plans/Controller.php:68
+msgid "You can not delete this plan, because it has registered tenants"
+msgstr "Bu planı silemezsiniz, çünkü kayıtlı müşterileri vardır"
+
+#: Backend/Plans/Controller.php:77
+msgid "You can not delete this plan, because there is only one plan"
+msgstr "Bu planı silemezsiniz, çünkü yalnızca bir plan vardır"
+
+#: Backend/Plans/view/modal/add_new.php:15
+msgid "Add Plan"
+msgstr "Plan Ekle"
+
+#: Backend/Plans/view/modal/add_new.php:40
+msgid "SAVE PLAN"
+msgstr "PLANI KAYDET"
+
+#: Backend/Plans/view/modal/add_new.php:45
+msgid "Select colors"
+msgstr "Renkleri seçin"
+
+#: Backend/Plans/view/modal/add_new.php:66
+msgid "Hex"
+msgstr "Büyü"
+
+#: Backend/Plans/view/modal/add_new.php:73
+#: Backend/Settings/view/modal/workflow_action_edit.php:85
+msgid "SAVE"
+msgstr "KAYDET"
+
+#: Backend/Plans/view/tab/details.php:12
+msgid "Name"
+msgstr "İSİM"
+
+#: Backend/Plans/view/tab/details.php:16
+msgid "Bookmark"
+msgstr "İşaret"
+
+#: Backend/Plans/view/tab/details.php:23
+msgid "Color"
+msgstr "Renk"
+
+#: Backend/Plans/view/tab/details.php:28
+msgid "Order number"
+msgstr "Sipariş numarası"
+
+#: Backend/Plans/view/tab/details.php:35
+msgid "Monthly price"
+msgstr "Aylık fiyat"
+
+#: Backend/Plans/view/tab/details.php:39
+msgid "Discount for first month"
+msgstr "İlk ay için indirim"
+
+#: Backend/Plans/view/tab/details.php:46
+msgid "Annually price"
+msgstr "Yıllık fiyat"
+
+#: Backend/Plans/view/tab/details.php:50
+msgid "Discount for first year"
+msgstr "İlk yıl için indirim"
+
+#: Backend/Plans/view/tab/details.php:58
+msgid "Hidden plan"
+msgstr "Gizli plan"
+
+#: Backend/Plans/view/tab/details.php:69
+msgid "Description"
+msgstr "Tanım"
+
+#: Backend/Settings/Ajax.php:41 Backend/Settings/Ajax.php:55
+#: Backend/Settings/Ajax.php:65 Backend/Settings/Ajax.php:75
+#: Backend/Settings/Ajax.php:88 Backend/Settings/Ajax.php:111
+#: Backend/Settings/Ajax.php:121 Backend/Settings/Ajax.php:131
+#: Backend/Settings/Ajax.php:147 Backend/Settings/Ajax.php:157
+msgid "Selected settings not found!"
+msgstr "Seçili ayarlar bulunamadı!"
+
+#: Backend/Settings/Ajax.php:136
+msgid "You don't have any Split Payment supported gateways!"
+msgstr "Desteklenen herhangi bir Bölünmüş Ödeme ağ geçidiniz yok!"
+
+#: Backend/Settings/Ajax.php:228 Backend/Settings/Ajax.php:236
+msgid "Confirmation number is invalid!"
+msgstr "Onay numarası geçersiz!"
+
+#: Backend/Settings/Ajax.php:291
+msgid "The Backend Slug can not be empty!"
+msgstr "Arka Uç Slug'ı boş olamaz!"
+
+#: Backend/Settings/Ajax.php:301 Backend/Settings/Ajax.php:331
+#: Frontend/Controller/Ajax.php:303
+msgid "Only JPG and PNG images allowed!"
+msgstr "Yalnızca JPG ve PNG görüntülerine izin verilir!"
+
+#: Backend/Settings/Ajax.php:421
+msgid "Please fill the SMTP credentials!"
+msgstr "Lütfen SMTP kimlik bilgilerini doldurun!"
+
+#: Backend/Settings/Ajax.php:424
+msgid "Please fill the Gmail SMTP credentials!"
+msgstr "Lütfen Gmail SMTP kimlik bilgilerini doldurun!"
+
+#: Backend/Settings/Ajax.php:429
+msgid "Please type the sender name field!"
+msgstr "Lütfen gönderenin adı alanını yazın!"
+
+#: Backend/Settings/Ajax.php:434
+msgid "Please type the sender email field!"
+msgstr "Lütfen gönderen e-posta alanını yazın!"
+
+#: Backend/Settings/Ajax.php:522
+msgid ""
+"For using WooCommerce as a payment method, you should install and enable it "
+"on WordPress plugins!"
+msgstr ""
+"Woocommerce'i bir ödeme yöntemi olarak kullanmak için WordPress "
+"eklentilerine kurmalı ve etkinleştirmelisiniz!"
+
+#: Backend/Settings/Controller.php:16
+#: Backend/Settings/view/modal/general_settings.php:23
+msgid "General settings"
+msgstr "Genel ayarlar"
+
+#: Backend/Settings/Controller.php:17
+msgid "You can customize general settings about booking from here"
+msgstr "Rezervasyonla ilgili genel ayarları buradan özelleştirebilirsiniz"
+
+#: Backend/Settings/Controller.php:23 Backend/Settings/Controller.php:49
+msgid "General"
+msgstr "Genel"
+
+#: Backend/Settings/Controller.php:27 Backend/Settings/Controller.php:34
+msgid "White Label settings"
+msgstr "Tasarım Ayarları"
+
+#: Backend/Settings/Controller.php:28
+msgid "You can change your business details from here"
+msgstr "İşletme bilgilerinizi buradan değiştirebilirsiniz"
+
+#: Backend/Settings/Controller.php:39
+msgid "Pages"
+msgstr "Sayfa"
+
+#: Backend/Settings/Controller.php:42
+msgid "Payment settings"
+msgstr "Ödeme ayarları"
+
+#: Backend/Settings/Controller.php:43
+msgid ""
+"Currency, price format , general settings about payment , paypal, stripe and "
+"so on"
+msgstr ""
+"Para birimi, fiyat biçimi, ödemeyle ilgili genel ayarlar, paypal, stripe vb"
+
+#: Backend/Settings/Controller.php:54
+#: Backend/Settings/view/modal/email_settings.php:19
+msgid "Email settings"
+msgstr "E-posta ayarları"
+
+#: Backend/Settings/Controller.php:55
+msgid ""
+"You must set this settings for email notifications ( wp_mail or SMTP "
+"settings )"
+msgstr ""
+"Bu ayarları e-posta bildirimleri için ayarlamanız gerekir (wp_mail veya SMTP "
+"ayarları)"
+
+#: Backend/Settings/Controller.php:60
+#: Backend/Settings/view/modal/payment_gateways_settings.php:46
+msgid "Payment methods"
+msgstr "Ödeme yöntemleri"
+
+#: Backend/Settings/Controller.php:67
+#: Backend/Settings/view/modal/payment_split_payments_settings.php:29
+msgid "Split Payments"
+msgstr "Bölünmüş Ödemeler"
+
+#: Backend/Settings/Controller.php:73
+msgid "Integrations settings"
+msgstr "Entegrasyon ayarları"
+
+#: Backend/Settings/Controller.php:74
+msgid "You can change settings for integrated services from here."
+msgstr "Tümleşik hizmetler ayarlarını buradan değiştirebilirsiniz."
+
+#: Backend/Settings/Controller.php:80
+msgid "Continue with Facebook"
+msgstr "Facebook ile devam et"
+
+#: Backend/Settings/Controller.php:85
+msgid "Continue with Google"
+msgstr "Google ile devam et"
+
+#: Backend/Settings/view/index.php:17 Backend/Settings/view/index.php:27
+#: Config.php:635
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: Backend/Settings/view/modal/email_settings.php:14
+#: Backend/Settings/view/modal/general_settings.php:18
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:15
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:15
+#: Backend/Settings/view/modal/page_settings.php:16
+#: Backend/Settings/view/modal/payment_gateways_settings.php:40
+#: Backend/Settings/view/modal/payment_split_payments_settings.php:23
+#: Backend/Settings/view/modal/payments_settings.php:14
+#: Backend/Settings/view/modal/sms_settings.php:14
+#: Backend/Settings/view/modal/whitelabel_settings.php:14
+#: Backend/Settings/view/modal/woocommerce_settings.php:14
+msgid "SAVE CHANGES"
+msgstr "DEĞİŞİKLİKLERİ KAYDET"
+
+#: Backend/Settings/view/modal/email_settings.php:25
+msgid "Mail Gateway"
+msgstr "Posta Ağ Geçidi"
+
+#: Backend/Settings/view/modal/email_settings.php:27
+msgid "WordPress Mail"
+msgstr "WordPress Mail"
+
+#: Backend/Settings/view/modal/email_settings.php:28
+msgid "SMTP"
+msgstr "SMTP"
+
+#: Backend/Settings/view/modal/email_settings.php:29
+msgid "Gmail SMTP"
+msgstr "Gmail SMTP"
+
+#: Backend/Settings/view/modal/email_settings.php:37
+msgid "SMTP Hostname"
+msgstr "SMTP Ana Bilgisayar Adı"
+
+#: Backend/Settings/view/modal/email_settings.php:41
+msgid "SMTP Port"
+msgstr "SMTP Bağlantı Noktası"
+
+#: Backend/Settings/view/modal/email_settings.php:45
+msgid "SMTP Secure"
+msgstr "SMTP Güvenli"
+
+#: Backend/Settings/view/modal/email_settings.php:47
+msgid "TLS"
+msgstr "TLS"
+
+#: Backend/Settings/view/modal/email_settings.php:48
+msgid "SSL"
+msgstr "SSL"
+
+#: Backend/Settings/view/modal/email_settings.php:49
+msgid "Disabled ( not recommend )"
+msgstr "Devre dışı (önerilmez )"
+
+#: Backend/Settings/view/modal/email_settings.php:56
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+#: Backend/Settings/view/modal/email_settings.php:60
+#: Frontend/view/signin.php:17 Frontend/view/signup.php:22
+msgid "Password"
+msgstr "Şifre"
+
+#: Backend/Settings/view/modal/email_settings.php:69
+#: Backend/Settings/view/modal/payment_gateways_settings.php:85
+msgid "Client ID"
+msgstr "İstemci Kimliği"
+
+#: Backend/Settings/view/modal/email_settings.php:73
+msgid "Client secret"
+msgstr "Müşteri sırrı"
+
+#: Backend/Settings/view/modal/email_settings.php:77
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:43
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:43
+msgid "Redirect URI"
+msgstr "URI'Yİ Yönlendir"
+
+#: Backend/Settings/view/modal/email_settings.php:83
+msgid "Authorize"
+msgstr "Yetkilendir"
+
+#: Backend/Settings/view/modal/email_settings.php:85
+#, php-format
+msgid "Logged as %s"
+msgstr "%s olarak günlüğe kaydedildi"
+
+#: Backend/Settings/view/modal/email_settings.php:95
+msgid "Sender E-mail"
+msgstr "Gönderen E-postası"
+
+#: Backend/Settings/view/modal/email_settings.php:99
+msgid "Sender Name"
+msgstr "Gönderenin Adı"
+
+#: Backend/Settings/view/modal/general_settings.php:31
+msgid "Starting Appointment ID number"
+msgstr "Başlangıç Randevu Kimlik numarası"
+
+#: Backend/Settings/view/modal/general_settings.php:35
+msgid "Google Maps API Key"
+msgstr "Google Haritalar API Anahtarı"
+
+#: Backend/Settings/view/modal/general_settings.php:43
+msgid "Activate Google reCAPTCHA"
+msgstr "Google recaptcha'yı Etkinleştir"
+
+#: Backend/Settings/view/modal/general_settings.php:51
+msgid "Site Key"
+msgstr "Site Anahtarı"
+
+#: Backend/Settings/view/modal/general_settings.php:55
+msgid "Secret Key"
+msgstr "Gizli Anahtar"
+
+#: Backend/Settings/view/modal/general_settings.php:62
+msgid "Trial plan"
+msgstr "Deneme planı"
+
+#: Backend/Settings/view/modal/general_settings.php:62
+msgid ""
+"When a new Tenant registers, the Tenant automatically has permissions "
+"according to the trial plan you choose here."
+msgstr ""
+"Yeni bir Müşteri kaydolduğunda, burada seçtiğiniz deneme planına göre Kiracı "
+"otomatik olarak izinlere sahiptir."
+
+#: Backend/Settings/view/modal/general_settings.php:70
+msgid "Trial period (days)"
+msgstr "Deneme süresi (gün)"
+
+#: Backend/Settings/view/modal/general_settings.php:74
+msgid "Plan for the expired tenants"
+msgstr "Süresi dolmuş kiracılar için plan yapın"
+
+#: Backend/Settings/view/modal/general_settings.php:74
+msgid ""
+"If the plan that the tenant subscribed to is expired and the Tenant does not "
+"pay for the next cycle, the Tenant's permissions will automatically be "
+"limited according to the plan you choose here."
+msgstr ""
+"Kiracının abone olduğu planın süresi dolmuşsa ve Kiracı bir sonraki döngü "
+"için ödeme yapmazsa, burada seçtiğiniz plana göre Kiracının izinleri "
+"otomatik olarak sınırlandırılacaktır."
+
+#: Backend/Settings/view/modal/general_settings.php:87
+msgid "Enable the Language switcher for tenants"
+msgstr "Müşteriler için Dil değiştiriciyi etkinleştirme"
+
+#: Backend/Settings/view/modal/general_settings.php:95
+msgid "Select languages"
+msgstr "Dil seçin"
+
+#: Backend/Settings/view/modal/general_settings.php:108
+msgid "Create a new wordpress user on new booking"
+msgstr "Yeni rezervasyonda yeni bir wordpress kullanıcısı oluşturun"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:20
+msgid "Facebook API / Continue with Facebook button"
+msgstr "Facebook API / Facebook düğmesi ile devam et"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:30
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:30
+#: Backend/Settings/view/modal/woocommerce_settings.php:29
+msgid "Disabled"
+msgstr "Engelli"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:34
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:34
+#: Backend/Settings/view/modal/woocommerce_settings.php:33
+#: Backend/Settings/view/modal/workflow_action_edit.php:80
+msgid "Enabled"
+msgstr "Etkin"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:50
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:50
+msgid "App ID"
+msgstr "Uygulama Kimliği"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:57
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:57
+msgid "App Secret"
+msgstr "Uygulama Sırrı"
+
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:20
+msgid "Google API / Continue with Google button"
+msgstr "Google API / Google düğmesi ile devam edin"
+
+#: Backend/Settings/view/modal/page_settings.php:21
+msgid "Page settings"
+msgstr "Sayfa Ayarları"
+
+#: Backend/Settings/view/modal/page_settings.php:29
+msgid "Sign-in page"
+msgstr "Oturum açma sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:37
+msgid "Sign-Up page"
+msgstr "Kayıt sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:45
+msgid "Forgot Password page"
+msgstr "Şifremi Unuttum sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:53
+msgid "Change Appointment Status Page"
+msgstr "Randevu Durumunu Değiştir Sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:64
+msgid "Booking page"
+msgstr "Rezervasyon sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:75
+msgid "Sign-in page for customers"
+msgstr "Müşteriler için oturum açma sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:83
+msgid "Sign-Up page for customers"
+msgstr "Müşteriler için kayıt sayfası"
+
+#: Backend/Settings/view/modal/page_settings.php:91
+msgid "Forgot Password page for customers"
+msgstr "Müşteriler için Şifremi Unuttum sayfası"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:12
+msgid "Stripe"
+msgstr "Stripe"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:20
+#: Providers/Helpers/Helper.php:647
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:72
+#: Backend/Settings/view/modal/payment_gateways_settings.php:104
+msgid "Webhook URI"
+msgstr "Webhook URI"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:77
+msgid "Mode"
+msgstr "Mod"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:79
+msgid "Sandbox"
+msgstr "Koruma"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:80
+msgid "Live"
+msgstr "Yaşamak"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:90
+msgid "Client Secret"
+msgstr "Müşteri Sırrı"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:95
+msgid "Webhook ID"
+msgstr "Webhook Kimliği"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:109
+msgid "Publishable key"
+msgstr "Yayınlanabilir anahtar"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:114
+msgid "Secret key"
+msgstr "Gizli anahtar"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:119
+msgid "Webhook Signing secret"
+msgstr "Webhook İmzalama sırrı"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:128
+msgid "Redirect tenant to"
+msgstr "Kiracıyı şu adrese yönlendirin"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:130
+#: Backend/Settings/view/modal/woocommerce_settings.php:55
+msgid "Cart page"
+msgstr "Sepet sayfası"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:131
+#: Backend/Settings/view/modal/woocommerce_settings.php:56
+msgid "Checkout page"
+msgstr "Ödeme sayfası"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:136
+msgid "WooCommerce order statuses for successfull payment"
+msgstr "Başarılı ödeme için WooCommerce sipariş durumları"
+
+#: Backend/Settings/view/modal/payments_settings.php:27
+msgid "Currency"
+msgstr "Para birimi"
+
+#: Backend/Settings/view/modal/payments_settings.php:38
+msgid "Currency symbol"
+msgstr "Para birimi sembolü"
+
+#: Backend/Settings/view/modal/payments_settings.php:42
+msgid "Currency format"
+msgstr "Para birimi biçimi"
+
+#: Backend/Settings/view/modal/payments_settings.php:54
+msgid "Tenant default currency"
+msgstr "Müşteri varsayılan para birimi"
+
+#: Backend/Settings/view/modal/payments_settings.php:65
+msgid "Tenant default currency symbol"
+msgstr "Müşteri varsayılan para birimi simgesi"
+
+#: Backend/Settings/view/modal/payments_settings.php:69
+msgid "Tenant default currency format"
+msgstr "Kiracı varsayılan para birimi biçimi"
+
+#: Backend/Settings/view/modal/payments_settings.php:81
+msgid "Price number format"
+msgstr "Fiyat numarası biçimi"
+
+#: Backend/Settings/view/modal/payments_settings.php:91
+msgid "Price number of decimals"
+msgstr "Fiyat ondalık sayı"
+
+#: Backend/Settings/view/modal/sms_settings.php:19
+msgid "SMS/WhatsApp settings"
+msgstr "SMS / WhatsApp ayarları"
+
+#: Backend/Settings/view/modal/sms_settings.php:25
+msgid "Account SID"
+msgstr "Hesap sıd'si"
+
+#: Backend/Settings/view/modal/sms_settings.php:32
+msgid "Auth Token"
+msgstr "Kimlik Doğrulama Belirteci"
+
+#: Backend/Settings/view/modal/sms_settings.php:39
+msgid "Sender phone number for SMS"
+msgstr "SMS için gönderen telefon numarası"
+
+#: Backend/Settings/view/modal/sms_settings.php:46
+msgid "Sender phone number for WhatsApp"
+msgstr "WhatsApp için gönderen telefon numarası"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:19
+msgid "Whitelabel settings"
+msgstr "Tasarım Ayarları"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:27
+msgid "Logo"
+msgstr "Logo"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:33
+msgid "Small logo"
+msgstr "Küçük logo"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:41
+msgid "Title of Back-end"
+msgstr "Arka uç başlığı"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:49
+msgid "Slug of Back-end"
+msgstr "Slug of Back-end"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:56
+msgid "URL of documentation"
+msgstr "Dokümantasyon URL'si"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:63
+msgid "Powered by"
+msgstr "Tarafından desteklenmektedir"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:19
+msgid "Woocommerce settings"
+msgstr "Woocommerce ayarları"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:44
+msgid "Skip the Confirmation step"
+msgstr "Onay adımını atla"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:44
+msgid ""
+"If you use Deposit Payments or Coupons, then you can have a confirmation "
+"step for your customers. If you enabled Local Payment this option must be "
+"turned off. Otherwise, it will redirect to WooCommerce by automatically "
+"skipping this step."
+msgstr ""
+"Depozito Ödemeleri veya Kuponlar kullanıyorsanız, müşterileriniz için bir "
+"onay adımına sahip olabilirsiniz. Yerel Ödemeyi etkinleştirdiyseniz bu "
+"seçenek kapatılmalıdır. Aksi takdirde, bu adımı otomatik olarak atlayarak "
+"WooCommerce'e yönlendirecektir."
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:53
+msgid "Redirect customer to"
+msgstr "Müşteriyi şu adrese yönlendir"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:61
+msgid "Woocommerce order details"
+msgstr "Woocommerce sipariş detayları"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:28
+msgid "Edit action"
+msgstr "Eylemi düzenle"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:38
+msgid "To"
+msgstr "İle"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:49
+msgid "Subject"
+msgstr "Konu"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:56
+msgid "Body"
+msgstr "Vücut"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:63
+msgid "Attachment(s)"
+msgstr "Ek(ler)"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:84
+msgid "SAVE & TEST"
+msgstr "KAYDET VE TEST ET"
+
+#: Backend/Tenants/Ajax.php:74
+msgid "Tenant details"
+msgstr "Kiracı detayları"
+
+#: Backend/Tenants/Ajax.php:80 Config.php:625
+msgid "Custom fields"
+msgstr "Özel alanlar"
+
+#: Backend/Tenants/Ajax.php:120
+msgid "Tenant not found or permission denied!"
+msgstr "Kiracı bulunamadı veya izin reddedildi!"
+
+#: Backend/Tenants/Ajax.php:127
+msgid "Domain name must be unique!"
+msgstr "Alan adı benzersiz olmalı!"
+
+#: Backend/Tenants/Ajax.php:134 Backend/Tenants/Ajax.php:139
+#: Backend/Tenants/Ajax.php:155
+msgid "Please select WordPress user!"
+msgstr "Lütfen WordPress kullanıcısını seçin!"
+
+#: Backend/Tenants/Ajax.php:145
+msgid "One WordPress user can be assigned to only one tenant!"
+msgstr "Bir WordPress kullanıcısı yalnızca bir kiracıya atanabilir!"
+
+#: Backend/Tenants/Ajax.php:164
+msgid "Please type the password of the WordPress user!"
+msgstr "Lütfen WordPress kullanıcısının şifresini yazınız!"
+
+#: Backend/Tenants/Ajax.php:168
+msgid "The WordPress user with the same email address already exists!"
+msgstr "Aynı e-posta adresine sahip WordPress kullanıcısı zaten var!"
+
+#: Backend/Tenants/Ajax.php:183 Backend/Tenants/Ajax.php:221
+msgid "An error occurred when saving data!"
+msgstr "Veri kaydedilirken bir hata oluştu!"
+
+#: Backend/Tenants/Ajax.php:259 Backend/Tenants/Ajax.php:265
+#: Backend/Tenants/Ajax.php:280 Backend/Tenants/Ajax.php:285
+msgid "Please fill custom fields form correctly!"
+msgstr "Lütfen özel alanlar formunu doğru doldurunuz!"
+
+#: Backend/Tenants/Ajax.php:272 Backend/Tenants/Ajax.php:292
+msgid "Selected custom field not found!"
+msgstr "Seçili özel alan bulunamadı!"
+
+#: Backend/Tenants/Ajax.php:311 Frontend/Controller/Ajax.php:290
+msgid "File extension is not allowed!"
+msgstr "Dosya uzantısına izin verilmiyor!"
+
+#: Backend/Tenants/Controller.php:20
+msgid "Payment history"
+msgstr "Ödeme geçmişi"
+
+#: Backend/Tenants/Controller.php:26 Backend/Tenants/view/modal/add_new.php:43
+msgid "ADD TENANT"
+msgstr "KİRACI EKLE"
+
+#: Backend/Tenants/Controller.php:31
+msgid "DOMAIN"
+msgstr "KULLANICI ADI"
+
+#: Backend/Tenants/Controller.php:32
+msgid "FULL NAME"
+msgstr "AD SOYAD"
+
+#: Backend/Tenants/Controller.php:33
+msgid "EMAIL"
+msgstr "E-POSTA"
+
+#: Backend/Tenants/Controller.php:35
+msgid "EXPIRES IN"
+msgstr "SÜRESİ DOLUYOR"
+
+#: Backend/Tenants/Controller.php:44
+msgid "Expired"
+msgstr "Bitti"
+
+#: Backend/Tenants/Controller.php:48
+msgid "Not activated"
+msgstr "Aktif Edilmedi"
+
+#: Backend/Tenants/Controller.php:48
+msgid "Resend activation email"
+msgstr "Aktivasyon Mailini Tekrar Gönder"
+
+#: Backend/Tenants/Controller.php:52
+msgid "Not subscribed"
+msgstr "Abone olunmadı"
+
+#: Backend/Tenants/Controller.php:63
+msgid "Are you sure you want to resend the activation email to the tenant?"
+msgstr ""
+"Aktivasyon e-postasını kiracıya yeniden göndermek istediğinizden emin "
+"misiniz?"
+
+#: Backend/Tenants/Controller.php:64
+msgid "Resend"
+msgstr "Yeniden Gönder"
+
+#: Backend/Tenants/Controller.php:65
+msgid "The activation code was sent successfully!"
+msgstr "Aktivasyon kodu başarıyla gönderildi!"
+
+#: Backend/Tenants/view/modal/add_new.php:16
+msgid "Edit Tenant"
+msgstr "Müşteriyi Düzenle"
+
+#: Backend/Tenants/view/modal/add_new.php:16
+msgid "Add Tenant"
+msgstr "Müşteri Ekle"
+
+#: Backend/Tenants/view/modal/add_new.php:43
+msgid "SAVE TENANT"
+msgstr "KİRACIYI KAYDET"
+
+#: Backend/Tenants/view/tab/custom_fields.php:9
+msgid "No custom fields found"
+msgstr "Özel alan bulunamadı"
+
+#: Backend/Tenants/view/tab/details.php:12
+msgid "Assign to WordPress user"
+msgstr "WordPress kullanıcısına atama"
+
+#: Backend/Tenants/view/tab/details.php:14
+msgid "Create new WordPress user"
+msgstr "Yeni WordPress kullanıcısı oluştur"
+
+#: Backend/Tenants/view/tab/details.php:15
+msgid "Use existing WordPress user"
+msgstr "Mevcut WordPress kullanıcısını kullan"
+
+#: Backend/Tenants/view/tab/details.php:22
+msgid "Select WordPress user"
+msgstr "WordPress kullanıcısını seçin"
+
+#: Backend/Tenants/view/tab/details.php:35 Frontend/view/forgot_password.php:14
+#: Frontend/view/signup.php:18
+msgid "Email"
+msgstr "E-Posta"
+
+#: Backend/Tenants/view/tab/details.php:39
+msgid "User password"
+msgstr "Kullanıcı şifresi"
+
+#: Backend/Tenants/view/tab/details.php:46
+msgid "Domain"
+msgstr "Alan"
+
+#: Backend/Tenants/view/tab/details.php:58
+msgid "Full Name"
+msgstr "Ad Soyad"
+
+#: Backend/Tenants/view/tab/details.php:78
+msgid "Expires on"
+msgstr "Bitiş Tarihi"
+
+#: Config.php:133
+msgid "Booknetic SaaS Tenant"
+msgstr "Booknetic SaaS"
+
+#: Config.php:165
+msgid "Tenant Info"
+msgstr "Müşteri Bilgisi"
+
+#: Config.php:166
+msgid "Plan & Billing"
+msgstr "Plan ve Faturalandırma"
+
+#: Config.php:167
+msgid "Customer info"
+msgstr "Müşteri Bilgileri"
+
+#: Config.php:170
+msgid "Tenant ID"
+msgstr "Müşteri Kimliği"
+
+#: Config.php:176
+msgid "Tenant Full Name"
+msgstr "Müşteri Adı ve Soyadı"
+
+#: Config.php:182
+msgid "Tenant Email"
+msgstr "Müşteri E-postası"
+
+#: Config.php:189
+msgid "Tenant Registration Date"
+msgstr "Müşteri Kayıt Tarihi"
+
+#: Config.php:195
+msgid "Plan ID"
+msgstr "Plan Kimliği"
+
+#: Config.php:201
+msgid "Plan Name"
+msgstr "Plan Adı"
+
+#: Config.php:207
+msgid "Plan Color"
+msgstr "Plan Rengi"
+
+#: Config.php:213
+msgid "Plan Description"
+msgstr "Plan Açıklaması"
+
+#: Config.php:219
+msgid "Payment Amount"
+msgstr "Ödeme Tutarı"
+
+#: Config.php:225
+msgid "Payment Method"
+msgstr "Ödeme Yöntemi"
+
+#: Config.php:231
+msgid "Payment Cycle"
+msgstr "Ödeme Döngüsü"
+
+#: Config.php:239
+msgid "Tenant Company Name"
+msgstr "Müşteri Firma Adı"
+
+#: Config.php:245
+msgid "Tenant Company Address"
+msgstr "Müşteri Firma Adresi"
+
+#: Config.php:251
+msgid "Tenant Company Phone"
+msgstr "Müşteri Firma Telefonu"
+
+#: Config.php:258
+msgid "Tenant Company Website"
+msgstr "Müşteri Şirket Web Sitesi"
+
+#: Config.php:264
+msgid "Tenant Company Image URL"
+msgstr "Müşteri Şirket Resmi URL'si"
+
+#: Config.php:270
+msgid "Tenant Domain"
+msgstr "Müşteri Etki Alanı"
+
+#: Config.php:276
+msgid "URL To Complete Signup"
+msgstr "Kaydı Tamamlamak için URL"
+
+#: Config.php:282
+#, fuzzy
+#| msgid "Tenant subscribed to a plan"
+msgid "Tenant subscription expiration date"
+msgstr "Müşteri bir plana abone oldu"
+
+#: Config.php:288
+msgid "Customer full name"
+msgstr "Müşteri Adı Soyadı"
+
+#: Config.php:293
+msgid "Customer first name"
+msgstr "Müşteri Adı"
+
+#: Config.php:298
+msgid "Customer last name"
+msgstr "Müşteri Soyadı"
+
+#: Config.php:303
+msgid "Customer phone number"
+msgstr "Müşteri Telefon numarası"
+
+#: Config.php:309
+msgid "Customer email"
+msgstr "Müşteri E-Posta"
+
+#: Config.php:315
+msgid "Customer birthdate"
+msgstr "Müşteri Doğum Tarihi"
+
+#: Config.php:320
+msgid "URL to complete customer sign up"
+msgstr "Müşteri kaydını tamamlamak için URL"
+
+#: Config.php:325
+msgid "URL to reset customer password"
+msgstr "Müşteri şifresini sıfırlamak için URL"
+
+#: Config.php:330
+msgid "Customer notes"
+msgstr "Müşteri Notu"
+
+#: Config.php:335
+msgid "Customer image URL"
+msgstr "Müşteri Resim URL"
+
+#: Config.php:341
+msgid "Booknetic Sign In Page"
+msgstr "Booknetic Oturum Açma Sayfası"
+
+#: Config.php:345
+msgid "Booknetic Sign Up Page"
+msgstr "Booknetic Kayıt SaaS"
+
+#: Config.php:350
+msgid "URL To Reset Password"
+msgstr "Şifreyi Sıfırlamak için URL"
+
+#: Config.php:360 Config.php:367 Config.php:374 Config.php:382
+msgid "Custom Field - "
+msgstr "Özel Alan - "
+
+#: Config.php:393
+msgid "New tenant signed up"
+msgstr "Yeni müşteri kaydoldu"
+
+#: Config.php:397
+msgid "Tenant sign-up completed"
+msgstr "Müşteri kaydı tamamlandı"
+
+#: Config.php:401
+msgid "Tenant forgot password"
+msgstr "Müşteri şifremi unuttum"
+
+#: Config.php:405
+msgid "Tenant password was reset"
+msgstr "Müşteri şifresi sıfırlandı"
+
+#: Config.php:409
+msgid "Tenant subscribed to a plan"
+msgstr "Müşteri bir plana abone oldu"
+
+#: Config.php:413
+#, fuzzy
+#| msgid "Tenant details"
+msgid "Tenant deleted"
+msgstr "Kiracı detayları"
+
+#: Config.php:417
+msgid "Tenant unsubscribed to a plan"
+msgstr "Müşteri  bir plana abonelikten çıktı"
+
+#: Config.php:421
+msgid "Tenant payment received"
+msgstr "Müşteri ödemesi alındı"
+
+#: Config.php:425
+#, fuzzy
+#| msgid "Tenant unsubscribed to a plan"
+msgid "Tenant notified to subscribe to plan"
+msgstr "Müşteri  bir plana abonelikten çıktı"
+
+#: Config.php:429
+msgid "Customer signs up"
+msgstr "Müşteri kaydolur"
+
+#: Config.php:433
+#, fuzzy
+#| msgid "Customer resets password"
+msgid "Customer forgot password"
+msgstr "Müşteri Şifre Sıfırla"
+
+#: Config.php:438
+#, fuzzy
+#| msgid "Customer resets password"
+msgid "Customer reset password"
+msgstr "Müşteri Şifre Sıfırla"
+
+#: Config.php:630
+msgid "Workflows"
+msgstr "İş akışları"
+
+#: Config.php:640
+msgid "WORDPRESS"
+msgstr "WORDPRESS"
+
+#: Frontend/Controller/Ajax.php:26
+msgid "Please enter your email and password correctly!"
+msgstr "Lütfen e-posta adresinizi ve şifrenizi doğru girin!"
+
+#: Frontend/Controller/Ajax.php:33
+msgid "Email or password is incorrect!"
+msgstr "E-posta veya şifre yanlış!"
+
+#: Frontend/Controller/Ajax.php:43
+msgid ""
+"To access your account, you must first complete your registration. Please "
+"log in to your email to complete your registration."
+msgstr ""
+"Hesabınıza erişmek için önce kaydınızı tamamlamanız gerekir. Kaydınızı "
+"tamamlamak için lütfen e-postanıza giriş yapın."
+
+#: Frontend/Controller/Ajax.php:79
+msgid "This email is already registered!"
+msgstr "Bu e-posta zaten kayıtlı!"
+
+#: Frontend/Controller/Ajax.php:159 Frontend/Controller/Ajax.php:208
+#: Frontend/Controller/Ajax.php:448
+msgid "Invalid request!"
+msgstr "Geçersiz istek!"
+
+#: Frontend/Controller/Ajax.php:164
+msgid "Minimum symbol length is 3 and maximum symbol length is 35."
+msgstr "Minimum sembol uzunluğu 3 ve maksimum sembol uzunluğu 35'tir."
+
+#: Frontend/Controller/Ajax.php:169
+msgid "Allowed characters for domain name is [a-z A-Z 0-9 - _]"
+msgstr "Alan adı için izin verilen karakterler [a-z A-Z 0-9 - _] şeklindedir."
+
+#: Frontend/Controller/Ajax.php:175 Frontend/Controller/Ajax.php:182
+msgid "This domain name is already taken. Please choose another one."
+msgstr "Bu alan adı zaten alınmış. Lütfen başka birini seçin."
+
+#: Frontend/Controller/Ajax.php:244
+#, php-format
+msgid "Minimum length of \"%s\" field is %d!"
+msgstr "\"%s \" alanının minimum uzunluğu  %d 'dir!"
+
+#: Frontend/Controller/Ajax.php:249
+#, php-format
+msgid "Maximum length of \"%s\" field is %d!"
+msgstr "\"%s \" alanının maksimum uzunluğu  %d 'dir!"
+
+#: Frontend/Controller/Ajax.php:383
+msgid "The email address is not registered!"
+msgstr "E-posta adresi kayıtlı değil!"
+
+#: Frontend/view/forgot_password.php:11
+msgid "Forgot Password"
+msgstr "Şifremi Unuttum"
+
+#: Frontend/view/forgot_password.php:18 Frontend/view/signup.php:26
+#: Frontend/view/signup_complete.php:22
+msgid "CONTINUE"
+msgstr "DEVAM ET"
+
+#: Frontend/view/forgot_password.php:22 Frontend/view/signup.php:30
+msgid "Already have an account?"
+msgstr "Zaten bir hesabınız var mı?"
+
+#: Frontend/view/forgot_password.php:23 Frontend/view/signup.php:31
+msgid "Sign in"
+msgstr "Giriş Yap"
+
+#: Frontend/view/forgot_password.php:27
+#: Frontend/view/forgot_password_complete.php:30 Frontend/view/signup.php:35
+#: Frontend/view/signup_complete.php:97
+msgid "Congratulations!"
+msgstr "Tebrikler!"
+
+#: Frontend/view/forgot_password.php:29 Frontend/view/signup.php:37
+msgid "We need to verify your email."
+msgstr "E-postanızı doğrulamamız gerekiyor."
+
+#: Frontend/view/forgot_password.php:30 Frontend/view/signup.php:38
+msgid "Please, check your inbox for a confirmation link."
+msgstr "Lütfen bir onay bağlantısı için gelen kutunuzu kontrol edin."
+
+#: Frontend/view/forgot_password.php:36 Frontend/view/signup.php:44
+#, fuzzy
+#| msgid "Don’t receive the email?"
+msgid "Didn't receive the email?"
+msgstr "E-postayı almıyor musunuz?"
+
+#: Frontend/view/forgot_password.php:37 Frontend/view/signup.php:45
+msgid "Resend again"
+msgstr "Tekrar gönder"
+
+#: Frontend/view/forgot_password_complete.php:11
+msgid "Reset password"
+msgstr "Şifreyi sıfırla"
+
+#: Frontend/view/forgot_password_complete.php:14
+msgid "New Password"
+msgstr "Yeni Şifre"
+
+#: Frontend/view/forgot_password_complete.php:18
+msgid "Confirm Password"
+msgstr "Şifreyi onayla"
+
+#: Frontend/view/forgot_password_complete.php:22
+msgid "RESET PASSWORD"
+msgstr "ŞİFREYİ SIFIRLA"
+
+#: Frontend/view/forgot_password_complete.php:32
+msgid "Your password has been reset successfully !"
+msgstr "Şifreniz başarıyla sıfırlandı !"
+
+#: Frontend/view/forgot_password_complete.php:35 Frontend/view/signin.php:22
+msgid "SIGN IN"
+msgstr "GİRİŞ YAP"
+
+#: Frontend/view/signin.php:10
+msgid "Sign In"
+msgstr "Giriş Yap"
+
+#: Frontend/view/signin.php:13
+msgid "Username or Email Address"
+msgstr "Kullanıcı Adı veya Eposta Adresi"
+
+#: Frontend/view/signin.php:20
+msgid "Forgot password?"
+msgstr "Şifremi unuttum?"
+
+#: Frontend/view/signin.php:26
+msgid "Don't have an account?"
+msgstr "Hesabınız yok mu?"
+
+#: Frontend/view/signin.php:27
+msgid "Sign up"
+msgstr "Üye Ol"
+
+#: Frontend/view/signup.php:11
+msgid "Sign Up"
+msgstr "Üye Ol"
+
+#: Frontend/view/signup.php:14
+msgid "Full name"
+msgstr "Ad Soyad"
+
+#: Frontend/view/signup_complete.php:11
+msgid "Create URL"
+msgstr "URL oluştur"
+
+#: Frontend/view/signup_complete.php:12
+msgid ""
+"Create a username for your page, this will be used when sharing your new "
+"booking page."
+msgstr ""
+"Sayfanız için bir kullanıcı adı oluşturun, bu yeni rezervasyon sayfanızı "
+"paylaşırken kullanılacaktır."
+
+#: Frontend/view/signup_complete.php:35
+msgid "Company Details"
+msgstr "Şirket Detayları"
+
+#: Frontend/view/signup_complete.php:42
+msgid "Company name"
+msgstr "Şirket adı"
+
+#: Frontend/view/signup_complete.php:43
+msgid "Enter company name"
+msgstr "Şirket adını girin"
+
+#: Frontend/view/signup_complete.php:47
+msgid "Address"
+msgstr "Adres"
+
+#: Frontend/view/signup_complete.php:48
+msgid "Enter address"
+msgstr "Adresi girin"
+
+#: Frontend/view/signup_complete.php:53
+msgid "Phone number"
+msgstr "Telefon numarası"
+
+#: Frontend/view/signup_complete.php:54
+msgid "Enter phone number"
+msgstr "Telefon numarasını girin"
+
+#: Frontend/view/signup_complete.php:57
+msgid "Website"
+msgstr "İnternet sitesi"
+
+#: Frontend/view/signup_complete.php:58
+msgid "Enter website"
+msgstr "Web sitesine gir"
+
+#: Frontend/view/signup_complete.php:81
+msgid "COMPLETE REGISTRATION"
+msgstr "TAM KAYIT"
+
+#: Frontend/view/signup_complete.php:99
+msgid "You have successfully signed up. Head over to your Dashboard!"
+msgstr "Başarılı bir şekilde kaydoldunuz. Kontrol Paneline git!"
+
+#: Frontend/view/signup_complete.php:102
+msgid "GO TO DASHBOARD"
+msgstr "PANOYA GİT"
+
+#: Integrations/PaymentGateways/Paypal.php:323
+#, php-format
+msgid "first month %s"
+msgstr "ilk ay %s"
+
+#: Integrations/PaymentGateways/WooCoommerce.php:41
+msgid "Adding deposit"
+msgstr "Depozito ekleme"
+
+#: Providers/Common/Divi/includes/modules/ForgotPasswordSaaS/ForgotPasswordSaaS.php:22
+msgid "Booknetic Forgot Password SaaS"
+msgstr "Booknetic Şifremi Unuttum SaaS"
+
+#: Providers/Common/Divi/includes/modules/SignInSaaS/SignInSaaS.php:22
+msgid "Booknetic Sign In SaaS"
+msgstr "Booknetic Giriş Yap"
+
+#: Providers/Common/Divi/includes/modules/SignUpSaaS/SignUpSaaS.php:22
+msgid "Booknetic Sign Up SaaS"
+msgstr "Booknetic Kayıt SaaS"
+
+#: Providers/Common/EmailWorkflowDriver.php:25
+msgid "Send Email"
+msgstr "E-Posta Gönder"
+
+#: Providers/Core/Backend.php:60
+msgid "Page not found or access denied!"
+msgstr "Sayfa bulunamadı veya erişim reddedildi!"
+
+#: Providers/Core/Backend.php:160
+msgid "Error! Migration files not found."
+msgstr "Hata! Geçiş dosyaları bulunamadı."
+
+#: Providers/Core/Backend.php:164
+msgid ""
+"Booknetic Database update is running, please wait. If this notice doesn't "
+"gone in few minutes contact support."
+msgstr ""
+"Booknetic  Veritabanı güncellemesi çalışıyor, lütfen bekleyin. Bu bildirim "
+"birkaç dakika içinde gitmezse destek ile iletişime geçin."
+
+#: Providers/Core/Bootstrap.php:51
+msgid "Booknetic SaaS is updating, please wait."
+msgstr "Booknetic SaaS güncelleniyor, lütfen bekleyin."
+
+#: Providers/Core/Bootstrap.php:61
+msgid ""
+"Booknetic SaaS require Booknetic 3.0.0 or later to be installed, please "
+"update to latest version."
+msgstr ""
+"Booknetic SaaS, Booknetic 3.0.0 veya sonraki bir sürümünün yüklenmesini "
+"gerektirir, lütfen en son sürüme güncelleyin."
+
+#: Providers/Core/Bootstrap.php:85
+msgid "Booknetic SaaS requires Booknetic plugin to be installed and activated."
+msgstr ""
+"Booknetic SaaS, Booknetic eklentisinin yüklenmesini ve etkinleştirilmesini "
+"gerektirir."
+
+#: Providers/Core/Frontend.php:177 Providers/Core/Frontend.php:201
+#: Providers/Core/Frontend.php:295
+msgid "You are already signed in. Please wait, you are being redirected..."
+msgstr "Zaten oturum açtınız. Lütfen bekleyin, yönlendiriliyorsunuz..."
+
+#: Providers/Core/Frontend.php:215 Providers/Core/Frontend.php:308
+msgid "Redirecting..."
+msgstr "Yönlendirir..."
+
+#: Providers/Helpers/Helper.php:641
+msgid "PayPal"
+msgstr "Paypal"
+
+#: Providers/Helpers/Helper.php:650
+msgid "From balance"
+msgstr "Cüzdan"

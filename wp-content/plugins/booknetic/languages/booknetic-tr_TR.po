@@ -1,0 +1,5582 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: test\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-23 11:22+0400\n"
+"PO-Revision-Date: 2025-01-01 19:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: Türkçe\n"
+"Language: tr-TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ../app\n"
+"X-Poedit-KeywordsList: bkntc__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: Frontend/assets/js/datepicker.min.js\n"
+"X-Poedit-SearchPathExcluded-1: Frontend/assets/js/intlTelInput.min.js\n"
+"X-Poedit-SearchPathExcluded-2: Frontend/assets/js/jquery.nicescroll.min.js\n"
+"X-Poedit-SearchPathExcluded-3: Frontend/assets/js/utilsIntlTelInput.js\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1"
+
+#: booknetic/app/Backend/Base/view/index.php:581
+msgid ""
+" We recommend using the Beta in a staging environment (subdomain) to avoid "
+"any oversights. If needed, you can request direct support. We’ll allow Beta "
+"usage on your staging subdomain."
+msgstr ""
+" Herhangi bir gözden kaçmayı önlemek için Beta'yı bir hazırlama ortamında "
+"(alt alan adı) kullanmanızı öneririz. Gerekirse doğrudan destek talep "
+"edebilirsiniz. Aşama alt alan adınızda Beta kullanımına izin vereceğiz."
+
+#: booknetic/app/Providers/Helpers/Helper.php:290
+msgid ""
+"\"allow_url_fopen\" disabled in your php.ini settings! Please actiavte id "
+"and try again!"
+msgstr ""
+"php'nizde\" allow_url_fopen \" devre dışı bırakıldı.ını ayarları! Lütfen "
+"kimliği etkinleştirin ve tekrar deneyin!"
+
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:47
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:22
+msgid "#"
+msgstr "#"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:27
+#, php-format
+msgid "%s addon just released"
+msgstr "%s eklentisi yeni yayınlandı"
+
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:12
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:21
+#, php-format
+msgid "%s results"
+msgstr " %s  sonuçlar"
+
+#: booknetic/app/Backend/Base/view/disabled.php:10
+#: booknetic/app/Backend/Base/view/install.php:14
+msgid "( it can take some time, please wait... )"
+msgstr "( biraz zaman alabilir, lütfen bekleyin... )"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:34
+msgid "(CSV, max 10k customers)"
+msgstr "(CSV, maksimum 10k müşteri)"
+
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:20
+#: booknetic/app/Backend/Staff/view/tab/details.php:98
+msgid "(PNG, JPG, max 800x800 to 5mb)"
+msgstr "(PNG, JPG, maksimum 800x800 ila 5 mb)"
+
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:81
+msgid "(with Commission)"
+msgstr "(Komisyon ile birlikte)"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:84
+msgid "12 hour format"
+msgstr "12 saat formatı"
+
+#: booknetic/app/Backend/Base/view/index.php:395
+#: booknetic/app/Backend/Base/view/index.php:407
+#: booknetic/app/Backend/Base/view/index.php:419
+#: booknetic/app/Backend/Base/view/index.php:431
+msgid "2 min ago"
+msgstr "2 dakika önce"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:83
+msgid "24 hour format"
+msgstr "24 saat formatı"
+
+#: booknetic/app/Backend/Base/assets/plugins/datatables/datatables.min.js:161
+msgid "<button type=\"button\">&#215;</button>"
+msgstr "<button type=\"button\">&#215;</button>"
+
+#: booknetic/app/Backend/Base/assets/plugins/datatables/datatables.min.js:161
+msgid "<button type=\"button\"><span class=\""
+msgstr "<button type=\"button\"><span class=\""
+
+#: booknetic/app/Backend/Base/assets/plugins/datatables/datatables.min.js:161
+msgid "<button type=\"button\"><span></span></button>"
+msgstr "<button type=\"button\"><span></span></button>"
+
+#: booknetic/app/Backend/Base/assets/plugins/datatables/datatables.min.js:161
+msgid "<div/>"
+msgstr "<div/>"
+
+#: booknetic/app/Backend/Base/assets/plugins/datatables/datatables.min.js:161
+msgid "<input/>"
+msgstr "<input/>"
+
+#: booknetic/app/Backend/Base/assets/plugins/datatables/datatables.min.js:161
+msgid ""
+"<table width=\"100%\"><thead><tr><th></th><th></th></tr></thead></table>"
+msgstr ""
+"<table width=\"100%\"><thead><tr><th></th><th></th></tr></thead></table>"
+
+#: booknetic/app/Backend/Base/view/index.php:591
+msgid "Accept outlined"
+msgstr "Belirtilenleri kabul et"
+
+#: booknetic/app/Backend/Workflow/Controller.php:59
+msgid "ACTION(S)"
+msgstr "EYLEM(LER)"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:156
+msgid "Activate Google reCAPTCHA"
+msgstr "Google recaptcha'yı Etkinleştir"
+
+#: booknetic/app/Backend/Workflow/view/edit.php:39
+msgid "Activated"
+msgstr "Aktif"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:86
+msgid "Active steps BG / label color"
+msgstr "Etkin adımlar BG / etiket rengi"
+
+#: booknetic/app/Backend/Workflow/view/edit.php:69
+msgid "Add"
+msgstr "Ekle"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:60
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:166
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:105
+#: booknetic/app/Backend/Staff/view/tab/special_days.php:62
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:67
+msgid "Add break"
+msgstr "Mola ekle"
+
+#: booknetic/app/Backend/Base/view/index.php:69
+msgid "ADD CATEGORY"
+msgstr "KATEGORİ EKLE"
+
+#: booknetic/app/Backend/Services/view/modal/add_new_category.php:20
+msgid "Add Category"
+msgstr "Kategori Ekle"
+
+#: booknetic/app/Backend/Customers/Controller.php:24
+#: booknetic/app/Backend/Customers/view/modal/add_new.php:50
+msgid "ADD CUSTOMER"
+msgstr "MÜŞTERİ EKLE"
+
+#: booknetic/app/Backend/Customers/view/modal/add_new.php:24
+msgid "Add Customer"
+msgstr "Müşteri Ekle"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:149
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:88
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:50
+msgid "Add day off"
+msgstr "İzin günü ekle"
+
+#: booknetic/app/Backend/Locations/Controller.php:35
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:54
+msgid "ADD LOCATION"
+msgstr "KONUM EKLE"
+
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:20
+msgid "Add Location"
+msgstr "Konum Ekle"
+
+#: booknetic/app/Config.php:161 booknetic/app/Config.php:167
+#: booknetic/app/Config.php:175 booknetic/app/Config.php:183
+#: booknetic/app/Config.php:191 booknetic/app/Config.php:196
+#: booknetic/app/Config.php:208 booknetic/app/Config.php:214
+msgid "Add new"
+msgstr "Yeni ekle"
+
+#: booknetic/app/Frontend/view/booking_panel/cart.php:93
+msgid "Add new Booking"
+msgstr "Yeni Rezervasyon Ekle"
+
+#: booknetic/app/Config.php:199
+msgid "Add new category"
+msgstr "Yeni kategori ekle"
+
+#: booknetic/app/Config.php:202
+msgid "Add new extra"
+msgstr "Yeni ekstra ekle"
+
+#: booknetic/app/Backend/Base/view/modal/translations.php:75
+msgid "Add new translation"
+msgstr "Yeni çeviri ekle"
+
+#: booknetic/app/Backend/Services/Controller.php:129
+#: booknetic/app/Backend/Services/view/modal/add_new.php:58
+msgid "ADD SERVICE"
+msgstr "HİZMET EKLE"
+
+#: booknetic/app/Backend/Services/view/modal/add_new.php:24
+msgid "Add Service"
+msgstr "Hizmet Ekle"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:194
+#: booknetic/app/Backend/Staff/view/tab/special_days.php:83
+msgid "ADD SPECIAL DAY"
+msgstr "ÖZEL GÜN EKLE"
+
+#: booknetic/app/Backend/Staff/Controller.php:88
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:75
+msgid "ADD STAFF"
+msgstr "PERSONEL EKLE"
+
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:39
+msgid "Add Staff"
+msgstr "Personel Ekle"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_staff.php:74
+msgid "Add staff"
+msgstr "Personel ekle"
+
+#: booknetic/app/Backend/Boostore/view/details.php:83
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:96
+msgid "ADD TO CART"
+msgstr "SEPETE EKLE"
+
+#: booknetic/app/Providers/Core/Frontend.php:511
+msgid "Add to cart"
+msgstr "Sepete ekle"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:132
+msgid "ADD TO GOOGLE CALENDAR"
+msgstr "GOOGLE TAKVİMİNE EKLE"
+
+#: booknetic/app/Config.php:1041
+msgid "Add to google calendar"
+msgstr "Google takvim'e ekle"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:133
+msgid "ADD TO iCAL CALENDAR"
+msgstr "TAKVİME EKLE"
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:40
+msgid "Add-on"
+msgstr "Eklenti"
+
+#: booknetic/app/Backend/Boostore/view/details.php:19
+#: booknetic/app/Backend/Boostore/view/index.php:21
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:20
+msgid "Add-ons"
+msgstr "Eklentiler"
+
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:149
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:15
+msgid "Add-ons not found!"
+msgstr "Eklentiler bulunamadı!"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:176
+msgid "Added to cart"
+msgstr "Sepet'e eklendi"
+
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:51
+msgid ""
+"Additional customization available for services and staff under the 'Time "
+"Sheet' tab. Remember, Staff Schedules take precedence over Service Schedules,"
+" which, in turn, override general business hours."
+msgstr ""
+"'Zaman Çizelgesi' sekmesi altında hizmetler ve personel için ek özelleştirme "
+"mevcuttur. Personel Zaman Çizelgelerinin Hizmet Zaman Çizelgelerine göre "
+"öncelikli olduğunu ve bunların da genel çalışma saatlerini geçersiz "
+"kıldığını unutmayın."
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:46
+msgid "Addon"
+msgstr "Eklenti"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:165
+msgid "Addon already exists in your cart"
+msgstr "Bu eklenti Sepetinizde var"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:266
+msgid "Addon couldn't be uninstalled!"
+msgstr "Eklenti kaldırılamadı!"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:258
+msgid "Addon not found!"
+msgstr "Eklenti bulunamadı!"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:263
+msgid "Addon uninstalled successfully!"
+msgstr "Eklenti başarıyla kaldırıldı!"
+
+#: booknetic/app/Backend/Locations/Controller.php:48
+msgid "ADDRESS"
+msgstr "ADRES"
+
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:25
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:36
+msgid "Address"
+msgstr "Adres"
+
+#: booknetic/app/Backend/Calendar/view/index.php:40
+#: booknetic/app/Backend/Calendar/view/index.php:49
+msgid "Advanced filter"
+msgstr "Gelişmiş filtre"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:27
+msgid "After"
+msgstr "Sonra"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:144
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:48
+msgid "After link created"
+msgstr "Bağlantı oluşturulduktan sonra"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:298
+msgid "All addons added to cart!"
+msgstr "Tüm eklentiler sepete eklendi!"
+
+#: booknetic/app/Backend/Calendar/view/index.php:176
+msgid "all-day"
+msgstr "Tüm Gün"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:177
+msgid "Allow admins to book appointments outside working hours"
+msgstr "Yöneticilerin çalışma saatleri dışında randevu almalarına izin ver"
+
+#: booknetic/app/Config.php:180 booknetic/app/Config.php:211
+msgid "Allow to delete associated WordPress account"
+msgstr "İlişkili hesabının silinmesine izin ver"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:57
+#: booknetic/app/Backend/Staff/view/tab/details.php:43
+msgid "Allow to log in"
+msgstr "Oturum açmaya izin ver"
+
+#: booknetic/app/Config.php:179 booknetic/app/Config.php:210
+msgid "Allow to login"
+msgstr "Oturum açmaya izin ver"
+
+#: booknetic/app/Config.php:241
+msgid "Allowed maximum Locations"
+msgstr "İzin verilen maksimum Konumlar"
+
+#: booknetic/app/Config.php:242
+msgid "Allowed maximum Service"
+msgstr "İzin verilen maksimum hizmet"
+
+#: booknetic/app/Config.php:244
+msgid "Allowed maximum Service Extras"
+msgstr "İzin verilen maksimum Hizmet Ekstraları"
+
+#: booknetic/app/Config.php:243
+msgid "Allowed maximum Staff"
+msgstr "İzin verilen maksimum personel"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:293
+msgid "Alone"
+msgstr "Tek Kişi"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:22
+#: booknetic/app/Frontend/view/signup/signup.php:36
+msgid "Already have an account?"
+msgstr "Hesabınız var mı?"
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:42
+#: booknetic/app/Frontend/view/booking_panel/cart.php:55
+msgid "Amount"
+msgstr "Miktar"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:60
+msgid "An account already exists in our system."
+msgstr "Sistemimizde zaten bir hesap var."
+
+#: booknetic/app/Integrations/LoginButtons/FacebookLogin.php:69
+#: booknetic/app/Integrations/LoginButtons/GoogleLogin.php:84
+msgid ""
+"An error occurred while processing your request! Please close the window and "
+"try again!"
+msgstr ""
+"İsteğiniz işlenirken bir hata oluştu! Lütfen pencereyi kapatın ve tekrar "
+"deneyin!"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:59
+#: booknetic/app/Backend/Boostore/Ajax.php:93
+#: booknetic/app/Backend/Boostore/Ajax.php:132
+#: booknetic/app/Backend/Boostore/Ajax.php:160
+#: booknetic/app/Backend/Boostore/Ajax.php:190
+#: booknetic/app/Backend/Boostore/Ajax.php:216
+#: booknetic/app/Providers/Core/Backend.php:199
+msgid "An error occurred, please try again later"
+msgstr "Bir hata oluştu, lütfen daha sonra tekrar deneyin"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:76
+#: booknetic/app/Backend/Boostore/Ajax.php:112
+#: booknetic/app/Backend/Boostore/Ajax.php:146
+#: booknetic/app/Backend/Boostore/Ajax.php:232
+#: booknetic/app/Backend/Boostore/Ajax.php:314
+msgid "An error occurred, please try again later!"
+msgstr "Bir hata oluştu, lütfen daha sonra tekrar deneyin!"
+
+#: booknetic/app/Frontend/view/booking_panel/cart.php:40
+msgid "Any"
+msgstr "Herhangi"
+
+#: booknetic/app/Backend/Workflow/EventsAjax.php:93
+#: booknetic/app/Backend/Workflow/EventsAjax.php:157
+#: booknetic/app/Backend/Workflow/EventsAjax.php:223
+#: booknetic/app/Backend/Workflow/EventsAjax.php:287
+#: booknetic/app/Backend/Workflow/EventsAjax.php:504
+#: booknetic/app/Backend/Workflow/EventsAjax.php:553
+#: booknetic/app/Backend/Workflow/EventsAjax.php:604
+msgid "Any locale"
+msgstr "Herhangi bir yerel ayar"
+
+#: booknetic/app/Backend/Settings/Ajax.php:97
+#: booknetic/app/Frontend/view/booking_panel/staff.php:30
+msgid "Any staff"
+msgstr "Herhangi Personel"
+
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:50
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:50
+msgid "App ID"
+msgstr "Uygulama Kimliği"
+
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:57
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:57
+msgid "App Secret"
+msgstr "Uygulama Sırrı"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:22
+#: booknetic/app/Backend/Appearance/view/index.php:24
+#: booknetic/app/Config.php:435
+msgid "Appearance"
+msgstr "Görünüm"
+
+#: booknetic/app/Config.php:166 booknetic/app/Config.php:251
+msgid "Appearance module"
+msgstr "Görünüm modülü"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPanel/BookingPanel.php:46
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:51
+msgid "Appearances"
+msgstr "Görünümler"
+
+#: booknetic/app/Backend/Base/view/modal/template-selection.php:39
+msgid "APPLY"
+msgstr "UYGULA"
+
+#: booknetic/app/Backend/Base/view/data_table.php:261
+#: booknetic/app/Backend/Base/view/index.php:51
+#: booknetic/app/Backend/Boostore/view/cart/index.php:101
+msgid "Apply"
+msgstr "Uygula"
+
+#: booknetic/app/Config.php:949
+msgid "Appointment buffer after time"
+msgstr "Zaman sonra randevu tamponu"
+
+#: booknetic/app/Config.php:944
+msgid "Appointment buffer before time"
+msgstr "Zamanından önce randevu arabelleği"
+
+#: booknetic/app/Config.php:1021
+msgid "Appointment created date"
+msgstr "Randevu oluşturma tarihi"
+
+#: booknetic/app/Config.php:1026
+msgid "Appointment created time"
+msgstr "Randevu oluşturma zamanı"
+
+#: booknetic/app/Backend/Payments/Controller.php:61
+msgid "APPOINTMENT DATE"
+msgstr "RANDEVU TARİHİ"
+
+#: booknetic/app/Config.php:859
+msgid "Appointment date"
+msgstr "Randevu tarihi"
+
+#: booknetic/app/Config.php:899
+msgid "Appointment date (customer timezone)"
+msgstr "Randevu tarihi (müşteri saat dilimi)"
+
+#: booknetic/app/Config.php:874
+msgid "Appointment date-time"
+msgstr "Randevu tarihi-saati"
+
+#: booknetic/app/Config.php:914
+msgid "Appointment date-time (customer timezone)"
+msgstr "Randevu tarihi - saati (müşteri saat dilimi)"
+
+#: booknetic/app/Backend/Appointments/Ajax.php:42
+#: booknetic/app/Backend/Appointments/Ajax.php:136
+#: booknetic/app/Backend/Appointments/Ajax.php:220
+msgid "Appointment details"
+msgstr "Randevu detayları"
+
+#: booknetic/app/Config.php:939
+msgid "Appointment duration"
+msgstr "Randevu süresi"
+
+#: booknetic/app/Config.php:869
+msgid "Appointment end date"
+msgstr "Randevu bitiş tarihi"
+
+#: booknetic/app/Config.php:909
+msgid "Appointment end date (customer timezone)"
+msgstr "Randevu bitiş tarihi (müşteri saat dilimi)"
+
+#: booknetic/app/Config.php:894
+msgid "Appointment end time"
+msgstr "Randevu bitiş saati"
+
+#: booknetic/app/Config.php:934
+msgid "Appointment end time (customer timezone)"
+msgstr "Randevu bitiş saati (müşteri saat dilimi)"
+
+#: booknetic/app/Config.php:884
+msgid "Appointment end-date-time"
+msgstr "Randevu bitiş tarihi-saati"
+
+#: booknetic/app/Config.php:924
+msgid "Appointment end-date-time (customer timezone)"
+msgstr "Randevu bitiş tarihi-saati (müşteri saat dilimi)"
+
+#: booknetic/app/Backend/Base/view/index.php:121
+msgid "Appointment has been successfully rescheduled!"
+msgstr "Randevu başarıyla yeniden planlandı!"
+
+#: booknetic/app/Config.php:853
+msgid "Appointment ID"
+msgstr "Randevu Kimliği"
+
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:23
+msgid "Appointment IDs"
+msgstr "Randevu Kimlikleri"
+
+#: booknetic/app/Config.php:845
+msgid "Appointment Info"
+msgstr "Randevu Bilgileri"
+
+#: booknetic/app/Backend/Appointments/view/modal/info.php:19
+msgid "Appointment info"
+msgstr "Randevu bilgileri"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:550
+#: booknetic/app/Backend/Payments/Ajax.php:28
+#: booknetic/app/Backend/Payments/Ajax.php:127
+msgid "Appointment not found or permission denied!"
+msgstr "Randevu bulunamadı veya izin reddedildi!"
+
+#: booknetic/app/Backend/Appointments/Ajax.php:198
+msgid "Appointment not found!"
+msgstr "Randevu bulunamadı!"
+
+#: booknetic/app/Config.php:1047
+msgid "Appointment notes"
+msgstr "Randevu notları"
+
+#: booknetic/app/Config.php:545
+msgid "Appointment Paid"
+msgstr "Randevu Ödendi"
+
+#: booknetic/app/Backend/Base/view/index.php:117
+msgid ""
+"Appointment prices are different from the service price, do you want to "
+"update appointment prices?"
+msgstr ""
+"Randevu fiyatları hizmet fiyatından farklıdır, randevu fiyatlarını "
+"güncellemek ister misiniz?"
+
+#: booknetic/app/Config.php:864
+msgid "Appointment start date"
+msgstr "Randevu başlangıç tarihi"
+
+#: booknetic/app/Config.php:904
+msgid "Appointment start date (customer timezone)"
+msgstr "Randevu başlangıç tarihi (müşteri saat dilimi)"
+
+#: booknetic/app/Config.php:889
+msgid "Appointment start time"
+msgstr "Randevu başlangıç saati"
+
+#: booknetic/app/Config.php:929
+msgid "Appointment start time (customer timezone)"
+msgstr "Randevu başlangıç saati (müşteri saat dilimi)"
+
+#: booknetic/app/Config.php:879
+msgid "Appointment start-date-time"
+msgstr "Randevu başlangıç tarihi-saati"
+
+#: booknetic/app/Config.php:919
+msgid "Appointment start-date-time (customer timezone)"
+msgstr "Randevu başlangıç tarihi-saati (müşteri saat dilimi)"
+
+#: booknetic/app/Config.php:954
+msgid "Appointment status"
+msgstr "Randevu durumu"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:103
+msgid "APPOINTMENT'S QUICK STATS"
+msgstr "RANDEVUNUN HIZLI İSTATİSTİKLERİ"
+
+#: booknetic/app/Backend/Appointments/Controller.php:64
+#: booknetic/app/Backend/Dashboard/view/index.php:70
+#: booknetic/app/Config.php:371
+msgid "Appointments"
+msgstr "Randevular"
+
+#: booknetic/app/Config.php:160 booknetic/app/Config.php:250
+msgid "Appointments module"
+msgstr "Randevu modülü"
+
+#: booknetic/app/Backend/Base/view/index.php:615
+msgid "Approval to Leave Beta Program"
+msgstr "Beta Programından Ayrılma Onayı"
+
+#: booknetic/app/Providers/Helpers/Helper.php:1278
+msgid "Approved"
+msgstr "Onaylandı"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:17
+msgid "Apr"
+msgstr "Nisan"
+
+#: booknetic/app/Backend/Base/view/index.php:94
+#: booknetic/app/Backend/Settings/Ajax.php:55
+#: booknetic/app/Backend/Settings/Ajax.php:103
+#: booknetic/app/Providers/Core/BookingPanelService.php:273
+#: booknetic/app/Providers/Core/Frontend.php:338
+msgid "April"
+msgstr "Nisan"
+
+#: booknetic/app/Backend/Base/view/index.php:126
+msgid "Are you really want to delete?"
+msgstr "Silmek istiyor musun?"
+
+#: booknetic/app/Backend/Base/view/index.php:88
+msgid "Are you sure that you want to delete this category?"
+msgstr "Bu kategoriyi silmek istediğinizden emin misiniz?"
+
+#: booknetic/app/Backend/Base/view/index.php:57
+msgid "Are you sure that you want to delete this service extra?"
+msgstr "Bu hizmeti fazladan silmek istediğinizden emin misiniz?"
+
+#: booknetic/app/Backend/Base/view/index.php:62
+msgid "Are you sure to delete this special day?"
+msgstr "Bu özel günü sildiğinizden emin misiniz?"
+
+#: booknetic/app/Backend/Base/view/index.php:67
+msgid "Are you sure you want to delete this category?"
+msgstr "Bu kategoriyi silmek istediğinizden emin misiniz?"
+
+#: booknetic/app/Backend/Base/view/index.php:66
+msgid "Are you sure you want to delete this service?"
+msgstr "Bu hizmeti silmek istediğinizden emin misiniz?"
+
+#: booknetic/app/Backend/Base/view/index.php:35
+msgid "Are you sure you want to delete?"
+msgstr "Silmek istediğine emin misin?"
+
+#: booknetic/app/Backend/Base/view/index.php:625
+msgid ""
+"Are you sure you want to quit the beta program? This action will revert your "
+"account to the standard version. Click 'Confirm' to proceed or 'Cancel' to "
+"stay in the beta program."
+msgstr ""
+"Beta programından çıkmak istediğinizden emin misiniz? Bu işlem hesabınızı "
+"standart sürüme geri döndürecektir. Devam etmek için 'Onayla'ya veya beta "
+"programında kalmak için 'İptal'e tıklayın."
+
+#: booknetic/app/Backend/Base/view/index.php:19
+msgid "Are you sure?"
+msgstr "Emin misin?"
+
+#: booknetic/app/Backend/Settings/Ajax.php:626
+msgid "As a Customer identifier, Email must be a required field!"
+msgstr "Bir Müşteri tanımlayıcısı olarak E-posta zorunlu bir alan olmalıdır!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:629
+msgid "As a Customer identifier, Phone number must be a required field!"
+msgstr ""
+"Bir Müşteri tanımlayıcısı olarak, Telefon numarası zorunlu bir alan "
+"olmalıdır!"
+
+#: booknetic/app/Backend/Base/view/index.php:574
+msgid ""
+"As a valued member of our Beta Program, you have the unique opportunity to "
+"utilize Booknetic Beta in a second domain exclusively for staging or testing "
+"purposes. This benefit is currently available only to our Beta users, "
+"empowering you to:"
+msgstr ""
+"Beta Programımızın değerli bir üyesi olarak, Booknetic 'yalnızca hazırlama "
+"veya test amacıyla ikinci bir alanda kullanmak için eşsiz bir fırsata "
+"sahipsiniz. Bu avantaj şu anda sadece Beta kullanıcılarımız tarafından "
+"kullanılabilir ve size şunları yapma yetkisi verir:"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:383
+msgid "At least one payment method should be selected!"
+msgstr "En az bir ödeme yöntemi seçilmelidir!"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:21
+msgid "Aug"
+msgstr "Ağu"
+
+#: booknetic/app/Backend/Base/view/index.php:98
+#: booknetic/app/Backend/Settings/Ajax.php:59
+#: booknetic/app/Backend/Settings/Ajax.php:107
+#: booknetic/app/Providers/Core/BookingPanelService.php:277
+#: booknetic/app/Providers/Core/Frontend.php:342
+msgid "August"
+msgstr "Ağustos"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:171
+msgid "Auto assignment rule"
+msgstr "Otomatik atama kuralı"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:230
+#: booknetic/app/Backend/Appearance/view/index.php:108
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:62
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:114
+msgid "BACK"
+msgstr "GERİ"
+
+#: booknetic/app/Backend/Base/view/index.php:307
+msgid "Back to WordPress"
+msgstr "WordPress'e geri dön"
+
+#: booknetic/app/Backend/Workflow/EventsAjax.php:82
+#: booknetic/app/Backend/Workflow/EventsAjax.php:146
+#: booknetic/app/Backend/Workflow/EventsAjax.php:212
+msgid "Backend"
+msgstr "Arka Plan"
+
+#: booknetic/app/Backend/Settings/view/modal/delete_account.php:16
+msgid "Be Careful. Account deletion cannot be undone."
+msgstr "Dikkatli olun. Hesap silme işlemi geri alınamaz."
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:26
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:25
+msgid "Before"
+msgstr "Önce"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:145
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:49
+msgid "Before appointment starts"
+msgstr "Randevu başlamadan önce"
+
+#: booknetic/app/Backend/Base/view/index.php:558
+msgid "Beta user request confirmation"
+msgstr "Beta kullanıcı istek onayı"
+
+#: booknetic-saas/app/Config.php:658
+msgid "Billing"
+msgstr "Ödeme"
+
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:48
+#| msgid "Start date"
+msgid "Birthdate"
+msgstr "Doğum Tarihi"
+
+#: booknetic/app/Backend/Base/view/index.php:515
+msgid "Blog"
+msgstr "Blog"
+
+#: booknetic/app/Frontend/view/popup/index.php:13
+msgid "Book now"
+msgstr "Rezervasyon yap"
+
+#: booknetic/app/Config.php:528
+msgid "Booking ends"
+msgstr "Rezervasyon sona eriyor"
+
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:22
+msgid "Booking page"
+msgstr "Rezervasyon sayfası"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:22
+msgid "Booking panel in popup"
+msgstr "Açılır pencerede rezervasyon paneli"
+
+#: booknetic/app/Config.php:513
+msgid "Booking rescheduled"
+msgstr "Rezervasyon yeniden planlandı"
+
+#: booknetic/app/Config.php:523
+msgid "Booking starts"
+msgstr "Rezervasyon başlar"
+
+#: booknetic/app/Config.php:518
+msgid "Booking status changed"
+msgstr "Rezervasyon durumu değişti"
+
+#: booknetic/app/Backend/Settings/Controller.php:40
+#: booknetic/app/Config.php:220 booknetic/app/Config.php:262
+msgid "Booking Steps"
+msgstr "Rezervasyon Adımları"
+
+#: booknetic/app/Backend/Base/view/index.php:50
+msgid "bookings on"
+msgstr "rezervasyonlar"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPanel/BookingPanel.php:22
+msgid "Booknetic Booking Panel"
+msgstr "Booknetic Rezervasyon Paneli"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/ChangeStatus/ChangeStatus.php:17
+msgid "Booknetic Change Status"
+msgstr "Booknetic Değişiklik Durumu"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/ForgotPassword/ForgotPassword.php:22
+msgid "Booknetic Customer Forgot Password"
+msgstr "Booknetic Müşteri Şifremi Unuttum"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/SignIn/SignIn.php:22
+msgid "Booknetic Customer Sign In"
+msgstr "Booknetic Müşteri Girişi"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/SignUp/SignUp.php:22
+msgid "Booknetic Customer Sign Up"
+msgstr "Booknetic Müşteri Kaydı"
+
+#: booknetic/app/Config.php:1305
+msgid "Booknetic Customers"
+msgstr "Booknetic Müşterileri"
+
+#: booknetic/app/Providers/Core/Backend.php:340
+msgid ""
+"Booknetic Database update is running, please wait. If this notice doesn't "
+"gone in few minutes contact support."
+msgstr ""
+"Booknetic Veritabanı güncellemesi çalışıyor, lütfen bekleyin. Bu bildirim "
+"birkaç dakika içinde geçmezse desteğe başvurun."
+
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:73
+msgid "Booknetic Forgot Password Page"
+msgstr "Booknetic Şifremi Unuttum Sayfası"
+
+#: booknetic/app/Providers/Core/Bootstrap.php:60
+msgid "Booknetic is updating, please wait."
+msgstr "Booknetic güncelleniyor, lütfen bekleyin."
+
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:55
+msgid "Booknetic Sign In Page"
+msgstr "Booknetic Oturum Açma Sayfası"
+
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:64
+msgid "Booknetic Sign Up Page"
+msgstr "Booknetic  Üyelik Sayfası"
+
+#: booknetic/app/Config.php:1311
+msgid "Booknetic Staff"
+msgstr "Booknetic Personeli"
+
+#: booknetic/app/Backend/Base/view/index.php:297 booknetic/app/Config.php:234
+#: booknetic/app/Config.php:462
+msgid "Boostore"
+msgstr "Boostore'un"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:109
+msgid "Border color"
+msgstr "Kenarlık rengi"
+
+#: booknetic/app/Backend/Workflow/EventsAjax.php:81
+#: booknetic/app/Backend/Workflow/EventsAjax.php:145
+#: booknetic/app/Backend/Workflow/EventsAjax.php:211
+msgid "Both"
+msgstr "Her ikisi de"
+
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:20
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:17
+msgid "Break end"
+msgstr "Mola sonu"
+
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:19
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:16
+msgid "Break start"
+msgstr "Mola başlangıcı"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:72
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:17
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:14
+msgid "Breaks"
+msgstr "Mola"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:69
+msgid "Bring People with You"
+msgstr "İnsanları Yanınıza Alın"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:34
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:103
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:20
+#: booknetic/app/Backend/Settings/view/modal/backup_settings.php:24
+#: booknetic/app/Backend/Staff/view/tab/details.php:98
+msgid "BROWSE"
+msgstr "GÖZAT"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:145
+msgid "Buffer Time After"
+msgstr "Dinlenme Süresi Sonra"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:136
+msgid "Buffer Time Before"
+msgstr "Dinlenme Süresi Önce"
+
+#: booknetic/app/Backend/Settings/Controller.php:89
+#: booknetic/app/Config.php:226 booknetic/app/Config.php:268
+msgid "Business Hours"
+msgstr "Çalışma Saatleri"
+
+#: booknetic/app/Backend/Base/view/index.php:710
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:43
+msgid "Business hours"
+msgstr "Çalışma saatleri"
+
+#: booknetic/app/Backend/Boostore/view/details.php:87
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:77
+msgid "BUY"
+msgstr "AL"
+
+#: booknetic/app/Backend/Boostore/view/index.php:73
+msgid "BUY ALL"
+msgstr "Hepsini Satın Al"
+
+#: booknetic/app/Backend/Calendar/view/index.php:32
+#: booknetic/app/Config.php:379
+msgid "Calendar"
+msgstr "Takvim"
+
+#: booknetic/app/Config.php:172 booknetic/app/Config.php:252
+msgid "Calendar module"
+msgstr "Takvim modülü"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:63
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:95
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:78
+msgid "Called from"
+msgstr "Tarafından çağrıldı"
+
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:73
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:85
+msgid "CAN'T INSTALL"
+msgstr "YÜKLENEMİYOR"
+
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:71
+#: booknetic/app/Backend/Appointments/view/modal/edit.php:48
+#: booknetic/app/Backend/Base/view/index.php:38
+#: booknetic/app/Backend/Customers/view/modal/add_new.php:49
+#: booknetic/app/Backend/Customers/view/modal/import.php:86
+#: booknetic/app/Backend/Customers/view/modal/info.php:41
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:53
+#: booknetic/app/Backend/Payments/view/modal/info.php:126
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:74
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:61
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:75
+#: booknetic/app/Backend/Workflow/view/modal/add_new_action.php:39
+#: booknetic/app/Backend/Workflow/view/modal/event_appointment_paid.php:36
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:97
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:120
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:122
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_created.php:36
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_signup.php:36
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:105
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:41
+msgid "CANCEL"
+msgstr "İPTAL"
+
+#: booknetic/app/Backend/Base/view/index.php:52
+#: booknetic/app/Backend/Base/view/index.php:595
+#: booknetic/app/Backend/Base/view/index.php:630
+msgid "Cancel"
+msgstr "İptal"
+
+#: booknetic/app/Backend/Payments/Controller.php:55
+#: booknetic/app/Backend/Payments/Controller.php:105
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:51
+#: booknetic/app/Providers/Helpers/Helper.php:1285
+#: booknetic/app/Providers/Helpers/Helper.php:1465
+msgid "Canceled"
+msgstr "İptal Et"
+
+#: booknetic/app/Providers/Core/Abstracts/AbstractCapabilities.php:31
+#, php-format
+msgid "Capability %s not found"
+msgstr "Yetenek %s bulunamadı"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:291
+msgid "Capacity"
+msgstr "Kişi Sayısı"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:130
+msgid "Capacity field is wrong!"
+msgstr "Kapasite alanı yanlış!"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:46
+#| msgid "Location"
+msgid "Caption"
+msgstr "Konum"
+
+#: booknetic/app/Backend/Boostore/view/index.php:25
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:27
+msgid "CART"
+msgstr "SEPET"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:25
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:59
+#: booknetic/app/Providers/Core/Frontend.php:510
+msgid "Cart"
+msgstr "Sepet"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:288
+msgid "Cart cleared!"
+msgstr "Sepet Temizlendi"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:75
+msgid "Cart details"
+msgstr "Sepet Detayları"
+
+#: booknetic/app/Backend/Services/view/index.php:131
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: booknetic/app/Backend/Services/Controller.php:153
+#: booknetic/app/Backend/Services/view/index.php:146
+msgid "CATEGORY"
+msgstr "KATEGORİ"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:69
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:91
+#: booknetic/app/Backend/Base/view/index.php:79
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:34
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:53
+msgid "Category"
+msgstr "Kategori"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:186
+#: booknetic/app/Backend/Appearance/view/index.php:64
+msgid "Category 1"
+msgstr "Kategori 1"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:213
+#: booknetic/app/Backend/Appearance/view/index.php:91
+msgid "Category 2"
+msgstr "Kategori 2"
+
+#: booknetic/app/Backend/Base/view/index.php:68
+#: booknetic/app/Backend/Services/view/modal/add_new_category.php:42
+msgid "Category name"
+msgstr "Kategori adı"
+
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:27
+msgid "Change Appointment Status Page"
+msgstr "Randevu Durumu Sayfasını Değiştir"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/ChangeStatus/ChangeStatus.php:35
+msgid "Change Button Text"
+msgstr "Düğme Metnini Değiştir"
+
+#: booknetic/app/Backend/Settings/Controller.php:155
+msgid "Change Password"
+msgstr "Şifre Değiştir"
+
+#: booknetic/app/Backend/Settings/view/modal/change_password.php:18
+msgid "Change password"
+msgstr "Şifre değiştir"
+
+#: booknetic/app/Backend/Appointments/Controller.php:129
+#: booknetic/app/Backend/Appointments/view/modal/change_status.php:19
+#: booknetic/app/Config.php:163
+msgid "Change status"
+msgstr "Durum değiştirme"
+
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:34
+msgid "Change status to"
+msgstr "Durumu şu şekilde değiştirin"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/ChangeStatus/ChangeStatus.php:40
+msgid "Change Success Button Text"
+msgstr "Başarı Düğmesi Metnini Değiştir"
+
+#: booknetic/app/Backend/Base/view/modal/template-selection.php:17
+msgid "Choose A Template"
+msgstr "Tasarım Seç"
+
+#: booknetic/app/Backend/Base/view/index.php:61
+msgid "Choose the staff to add"
+msgstr ""
+"Eklenecek personeli seçin\n"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:80
+msgid "Class"
+msgstr "Sınıf"
+
+#: booknetic/app/Backend/Calendar/view/index.php:145
+msgid "Clear"
+msgstr "Temizle"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:30
+msgid "CLEAR CART"
+msgstr "Sepeti Boşalt"
+
+#: booknetic/app/Backend/Appointments/view/modal/change_status.php:51
+#: booknetic/app/Backend/Appointments/view/modal/info.php:42
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:90
+#: booknetic/app/Backend/Base/view/modal/permission_denied.php:17
+#: booknetic/app/Backend/Base/view/modal/translations.php:82
+#: booknetic/app/Backend/Services/view/modal/add_new.php:57
+#: booknetic/app/Backend/Services/view/modal/add_new_category.php:52
+#: booknetic/app/Backend/Workflow/Controller.php:112
+#: booknetic/app/Providers/Helpers/Helper.php:129
+msgid "CLOSE"
+msgstr "KAPAT"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:200
+msgid "Collapse service extras under a category"
+msgstr "Hizmet ekstralarını bir kategori altında daralt"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:139
+msgid "Collapse Services under a Category"
+msgstr "Bir Kategori Altındaki Hizmetleri Daraltma"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:74
+msgid "Comma ( , )"
+msgstr "Virgül (,)"
+
+#: booknetic/app/Config.php:1230
+msgid "Company address"
+msgstr "Şirket adresi"
+
+#: booknetic/app/Backend/Base/view/index.php:709
+#: booknetic/app/Backend/Settings/Controller.php:80
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:20
+#: booknetic/app/Config.php:225 booknetic/app/Config.php:267
+msgid "Company details"
+msgstr "Şirket detayları"
+
+#: booknetic/app/Config.php:1217
+msgid "Company image URL"
+msgstr "Şirket resmi URL'si"
+
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:32
+#: booknetic/app/Config.php:1213
+msgid "Company name"
+msgstr "Şirket adı"
+
+#: booknetic/app/Config.php:1225
+msgid "Company phone number"
+msgstr "Şirket telefon numarası"
+
+#: booknetic/app/Config.php:1221
+msgid "Company website"
+msgstr "Şirket web sitesi"
+
+#: booknetic/app/Backend/Boostore/view/details.php:138
+msgid "Compatible version"
+msgstr "Uyumlu sürüm"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:120
+msgid "COMPLETE PAYMENT"
+msgstr "ÖDEME"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:78
+msgid "Completed steps BG / label color"
+msgstr "Tamamlanan adımlar BG / etiket rengi"
+
+#: booknetic/app/Backend/Workflow/view/modal/action_list_view.php:30
+msgid "Configuration needed"
+msgstr "Yapılandırma gerekli"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:108
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:15
+msgid "Configure specific timesheet"
+msgstr "Belirli zaman çizelgesini yapılandırma"
+
+#: booknetic/app/Backend/Base/view/index.php:631
+msgid "Confirm"
+msgstr "Onayla"
+
+#: booknetic/app/Backend/Settings/Ajax.php:147
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:117
+#: booknetic/app/Providers/Core/BookingPanelService.php:313
+msgid "CONFIRM BOOKING"
+msgstr "REZERVASYONU ONAYLA"
+
+#: booknetic/app/Providers/Core/Frontend.php:532
+msgid "Confirm Details"
+msgstr "Ayrıntıları Onayla"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:18
+msgid "Confirm Password"
+msgstr ""
+"Şifreyi Onayla\n"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:172
+#: booknetic/app/Backend/Appearance/view/index.php:50
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:53
+#: booknetic/app/Providers/Core/Frontend.php:531
+msgid "Confirmation"
+msgstr "Onay"
+
+#: booknetic/app/Backend/Settings/Ajax.php:678
+#: booknetic/app/Backend/Settings/Ajax.php:683
+msgid "Confirmation number is invalid!"
+msgstr "Onay numarası geçersiz!"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:27
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:30
+#: booknetic/app/Frontend/view/signup/signup-completed.php:18
+#: booknetic/app/Frontend/view/signup/signup.php:41
+msgid "Congratulations!"
+msgstr "Tebrikler!"
+
+#: booknetic/app/Backend/Base/view/index.php:127
+#: booknetic/app/Backend/Base/view/index.php:129
+msgid "Congratulations, you are a beta user!"
+msgstr "Tebrikler, siz bir beta kullanıcısısınız!"
+
+#: booknetic/app/Backend/Base/view/index.php:494
+msgid "Contact support"
+msgstr "İletişim desteği"
+
+#: booknetic/app/Backend/Base/view/index.php:463
+msgid "Contact Us"
+msgstr "Bize Ulaşın"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:18
+#: booknetic/app/Frontend/view/signup/signup.php:32
+msgid "CONTINUE"
+msgstr "DEVAM ET"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:17
+msgid "CONTINUE WITH FACEBOOK"
+msgstr "FACEBOOK İLE DEVAM ET"
+
+#: booknetic/app/Backend/Settings/Controller.php:115
+#: booknetic/app/Config.php:228 booknetic/app/Config.php:270
+msgid "Continue with Facebook"
+msgstr "Facebook ile devam et"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:21
+msgid "CONTINUE WITH GOOGLE"
+msgstr "GOOGLE İLE DEVAM ET"
+
+#: booknetic/app/Backend/Settings/Controller.php:122
+#: booknetic/app/Config.php:229 booknetic/app/Config.php:271
+msgid "Continue with Google"
+msgstr "Google ile devam et"
+
+#: booknetic/app/Backend/Base/view/index.php:125
+msgid "Copied to clipboard"
+msgstr "Panoya kopyalandı"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:139
+#: booknetic/app/Backend/Appointments/view/tab/details.php:154
+#: booknetic/app/Backend/Appointments/view/tab/details.php:169
+#: booknetic/app/Backend/Appointments/view/tab/details.php:184
+#: booknetic/app/Backend/Appointments/view/tab/details.php:199
+#: booknetic/app/Backend/Appointments/view/tab/details.php:214
+#: booknetic/app/Backend/Appointments/view/tab/details.php:229
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:129
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:68
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:36
+msgid "Copy to all"
+msgstr "Tümünü kopyala"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:47
+msgid "Copy to all services"
+msgstr "Tüm hizmetlere kopyala"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:48
+msgid "Copy to the same category services"
+msgstr "Aynı kategorideki hizmetlere kopyalama"
+
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:105
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:91
+msgid "COPY URL"
+msgstr "URL'Yİ KOPYALA"
+
+#: booknetic/app/Backend/Settings/Helpers/BackupService.php:26
+msgid "Could not create a zip file!"
+msgstr "Zip dosyası oluşturulamadı!"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:107
+msgid "Coupon applied"
+msgstr "Kupon Uygulandı"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:127
+msgid "Coupon cannot be empty!"
+msgstr "Kupon boş olamaz!"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:76
+msgid "CREATE"
+msgstr "OLUŞTUR"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:196
+msgid "Create a new wordpress user on new booking"
+msgstr "Yeni rezervasyonda yeni bir wordpress kullanıcısı oluşturun"
+
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:93
+msgid "Create Link"
+msgstr "Bağlantı Oluştur"
+
+#: booknetic/app/Backend/Base/view/index.php:715
+msgid "Create location"
+msgstr "Konum oluştur"
+
+#: booknetic/app/Backend/Appearance/view/index.php:150
+msgid "Create new style"
+msgstr "Yeni stil oluştur"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:68
+#: booknetic/app/Backend/Staff/view/tab/details.php:54
+msgid "Create new WordPress user"
+msgstr "Yeni WordPress kullanıcısı oluştur"
+
+#: booknetic/app/Backend/Workflow/Controller.php:50
+msgid "CREATE NEW WORKFLOW"
+msgstr "YENİ İŞ AKIŞI OLUŞTURMA"
+
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:69
+msgid "Create Payment Link"
+msgstr "Ödeme Bağlantısı Oluştur"
+
+#: booknetic/app/Backend/Base/view/index.php:717
+msgid "Create service"
+msgstr "Hizmet oluştur"
+
+#: booknetic/app/Backend/Base/view/index.php:716
+msgid "Create staff"
+msgstr "Personel oluştur"
+
+#: booknetic/app/Backend/Appointments/Controller.php:230
+msgid "CREATED AT"
+msgstr "OLUŞTURULMA TARİHİ "
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:32
+msgid "Currency"
+msgstr "Para birimi"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:47
+msgid "Currency format"
+msgstr "Para birimi biçimi"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:43
+msgid "Currency symbol"
+msgstr "Para birimi sembolü"
+
+#: booknetic/app/Backend/Settings/Controller.php:56
+msgid ""
+"Currency, price format , general settings about payment , payment methods "
+"and so on"
+msgstr ""
+"Para birimi, fiyat biçimi, ödemeyle ilgili genel ayarlar, ödeme yöntemleri "
+"vb."
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:233
+msgid "Current month"
+msgstr "Cari ay"
+
+#: booknetic/app/Backend/Settings/view/modal/change_password.php:22
+msgid "Current Password"
+msgstr "Geçerli Şifre"
+
+#: booknetic/app/Backend/Settings/Ajax.php:359
+msgid "Current password is incorrect"
+msgstr "Geçerli şifre yanlış"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:54
+msgid "Custom"
+msgstr "Özel"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:128
+msgid "Custom CSS"
+msgstr "Özel CSS"
+
+#: booknetic/app/Backend/Appointments/Controller.php:154
+#: booknetic/app/Backend/Payments/Controller.php:68
+#: booknetic/app/Backend/Payments/view/modal/info.php:63
+msgid "CUSTOMER"
+msgstr "MÜŞTERİ"
+
+#: booknetic/app/Backend/Appointments/Controller.php:96
+#: booknetic/app/Backend/Appointments/Controller.php:169
+#: booknetic/app/Backend/Appointments/view/tab/details.php:378
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:139
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:46
+#: booknetic/app/Backend/Customers/view/modal/add_new.php:24
+#: booknetic/app/Backend/Payments/Controller.php:46
+#: booknetic/app/Backend/Payments/Controller.php:72
+msgid "Customer"
+msgstr "Müşteri"
+
+#: booknetic/app/Config.php:1117
+msgid "Customer birthdate"
+msgstr "Müşteri doğum tarihi"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:97
+msgid "Customer can pay full amount"
+msgstr "Müşteri tam tutarı ödeyebilir"
+
+#: booknetic/app/Backend/Customers/Ajax.php:56
+msgid "Customer details"
+msgstr "Müşteri detayları"
+
+#: booknetic/app/Backend/Appointments/Controller.php:216
+#: booknetic/app/Backend/Payments/Controller.php:75
+msgid "Customer Email"
+msgstr "Müşteri E-Postası"
+
+#: booknetic/app/Config.php:1111
+msgid "Customer email"
+msgstr "Müşteri e-postası"
+
+#: booknetic/app/Config.php:1095
+msgid "Customer first name"
+msgstr "Müşteri adı"
+
+#: booknetic/app/Config.php:538
+msgid "Customer forgot password"
+msgstr "Customer forgot password"
+
+#: booknetic/app/Config.php:1090
+msgid "Customer full name"
+msgstr "Müşteri tam adı"
+
+#: booknetic/app/Config.php:1127
+msgid "Customer image URL"
+msgstr "Müşteri resmi URL'si"
+
+#: booknetic/app/Backend/Customers/Ajax.php:87 booknetic/app/Config.php:847
+msgid "Customer Info"
+msgstr "Müşteri Bilgileri"
+
+#: booknetic/app/Backend/Customers/view/modal/info.php:19
+msgid "Customer info"
+msgstr "Müşteri bilgileri"
+
+#: booknetic/app/Config.php:1100
+msgid "Customer last name"
+msgstr "Müşteri soyadı"
+
+#: booknetic/app/Backend/Customers/Controller.php:39
+msgid "CUSTOMER NAME"
+msgstr "MÜŞTERİ ADI"
+
+#: booknetic/app/Backend/Customers/Ajax.php:148
+msgid "Customer not found or permission denied!"
+msgstr "Müşteri bulunamadı veya izin reddedildi!"
+
+#: booknetic/app/Config.php:1122
+msgid "Customer notes"
+msgstr "Müşteri notları"
+
+#: booknetic/app/Config.php:1133
+msgid "Customer password"
+msgstr "Müşteri şifresi"
+
+#: booknetic/app/Backend/Appointments/Controller.php:217
+#: booknetic/app/Backend/Payments/Controller.php:76
+msgid "Customer Phone Number"
+msgstr "Müşteri Telefon Numarası"
+
+#: booknetic/app/Config.php:1105
+msgid "Customer phone number"
+msgstr "Müşteri telefon numarası"
+
+#: booknetic-saas/app/Config.php:438 booknetic/app/Config.php:542
+msgid "Customer reset password"
+msgstr "Customer reset password"
+
+#: booknetic/app/Config.php:550
+msgid "Customer signs up"
+msgstr "Customer signs up"
+
+#: booknetic/app/Backend/Appointments/view/index.php:21
+#: booknetic/app/Backend/Customers/Controller.php:23
+#: booknetic/app/Config.php:395
+msgid "Customers"
+msgstr "Müşteriler"
+
+#: booknetic/app/Config.php:174 booknetic/app/Config.php:253
+msgid "Customers module"
+msgstr "Müşteriler modülü"
+
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:48
+msgid "Customization Hierarchy"
+msgstr "Özelleştirme Hiyerarşisi"
+
+#: booknetic/app/Backend/Settings/Ajax.php:181
+#: booknetic/app/Providers/Helpers/Helper.php:45
+#: booknetic/app/Providers/Helpers/Helper.php:54
+msgid "d"
+msgstr "g"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:230
+#: booknetic/app/Backend/Settings/Ajax.php:159
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:15
+msgid "Daily"
+msgstr "Günlük"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:41
+#: booknetic/app/Config.php:363
+msgid "Dashboard"
+msgstr "Gösterge paneli"
+
+#: booknetic/app/Config.php:158 booknetic/app/Config.php:249
+msgid "Dashboard module"
+msgstr "Pano modülü"
+
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:48
+#: booknetic/app/Backend/Settings/Ajax.php:176
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:23
+msgid "DATE"
+msgstr "TARİH"
+
+#: booknetic/app/Backend/Appointments/Controller.php:91
+#: booknetic/app/Backend/Appointments/view/tab/details.php:360
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:120
+#: booknetic/app/Backend/Payments/Controller.php:42
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:35
+#: booknetic/app/Backend/Staff/view/tab/special_days.php:37
+msgid "Date"
+msgstr "Tarih"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:170
+#: booknetic/app/Backend/Appearance/view/index.php:48
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:451
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:47
+#: booknetic/app/Frontend/view/booking_panel/cart.php:50
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:29
+#: booknetic/app/Providers/Core/Frontend.php:517
+msgid "Date & Time"
+msgstr "Tarih ve Saat"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:71
+msgid "Date format"
+msgstr "Tarih biçimi"
+
+#: booknetic/app/Backend/Customers/Controller.php:55
+#: booknetic/app/Backend/Customers/view/modal/import.php:61
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:116
+msgid "Date of birth"
+msgstr "DOĞUM TARİHİ"
+
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:24
+msgid "Date, time"
+msgstr "Tarih, saat"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:49
+msgid "Date, time:"
+msgstr "Tarih, saat:"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:33
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:30
+msgid "Day"
+msgstr "Gün"
+
+#: booknetic/app/Backend/Calendar/view/index.php:174
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:250
+#: booknetic/app/Providers/Helpers/Helper.php:85
+#: booknetic/app/Providers/Helpers/Helper.php:94
+msgid "day"
+msgstr "gün"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:248
+#: booknetic/app/Backend/Settings/Ajax.php:161
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:23
+msgid "DAYS"
+msgstr "GÜNLER"
+
+#: booknetic/app/Providers/Helpers/Helper.php:85
+#: booknetic/app/Providers/Helpers/Helper.php:94
+msgid "days"
+msgstr "günler"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:88
+#: booknetic/app/Backend/Settings/Ajax.php:167
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:18
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:12
+msgid "Days of week"
+msgstr "Haftanın günleri"
+
+#: booknetic/app/Backend/Base/view/index.php:39
+msgid "Dear user"
+msgstr "Sevgili kullanıcı"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:25
+msgid "Dec"
+msgstr "Aralık"
+
+#: booknetic/app/Backend/Base/view/index.php:102
+#: booknetic/app/Backend/Settings/Ajax.php:63
+#: booknetic/app/Backend/Settings/Ajax.php:111
+#: booknetic/app/Providers/Core/BookingPanelService.php:281
+#: booknetic/app/Providers/Core/Frontend.php:346
+msgid "December"
+msgstr "Aralık"
+
+#: booknetic/app/Backend/Base/view/modal/translations.php:35
+#: booknetic/app/Backend/Services/Ajax.php:653
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:125
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:63
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:65
+msgid "Default"
+msgstr "Varsayılan"
+
+#: booknetic/app/Backend/Base/view/index.php:86
+#| msgid "Default 0 means there is no minimum requirment."
+msgid "Default 0 means there is no minimum requirement."
+msgstr "Varsayılan 0, minimum gereksinim olmadığı anlamına gelir."
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:90
+msgid "Default appointment status"
+msgstr "Varsayılan randevu durumu"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:300
+msgid "Default phone country code"
+msgstr "Varsayılan telefon ülke kodu"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:322
+msgid "Default: Reload current page."
+msgstr "Varsayılan: Geçerli sayfayı yeniden yükle."
+
+#: booknetic/app/Backend/Appearance/view/edit.php:141
+#: booknetic/app/Backend/Appointments/view/modal/info.php:40
+#: booknetic/app/Backend/Base/view/index.php:37
+msgid "DELETE"
+msgstr "SİL"
+
+#: booknetic/app/Backend/Appointments/Controller.php:130
+#: booknetic/app/Backend/Customers/Controller.php:34
+#: booknetic/app/Backend/Locations/Controller.php:31
+#: booknetic/app/Backend/Services/Controller.php:139
+#: booknetic/app/Backend/Staff/Controller.php:76
+#: booknetic/app/Backend/Workflow/Controller.php:44
+#: booknetic/app/Config.php:164 booknetic/app/Config.php:169
+#: booknetic/app/Config.php:177 booknetic/app/Config.php:185
+#: booknetic/app/Config.php:193 booknetic/app/Config.php:198
+#: booknetic/app/Config.php:209 booknetic/app/Config.php:216
+msgid "Delete"
+msgstr "Sil"
+
+#: booknetic/app/Backend/Settings/Controller.php:160
+#: booknetic/app/Backend/Settings/view/modal/delete_account.php:13
+msgid "Delete Account"
+msgstr "Hesabı Sil"
+
+#: booknetic/app/Backend/Settings/view/modal/delete_account.php:17
+msgid "Delete account"
+msgstr "Hesabı Sil"
+
+#: booknetic/app/Backend/Customers/Controller.php:63
+#: booknetic/app/Backend/Staff/Controller.php:104
+msgid "Delete associated WordPress account"
+msgstr "İlişkili WordPress hesabını sil"
+
+#: booknetic/app/Config.php:201
+msgid "Delete category"
+msgstr "Kategoriyi sil"
+
+#: booknetic/app/Config.php:204
+msgid "Delete extra"
+msgstr "Fazladan sil"
+
+#: booknetic/app/Backend/Base/view/index.php:32
+msgid "Deleted"
+msgstr "Sil"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:72
+msgid "Delimiter"
+msgstr "Sınırlayıcı"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:96
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:137
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:144
+msgid "Deposit"
+msgstr "Depozito"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:171
+#: booknetic/app/Backend/Services/ServiceObject.php:337
+msgid "Deposit can not exceed the price!"
+msgstr "Depozito fiyatı geçemez!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:163
+msgid "Deposit field is required!"
+msgstr "Depozito alanı zorunludur!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:167
+msgid "Deposit type field is required!"
+msgstr "Depozito türü alanı zorunludur!"
+
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:40
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:310
+msgid "Description"
+msgstr "Açıklama"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:159
+msgid "Design"
+msgstr "Dizayn"
+
+#: booknetic/app/Backend/Boostore/view/details.php:108
+msgid "Details"
+msgstr "Detaylar"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:111
+msgid "Determine total time required for the service. "
+msgstr "Hizmet için gereken toplam süreyi belirleyin. "
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:36
+#: booknetic/app/Frontend/view/signup/signup.php:50
+msgid "Didn't receive the email?"
+msgstr "E-postayı almadınız mı?"
+
+#: booknetic/app/Backend/Locations/Controller.php:25
+#: booknetic/app/Backend/Services/Controller.php:134
+#: booknetic/app/Backend/Staff/Controller.php:69
+#: booknetic/app/Backend/Workflow/Controller.php:40
+msgid "Disable"
+msgstr "Devre dışı bırak"
+
+#: booknetic/app/Config.php:274
+msgid "Disable deposit payments"
+msgstr "Depozito ödemelerini devre dışı bırak"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:63
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:49
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:121
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:135
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:30
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:30
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:39
+msgid "Disabled"
+msgstr "Kapalı"
+
+#: booknetic/app/Backend/Base/view/index.php:481
+msgid "Discord community"
+msgstr "Discord topluluğu"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:1158
+#: booknetic/app/Backend/Boostore/view/cart/index.php:88
+#: booknetic/app/Config.php:974 booknetic/app/Config.php:1292
+msgid "Discount"
+msgstr "İndirim"
+
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:56
+msgid "Display a company logo on the  Booking panel"
+msgstr "Rezervasyon panelinde bir şirket logosu görüntüleme"
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:110
+msgid "Do not leave the page."
+msgstr "Sayfadan ayrılmayın."
+
+#: booknetic/app/Backend/Settings/view/tabs/step_confirm.php:18
+msgid "Do not show the discount row if a discount is not added"
+msgstr "Bir indirim eklenmemişse indirim satırını gösterme"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:48
+#: booknetic/app/Backend/Workflow/view/modal/add_new_action.php:25
+msgid "Do This"
+msgstr "Bunu yap"
+
+#: booknetic/app/Backend/Workflow/view/edit.php:63
+msgid "Do this"
+msgstr "Bunu yap"
+
+#: booknetic/app/Backend/Base/view/index.php:503
+msgid "Documentation"
+msgstr "Belgeler"
+
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:66
+msgid "Domain"
+msgstr "Alan Adı"
+
+#: booknetic/app/Backend/Base/view/index.php:119
+msgid "Don't"
+msgstr "Hayır"
+
+#: booknetic/app/Frontend/view/signin/signin.php:26
+msgid "Don't have an account?"
+msgstr "Hesabınız yok mu?"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:156
+msgid "Don't show both phone number and emaill address"
+msgstr "Hem telefon numarasını hem de e-posta adresini gösterme"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:105
+msgid "Due"
+msgstr "Sebep"
+
+#: booknetic/app/Backend/Payments/Controller.php:89
+msgid "DUE AMOUNT"
+msgstr "VADESİ GEÇMİŞ TUTAR"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:333
+msgid "Duplicate Staff selected!"
+msgstr "Yinelenen Personel seçildi!"
+
+#: booknetic/app/Backend/Appointments/Controller.php:228
+#: booknetic/app/Backend/Services/Controller.php:157
+msgid "DURATION"
+msgstr "SÜRE"
+
+#: booknetic/app/Backend/Base/view/index.php:83
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:27
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:112
+msgid "Duration"
+msgstr "Süre"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:126
+msgid "Duration field must be greater than zero!"
+msgstr "Süre alanı sıfırdan büyük olmalıdır!"
+
+#: booknetic/app/Backend/Appointments/Controller.php:206
+#: booknetic/app/Backend/Appointments/view/tab/info_extras.php:29
+msgid "Duration:"
+msgstr "Süre:"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:77
+msgid "Durations"
+msgstr "Süreler"
+
+#: booknetic/app/Config.php:259
+msgid "Dynamic translations"
+msgstr "Dinamik çeviriler"
+
+#: booknetic/app/Backend/Appointments/view/modal/info.php:41
+#: booknetic/app/Backend/Payments/view/modal/info.php:125
+#: booknetic/app/Backend/Settings/Ajax.php:178
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:25
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:40
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:54
+msgid "EDIT"
+msgstr "DÜZENLE"
+
+#: booknetic/app/Backend/Appointments/Controller.php:128
+#: booknetic/app/Backend/Customers/Controller.php:33
+#: booknetic/app/Backend/Locations/Controller.php:29
+#: booknetic/app/Backend/Services/Controller.php:138
+#: booknetic/app/Backend/Staff/Controller.php:73
+#: booknetic/app/Backend/Workflow/Controller.php:82
+#: booknetic/app/Backend/Workflow/view/edit.php:56 booknetic/app/Config.php:162
+#: booknetic/app/Config.php:168 booknetic/app/Config.php:176
+#: booknetic/app/Config.php:184 booknetic/app/Config.php:188
+#: booknetic/app/Config.php:192 booknetic/app/Config.php:197
+#: booknetic/app/Config.php:207 booknetic/app/Config.php:215
+#: booknetic/app/Frontend/view/booking_panel/cart.php:26
+msgid "Edit"
+msgstr "Düzenle"
+
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:13
+msgid "Edit action"
+msgstr "Eylemi düzenle"
+
+#: booknetic/app/Backend/Appointments/view/modal/edit.php:20
+msgid "Edit Appointment"
+msgstr "Randevuyu Düzenle"
+
+#: booknetic/app/Config.php:200
+msgid "Edit category"
+msgstr "Kategoriyi düzenle"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_appointment_paid.php:12
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:11
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:14
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:16
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_created.php:12
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_signup.php:12
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:11
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:14
+msgid "Edit event settings"
+msgstr "Etkinlik ayarlarını düzenle"
+
+#: booknetic/app/Config.php:203
+msgid "Edit extra"
+msgstr "Ekstra düzenle"
+
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:20
+msgid "Edit Location"
+msgstr "Konumu Düzenle"
+
+#: booknetic/app/Backend/Base/view/index.php:72
+#: booknetic/app/Backend/Services/view/index.php:89
+msgid "EDIT ORDER"
+msgstr "SİPARİŞİ DÜZENLE"
+
+#: booknetic/app/Backend/Services/view/edit-order.php:33
+msgid "Edit order"
+msgstr "Siparişi düzenle"
+
+#: booknetic/app/Backend/Services/view/modal/add_new.php:24
+msgid "Edit Service"
+msgstr "Hizmeti Düzenle"
+
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:39
+msgid "Edit Staff"
+msgstr "Personeli Düzenle"
+
+#: booknetic/app/Backend/Base/view/modal/translations.php:26
+msgid "Edit translation"
+msgstr "Çeviriyi düzenle"
+
+#: booknetic/app/Backend/Workflow/view/edit.php:24
+msgid "Edit workflow"
+msgstr "İş akışını düzenle"
+
+#: booknetic/app/Backend/Staff/Controller.php:96
+msgid "EMAIL"
+msgstr "E-Posta"
+
+#: booknetic/app/Backend/Base/view/install.php:31
+#: booknetic/app/Backend/Customers/Controller.php:46
+#: booknetic/app/Backend/Customers/view/modal/import.php:49
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:40
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:27
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:259
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:59
+#: booknetic/app/Backend/Staff/view/tab/details.php:28
+#: booknetic/app/Frontend/view/booking_panel/information.php:27
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:14
+#: booknetic/app/Frontend/view/signup/signup.php:24
+msgid "Email"
+msgstr "E-posta"
+
+#: booknetic/app/Frontend/Controller/SigninAjax.php:25
+msgid "Email or password is incorrect!"
+msgstr "E-posta veya şifre yanlış!"
+
+#: booknetic/app/Backend/Locations/Controller.php:22
+#: booknetic/app/Backend/Services/Controller.php:131
+#: booknetic/app/Backend/Staff/Controller.php:66
+#: booknetic/app/Backend/Workflow/Controller.php:36
+msgid "Enable"
+msgstr "Etkinleştir"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:162
+msgid "Enable Any staff option"
+msgstr "Herhangi bir personel seçeneğini etkinleştirin"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:81
+msgid "Enable Deposit"
+msgstr "Para Yatırmayı Etkinleştir"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:304
+msgid "Enable the \"Bring people with you\" option"
+msgstr "\"İnsanları yanınıza alın\" seçeneğini etkinleştirin"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:122
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:34
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:34
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:58
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:72
+msgid "Enabled"
+msgstr "Etkin"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:342
+#: booknetic/app/Backend/Settings/Ajax.php:164
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:52
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:109
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:188
+msgid "End date"
+msgstr "Bitiş tarihi"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:44
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:140
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:80
+#: booknetic/app/Backend/Staff/view/tab/special_days.php:46
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:42
+msgid "End time"
+msgstr "Bitiş zamanı"
+
+#: booknetic/app/Backend/Base/view/disabled.php:26
+msgid "Enter the purchase key"
+msgstr "Satın alma anahtarını girin"
+
+#: booknetic/app/Backend/Settings/Controller.php:81
+msgid "Enter your company name, logo, address, phone number, website from here"
+msgstr ""
+"Buradan şirket adınızı, logonuzu, adresinizi, telefon numaranızı, web "
+"sitenizi girin"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:472
+#: booknetic/app/Frontend/view/booking_panel/cart.php:80
+#: booknetic/app/Providers/Router/Route.php:23
+msgid "Error"
+msgstr "Hata"
+
+#: booknetic/app/Backend/Settings/Ajax.php:334
+#: booknetic/app/Backend/Settings/Ajax.php:368
+msgid "Error updating user: "
+msgstr "Kullanıcı güncellenirken hata oluştu: "
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:735
+msgid ""
+"Error! Full period is wrong on Service options! Please edit your service "
+"info!"
+msgstr ""
+"Hata! Servis seçeneklerinde tam süre yanlış! Lütfen servis bilgilerinizi "
+"düzenleyin!"
+
+#: booknetic/app/Providers/Core/Backend.php:180
+#: booknetic/app/Providers/Core/Backend.php:335
+msgid "Error! Migration files not found."
+msgstr "Hata! Geçiş dosyaları bulunamadı."
+
+#: booknetic/app/Backend/Workflow/Controller.php:56
+msgid "EVENT"
+msgstr "etkinlik"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:133
+msgid "event"
+msgstr "etkinlik"
+
+#: booknetic/app/Backend/Workflow/Controller.php:75
+msgid "Event Type"
+msgstr "Etkinlik Türü"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:243
+#: booknetic/app/Backend/Settings/Ajax.php:160
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:19
+msgid "Every"
+msgstr "Her"
+
+#: booknetic/app/Backend/Base/view/index.php:65
+msgid "Every n day(s)"
+msgstr "Her gün(ler)"
+
+#: booknetic/app/Providers/Core/Frontend.php:156
+msgid "Expired token. Redirecting..."
+msgstr "Süresi dolmuş jeton. Yönlendiriliyor..."
+
+#: booknetic/app/Config.php:178
+msgid "Export & Import"
+msgstr "İçe Dışa Aktar"
+
+#: booknetic/app/Backend/Settings/Controller.php:128
+#: booknetic/app/Backend/Settings/view/modal/backup_settings.php:18
+#: booknetic/app/Config.php:230
+msgid "Export & Import data"
+msgstr "Verileri dışa aktar ve içe aktar"
+
+#: booknetic/app/Backend/Settings/view/modal/backup_settings.php:14
+msgid "EXPORT DATA"
+msgstr "VERİLERİ DIŞA AKTAR"
+
+#: booknetic/app/Backend/Base/view/data_table.php:19
+msgid "EXPORT TO CSV"
+msgstr "CSV'YE AKTAR"
+
+#: booknetic/app/Backend/Settings/Helpers/BackupService.php:124
+msgid "Exported data from older versions are incompatible with this version!"
+msgstr "Eski sürümlerden dışa aktarılan veriler bu sürümle uyumlu değildir!"
+
+#: booknetic/app/Backend/Services/Ajax.php:780
+msgid "Extra category not found."
+msgstr "Ekstra kategori bulunamadı."
+
+#: booknetic/app/Config.php:1293
+msgid "Extra Service price"
+msgstr "Ekstra Hizmet bedeli"
+
+#: booknetic/app/Backend/Services/Ajax.php:104
+msgid "EXTRAS"
+msgstr "EKLER"
+
+#: booknetic/app/Backend/Appointments/Ajax.php:48
+#: booknetic/app/Backend/Appointments/Ajax.php:146
+#: booknetic/app/Backend/Appointments/Ajax.php:229
+msgid "Extras"
+msgstr "Ekler"
+
+#: booknetic/app/Backend/Settings/Ajax.php:156
+#: booknetic/app/Frontend/view/booking_panel/extras.php:15
+msgid ""
+"Extras not found in this service. You can select other service or click the "
+"<span class=\"booknetic_text_primary\">\"Next step\"</span> button."
+msgstr ""
+"Bu hizmetde ek hizmet mevcut değil. Başka bir hizmet seçebilir ve ya <span "
+"class=\"booknetic_text_primary\">\"İLERİ\"</span> yapabilirsiniz."
+
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:20
+msgid "Facebook API / Continue with Facebook button"
+msgstr "Facebook API / Facebook düğmesi ile devam et"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:117
+msgid "Failed payment booking status"
+msgstr "Başarısız ödeme rezervasyon durumu"
+
+#: booknetic/app/Backend/Base/view/index.php:509
+msgid "FAQ"
+msgstr "SSS"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:15
+msgid "Feb"
+msgstr "Şubat"
+
+#: booknetic/app/Backend/Base/view/index.php:92
+#: booknetic/app/Backend/Settings/Ajax.php:53
+#: booknetic/app/Backend/Settings/Ajax.php:101
+#: booknetic/app/Providers/Core/BookingPanelService.php:271
+#: booknetic/app/Providers/Core/Frontend.php:336
+msgid "February"
+msgstr "Şubat"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:112
+msgid "Female"
+msgstr "Kadın"
+
+#: booknetic/app/Backend/Settings/Ajax.php:151
+msgid "File extension is not allowed!"
+msgstr "Dosya formatına izin verilmiyor!"
+
+#: booknetic/app/Providers/Core/Frontend.php:504
+msgid "Fill information"
+msgstr "Bilgileri doldurun"
+
+#: booknetic/app/Backend/Base/view/index.php:40
+msgid "Fill the form correctly!"
+msgstr "Formu doğru doldurun!"
+
+#: booknetic/app/Backend/Appointments/Controller.php:111
+msgid "Filter"
+msgstr "Filtre"
+
+#: booknetic/app/Backend/Base/view/index.php:134
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:65
+msgid "Finish"
+msgstr "Bitiş"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:135
+msgid "FINISH BOOKING"
+msgstr "TAMAMLA"
+
+#: booknetic/app/Backend/Appointments/Controller.php:121
+msgid "Finished"
+msgstr "Bitmiş"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:269
+#: booknetic/app/Backend/Settings/Ajax.php:170
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:28
+msgid "First"
+msgstr "İlk"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:41
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:29
+msgid "First Name"
+msgstr "İlk İsim"
+
+#: booknetic/app/Backend/Customers/Controller.php:44
+#: booknetic/app/Frontend/view/signup/signup.php:15
+msgid "First name"
+msgstr "İlk isim"
+
+#: booknetic/app/Backend/Services/Ajax.php:786
+#| msgid "Firstly delete sub services."
+msgid "Firstly delete extra services."
+msgstr "Öncelikle alt hizmetleri silin."
+
+#: booknetic/app/Backend/Services/Ajax.php:273
+msgid "Firstly remove sub categories!"
+msgstr "Öncelikle alt kategorileri kaldırın!"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:263
+msgid "Fixed frequency"
+msgstr "Sabit Zaman"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:240
+msgid "Fixed full period"
+msgstr "Sabit tam dönem"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:119
+msgid "Flexible Timeslots"
+msgstr "Esnek Zaman Dilimleri"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:56
+msgid "Font family"
+msgstr "Yazı tipi ailesi"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:151
+msgid "Footer text per staff"
+msgstr "Personel başına altbilgi metni"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:129
+msgid ""
+"For the 'Change appointment status via the link' feature, you have the "
+"option to set the expiration rule for the link. There are two available "
+"options:\n"
+"                                After Link Created: With this rule, the link "
+"will expire after it has been generated. Once the link is created, it can "
+"only be used to change the status of the appointment until a certain period "
+"of time, as specified by your settings.\n"
+"                                Before Appointment Date: This rule allows "
+"the link to remain active until a specific time before the scheduled "
+"appointment. It provides flexibility for customers to change the status of "
+"their appointment within a designated timeframe leading up to the "
+"appointment date.\n"
+"                                You can choose the most suitable expiration "
+"rule based on your preferences and requirements."
+msgstr ""
+"'Bağlantı yoluyla randevu durumunu değiştir' özelliği için bağlantının sona "
+"erme kuralını belirleme seçeneğiniz vardır. Kullanılabilir iki seçenek "
+"vardır:\n"
+"                                Bağlantı Oluşturulduktan Sonra: Bu kuralla, "
+"bağlantı oluşturulduktan sonra geçerliliği sona erer. Bağlantı "
+"oluşturulduktan sonra, yalnızca ayarlarınızda belirtilen belirli bir süreye "
+"kadar randevunun durumunu değiştirmek için kullanılabilir.\n"
+"                                Randevu Tarihinden Önce: Bu kural, "
+"bağlantının planlanan randevudan belirli bir süre öncesine kadar aktif "
+"kalmasını sağlar. Müşterilere, randevu tarihine kadar belirlenen bir zaman "
+"dilimi içinde randevularının durumunu değiştirme esnekliği sağlar.\n"
+"                                Tercihlerinize ve gereksinimlerinize göre en "
+"uygun son kullanma kuralını seçebilirsiniz."
+
+#: booknetic/app/Backend/Base/view/index.php:572
+msgid "For Us: Your feedback helps us refine and enhance the plugin."
+msgstr ""
+"Bizim için: Geri bildirimleriniz eklentiyi iyileştirmemize ve geliştirmemize "
+"yardımcı olur."
+
+#: booknetic/app/Backend/Base/view/index.php:571
+msgid "For You: Get early access to new features and enhancements."
+msgstr "Sizin için: Yeni özelliklere ve geliştirmelere erken erişim elde edin."
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:11
+msgid "Forgot Password"
+msgstr "Şifremi Unuttum"
+
+#: booknetic/app/Frontend/view/signin/signin.php:21
+msgid "Forgot password?"
+msgstr "Şifremi Unuttum?"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:272
+#: booknetic/app/Backend/Settings/Ajax.php:173
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:31
+msgid "Fourth"
+msgstr "Dördüncü"
+
+#: booknetic/app/Backend/Boostore/view/details.php:50
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:45
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:54
+msgid "Free"
+msgstr "Ücretsiz"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:113
+#: booknetic/app/Backend/Base/view/index.php:109
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:79
+#: booknetic/app/Backend/Settings/Ajax.php:118
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:48
+#: booknetic/app/Providers/Core/BookingPanelService.php:288
+#: booknetic/app/Providers/Core/Frontend.php:353
+msgid "Fri"
+msgstr "Cu"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:190
+#: booknetic/app/Backend/Appointments/view/tab/details.php:283
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:126
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:44
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:133
+msgid "Friday"
+msgstr "Cuma"
+
+#: booknetic/app/Backend/Base/view/index.php:53
+msgid "From"
+msgstr "Kimden"
+
+#: booknetic/app/Backend/Settings/Controller.php:30
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:27
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:85
+msgid "Front-end panels"
+msgstr "Ön uç paneller"
+
+#: booknetic/app/Backend/Workflow/EventsAjax.php:83
+#: booknetic/app/Backend/Workflow/EventsAjax.php:147
+#: booknetic/app/Backend/Workflow/EventsAjax.php:213
+msgid "Frontend"
+msgstr "Tasarım"
+
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:146
+msgid "Full amount"
+msgstr "Miktar"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:29
+#: booknetic/app/Backend/Staff/view/tab/details.php:16
+#: booknetic/app/Frontend/view/booking_panel/information.php:48
+msgid "Full Name"
+msgstr "Ad Soyad"
+
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:54
+msgid "Full name"
+msgstr "Tam adınız"
+
+#: booknetic/app/Backend/Customers/Controller.php:51
+msgid "GENDER"
+msgstr "CİNSİYET"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:57
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:109
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:110
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:41
+msgid "Gender"
+msgstr "Cinsiyet"
+
+#: booknetic/app/Backend/Settings/Controller.php:25
+#: booknetic/app/Backend/Settings/Controller.php:65
+msgid "General"
+msgstr "Genel"
+
+#: booknetic/app/Backend/Settings/Controller.php:18
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:20
+#: booknetic/app/Config.php:219 booknetic/app/Config.php:261
+msgid "General settings"
+msgstr "Genel ayarlar"
+
+#: booknetic/app/Backend/Base/view/index.php:498
+msgid "Get informed"
+msgstr "Bilgi alın"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:60
+msgid "Get more workflow actions from Boostore"
+msgstr "Booknetic 'den daha fazla iş akışı eylemi alın"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:24
+msgid "GO BACK"
+msgstr "GERİ DÖN"
+
+#: booknetic/app/Backend/Services/view/index.php:91
+msgid "Go to center"
+msgstr "Merkeze git"
+
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:20
+msgid "Google API / Continue with Google button"
+msgstr "Google API / Google düğmesi ile devam edin"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:113
+msgid "Google Maps API Key"
+msgstr "Google Haritalar API Anahtarı"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:128
+msgid "Graph"
+msgstr "Grafik"
+
+#: booknetic/app/Backend/Base/view/index.php:114
+msgid "Graphic view"
+msgstr "Grafik görünümü"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:294
+msgid "Group"
+msgstr "Grup"
+
+#: booknetic/app/Backend/Base/view/index.php:45
+msgid "Group appointment"
+msgstr "Grup randevusu"
+
+#: booknetic/app/Backend/Settings/Ajax.php:182
+#: booknetic/app/Providers/Helpers/Helper.php:46
+msgid "h"
+msgstr "s"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:175
+#: booknetic/app/Backend/Appearance/view/index.php:53
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:34
+msgid "Have any questions?"
+msgstr "Bir sorunuz mu var?"
+
+#: booknetic/app/Backend/Base/view/index.php:643
+#, php-format
+msgid "Hello %s"
+msgstr "Merhaba %s"
+
+#: booknetic/app/Backend/Services/view/modal/add_new.php:63
+msgid "Hex"
+msgstr "Büyü"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:357
+msgid "Hide a confirmation number"
+msgstr "Onay numarasını gizle"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:126
+msgid "Hide address of Location"
+msgstr "Konum adresini Gizle"
+
+#: booknetic/app/Backend/Base/view/index.php:82
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:195
+msgid "Hide duration in booking panel:"
+msgstr "Rezervasyon panelinde süreyi gizle:"
+
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:49
+msgid "HIDE LOCATION"
+msgstr "KONUMU GİZLE"
+
+#: booknetic/app/Backend/Settings/view/tabs/step_confirm.php:8
+msgid "Hide payment methods section"
+msgstr "Ödeme yöntemleri bölümünü gizle"
+
+#: booknetic/app/Backend/Base/view/index.php:81
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:184
+msgid "Hide price in booking panel:"
+msgstr "Rezervasyon panelinde fiyatı gizle:"
+
+#: booknetic/app/Backend/Settings/view/tabs/step_confirm.php:28
+msgid "Hide price section"
+msgstr "Fiyat bölümünü gizle"
+
+#: booknetic/app/Backend/Services/view/modal/add_new.php:53
+msgid "HIDE SERVICE"
+msgstr "HİZMETİ GİZLE"
+
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:70
+msgid "HIDE STAFF"
+msgstr "PERSONELİ GİZLE"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:123
+msgid "Hide steps"
+msgstr "Gizle"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:327
+msgid "Hide the \"ADD TO GOOGLE CALENDAR\" button"
+msgstr "\"GOOGLE TAKVİM'E EKLE\" düğmesini gizleyin"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:337
+msgid "Hide the \"ADD TO iCAL CALENDAR\" button"
+msgstr "\"TAKVİMİNE EKLE\" düğmesini gizle"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:347
+msgid "Hide the \"START NEW BOOKING\" button"
+msgstr "\"YENİ REZERVASYON Başlat\" düğmesini gizle"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:242
+msgid "Hide the number of available slots"
+msgstr "Kullanılabilir yuva sayısını gizle"
+
+#: booknetic/app/Backend/Boostore/view/index.php:55
+msgid "Highest price"
+msgstr "En yüksek fiyat"
+
+#: booknetic/app/Backend/Staff/Ajax.php:106
+msgid "HOLIDAYS"
+msgstr "TATİL"
+
+#: booknetic/app/Backend/Settings/Controller.php:98
+#: booknetic/app/Backend/Settings/view/modal/holidays_settings.php:18
+#: booknetic/app/Config.php:227 booknetic/app/Config.php:269
+msgid "Holidays"
+msgstr "Tatil"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:32
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:29
+msgid "Hour"
+msgstr "Saat"
+
+#: booknetic/app/Providers/Helpers/Helper.php:86
+msgid "hour"
+msgstr "saat"
+
+#: booknetic/app/Providers/Helpers/Helper.php:86
+msgid "hours"
+msgstr "saatler"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:82
+msgid "How long to wait for payment"
+msgstr "Ödeme için beklenicek süre"
+
+#: booknetic/app/Backend/Appointments/Controller.php:144
+#: booknetic/app/Backend/Customers/Controller.php:38
+#: booknetic/app/Backend/Locations/Controller.php:40
+#: booknetic/app/Backend/Payments/Controller.php:60
+#: booknetic/app/Backend/Services/Controller.php:151
+#: booknetic/app/Backend/Staff/Controller.php:93
+#: booknetic/app/Backend/Workflow/Controller.php:54
+msgid "ID"
+msgstr "KİMLİK"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:255
+msgid "Identify Customer by"
+msgstr "Müşteriyi şu şekilde tanımlayın"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:190
+msgid "If a Service does not have an extra skip the step"
+msgstr "Bir Hizmette fazladan yoksa adımı atlayın"
+
+#: booknetic/app/Backend/Settings/view/tabs/step_confirm.php:53
+msgid "If you turn this setting on, finish page will not be shown."
+msgstr "If you turn this setting on, finish page will not be shown."
+
+#: booknetic/app/Frontend/Controller/AjaxHelper.php:98
+msgid "Illegal version of Booknetic detected."
+msgstr "Booknetic 'ın yasa dışı sürümü tespit edildi."
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:101
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:18
+#: booknetic/app/Backend/Staff/view/tab/details.php:96
+msgid "Image"
+msgstr "Görüntü"
+
+#: booknetic/app/Backend/Base/view/data_table.php:24
+#: booknetic/app/Backend/Customers/view/modal/import.php:87
+msgid "IMPORT"
+msgstr "İÇE AKTAR"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:15
+msgid "Import"
+msgstr "İçe Aktar"
+
+#: booknetic/app/Backend/Settings/view/modal/backup_settings.php:27
+msgid "IMPORT DATA"
+msgstr "VERİLERİ İÇE AKTAR"
+
+#: booknetic/app/Backend/Base/view/index.php:580
+msgid "Important Note:"
+msgstr "Önemli Not:"
+
+#: booknetic/app/Backend/Calendar/Ajax.php:128
+msgid "Incorrect Date and Time"
+msgstr "Yanlış Tarih ve Saat"
+
+#: booknetic/app/Backend/Appointments/Controller.php:127
+#: booknetic/app/Backend/Customers/Controller.php:32
+#: booknetic/app/Backend/Payments/Controller.php:35
+msgid "Info"
+msgstr "Bilgi"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:171
+#: booknetic/app/Backend/Appearance/view/index.php:49
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:41
+#: booknetic/app/Frontend/view/booking_panel/information.php:59
+#: booknetic/app/Providers/Core/Frontend.php:503
+msgid "Information"
+msgstr "Bilgi"
+
+#: booknetic/app/Backend/Base/view/install.php:52
+#: booknetic/app/Backend/Boostore/view/details.php:68
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:64
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:75
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:81
+msgid "INSTALL"
+msgstr "YÜKLE"
+
+#: booknetic/app/Backend/Base/view/install.php:53
+msgid "Install process can take 30-60 sec., please wait..."
+msgstr "Yükleme işlemi 30-60 saniye sürebilir, lütfen bekleyin..."
+
+#: booknetic/app/Backend/Boostore/Ajax.php:225
+msgid "Installed successfully!"
+msgstr "Başarıyla yüklendi!"
+
+#: booknetic/app/Backend/Base/view/install.php:14
+msgid "Installing..."
+msgstr "Yükler..."
+
+#: booknetic/app/Backend/Settings/Controller.php:105
+msgid "Integrations settings"
+msgstr "Entegrasyon ayarları"
+
+#: booknetic/app/Backend/Settings/Ajax.php:546
+msgid "Invalid appointment status"
+msgstr "Geçersiz randevu durumu"
+
+#: booknetic/app/Backend/Customers/Ajax.php:207
+#: booknetic/app/Backend/Customers/Ajax.php:212
+msgid "Invalid Wordpress User ID provided!"
+msgstr "Geçersiz Booknetic Kimliği sağlandı!"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:14
+msgid "Jan"
+msgstr "Ocak"
+
+#: booknetic/app/Backend/Base/view/index.php:91
+#: booknetic/app/Backend/Settings/Ajax.php:52
+#: booknetic/app/Backend/Settings/Ajax.php:100
+#: booknetic/app/Providers/Core/BookingPanelService.php:270
+#: booknetic/app/Providers/Core/Frontend.php:335
+msgid "January"
+msgstr "Ocak"
+
+#: booknetic/app/Backend/Base/view/index.php:521
+#: booknetic/app/Backend/Base/view/index.php:526
+msgid "Join beta"
+msgstr "Betaya katılın"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:20
+msgid "Jul"
+msgstr "Tem"
+
+#: booknetic/app/Backend/Base/view/index.php:97
+#: booknetic/app/Backend/Settings/Ajax.php:58
+#: booknetic/app/Backend/Settings/Ajax.php:106
+#: booknetic/app/Providers/Core/BookingPanelService.php:276
+#: booknetic/app/Providers/Core/Frontend.php:341
+msgid "July"
+msgstr "Temmuz"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:19
+msgid "Jun"
+msgstr "Haz"
+
+#: booknetic/app/Backend/Base/view/index.php:96
+#: booknetic/app/Backend/Settings/Ajax.php:57
+#: booknetic/app/Backend/Settings/Ajax.php:105
+#: booknetic/app/Providers/Core/BookingPanelService.php:275
+#: booknetic/app/Providers/Core/Frontend.php:340
+msgid "June"
+msgstr "Haziran"
+
+#: booknetic/app/Backend/Base/view/index.php:115
+msgid "Keywords"
+msgstr "Anahtar kelimeler"
+
+#: booknetic/app/Backend/Settings/view/modal/payment_gateways_settings.php:66
+#: booknetic/app/Providers/Common/Divi/includes/modules/ChangeStatus/ChangeStatus.php:25
+msgid "Label"
+msgstr "Etiket"
+
+#: booknetic/app/Backend/Settings/Controller.php:48
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:28
+#: booknetic/app/Config.php:221 booknetic/app/Config.php:263
+msgid "Labels"
+msgstr "Etiketliler"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:273
+#: booknetic/app/Backend/Settings/Ajax.php:174
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:32
+msgid "Last"
+msgstr "Son"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:132
+msgid "Last 1 year"
+msgstr "Son 1 yıl"
+
+#: booknetic/app/Backend/Customers/Controller.php:49
+msgid "LAST APPOINTMENT"
+msgstr "SON RANDEVU"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:45
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:33
+msgid "Last Name"
+msgstr "Soyadı"
+
+#: booknetic/app/Backend/Customers/Controller.php:45
+#: booknetic/app/Frontend/view/signup/signup.php:19
+msgid "Last name"
+msgstr "Soyadı"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:51
+msgid "Last week"
+msgstr "Geçen hafta"
+
+#: booknetic/app/Backend/Boostore/view/details.php:127
+msgid "Latest version"
+msgstr "En son sürüm"
+
+#: booknetic/app/Backend/Boostore/view/details.php:134
+#, php-format
+msgid "Latest version %s requires minimum Booknetic %s."
+msgstr "En son  %s  sürümü için minimum  %s  Booknetic gerekir."
+
+#: booknetic/app/Backend/Boostore/view/details.php:144
+msgid "Latest version is compatible with your Booknetic version."
+msgstr "En son sürüm, Booknetic sürümünüzle uyumludur."
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:173
+msgid "Least assigned by the day"
+msgstr "Güne göre en az atanan"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:177
+msgid "Least assigned by the month"
+msgstr "Aya göre en az atanan"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:175
+msgid "Least assigned by the week"
+msgstr "En az haftaya göre atanır"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:180
+msgid "Least expensive"
+msgstr "En ucuz"
+
+#: booknetic/app/Backend/Base/view/index.php:531
+#: booknetic/app/Backend/Base/view/index.php:536
+msgid "Leave beta"
+msgstr "Betadan ayrılın"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:80
+msgid ""
+"Let customers make an appointment by paying the particular part of the amount"
+msgstr ""
+"Tutarın belirli bir kısmını ödeyerek müşterilerin randevu almasına izin verin"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:73
+msgid "Limited Booking Days"
+msgstr "Sınırlı Rezervasyon Günleri"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:56
+msgid "Limited booking days"
+msgstr "Sınırlı rezervasyon günleri"
+
+#: booknetic/app/Backend/Settings/Ajax.php:542
+msgid "Limited booking days cannot be lower than 0 days."
+msgstr "Sınırlı rezervasyon günleri 0 günden az olamaz."
+
+#: booknetic/app/Backend/Base/view/index.php:27
+#: booknetic/app/Backend/Locations/Controller.php:54
+#: booknetic/app/Backend/Services/Controller.php:164
+#: booknetic/app/Backend/Staff/Controller.php:105
+msgid "Link copied!"
+msgstr "Bağlantı kopyalandı!"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:128
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:37
+msgid "Link expire"
+msgstr "Bağlantının süresi"
+
+#: booknetic/app/Config.php:1250
+msgid "Link to change appointment status to"
+msgstr "Randevu durumunu değiştirmek için bağlantı"
+
+#: booknetic/app/Backend/Calendar/view/index.php:175
+msgid "list"
+msgstr "liste"
+
+#: booknetic/app/Config.php:969
+msgid "List of extra services"
+msgstr "Ekstra hizmetlerin listesi"
+
+#: booknetic/app/Backend/Services/view/index.php:90
+msgid "LIST VIEW"
+msgstr "LİSTE GÖRÜNÜMÜ"
+
+#: booknetic/app/Backend/Base/view/disabled.php:10
+#: booknetic/app/Backend/Base/view/index.php:49
+#: booknetic/app/Providers/Core/Frontend.php:384
+#: booknetic/app/Providers/Core/Frontend.php:395
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: booknetic/app/Backend/Settings/Ajax.php:90 booknetic/app/Config.php:1283
+#: booknetic/app/Providers/Common/LocalPayment.php:18
+msgid "Local"
+msgstr "Nakit ödeme"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_appointment_paid.php:21
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:75
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:98
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:107
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_created.php:21
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_signup.php:21
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:90
+msgid "Locale filter"
+msgstr "Yerel ayar filtresi"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:166
+#: booknetic/app/Backend/Appearance/view/index.php:44
+#: booknetic/app/Backend/Appointments/view/tab/details.php:58
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:82
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:16
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:54
+#: booknetic/app/Backend/Calendar/view/index.php:76
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:447
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:17
+#: booknetic/app/Frontend/view/booking_panel/cart.php:45
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:42
+#: booknetic/app/Providers/Core/Frontend.php:489
+msgid "Location"
+msgstr "Konum"
+
+#: booknetic/app/Config.php:1186
+msgid "Location address"
+msgstr "Konum adresi"
+
+#: booknetic/app/Backend/Locations/Ajax.php:55
+msgid "Location Details"
+msgstr "Konum Bilgileri"
+
+#: booknetic/app/Config.php:1207
+msgid "Location Google Maps URL"
+msgstr "Konum Google Haritalar URL'si"
+
+#: booknetic/app/Config.php:1191
+msgid "Location image URL"
+msgstr "Konum resmi URL'si"
+
+#: booknetic/app/Config.php:849
+msgid "Location Info"
+msgstr "Konum Bilgisi"
+
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:12
+msgid "Location Name"
+msgstr "Konum Adı"
+
+#: booknetic/app/Config.php:1181
+msgid "Location name"
+msgstr "Konum adı"
+
+#: booknetic/app/Config.php:1202
+msgid "Location notes"
+msgstr "Konum notları"
+
+#: booknetic/app/Config.php:1196
+msgid "Location phone"
+msgstr "Konum telefon"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:37
+msgid "Location:"
+msgstr "Konum:"
+
+#: booknetic/app/Backend/Locations/Controller.php:34
+#: booknetic/app/Backend/Staff/view/tab/details.php:105
+#: booknetic/app/Config.php:419
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPanel/BookingPanel.php:69
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:74
+msgid "Locations"
+msgstr "Konumlar"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:21
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:56
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:53
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:21
+msgid "Locations filter"
+msgstr "Konum filtresi"
+
+#: booknetic/app/Config.php:182 booknetic/app/Config.php:254
+msgid "Locations module"
+msgstr "Konum modülü"
+
+#: booknetic/app/Backend/Base/view/index.php:659
+msgid "Log out"
+msgstr "Çıkış yap"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:196
+#: booknetic/app/Backend/Appearance/view/edit.php:209
+#: booknetic/app/Backend/Appearance/view/edit.php:222
+#: booknetic/app/Backend/Appearance/view/index.php:74
+#: booknetic/app/Backend/Appearance/view/index.php:87
+#: booknetic/app/Backend/Appearance/view/index.php:100
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+
+#: booknetic/app/Backend/Boostore/view/index.php:55
+msgid "Lowest price"
+msgstr "En düşük fiyat"
+
+#: booknetic/app/Backend/Settings/Ajax.php:183
+#: booknetic/app/Providers/Helpers/Helper.php:47
+msgid "m"
+msgstr "d"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:111
+msgid "Male"
+msgstr "Erkek"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:16
+msgid "Mar"
+msgstr "Mart"
+
+#: booknetic/app/Backend/Base/view/index.php:93
+#: booknetic/app/Backend/Settings/Ajax.php:54
+#: booknetic/app/Backend/Settings/Ajax.php:102
+#: booknetic/app/Providers/Core/BookingPanelService.php:272
+#: booknetic/app/Providers/Core/Frontend.php:337
+msgid "March"
+msgstr "Mart"
+
+#: booknetic/app/Backend/Base/view/index.php:350
+msgid "Mark all as read"
+msgstr "Hepsini okundu olarak işaretle"
+
+#: booknetic/app/Backend/Appointments/view/modal/service_extras.php:31
+msgid "max quantity"
+msgstr "maksimum miktar"
+
+#: booknetic/app/Backend/Services/Ajax.php:393
+msgid "Max quantity can not be less than Min quantity!"
+msgstr "Maksimum miktar Minimum miktardan az olamaz!"
+
+#: booknetic/app/Backend/Services/Ajax.php:389
+msgid "Max quantity can not be zero!"
+msgstr "Maksimum miktar sıfır olamaz!"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:299
+msgid "Max. capacity"
+msgstr "Maks. kapasite"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:39
+msgid "Max. qty"
+msgstr "Maks. adet"
+
+#: booknetic/app/Backend/Base/view/index.php:78
+msgid "Max. quantity"
+msgstr "Maks. miktar"
+
+#: booknetic/app/Backend/Settings/Ajax.php:150
+#, php-format
+msgid "Maximum length of \"%s\" field is %d!"
+msgstr "Maximum length of \"%s\" field is %d!"
+
+#: booknetic/app/Backend/Base/view/index.php:95
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:18
+#: booknetic/app/Backend/Settings/Ajax.php:56
+#: booknetic/app/Backend/Settings/Ajax.php:104
+#: booknetic/app/Providers/Core/BookingPanelService.php:274
+#: booknetic/app/Providers/Core/Frontend.php:339
+msgid "May"
+msgstr "Mayıs"
+
+#: booknetic/app/Backend/Payments/Controller.php:80
+#: booknetic/app/Backend/Payments/view/modal/info.php:64
+msgid "METHOD"
+msgstr "YÖNTEM"
+
+#: booknetic/app/Backend/Appointments/view/modal/service_extras.php:30
+msgid "min quantity"
+msgstr "minimum miktar"
+
+#: booknetic/app/Backend/Services/Ajax.php:385
+msgid "Min quantity can not be less than zero!"
+msgstr "Minimum miktar sıfırdan az olamaz!"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:35
+msgid "Min. qty"
+msgstr "Min. adet"
+
+#: booknetic/app/Backend/Base/view/index.php:77
+msgid "Min. quantity"
+msgstr "Min. miktar"
+
+#: booknetic/app/Backend/Settings/Ajax.php:149
+#, php-format
+msgid "Minimum length of \"%s\" field is %d!"
+msgstr "Minimum length of \"%s\" field is %d!"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:55
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:44
+msgid "Minimum time requirement prior to booking"
+msgstr "Rezervasyondan önce minimum süre gereksinimi"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:31
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:28
+msgid "Minute"
+msgstr "Dakika"
+
+#: booknetic/app/Providers/Helpers/Helper.php:87
+msgid "minute"
+msgstr "dakika"
+
+#: booknetic/app/Providers/Helpers/Helper.php:87
+msgid "minutes"
+msgstr "dakika"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:93
+#: booknetic/app/Backend/Base/view/index.php:105
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:75
+#: booknetic/app/Backend/Settings/Ajax.php:114
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:28
+#: booknetic/app/Providers/Core/BookingPanelService.php:284
+#: booknetic/app/Providers/Core/Frontend.php:349
+msgid "Mon"
+msgstr "Pzrts"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:130
+#: booknetic/app/Backend/Appointments/view/tab/details.php:279
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:122
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:66
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:40
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:73
+msgid "Monday"
+msgstr "Pazartesi"
+
+#: booknetic/app/Backend/Calendar/view/index.php:172
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:248
+msgid "month"
+msgstr "ay"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:228
+msgid "Monthly"
+msgstr "Aylık"
+
+#: booknetic/app/Backend/Calendar/view/index.php:177
+msgid "more"
+msgstr "fazla"
+
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:86
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:107
+msgid "More details"
+msgstr "Daha fazla detay"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:174
+msgid "Most assigned by the day"
+msgstr "Gündüzün en çok atanan"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:178
+msgid "Most assigned by the month"
+msgstr "En çok aya göre atanır"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:176
+msgid "Most assigned by the week"
+msgstr "En çok haftaya göre atanır"
+
+#: booknetic/app/Backend/Boostore/view/index.php:56
+msgid "Most customer review"
+msgstr "Çoğu müşteri incelemesi"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:179
+msgid "Most expensive"
+msgstr "En pahalı"
+
+#: booknetic/app/Backend/Boostore/view/index.php:56
+msgid "Most installed"
+msgstr "En yüklü"
+
+#: booknetic/app/Backend/Boostore/view/index.php:55
+msgid "Most relevant"
+msgstr "En alakalı"
+
+#: booknetic/app/Backend/Base/view/index.php:653
+msgid "My profile"
+msgstr "Benim profilim"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:28
+#: booknetic/app/Backend/Boostore/view/index.php:27
+msgid "MY PURCHASES"
+msgstr "SATIN ALIMLARIM"
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:22
+msgid "My purchases"
+msgstr "Satın alımlarım"
+
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:28
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:35
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:42
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:49
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:56
+msgid "N/A"
+msgstr "N/A"
+
+#: booknetic/app/Backend/Locations/Controller.php:42
+#: booknetic/app/Backend/Services/Controller.php:152
+#: booknetic/app/Backend/Workflow/Controller.php:55
+msgid "NAME"
+msgstr "İSİM"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:48
+msgid "Name"
+msgstr "İsim"
+
+#: booknetic/app/Backend/Appointments/view/tab/info_extras.php:25
+msgid "Name:"
+msgstr "İsim:"
+
+#: booknetic/app/Backend/Base/view/data_table.php:239
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:145
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:162
+msgid "Need Help?"
+msgstr "Yardıma mı ihtiyacınız var?"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:164
+msgid "Need multiple durations?"
+msgstr "Birden fazla süreye mi ihtiyacınız var?"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:24
+msgid "new"
+msgstr "yeni"
+
+#: booknetic/app/Backend/Appointments/Controller.php:138
+#: booknetic/app/Backend/Base/view/index.php:46
+msgid "NEW APPOINTMENT"
+msgstr "YENİ RANDEVU"
+
+#: booknetic/app/Backend/Calendar/view/index.php:158
+msgid "New Appointment"
+msgstr "Yeni Randevu"
+
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:19
+msgid "New appointment"
+msgstr "Yeni randevu"
+
+#: booknetic/app/Config.php:508
+msgid "New booking"
+msgstr "Yeni rezervasyon"
+
+#: booknetic/app/Config.php:533
+msgid "New customer created"
+msgstr "New customer created"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:91
+msgid "New Customers"
+msgstr "Yeni Müşteriler"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:69
+msgid "NEW EXTRA"
+msgstr "YENİ EKSTRA"
+
+#: booknetic/app/Backend/Settings/view/modal/change_password.php:28
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:14
+msgid "New Password"
+msgstr "Yeni Şifre"
+
+#: booknetic/app/Backend/Settings/view/modal/change_password.php:34
+msgid "New Password Again"
+msgstr "Tekrar Yeni Şifre"
+
+#: booknetic/app/Backend/Appointments/view/modal/change_status.php:27
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:25
+msgid "New status"
+msgstr "Yeni durum"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:16
+msgid "New Workflow"
+msgstr "Yeni iş akışı"
+
+#: booknetic/app/Backend/Boostore/view/index.php:56
+msgid "Newest"
+msgstr "Yeni"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:82
+msgid ""
+"Newly booked appointment default status will be \"Waiting for payment\" in "
+"the defined timeframe."
+msgstr ""
+"Yeni rezerve edilen randevunun varsayılan durumu, tanımlanan zaman diliminde "
+"\"Ödeme bekleniyor\" olacaktır."
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new_action.php:40
+msgid "NEXT"
+msgstr "İLERİ"
+
+#: booknetic/app/Backend/Base/view/index.php:132
+msgid "Next"
+msgstr "İleri"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:231
+#: booknetic/app/Backend/Appearance/view/index.php:109
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:116
+#: booknetic/app/Providers/Core/BookingPanelService.php:312
+msgid "NEXT STEP"
+msgstr "İLERİ"
+
+#: booknetic/app/Backend/Base/view/data_table.php:185
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:50
+msgid "No entries!"
+msgstr "Giriş yok!"
+
+#: booknetic/app/Backend/Appointments/view/modal/service_extras.php:10
+#: booknetic/app/Backend/Appointments/view/tab/edit_extras.php:3
+#: booknetic/app/Backend/Appointments/view/tab/extras.php:3
+#: booknetic/app/Backend/Appointments/view/tab/info_extras.php:15
+msgid "No extras found"
+msgstr "Ekstra bulunamadı"
+
+#: booknetic/app/Backend/Base/view/index.php:58
+msgid "No more Staff exists for select!"
+msgstr "Hizmete Eklenicek Personel yok!Lütfen Personel Ekleyin"
+
+#: booknetic/app/Backend/Services/Controller.php:27
+msgid "No service is selected"
+msgstr "Hiçbir hizmet seçilmedi"
+
+#: booknetic/app/Backend/Base/view/index.php:71
+msgid "No service to show"
+msgstr "Gösterilecek hizmet yok"
+
+#: booknetic/app/Providers/Helpers/Helper.php:1473
+msgid "Not Paid"
+msgstr "Ödenmedi"
+
+#: booknetic/app/Backend/Payments/Controller.php:56
+#: booknetic/app/Backend/Payments/Controller.php:107
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:52
+msgid "Not paid"
+msgstr "Ödenmedi"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:387
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:152
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:30
+#: booknetic/app/Backend/Base/view/index.php:84
+#: booknetic/app/Backend/Customers/Controller.php:57
+#: booknetic/app/Backend/Customers/view/modal/import.php:65
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:126
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:55
+#: booknetic/app/Backend/Staff/view/tab/details.php:135
+msgid "Note"
+msgstr "Not"
+
+#: booknetic/app/Backend/Base/view/index.php:347
+msgid "Notifications"
+msgstr "Bildirimler"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:24
+msgid "Nov"
+msgstr "Kas"
+
+#: booknetic/app/Backend/Base/view/index.php:101
+#: booknetic/app/Backend/Settings/Ajax.php:62
+#: booknetic/app/Backend/Settings/Ajax.php:110
+#: booknetic/app/Providers/Core/BookingPanelService.php:280
+#: booknetic/app/Providers/Core/Frontend.php:345
+msgid "November"
+msgstr "Kasım"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:73
+msgid "Number of people:"
+msgstr "Kişi sayısı:"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:23
+msgid "Oct"
+msgstr "Eki"
+
+#: booknetic/app/Backend/Base/view/index.php:100
+#: booknetic/app/Backend/Settings/Ajax.php:61
+#: booknetic/app/Backend/Settings/Ajax.php:109
+#: booknetic/app/Providers/Core/BookingPanelService.php:279
+#: booknetic/app/Providers/Core/Frontend.php:344
+msgid "October"
+msgstr "Ekim"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:23
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:23
+msgid "Offset"
+msgstr "Telafi"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:266
+#: booknetic/app/Backend/Settings/Ajax.php:168
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:23
+msgid "On"
+msgstr "On"
+
+#: booknetic/app/Backend/Customers/Ajax.php:322
+#: booknetic/app/Backend/Locations/Ajax.php:106
+#: booknetic/app/Backend/Services/Ajax.php:405
+#: booknetic/app/Backend/Services/ServiceObject.php:362
+#: booknetic/app/Backend/Settings/Ajax.php:388
+#: booknetic/app/Backend/Settings/Ajax.php:895
+#: booknetic/app/Backend/Settings/Ajax.php:1061
+#: booknetic/app/Backend/Staff/StaffObject.php:428
+msgid "Only JPG and PNG images allowed!"
+msgstr "Yalnızca JPG ve PNG görüntülerine izin verilir!"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:186
+msgid "Only registered users can book"
+msgstr "Sadece kayıtlı kullanıcılar rezervasyon yapabilir"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:19
+msgid "Only visible to staff"
+msgstr "Yalnızca personel görebilir"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:34
+msgid "Options"
+msgstr "Seçenekler"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:180
+msgid "Other"
+msgstr "Diğer"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:94
+msgid "Other steps BG / label color"
+msgstr "Diğer adımlar BG / etiket rengi"
+
+#: booknetic/app/Config.php:850
+msgid "Others"
+msgstr "Diğerleri"
+
+#: booknetic/app/Providers/Core/Backend.php:101
+msgid "Page not found or access denied!"
+msgstr "Sayfa bulunamadı veya erişim reddedildi!"
+
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:18
+msgid "Page Settings"
+msgstr "Sayfa Ayarları"
+
+#: booknetic/app/Backend/Settings/Controller.php:137
+#: booknetic/app/Config.php:222 booknetic/app/Config.php:264
+msgid "Pages"
+msgstr "Sayfa"
+
+#: booknetic/app/Backend/Payments/Controller.php:54
+#: booknetic/app/Backend/Payments/Controller.php:102
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:50
+#: booknetic/app/Backend/Payments/view/modal/info.php:101
+#: booknetic/app/Providers/Helpers/Helper.php:1461
+msgid "Paid"
+msgstr "Ödenmiş"
+
+#: booknetic/app/Backend/Payments/Controller.php:100
+msgid "Paid (deposit)"
+msgstr "Ödenmiş (depozito)"
+
+#: booknetic/app/Backend/Payments/Controller.php:86
+msgid "PAID AMOUNT"
+msgstr "ÖDENEN TUTAR"
+
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:42
+msgid "Paid amount"
+msgstr "Ödenen tutar"
+
+#: booknetic/app/Config.php:1011
+msgid "Paid price"
+msgstr "Ödenen fiyat"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:63
+msgid "Panel background"
+msgstr "Panel arka planı"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:48
+msgid "Panel height"
+msgstr "Panel yüksekliği"
+
+#: booknetic/app/Backend/Services/view/modal/add_new_category.php:30
+msgid "Parent category"
+msgstr "Ana kategori"
+
+#: booknetic/app/Frontend/view/signin/signin.php:17
+#: booknetic/app/Frontend/view/signup/signup.php:28
+msgid "Password"
+msgstr "Şifre"
+
+#: booknetic/app/Backend/Appointments/Controller.php:222
+msgid "PAYMENT"
+msgstr "ÖDEME"
+
+#: booknetic/app/Backend/Calendar/view/index.php:127
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:23
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:279
+msgid "Payment"
+msgstr "Ödeme"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:86
+msgid "Payment details"
+msgstr "Ödeme detayları"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:21
+msgid "Payment info"
+msgstr "Ödeme bilgileri"
+
+#: booknetic/app/Config.php:1270
+msgid "Payment Link "
+msgstr "Ödeme Bağlantısı "
+
+#: booknetic/app/Config.php:1016
+msgid "Payment method"
+msgstr "Ödeme yöntemi"
+
+#: booknetic/app/Frontend/Controller/Ajax.php:881
+#: booknetic/app/Frontend/Controller/Ajax.php:886
+msgid "Payment method is not supported"
+msgstr "Ödeme yöntemi desteklenmiyor"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:43
+#: booknetic/app/Backend/Settings/Controller.php:73
+#: booknetic/app/Backend/Settings/view/modal/payment_gateways_settings.php:24
+#: booknetic/app/Config.php:224 booknetic/app/Config.php:266
+msgid "Payment methods"
+msgstr "Ödeme yöntemleri"
+
+#: booknetic/app/Backend/Payments/Ajax.php:44
+#: booknetic/app/Backend/Payments/Ajax.php:75
+msgid "Payment not found or permission denied!"
+msgstr "Ödeme bulunamadı veya izin reddedildi!"
+
+#: booknetic/app/Backend/Settings/Controller.php:55
+#: booknetic/app/Config.php:223 booknetic/app/Config.php:265
+msgid "Payment settings"
+msgstr "Ödeme ayarları"
+
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:47
+msgid "Payment status"
+msgstr "Ödeme durumu"
+
+#: booknetic/app/Backend/Payments/Controller.php:39
+#: booknetic/app/Backend/Settings/view/modal/payment_gateways_settings.php:23
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:24
+#: booknetic/app/Config.php:387
+msgid "Payments"
+msgstr "Ödemeler"
+
+#: booknetic/app/Config.php:187 booknetic/app/Config.php:255
+msgid "Payments module"
+msgstr "Ödemeler modülü"
+
+#: booknetic/app/Backend/Payments/Controller.php:53
+#: booknetic/app/Backend/Payments/Controller.php:97
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:49
+#: booknetic/app/Providers/Helpers/Helper.php:1271
+#: booknetic/app/Providers/Helpers/Helper.php:1469
+msgid "Pending"
+msgstr "Bekleyen"
+
+#: booknetic/app/Backend/Boostore/view/details.php:91
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:81
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:101
+msgid "PENDING..."
+msgstr "BEKLEYEN"
+
+#: booknetic/app/Config.php:1031
+msgid "People brought to the appointment"
+msgstr "Randevuya getirilen kişiler"
+
+#: booknetic/app/Providers/Core/Abstracts/AbstractCapabilities.php:41
+#: booknetic/app/Providers/Core/Capabilities.php:103
+msgid "Permission denied!"
+msgstr "İzin reddedildi!"
+
+#: booknetic/app/Backend/Customers/Controller.php:48
+#: booknetic/app/Backend/Locations/Controller.php:47
+#: booknetic/app/Backend/Staff/Controller.php:97
+msgid "PHONE"
+msgstr "TELEFON"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:53
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:45
+#: booknetic/app/Backend/Customers/view/tab/customer_info_details.php:34
+#: booknetic/app/Backend/Locations/view/tab/add_new_location_details.php:33
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:43
+#: booknetic/app/Backend/Staff/view/tab/details.php:32
+#: booknetic/app/Frontend/view/booking_panel/information.php:35
+msgid "Phone"
+msgstr "Telefon"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:263
+msgid "Phone number"
+msgstr "Telefon numarası"
+
+#: booknetic/app/Backend/Base/view/index.php:73
+msgid "Please choose at least one staff!"
+msgstr "Lütfen en az bir personel seçin!"
+
+#: booknetic/app/Frontend/Controller/Ajax.php:613
+msgid "Please choose dates"
+msgstr "Lütfen tarihleri seçin"
+
+#: booknetic/app/Backend/Base/view/index.php:59
+msgid "Please choose the staff first"
+msgstr ""
+"Lütfen önce personeli seçin\n"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:612
+#: booknetic/app/Backend/Base/view/index.php:28
+#: booknetic/app/Backend/Settings/Ajax.php:145
+#: booknetic/app/Providers/Core/BookingPanelService.php:309
+msgid "Please enter a valid email address!"
+msgstr "Lütfen doğru e-posta adresi yazınız."
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:615
+#: booknetic/app/Backend/Base/view/index.php:29
+#: booknetic/app/Backend/Settings/Ajax.php:146
+#: booknetic/app/Providers/Core/BookingPanelService.php:310
+msgid "Please enter a valid phone number!"
+msgstr "Lütfen doğru telefon numarası yazınız."
+
+#: booknetic/app/Providers/Core/Backend.php:256
+msgid "Please enter the purchase code!"
+msgstr "Lütfen satın alma kodunu girin!"
+
+#: booknetic/app/Frontend/Controller/SigninAjax.php:18
+msgid "Please enter your email and password correctly!"
+msgstr "Lütfen e-posta adresinizi ve şifrenizi doğru girin!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:254
+msgid "Please fill \"Frequency\" field!"
+msgstr "Lütfen \"Frekans\" alanını doldurunuz!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:246
+msgid "Please fill \"Full period\" field!"
+msgstr "Lütfen\" Tam dönem \" alanını doldurunuz!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:250
+msgid "Please fill \"Repeat\" field!"
+msgstr "Lütfen\" Tekrarla \" alanını doldurunuz!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:642
+msgid "Please fill \"Start date\" and \"End date\" fields!"
+msgstr ""
+"Lütfen \"Başlangıç tarihi \"ve\" Bitiş tarihi \" alanlarını doldurunuz!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:678
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:708
+msgid "Please fill \"Time\" field!"
+msgstr "Lütfen \"Zaman\" alanını doldurun!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:282
+msgid "Please fill all the required fields correctly"
+msgstr "Lütfen gerekli tüm alanları doğru şekilde doldurun"
+
+#: booknetic/app/Backend/Appearance/Ajax.php:37
+#: booknetic/app/Backend/Appointments/Ajax.php:589
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:535
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:545
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:555
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:562
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:572
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:595
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:603
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:634
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:654
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:687
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:721
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:730
+#: booknetic/app/Backend/Base/view/index.php:25
+#: booknetic/app/Backend/Customers/Ajax.php:138
+#: booknetic/app/Backend/Customers/Ajax.php:188
+#: booknetic/app/Backend/Customers/Ajax.php:193
+#: booknetic/app/Backend/Customers/Ajax.php:399
+#: booknetic/app/Backend/Locations/Ajax.php:94
+#: booknetic/app/Backend/Services/Ajax.php:381
+#: booknetic/app/Backend/Settings/Ajax.php:144
+#: booknetic/app/Backend/Settings/Ajax.php:349
+#: booknetic/app/Backend/Settings/Ajax.php:1110
+#: booknetic/app/Backend/Settings/Ajax.php:1136
+#: booknetic/app/Backend/Staff/StaffObject.php:97
+#: booknetic/app/Frontend/Controller/Ajax.php:481
+#: booknetic/app/Frontend/Controller/Ajax.php:871
+#: booknetic/app/Frontend/Controller/Ajax.php:1049
+#: booknetic/app/Frontend/Controller/ForgotPasswordAjax.php:18
+#: booknetic/app/Frontend/Controller/ForgotPasswordAjax.php:84
+#: booknetic/app/Frontend/Controller/ForgotPasswordAjax.php:89
+#: booknetic/app/Frontend/Controller/SignupAjax.php:31
+#: booknetic/app/Providers/Core/BookingPanelService.php:308
+msgid "Please fill in all required fields correctly!"
+msgstr "Lütfen gerekli tüm alanları doğru bir şekilde doldurun!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:118
+msgid "Please fill in the \"name\" field correctly!"
+msgstr "Lütfen “isim” alanını doğru şekilde doldurun!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:540
+msgid "Please fill the \"Date\" and \"Time\" field correctly!"
+msgstr "Lütfen \"Tarih \" ve\" Saat \" alanlarını doğru doldurunuz!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:974
+msgid "Please fill the breaks correctly!"
+msgstr "Lütfen araları doğru doldurun!"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:267
+#: booknetic/app/Backend/Services/ServiceObject.php:278
+#: booknetic/app/Backend/Settings/Ajax.php:941
+#: booknetic/app/Backend/Settings/Ajax.php:946
+#: booknetic/app/Backend/Settings/Ajax.php:959
+#: booknetic/app/Backend/Staff/StaffObject.php:205
+#: booknetic/app/Backend/Staff/StaffObject.php:216
+msgid "Please fill the weekly schedule correctly!"
+msgstr "Lütfen haftalık programı doğru doldurun!"
+
+#: booknetic/app/Backend/Base/view/index.php:24
+msgid "Please firstly choose a service!"
+msgstr "Lütfen öncelikle bir hizmet seçin!"
+
+#: booknetic/app/Frontend/Controller/AjaxHelper.php:34
+#: booknetic/app/Frontend/Controller/AjaxHelper.php:41
+msgid "Please refresh the page and try again."
+msgstr "Lütfen sayfayı yenileyin ve tekrar deneyin."
+
+#: booknetic/app/Backend/Staff/StaffObject.php:162
+#| msgid "Please select location!"
+msgid "Please select a location!"
+msgstr "Lütfen yer seçiniz!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:500
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentService.php:236
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:39
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:49
+#, php-format
+msgid "Please select a valid time! ( %s %s is busy! )"
+msgstr "Lütfen geçerli bir saat seçin! (%s  %s  meşgul! )"
+
+#: booknetic/app/Providers/Core/BookingPanelService.php:307
+msgid "Please select an available date"
+msgstr "Lütfen müsait bir tarih seçin"
+
+#: booknetic/app/Backend/Settings/Ajax.php:143
+#: booknetic/app/Providers/Core/BookingPanelService.php:306
+msgid "Please select an available time"
+msgstr "Lütfen uygun zamanı seçin."
+
+#: booknetic/app/Backend/Customers/Ajax.php:406
+msgid "Please select CSV file!"
+msgstr "Lütfen CSV dosyasını seçin!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:578
+msgid "Please select customers!"
+msgstr "Lütfen müşterileri seçin!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:141
+#: booknetic/app/Providers/Core/BookingPanelService.php:304
+msgid "Please select date."
+msgstr "Lütfen tarih seçin."
+
+#: booknetic/app/Backend/Settings/Ajax.php:140
+#: booknetic/app/Providers/Core/BookingPanelService.php:303
+msgid "Please select end date"
+msgstr "Lütfen bitiş tarihi seçin"
+
+#: booknetic/app/Backend/Settings/Ajax.php:134
+#: booknetic/app/Providers/Core/BookingPanelService.php:297
+msgid "Please select location."
+msgstr "Lütfen konum seçin."
+
+#: booknetic/app/Backend/Settings/Ajax.php:136
+#: booknetic/app/Frontend/Controller/Ajax.php:598
+#: booknetic/app/Providers/Core/BookingPanelService.php:299
+msgid "Please select service"
+msgstr "Lütfen hizmet seçin."
+
+#: booknetic/app/Backend/Settings/Ajax.php:135
+#: booknetic/app/Providers/Core/BookingPanelService.php:298
+msgid "Please select staff."
+msgstr "Lütfen personel seçin."
+
+#: booknetic/app/Backend/Settings/Ajax.php:139
+#: booknetic/app/Providers/Core/BookingPanelService.php:302
+msgid "Please select start date"
+msgstr "Lütfen başlangıç tarihi seçin"
+
+#: booknetic/app/Backend/Settings/Ajax.php:142
+#: booknetic/app/Providers/Core/BookingPanelService.php:305
+msgid "Please select time."
+msgstr "Lütfen saati seçin."
+
+#: booknetic/app/Backend/Settings/Ajax.php:137
+#: booknetic/app/Providers/Core/BookingPanelService.php:300
+msgid "Please select week day(s)"
+msgstr "Lütfen haftanın günlerini seçin"
+
+#: booknetic/app/Backend/Settings/Ajax.php:138
+#: booknetic/app/Providers/Core/BookingPanelService.php:301
+msgid "Please select week day(s) and time(s) correctly"
+msgstr "Lütfen haftanın günlerini ve saati doğru seçin"
+
+#: booknetic/app/Backend/Customers/Ajax.php:227
+#: booknetic/app/Backend/Staff/StaffObject.php:292
+msgid "Please select WordPress user!"
+msgstr "Lütfen WordPress kullanıcısını seçin!"
+
+#: booknetic/app/Backend/Base/view/index.php:42
+msgid "Please type email!"
+msgstr "Lütfen e-posta yazın!"
+
+#: booknetic/app/Backend/Customers/Ajax.php:237
+#: booknetic/app/Backend/Staff/StaffObject.php:329
+msgid "Please type the password of the WordPress user!"
+msgstr "Lütfen WordPress kullanıcısının şifresini yazınız!"
+
+#: booknetic/app/Frontend/Controller/ForgotPasswordAjax.php:64
+#: booknetic/app/Frontend/Controller/SignupAjax.php:109
+msgid "Please wait at least a minute to resend again."
+msgstr "Tekrar göndermek için lütfen en az bir dakika bekleyin."
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:106
+msgid "Please wait until the migration process is done."
+msgstr "Lütfen geçiş işlemi tamamlanana kadar bekleyin."
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:30
+#: booknetic/app/Frontend/view/signup/signup.php:44
+msgid "Please, check your inbox for a confirmation link."
+msgstr "Lütfen onay bağlantısı için gelen kutunuzu kontrol edin."
+
+#: booknetic/app/Providers/Core/Backend.php:275
+msgid "Plugin reactivated!"
+msgstr "Eklenti yeniden etkinleştirildi!"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:103
+msgid "PNG, JPG, max 800x800 to 5mb)"
+msgstr "PNG, JPG, maksimum 800x800 ila 5 mb)"
+
+#: booknetic/app/Frontend/Controller/Ajax.php:56
+msgid "Post step verification failure!"
+msgstr "Adım sonrası doğrulama hatası!"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:122
+#, php-format
+msgid "Powered by %s"
+msgstr "%s tarafından desteklenmektedir"
+
+#: booknetic/app/Frontend/Controller/Ajax.php:61
+msgid "Pre step verification failure!"
+msgstr "Ön adım doğrulama hatası!"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:39
+msgid "Previous status"
+msgstr "Önceki durum"
+
+#: booknetic/app/Backend/Services/Controller.php:154
+msgid "PRICE"
+msgstr "FİYAT"
+
+#: booknetic/app/Backend/Base/view/index.php:80
+#: booknetic/app/Backend/Boostore/view/cart/index.php:47
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:31
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:69
+msgid "Price"
+msgstr "Fiyat"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:116
+msgid "Price color"
+msgstr "Fiyat rengi"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:122
+msgid "Price field is required!"
+msgstr "Fiyat alanı zorunludur!"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:59
+msgid "Price number format"
+msgstr "Fiyat numarası biçimi"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:69
+msgid "Price number of decimals"
+msgstr "Fiyat ondalık sayı"
+
+#: booknetic/app/Config.php:964
+msgid "Price of extra services"
+msgstr "Ekstra hizmetlerin fiyatı"
+
+#: booknetic/app/Backend/Appointments/Controller.php:204
+#: booknetic/app/Backend/Appointments/view/tab/info_extras.php:33
+msgid "Price:"
+msgstr "Fiyat:"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:70
+msgid "Primary BG / text color"
+msgstr "Birincil BG / metin rengi"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:113
+msgid "Proceed to checkout"
+msgstr "Ödeme işlemine geçin"
+
+#: booknetic/app/Backend/Boostore/view/purchased.php:14
+msgid "Processing..."
+msgstr "İşleme..."
+
+#: booknetic/app/Backend/Staff/view/tab/details.php:21
+msgid "Profession"
+msgstr "Meslek"
+
+#: booknetic/app/Backend/Settings/Controller.php:150
+msgid "Profile Details"
+msgstr "Profil Detayları"
+
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:33
+msgid "Profile details"
+msgstr "Profil detayları"
+
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:44
+msgid "Profile image"
+msgstr "Profil resmi"
+
+#: booknetic/app/Backend/Settings/Controller.php:143
+msgid "Profile Settings"
+msgstr "Profil Ayarları"
+
+#: booknetic/app/Config.php:272
+msgid "Profile settings"
+msgstr "Profil ayarları"
+
+#: booknetic/app/Backend/Base/view/index.php:577
+msgid ""
+"Provide Feedback: Your insights are crucial. Directly influence the "
+"development of Booknetic by sharing your experiences and suggestions."
+msgstr ""
+"Geri Bildirim Sağlayın: Görüşleriniz çok önemli. Deneyimlerinizi ve "
+"önerilerinizi paylaşarak Booknetic 'ın gelişimini doğrudan etkileyin."
+
+#: booknetic/app/Backend/Base/view/install.php:29
+msgid "Purchase code"
+msgstr "Satın alma kodu"
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:43
+msgid "Purchased on"
+msgstr "Satın alındı"
+
+#: booknetic/app/Backend/Appointments/Controller.php:202
+#: booknetic/app/Backend/Appointments/view/tab/info_extras.php:37
+msgid "Quantity:"
+msgstr "Adet:"
+
+#: booknetic/app/Backend/Base/view/data_table.php:51
+msgid "Quick search"
+msgstr "Hızlı arama"
+
+#: booknetic/app/Backend/Base/view/disabled.php:29
+msgid "RE-ACTIVATE"
+msgstr "YENİDEN ETKİNLEŞTİR"
+
+#: booknetic/app/Backend/Base/view/disabled.php:23
+#, php-format
+msgid "Reason: %s"
+msgstr "Nedeni: %s"
+
+#: booknetic/app/Config.php:246
+msgid "Receive appointments"
+msgstr "Randevu alma"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:210
+msgid "Recurring"
+msgstr "Yinelenen"
+
+#: booknetic/app/Config.php:990
+msgid "Recurring appointments all dates"
+msgstr "Yinelenen randevular tüm tarihler"
+
+#: booknetic/app/Config.php:995
+msgid "Recurring appointments all dates and times"
+msgstr "Yinelenen randevular tüm tarihler ve saatler"
+
+#: booknetic/app/Config.php:1000 booknetic/app/Config.php:1005
+msgid "Recurring appointments all dates and times (Client timezone)"
+msgstr "Yinelenen randevular tüm tarihler ve saatler (Müşteri saat dilimi)"
+
+#: booknetic/app/Providers/Core/Frontend.php:524
+#: booknetic/app/Providers/Core/Frontend.php:525
+msgid "Recurring info"
+msgstr "Yinelenen bilgiler"
+
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:43
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:43
+msgid "Redirect URI"
+msgstr "URI'Yİ Yönlendir"
+
+#: booknetic/app/Backend/Settings/view/tabs/step_confirm.php:40
+msgid "Redirect users on confirmation"
+msgstr "Kullanıcıları onay üzerine yönlendirin"
+
+#: booknetic/app/Providers/Core/Frontend.php:144
+#: booknetic/app/Providers/Core/Frontend.php:264
+#: booknetic/app/Providers/Core/Frontend.php:440
+msgid "Redirecting..."
+msgstr "Yönlendirir..."
+
+#: booknetic/app/Providers/Helpers/Helper.php:1292
+msgid "Rejected"
+msgstr "Reddedildi"
+
+#: booknetic/app/Backend/Base/view/index.php:583
+msgid ""
+"Remember, the staging environment is a mirror of your production site, "
+"allowing you to assess the impact of updates in real-time without any risk "
+"to your live operations."
+msgstr ""
+"Hazırlama ortamının üretim sitenizin bir aynası olduğunu ve canlı "
+"operasyonlarınız üzerinde herhangi bir risk oluşturmadan güncellemelerin "
+"etkisini gerçek zamanlı olarak değerlendirmenize olanak tanıdığını unutmayın."
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:63
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:47
+#: booknetic/app/Frontend/view/booking_panel/cart.php:31
+msgid "Remove"
+msgstr "Kaldır"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:27
+msgid "remove"
+msgstr "sil"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:209
+#: booknetic/app/Config.php:247
+msgid "Remove branding"
+msgstr "Markalamayı kaldır"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:61
+#: booknetic/app/Backend/Staff/view/tab/special_days.php:63
+msgid "Remove special day"
+msgstr "Özel günü kaldır"
+
+#: booknetic/app/Backend/Boostore/Ajax.php:200
+msgid "Removed from cart."
+msgstr "Sepetten kaldırıldı."
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:226
+msgid "Repeat"
+msgstr "Tekrarla"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:659
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:673
+#, php-format
+msgid "Repeat frequency is %d for selected service!"
+msgstr "Seçilen servis için tekrarlama sıklığı %d'dir!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:698
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:703
+#, php-format
+msgid "Repeat frequency is %d per month for selected service!"
+msgstr "Seçilen hizmet için tekrarlama sıklığı ayda %d'dir!"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:668
+msgid "Repeat frequency is is invalid!"
+msgstr "Tekrarlama sıklığı geçersiz!"
+
+#: booknetic/app/Backend/Base/view/index.php:596
+msgid "Request"
+msgstr "İstek"
+
+#: booknetic/app/Backend/Services/Ajax.php:585
+msgid "Requested Service Extra not found!"
+msgstr "Talep Edilen Ekstra Hizmet bulunamadı!"
+
+#: booknetic/app/Backend/Base/view/index.php:120
+msgid "Reschedule"
+msgstr "Yeniden planlayın"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:37
+#: booknetic/app/Frontend/view/signup/signup.php:51
+msgid "Resend again"
+msgstr "Tekrar Gönder"
+
+#: booknetic/app/Backend/Settings/view/modal/payment_gateways_settings.php:59
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: booknetic/app/Backend/Services/view/edit-order.php:36
+msgid "RESET ORDER"
+msgstr "SİPARİŞİ SIFIRLA"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:22
+msgid "RESET PASSWORD"
+msgstr "ŞİFREMİ SIFIRMA"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:11
+msgid "Reset password"
+msgstr "Şifremi Sıfırla"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:84
+msgid "Revenue"
+msgstr "Gelir"
+
+#: booknetic/app/Config.php:213
+msgid "Roles module"
+msgstr "Roller modülü"
+
+#: booknetic/app/Backend/Services/view/modal/add_new_category.php:32
+msgid "Root category"
+msgstr "Kök kategori"
+
+#: booknetic/app/Backend/Base/view/index.php:36
+msgid "Rows deleted!"
+msgstr "Satırlar silindi!"
+
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:46
+msgid "Run workflows"
+msgstr "İş akışlarını çalıştırma"
+
+#: booknetic/app/Backend/Base/view/index.php:123
+msgid "Run workflows on reschedule"
+msgstr "Yeniden planlamada iş akışlarını çalıştırın"
+
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:68
+#: booknetic/app/Backend/Appointments/view/modal/change_status.php:48
+#: booknetic/app/Backend/Appointments/view/modal/edit.php:45
+msgid "Run workflows on save"
+msgstr "Kaydet'te iş akışlarını çalıştırma"
+
+#: booknetic/app/Backend/Settings/Ajax.php:184
+#: booknetic/app/Providers/Helpers/Helper.php:48
+msgid "s"
+msgstr "s"
+
+#: booknetic/app/Backend/Base/view/index.php:576
+msgid ""
+"Safely Experiment: Test new features and configurations in a controlled "
+"staging environment without affecting your main website."
+msgstr ""
+"Güvenle Deneyin: Yeni özellikleri ve yapılandırmaları ana web sitenizi "
+"etkilemeden kontrollü bir hazırlık ortamında test edin."
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:118
+#: booknetic/app/Backend/Base/view/index.php:110
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:80
+#: booknetic/app/Backend/Settings/Ajax.php:119
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:53
+#: booknetic/app/Providers/Core/BookingPanelService.php:289
+#: booknetic/app/Providers/Core/Frontend.php:354
+msgid "Sat"
+msgstr "Ct"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:205
+#: booknetic/app/Backend/Appointments/view/tab/details.php:284
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:127
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:45
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:148
+msgid "Saturday"
+msgstr "Cumartesi"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:143
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:72
+#: booknetic/app/Backend/Appointments/view/modal/change_status.php:52
+#: booknetic/app/Backend/Appointments/view/modal/edit.php:49
+#: booknetic/app/Backend/Base/view/index.php:70
+#: booknetic/app/Backend/Customers/view/modal/add_new.php:50
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:54
+#: booknetic/app/Backend/Payments/view/modal/edit_payment.php:63
+#: booknetic/app/Backend/Services/view/modal/add_new.php:58
+#: booknetic/app/Backend/Services/view/modal/add_new.php:74
+#: booknetic/app/Backend/Services/view/modal/add_new_category.php:53
+#: booknetic/app/Backend/Workflow/view/edit.php:46
+#: booknetic/app/Backend/Workflow/view/modal/action_set_booking_status.php:62
+#: booknetic/app/Backend/Workflow/view/modal/event_appointment_paid.php:37
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:98
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:121
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:123
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_created.php:37
+#: booknetic/app/Backend/Workflow/view/modal/event_customer_signup.php:37
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:106
+#: booknetic/app/Backend/Workflow/view/modal/event_tenant_notified.php:42
+msgid "SAVE"
+msgstr "KAYDET"
+
+#: booknetic/app/Backend/Calendar/view/index.php:146
+msgid "Save"
+msgstr "Kaydet"
+
+#: booknetic/app/Backend/Boostore/view/index.php:72
+msgid "Save 15% now – click to get all add-ons"
+msgstr "Şimdi %15 tasarruf edin - tüm eklentileri almak için tıklayın"
+
+#: booknetic/app/Backend/Base/view/modal/translations.php:83
+#: booknetic/app/Backend/Services/view/edit-order.php:37
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:22
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:80
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:38
+#: booknetic/app/Backend/Settings/view/modal/change_password.php:14
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:16
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:15
+#: booknetic/app/Backend/Settings/view/modal/holidays_settings.php:14
+#: booknetic/app/Backend/Settings/view/modal/integrations_facebook_api_settings.php:15
+#: booknetic/app/Backend/Settings/view/modal/integrations_google_login_settings.php:15
+#: booknetic/app/Backend/Settings/view/modal/page_settings.php:13
+#: booknetic/app/Backend/Settings/view/modal/payment_gateways_settings.php:18
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:19
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:29
+msgid "SAVE CHANGES"
+msgstr "DEĞİŞİKLİKLERİ KAYDET"
+
+#: booknetic/app/Backend/Base/view/index.php:85
+msgid "SAVE EXTRA"
+msgstr "EKSTRA TASARRUF EDİN"
+
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:75
+msgid "SAVE STAFF"
+msgstr "PERSONELİ KAYDET"
+
+#: booknetic/app/Backend/Workflow/Controller.php:110
+msgid "Saved changes"
+msgstr "Kaydedilen değişiklikler"
+
+#: booknetic/app/Backend/Base/view/index.php:41
+msgid "Saved succesfully!"
+msgstr "Başarıyla kaydedildi!"
+
+#: booknetic/app/Backend/Base/Ajax.php:156
+msgid "Saved successfully"
+msgstr "Kayıt Başarılı"
+
+#: booknetic/app/Backend/Boostore/view/index.php:48
+msgid "Search"
+msgstr "Ara"
+
+#: booknetic/app/Backend/Base/view/index.php:23
+#: booknetic/app/Providers/Core/BookingPanelService.php:294
+#: booknetic/app/Providers/Core/Frontend.php:359
+msgid "Searching..."
+msgstr "Aranıyor..."
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:270
+#: booknetic/app/Backend/Settings/Ajax.php:171
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:29
+msgid "Second"
+msgstr "İkinci"
+
+#: booknetic/app/Providers/Helpers/Helper.php:88
+msgid "second"
+msgstr "ikinci"
+
+#: booknetic/app/Providers/Helpers/Helper.php:88
+msgid "seconds"
+msgstr "saniyeler"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:168
+msgid "Secret Key"
+msgstr "Gizli Anahtar"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:165
+msgid "See add-on"
+msgstr "Eklentileri gör"
+
+#: booknetic/app/Backend/Appearance/view/index.php:129
+#: booknetic/app/Backend/Appearance/view/index.php:135
+msgid "SELECT"
+msgstr "SEÇ"
+
+#: booknetic/app/Backend/Calendar/view/index.php:61
+#: booknetic/app/Backend/Calendar/view/index.php:78
+#: booknetic/app/Backend/Calendar/view/index.php:95
+#: booknetic/app/Backend/Calendar/view/index.php:112
+#: booknetic/app/Backend/Calendar/view/index.php:129
+#: booknetic/app/Config.php:170
+msgid "Select"
+msgstr "Seç"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new_action.php:17
+msgid "Select Action"
+msgstr "Eylem Seç"
+
+#: booknetic/app/Backend/Settings/Ajax.php:98
+#: booknetic/app/Frontend/view/booking_panel/staff.php:32
+msgid "Select an available staff"
+msgstr "Uygun olan personeli seçin"
+
+#: booknetic/app/Backend/Boostore/view/index.php:35
+msgid "Select category"
+msgstr "Kategori seç"
+
+#: booknetic/app/Frontend/view/booking_panel/date_time_non_recurring.php:26
+#: booknetic/app/Providers/Core/BookingPanelService.php:311
+msgid "Select date"
+msgstr "Saati seç"
+
+#: booknetic/app/Providers/Core/Frontend.php:518
+msgid "Select Date & Time"
+msgstr "Tarih ve Saati seçin"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:32
+msgid "Select file"
+msgstr "Dosya seç"
+
+#: booknetic/app/Backend/Settings/view/modal/backup_settings.php:24
+msgid "Select file to restore"
+msgstr "Geri yüklenecek dosyayı seçin"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:240
+msgid "Select how many times the timeslot can be repeated"
+msgstr "Zaman diliminin kaç kez tekrarlanabileceğini seçin"
+
+#: booknetic/app/Providers/Core/Frontend.php:490
+msgid "Select location"
+msgstr "Konum seçin"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:181
+#: booknetic/app/Backend/Appearance/view/index.php:59
+#: booknetic/app/Providers/Core/Frontend.php:475
+msgid "Select service"
+msgstr "Hizmet seçin"
+
+#: booknetic/app/Providers/Core/Frontend.php:497
+msgid "Select service extras"
+msgstr "Ek hizmet seçin"
+
+#: booknetic/app/Providers/Core/Frontend.php:483
+msgid "Select staff"
+msgstr "Personel seçin"
+
+#: booknetic/app/Backend/Appointments/Ajax.php:266
+msgid "Select status..."
+msgstr "Durum seçiniz..."
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:263
+msgid "Select the frequency of the repeated timeslot"
+msgstr "Tekrarlanan zaman diliminin sıklığını seçin"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:363
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:123
+#: booknetic/app/Backend/Base/view/index.php:22
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:36
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:46
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:56
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:66
+#: booknetic/app/Backend/Settings/Ajax.php:131
+#: booknetic/app/Providers/Core/BookingPanelService.php:293
+#: booknetic/app/Providers/Core/Frontend.php:358
+msgid "Select..."
+msgstr "Seçin..."
+
+#: booknetic/app/Backend/Appearance/view/index.php:129
+#: booknetic/app/Backend/Appearance/view/index.php:135
+msgid "SELECTED"
+msgstr "SEÇİLİ"
+
+#: booknetic/app/Backend/Base/view/data_table.php:249
+msgid "Selected"
+msgstr "Seçili"
+
+#: booknetic/app/Backend/Appointments/Ajax.php:111
+msgid "Selected appointment not found!"
+msgstr "Seçilen randevu bulunamadı!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:482
+#: booknetic/app/Backend/Settings/Ajax.php:493
+#: booknetic/app/Backend/Settings/Ajax.php:506
+msgid "Selected settings not found!"
+msgstr "Seçili ayarlar bulunamadı!"
+
+#: booknetic/app/Backend/Appointments/Ajax.php:285
+msgid "Selected status not found"
+msgstr "Seçilen durum bulunamadı"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:75
+msgid "Semicolon ( ; )"
+msgstr "Noktalı virgül (;)"
+
+#: booknetic/app/Backend/Workflow/Controller.php:111
+msgid "SEND"
+msgstr "GÖNDER"
+
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:22
+msgid "Sep"
+msgstr "Eylül"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:291
+msgid "Separate First and Last name inputs"
+msgstr "Ayrı Ad ve Soyad girişleri"
+
+#: booknetic/app/Backend/Base/view/index.php:99
+#: booknetic/app/Backend/Settings/Ajax.php:60
+#: booknetic/app/Backend/Settings/Ajax.php:108
+#: booknetic/app/Providers/Core/BookingPanelService.php:278
+#: booknetic/app/Providers/Core/Frontend.php:343
+msgid "September"
+msgstr "Eylül"
+
+#: booknetic/app/Providers/Core/DotComApi.php:44
+msgid "Server returned with an empty status code."
+msgstr "Sunucu boş bir durum koduyla döndü."
+
+#: booknetic/app/Providers/Core/DotComApi.php:48
+#, php-format
+msgid "Server returned with an invalid status code %s"
+msgstr ""
+"Sunucu geçersiz bir durum kodu %sth bilinmeyen bir hata ile geri döndü."
+
+#: booknetic/app/Providers/Core/Backend.php:268
+msgid "Server returned with an unknown error."
+msgstr "Sunucu bilinmeyen bir hata ile geri döndü."
+
+#: booknetic/app/Backend/Appointments/Controller.php:221
+#: booknetic/app/Backend/Payments/Controller.php:79
+#: booknetic/app/Backend/Services/view/index.php:147
+msgid "SERVICE"
+msgstr "HİZMET"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:168
+#: booknetic/app/Backend/Appearance/view/index.php:46
+#: booknetic/app/Backend/Appointments/Controller.php:95
+#: booknetic/app/Backend/Appointments/view/tab/details.php:76
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:103
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:20
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:44
+#: booknetic/app/Backend/Calendar/view/index.php:93
+#: booknetic/app/Backend/Payments/Controller.php:45
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:29
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:49
+#: booknetic/app/Providers/Core/Frontend.php:474
+msgid "Service"
+msgstr "Hizmet"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:193
+#: booknetic/app/Backend/Appearance/view/index.php:71
+msgid "Service 1"
+msgstr "Hizmet 1"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:206
+#: booknetic/app/Backend/Appearance/view/index.php:84
+msgid "Service 2"
+msgstr "Hizmet 2"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:219
+#: booknetic/app/Backend/Appearance/view/index.php:97
+msgid "Service 3"
+msgstr "Hizmet 3"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPanel/BookingPanel.php:57
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:62
+msgid "Service Categories"
+msgstr "Hizmet Kategorileri"
+
+#: booknetic/app/Config.php:1083
+msgid "Service category"
+msgstr "Hizmet kategorisi"
+
+#: booknetic/app/Config.php:1073
+msgid "Service color"
+msgstr "Servis rengi"
+
+#: booknetic/app/Backend/Services/Ajax.php:86
+msgid "SERVICE DETAILS"
+msgstr "SERVİS DETAYLARI"
+
+#: booknetic/app/Config.php:1063
+msgid "Service duration"
+msgstr "Hizmet süresi"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:169
+#: booknetic/app/Backend/Appearance/view/index.php:47
+#: booknetic/app/Backend/Appointments/Controller.php:189
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:35
+#: booknetic/app/Providers/Core/Frontend.php:496
+msgid "Service Extras"
+msgstr "Ek hizmet"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:35
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:70
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:67
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:35
+msgid "Service filter"
+msgstr "Servis filtresi"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:25
+msgid "Service Image"
+msgstr "Hizmet Resmi"
+
+#: booknetic/app/Config.php:1078
+msgid "Service image URL"
+msgstr "Hizmet resmi URL'si"
+
+#: booknetic/app/Config.php:846
+msgid "Service Info"
+msgstr "Servis Bilgileri"
+
+#: booknetic/app/Backend/Base/view/index.php:76
+#: booknetic/app/Backend/Services/view/tab/add_new_extras.php:23
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:49
+#: booknetic/app/Config.php:1053
+msgid "Service name"
+msgstr "Hizmet adı"
+
+#: booknetic/app/Backend/Settings/Ajax.php:154
+#: booknetic/app/Frontend/view/booking_panel/services.php:14
+msgid "Service not found. Please go back and select a different option."
+msgstr "Hizmet bulunamadı. Lütfen geri dönün ve farklı bir seçenek belirleyin."
+
+#: booknetic/app/Config.php:1068
+msgid "Service notes"
+msgstr "Servis notları"
+
+#: booknetic/app/Config.php:959 booknetic/app/Config.php:1058
+#: booknetic/app/Config.php:1291
+msgid "Service price"
+msgstr "Hizmet bedeli"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:43
+msgid "Service:"
+msgstr "Hizmet:"
+
+#: booknetic/app/Backend/Services/Controller.php:128
+#: booknetic/app/Backend/Services/view/edit-order.php:31
+#: booknetic/app/Backend/Services/view/index.php:87
+#: booknetic/app/Backend/Staff/view/tab/details.php:121
+#: booknetic/app/Config.php:403
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPanel/BookingPanel.php:63
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:68
+msgid "Services"
+msgstr "Hizmetler"
+
+#: booknetic/app/Config.php:195 booknetic/app/Config.php:257
+msgid "Services module"
+msgstr "Hizmetler modülü"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:46
+msgid "SET AS DEFAULT LANGUAGE"
+msgstr "VARSAYILAN DİL OLARAK AYARLA"
+
+#: booknetic/app/Backend/Workflow/Actions/SetBookingStatusAction.php:16
+msgid "Set booking status"
+msgstr "Rezervasyon durumunu ayarla"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:31
+msgid "Set colors for calendar"
+msgstr "Takvim için renkleri ayarlama"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:270
+msgid "Set Email as a required field"
+msgstr "E-postayı zorunlu alan olarak ayarla"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:280
+msgid "Set Phone number as a required field"
+msgstr "Telefon numarasını zorunlu alan olarak ayarla"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_settings.php:31
+msgid "Set service specific payment methods"
+msgstr "Hizmete özel ödeme yöntemleri belirleyin"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:144
+msgid ""
+"Set the amount of time needed after the appointment, like cleaning space, "
+"for the staff to rest and recharge"
+msgstr ""
+"Randevudan sonra personelin dinlenmesi ve yeniden şarj olması için temizlik "
+"alanı gibi ihtiyaç duyulan süreyi belirleyin"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:135
+msgid ""
+"Set the amount of time needed before the appointment, like setting up "
+"equipment, arranging supplies, and preparing the room ."
+msgstr ""
+"Randevudan önce ekipmanların kurulması, malzemelerin düzenlenmesi ve odanın "
+"hazırlanması gibi işlemler için gereken süreyi belirleyin."
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:70
+msgid "Set up now"
+msgstr "Şimdi kurun"
+
+#: booknetic/app/Backend/Services/Ajax.php:110
+msgid "SETTINGS"
+msgstr "AYARLAR"
+
+#: booknetic/app/Backend/Settings/view/index.php:24
+#: booknetic/app/Backend/Settings/view/index.php:33
+#: booknetic/app/Config.php:218 booknetic/app/Config.php:260
+#: booknetic/app/Config.php:443
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: booknetic/app/Backend/Workflow/view/modal/action_list_view.php:25
+msgid "Setup"
+msgstr "Kurulum"
+
+#: booknetic/app/Backend/Locations/Controller.php:32
+#: booknetic/app/Backend/Services/Controller.php:143
+#: booknetic/app/Backend/Staff/Controller.php:83
+msgid "Share"
+msgstr "Paylaş"
+
+#: booknetic/app/Backend/Base/view/index.php:325
+#: booknetic/app/Backend/Base/view/index.php:655
+msgid "Share your page"
+msgstr "Sayfanızı paylaşın"
+
+#: booknetic/app/Backend/Base/view/index.php:312
+msgid "Share your page "
+msgstr "Sayfanızı paylaşın "
+
+#: booknetic/app/Backend/Boostore/view/index.php:36
+msgid "Show all"
+msgstr "Tümünü göster"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:210
+msgid "Show all the service extras"
+msgstr "Tüm hizmet ekstralarını göster"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:153
+msgid "Show both phone number and emaill address"
+msgstr "Hem telefon numarasını hem de e-posta adresini göster"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:225
+msgid "Show both Start and End time (e.g.: 10:00 - 11:00)"
+msgstr "Hem Başlangıç hem de Bitiş zamanını göster (ör.: 10:00 - 11: 00)"
+
+#: booknetic/app/Frontend/view/booking_panel/components/service_extras.php:73
+#: booknetic/app/Frontend/view/booking_panel/services.php:70
+msgid "Show less"
+msgstr "Daha az göster"
+
+#: booknetic/app/Frontend/view/booking_panel/components/service_extras.php:70
+#: booknetic/app/Frontend/view/booking_panel/services.php:67
+msgid "Show more"
+msgstr "Daha fazla göster"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:154
+msgid "Show only Staff email address"
+msgstr "Yalnızca Personel e-posta adresini göster"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:155
+msgid "Show only Staff phone number"
+msgstr "Sadece Personelin telefon numarasını göster"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:226
+msgid "Show only Start time (e.g.: 10:00)"
+msgstr "Yalnızca Başlangıç saatini göster (ör.: 10: 00)"
+
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:77
+msgid "Show service step"
+msgstr "Hizmet adımını göster"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:100
+msgid "Show time slots in client time-zone"
+msgstr "İstemci saat diliminde zaman aralıklarını göster"
+
+#: booknetic/app/Config.php:235
+msgid "Show Wordpress button"
+msgstr "Wordpress düğmesini göster"
+
+#: booknetic/app/Backend/Base/view/data_table.php:195
+#, php-format
+msgid "Showing %d of %d total"
+msgstr "Toplam %d'nin %d'si gösteriliyor"
+
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:100
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:121
+#, php-format
+msgid "Showing %s of %s total"
+msgstr "Toplam %s'nin %s'si gösteriliyor"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:35
+#: booknetic/app/Frontend/view/signin/signin.php:22
+msgid "SIGN IN"
+msgstr "GİRİŞ YAP"
+
+#: booknetic/app/Frontend/view/signin/signin.php:10
+msgid "Sign In"
+msgstr "Giriş Yap"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:23
+#: booknetic/app/Frontend/view/signup/signup.php:37
+msgid "Sign in"
+msgstr "Giriş Yap"
+
+#: booknetic/app/Config.php:1234
+msgid "Sign In Page"
+msgstr "Giriş Sayfası"
+
+#: booknetic/app/Frontend/view/signup/signup.php:11
+msgid "Sign Up"
+msgstr "Üye Ol"
+
+#: booknetic/app/Frontend/view/signin/signin.php:27
+msgid "Sign up"
+msgstr "Üye Ol"
+
+#: booknetic/app/Config.php:1238
+msgid "Sign Up Page"
+msgstr "Üyelik Sayfası"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:209
+msgid ""
+"Simplify scheduling by allowing customers to book multiple appointments in a "
+"single booking session."
+msgstr ""
+"Müşterilerin tek bir rezervasyon oturumunda birden fazla randevu almasına "
+"olanak tanıyarak planlamayı basitleştirin."
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:164
+msgid "Site Key"
+msgstr "Site Anahtarı"
+
+#: booknetic/app/Backend/Base/view/index.php:133
+msgid "Skip"
+msgstr "Atla"
+
+#: booknetic/app/Backend/Services/Ajax.php:658
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:127
+msgid "Slot length as service duration"
+msgstr "Servis süresi olarak ayarla"
+
+#: booknetic/app/Frontend/Controller/Ajax.php:1074
+msgid "Something went wrong."
+msgstr "Bir şeyler ters gitti."
+
+#: booknetic/app/Providers/Core/Frontend.php:108
+#: booknetic/app/Providers/Core/Frontend.php:127
+#: booknetic/app/Providers/Core/Frontend.php:136
+#: booknetic/app/Providers/Core/Frontend.php:229
+#: booknetic/app/Providers/Core/Frontend.php:249
+#: booknetic/app/Providers/Core/Frontend.php:258
+msgid "Something went wrong. Redirecting..."
+msgstr "Bir şeyler yanlış gitti. Yönlendiriliyor."
+
+#: booknetic/app/Backend/Base/view/index.php:124
+msgid "Something went wrong..."
+msgstr "Bir şeyler yanlış gitti."
+
+#: booknetic/app/Backend/Boostore/view/details.php:72
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:68
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:79
+msgid "SOON"
+msgstr "yakında"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:100
+#: booknetic/app/Backend/Staff/Ajax.php:100
+msgid "SPECIAL DAYS"
+msgstr "ÖZEL GÜNLER"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:268
+#: booknetic/app/Backend/Settings/Ajax.php:169
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:25
+msgid "Specific day"
+msgstr "Belirli gün"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_staff.php:37
+msgid "Specific price"
+msgstr "Özel fiyat"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:120
+msgid "Specify the gap between time slots."
+msgstr "Zaman dilimleri arasındaki boşluğu belirtin."
+
+#: booknetic/app/Backend/Appointments/Controller.php:219
+#: booknetic/app/Backend/Payments/Controller.php:78
+#: booknetic/app/Backend/Services/Ajax.php:92
+msgid "STAFF"
+msgstr "PERSONEL"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:167
+#: booknetic/app/Backend/Appearance/view/index.php:45
+#: booknetic/app/Backend/Appointments/Controller.php:101
+#: booknetic/app/Backend/Appointments/view/tab/details.php:80
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:109
+#: booknetic/app/Backend/Appointments/view/tab/info_details.php:41
+#: booknetic/app/Backend/Base/view/modal/direct_link.php:64
+#: booknetic/app/Backend/Calendar/view/index.php:59
+#: booknetic/app/Backend/Payments/Controller.php:50
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:443
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:23
+#: booknetic/app/Backend/Staff/Controller.php:85 booknetic/app/Config.php:411
+#: booknetic/app/Frontend/view/booking_panel/cart.php:39
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:35
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPanel/BookingPanel.php:51
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:56
+#: booknetic/app/Providers/Core/Frontend.php:482
+msgid "Staff"
+msgstr "Personel"
+
+#: booknetic/app/Config.php:1170
+msgid "Staff about"
+msgstr "Personel hakkında"
+
+#: booknetic/app/Backend/Staff/Ajax.php:88
+msgid "STAFF DETAILS"
+msgstr "PERSONEL DETAYLARI"
+
+#: booknetic/app/Config.php:1158
+msgid "Staff email"
+msgstr "Personel e-postası"
+
+#: booknetic/app/Backend/Base/view/index.php:60
+msgid "Staff field cannot be empty"
+msgstr "Personel alanı boş olamaz"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:49
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:84
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_status_changed.php:81
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:49
+msgid "Staff filter"
+msgstr "Personel filtresi"
+
+#: booknetic/app/Config.php:1175
+msgid "Staff image URL"
+msgstr "Personel resmi URL'si"
+
+#: booknetic/app/Config.php:848
+msgid "Staff Info"
+msgstr "Personel Bilgisi"
+
+#: booknetic/app/Config.php:206 booknetic/app/Config.php:258
+msgid "Staff module"
+msgstr "Personel modülü"
+
+#: booknetic/app/Backend/Staff/Controller.php:94
+msgid "STAFF NAME"
+msgstr "PERSONEL ADI"
+
+#: booknetic/app/Config.php:1153
+msgid "Staff name"
+msgstr "Personel adı"
+
+#: booknetic/app/Backend/Staff/StaffObject.php:136
+msgid "Staff not found or permission denied!"
+msgstr "Personel bulunamadı veya izin reddedildi!"
+
+#: booknetic/app/Backend/Staff/Ajax.php:36
+msgid "Staff not found!"
+msgstr "Personel bulunamadı!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:153
+#: booknetic/app/Frontend/view/booking_panel/staff.php:15
+msgid "Staff not found. Please go back and select a different option."
+msgstr ""
+"Personel bulunamadı. Lütfen geri dönün ve farklı bir seçenek belirleyin."
+
+#: booknetic/app/Backend/Services/view/index.php:59
+msgid "Staff not selected"
+msgstr "Personel seçilmedi"
+
+#: booknetic/app/Config.php:1164
+msgid "Staff phone number"
+msgstr "Personel telefon numarası"
+
+#: booknetic/app/Backend/Payments/view/modal/info.php:31
+msgid "Staff:"
+msgstr "Personel:"
+
+#: booknetic/app/Backend/Appointments/Controller.php:146
+msgid "START DATE"
+msgstr "BAŞLANGIÇ TARİHİ"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:335
+#: booknetic/app/Backend/Settings/Ajax.php:163
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:45
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:102
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:181
+msgid "Start date"
+msgstr "Başlama tarihi"
+
+#: booknetic/app/Backend/Base/view/modal/template-selection.php:28
+msgid "Start From Scratch"
+msgstr "Sıfırdan Başlayın"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:134
+msgid "START NEW BOOKING"
+msgstr "YENİ REZERVASYON"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:231
+msgid "Start the booking calendar from"
+msgstr "Rezervasyon takvimini şu adresten başlatın:"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:41
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:134
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:77
+#: booknetic/app/Backend/Staff/view/tab/special_days.php:43
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:39
+msgid "Start time"
+msgstr "Başlangıç zamanı"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:367
+msgid "Starting confirmation number"
+msgstr "Başlangıç onay numarası"
+
+#: booknetic/app/Backend/Base/view/index.php:700
+msgid "Starting guide"
+msgstr "Başlangıç kılavuzu"
+
+#: booknetic/app/Backend/Payments/Controller.php:92
+#: booknetic/app/Backend/Payments/view/modal/info.php:65
+msgid "STATUS"
+msgstr "DURUM"
+
+#: booknetic/app/Backend/Appointments/Controller.php:107
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:41
+#: booknetic/app/Backend/Calendar/view/index.php:110
+#: booknetic/app/Backend/Payments/Controller.php:51
+msgid "Status"
+msgstr "Durum"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:42
+#: booknetic/app/Backend/Workflow/view/modal/event_new_booking.php:64
+msgid "Status filter"
+msgstr "Durum filtresi"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:86
+msgid "Steps"
+msgstr "Adımlar"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/BookingPopup/BookingPopup.php:85
+msgid "Style"
+msgstr "Tarz"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:38
+msgid "Style name"
+msgstr "Stil adı"
+
+#: booknetic/app/Backend/Services/Ajax.php:748
+msgid "Success"
+msgstr "Başarı"
+
+#: booknetic/app/Providers/Common/Divi/includes/modules/ChangeStatus/ChangeStatus.php:30
+msgid "Success Label"
+msgstr "Başarı Etiketi"
+
+#: booknetic/app/Backend/Services/Ajax.php:555
+msgid "Success!"
+msgstr "Başarı!"
+
+#: booknetic/app/Backend/Base/view/index.php:128
+msgid "Success! You have successfully opted out of the beta program"
+msgstr "Başarılı! Beta programından başarıyla çıktınız"
+
+#: booknetic/app/Backend/Settings/view/modal/payments_settings.php:108
+msgid "Successful payment booking status"
+msgstr "Başarılı ödeme rezervasyon durumu"
+
+#: booknetic/app/Config.php:979
+msgid "Sum price"
+msgstr "Toplam fiyat"
+
+#: booknetic/app/Config.php:984
+msgid "Sum price for recurring appointments"
+msgstr "Yinelenen randevular için toplam fiyat"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:123
+#: booknetic/app/Backend/Base/view/index.php:111
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:81
+#: booknetic/app/Backend/Settings/Ajax.php:120
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:21
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:62
+#: booknetic/app/Providers/Core/BookingPanelService.php:290
+#: booknetic/app/Providers/Core/Frontend.php:355
+msgid "Sun"
+msgstr "Pzr"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:220
+#: booknetic/app/Backend/Appointments/view/tab/details.php:285
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:128
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:65
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:46
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:163
+msgid "Sunday"
+msgstr "Pazar"
+
+#: booknetic/app/Frontend/view/booking_panel/information.php:52
+msgid "Surname"
+msgstr "Soyad"
+
+#: booknetic/app/Backend/Base/view/index.php:568
+msgid ""
+"Thank you for joining our Beta program! Your participation is invaluable to "
+"us and helps improve our product. 🚀"
+msgstr ""
+"Beta programımıza katıldığınız için teşekkür ederiz! Katılımınız bizim için "
+"çok değerli ve ürünümüzü geliştirmemize yardımcı oluyor. 🚀"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:128
+msgid "Thank you for your request!"
+msgstr "Rezervasyon başarıyla tamamlandı"
+
+#: booknetic/app/Backend/Customers/Controller.php:82
+msgid "The Customer has been added some Appointments. Firstly remove them!"
+msgstr "Müşteriye bazı Randevular eklendi. Önce onları çıkarın!"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:282
+msgid "The Customer pays full amount of recurring appointments"
+msgstr "Müşteri, yinelenen randevuların tamamını öder"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:281
+msgid "The Customer pays separately for each appointment"
+msgstr "Müşteri her randevu için ayrı ödeme yapar"
+
+#: booknetic/app/Backend/Settings/Ajax.php:661
+msgid "The Date & Time step cannot be ordered before the Service step."
+msgstr "Tarih ve Saat adımı, Servis adımından önce sipariş edilemez."
+
+#: booknetic/app/Frontend/Controller/ForgotPasswordAjax.php:25
+msgid "The email address is not registered!"
+msgstr "E-posta adresi kayıtlı değil!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:657
+msgid "The Extra step cannot be ordered before the Service step."
+msgstr "Ekstra adım, Servis adımından önce sipariş edilemez."
+
+#: booknetic/app/Backend/Settings/Ajax.php:353
+msgid "The new password and confirmation doesn't match"
+msgstr "Yeni parola ile onay eşleşmiyor"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:223
+msgid "The time format for the booking form"
+msgstr "Rezervasyon formunun zaman biçimi"
+
+#: booknetic/app/Backend/Staff/StaffObject.php:331
+msgid "The WordPress user with the same email address already exists!"
+msgstr "Aynı e-posta adresine sahip WordPress kullanıcısı zaten var!"
+
+#: booknetic/app/Backend/Customers/Ajax.php:215
+msgid ""
+"The WordPress user you are trying to associate with this customer does not "
+"have the Booknetic Customer role!"
+msgstr ""
+"Bu müşteri ile ilişkilendirmeye çalıştığınız kullanıcısı Booknetic Müşteri "
+"rolüne sahip değil!"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:149
+#, php-format
+msgid "Theme ID: %d"
+msgstr "Tema Kimliği: %d"
+
+#: booknetic/app/Backend/Appearance/Ajax.php:113
+#: booknetic/app/Backend/Appearance/Ajax.php:120
+#: booknetic/app/Backend/Appearance/Ajax.php:141
+#: booknetic/app/Backend/Appearance/Ajax.php:148
+msgid "Theme not found!"
+msgstr "Tema bulunamadı!"
+
+#: booknetic/app/Backend/Services/Ajax.php:282
+msgid "There are some services in this category."
+msgstr "Bu kategoride bazı hizmetler bulunmaktadır."
+
+#: booknetic/app/Backend/Locations/Controller.php:77
+msgid ""
+"There are some staff members currently using this location. Please remove "
+"them first!"
+msgstr ""
+"Şu anda bu konumu kullanan bazı personel üyeleri var. Lütfen önce onları "
+"kaldırın!"
+
+#: booknetic/app/Providers/Core/PluginUpdater.php:346
+msgid ""
+"There is a new update for Booknetic! Please always keep the plugin and add-"
+"ons up-to-date in order for the plugin to work properly."
+msgstr ""
+"Booknetic için yeni bir güncelleme var! Eklentinin düzgün çalışması için "
+"lütfen eklentiyi ve eklentileri her zaman güncel tutun."
+
+#: booknetic/app/Backend/Customers/Ajax.php:199
+#| msgid "There is another Booknetic customer with the same email address!"
+msgid "There is another Customer with the same email address!"
+msgstr "Aynı e-posta adresine sahip başka bir Booknetic müşterisi daha var!"
+
+#: booknetic/app/Backend/Customers/Ajax.php:204
+#| msgid "There is another customer with the same email adress!"
+msgid "There is another customer with the same email address!"
+msgstr "Aynı e-posta adresine sahip başka bir müşteri var!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:152
+#: booknetic/app/Frontend/view/booking_panel/locations.php:16
+msgid "There is no any Location for select."
+msgstr "Seçilecek bir konum bulunamadı."
+
+#: booknetic/app/Backend/Services/Ajax.php:529
+msgid "There is no category or service attached with this extra!"
+msgstr "Bu ekstraya eklenmiş bir kategori veya hizmet yok!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:155
+msgid "There isn't any available staff for the selected date/time."
+msgstr "Seçilen tarih/saat için uygun personel bulunamadı."
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:271
+#: booknetic/app/Backend/Settings/Ajax.php:172
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:30
+msgid "Third"
+msgstr "Üçüncü"
+
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:20
+msgid ""
+"This booking will be duplicate as you already have an appointment for the "
+"same timeslot"
+msgstr ""
+"Aynı zaman dilimi için zaten bir randevunuz olduğu için bu rezervasyon "
+"yinelenecektir"
+
+#: booknetic/app/Backend/Services/Ajax.php:321
+#: booknetic/app/Backend/Services/Ajax.php:762
+msgid "This category is already exist! Please choose an other name."
+msgstr "Bu kategori zaten var! Lütfen başka bir isim seçin."
+
+#: booknetic/app/Backend/Settings/Ajax.php:295
+msgid "This domain is registered under another user"
+msgstr "Bu kullanıcı adı başka bir kullanıcı altında kayıtlıdır"
+
+#: booknetic/app/Frontend/Controller/SignupAjax.php:36
+msgid "This email is already registered!"
+msgstr "Bu e-posta zaten kayıtlı!"
+
+#: booknetic/app/Backend/Settings/Ajax.php:305
+msgid "This email is registered under another user"
+msgstr "Bu e-posta başka bir kullanıcı adına kayıtlı"
+
+#: booknetic/app/Backend/Services/Ajax.php:476
+#, php-format
+msgid "This extra is using some Appointments (ID: %d). Firstly remove them!"
+msgstr "Bu ek, bazı Randevuları kullanıyor (ID: %d). Önce onları çıkarın!"
+
+#: booknetic/app/Backend/Locations/Controller.php:72
+msgid ""
+"This location has some appointments scheduled. Please remove them first!"
+msgstr ""
+"Bu konumda planlanmış bazı randevular var. Lütfen önce onları kaldırın!"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:52
+msgid "This month"
+msgstr "Bu ay"
+
+#: booknetic/app/Backend/Services/Controller.php:36
+msgid "This service has some appointments scheduled. Please remove them first"
+msgstr ""
+"Bu hizmetin planlanmış bazı randevuları vardır. Lütfen önce bunları kaldırın"
+
+#: booknetic/app/Backend/Services/ServiceObject.php:148
+msgid "This service name is already exist! Please choose an other name."
+msgstr "Bu hizmet adı zaten var! Lütfen başka bir isim seçin."
+
+#: booknetic/app/Backend/Staff/Controller.php:33
+msgid "This staff has been added some Appointments. Firstly remove them!"
+msgstr "Bu personele bazı Randevular eklendi. Önce onları çıkarın!"
+
+#: booknetic/app/Backend/Base/view/index.php:26
+msgid "This time slot is not available!"
+msgstr "Bu zaman aralığı mevcut değil!"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:50
+msgid "This week"
+msgstr "Bu hafta"
+
+#: booknetic/app/Backend/Customers/Ajax.php:166
+#: booknetic/app/Backend/Customers/Ajax.php:173
+#, php-format
+msgid ""
+"This wordpress user is already connected to another booknetic customer (ID: "
+"%d)"
+msgstr ""
+"Bu wordpress kullanıcısı zaten başka bir Booknetic müşterisine bağlı (ID: %d)"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:53
+msgid "This year"
+msgstr "Bu yıl"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:108
+#: booknetic/app/Backend/Base/view/index.php:108
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:78
+#: booknetic/app/Backend/Settings/Ajax.php:117
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:43
+#: booknetic/app/Providers/Core/BookingPanelService.php:287
+#: booknetic/app/Providers/Core/Frontend.php:352
+msgid "Thu"
+msgstr "Prşmb"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:175
+#: booknetic/app/Backend/Appointments/view/tab/details.php:282
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:125
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:43
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:118
+msgid "Thursday"
+msgstr "Perşembe"
+
+#: booknetic/app/Backend/Appointments/view/modal/add_new.php:49
+#: booknetic/app/Backend/Settings/Ajax.php:177
+#: booknetic/app/Frontend/view/booking_panel/recurring_information.php:24
+msgid "TIME"
+msgstr "SAAT"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:252
+#: booknetic/app/Backend/Appointments/view/tab/details.php:322
+#: booknetic/app/Backend/Appointments/view/tab/details.php:367
+#: booknetic/app/Backend/Appointments/view/tab/edit_details.php:127
+#: booknetic/app/Backend/Settings/Ajax.php:162
+#: booknetic/app/Frontend/view/booking_panel/date_time_non_recurring.php:23
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:27
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:83
+msgid "Time"
+msgstr "Zaman"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:81
+msgid "Time format"
+msgstr "Zaman biçimi"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:270
+msgid "time per week"
+msgstr "haftalık süre"
+
+#: booknetic/app/Backend/Services/Ajax.php:98
+msgid "TIME SHEET"
+msgstr "ZAMAN ÇİZELGESİ"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:121
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:28
+msgid "Time slot length"
+msgstr "Zaman aralığı uzunluğu"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:251
+msgid "time(s)"
+msgstr "zaman(lar)"
+
+#: booknetic/app/Backend/Base/view/index.php:63
+msgid "time(s) per month"
+msgstr "aylık süre(ler) "
+
+#: booknetic/app/Backend/Base/view/index.php:64
+msgid "time(s) per week"
+msgstr "haftalık zaman(lar) "
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:349
+#: booknetic/app/Backend/Settings/Ajax.php:165
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_daily.php:59
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:116
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:195
+msgid "Times"
+msgstr "Zaman"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentChangeStatus.php:38
+msgid "Timeslot for your appointment is occupied"
+msgstr "Randevunuz için zaman dilimi dolu"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:222
+msgid "Timezone"
+msgstr "Saat dilimi"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:102
+msgid "Title color"
+msgstr "Başlık rengi"
+
+#: booknetic/app/Backend/Base/view/index.php:54
+msgid "To"
+msgstr "Kime"
+
+#: booknetic/app/Backend/Base/view/index.php:87
+msgid ""
+"To create a category, simply enter your desired category name in the field "
+"and press 'Enter'."
+msgstr ""
+"Bir kategori oluşturmak için alana istediğiniz kategori adını girip 'Enter' "
+"tuşuna basmanız yeterlidir."
+
+#: booknetic/app/Backend/Calendar/view/index.php:171
+msgid "TODAY"
+msgstr "BUGÜN"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:47
+msgid "Today"
+msgstr "Bugün"
+
+#: booknetic/app/Providers/Core/Frontend.php:270
+msgid "Token expired. Redirecting..."
+msgstr "Token süresi doldu. Yönlendiriliyor..."
+
+#: booknetic/app/Backend/Dashboard/view/index.php:49
+msgid "Tomorrow"
+msgstr "Yarın"
+
+#: booknetic/app/Backend/Customers/Ajax.php:418
+msgid "Too many fields detected on CSV file!"
+msgstr "CSV dosyasında çok fazla alan algılandı!"
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:91
+#: booknetic/app/Backend/Payments/view/modal/info.php:97
+msgid "Total"
+msgstr "Toplam"
+
+#: booknetic/app/Backend/Payments/Controller.php:83
+msgid "TOTAL AMOUNT"
+msgstr "TOPLAM TUTAR"
+
+#: booknetic/app/Config.php:1242
+msgid "Total appointments in group"
+msgstr "Gruptaki toplam randevular"
+
+#: booknetic/app/Config.php:1036
+msgid "Total attendees count for one appointment "
+msgstr "Bir randevu için toplam katılımcı sayısı "
+
+#: booknetic/app/Frontend/view/booking_panel/confirm_details.php:71
+msgid "Total price"
+msgstr "Toplam ücret"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_labels_settings.php:43
+msgid "TRANSLATE"
+msgstr "TERCÜME ET"
+
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_rescheduled.php:88
+#: booknetic/app/Backend/Workflow/view/modal/event_booking_starts.php:111
+msgid "Trigger for each customers (in group booking)"
+msgstr "Her müşteri için tetikleyici (grup rezervasyonunda)"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:118
+msgid "TRY AGAIN"
+msgstr "TEKRAR DENEYİN"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:98
+#: booknetic/app/Backend/Base/view/index.php:106
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:76
+#: booknetic/app/Backend/Settings/Ajax.php:115
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:33
+#: booknetic/app/Providers/Core/BookingPanelService.php:285
+#: booknetic/app/Providers/Core/Frontend.php:350
+msgid "Tue"
+msgstr "Salı"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:145
+#: booknetic/app/Backend/Appointments/view/tab/details.php:280
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:123
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:41
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:88
+msgid "Tuesday"
+msgstr "Salı"
+
+#: booknetic/app/Backend/Appearance/view/edit.php:41
+msgid "Type name..."
+msgstr "Tür adı..."
+
+#: booknetic/app/Backend/Settings/Helpers/BackupService.php:118
+#: booknetic/app/Backend/Settings/Helpers/BackupService.php:131
+msgid "Unable to read the backup file!"
+msgstr "Yedekleme dosyası okunamıyor!"
+
+#: booknetic/app/Backend/Locations/view/modal/add_new.php:49
+msgid "UNHIDE LOCATION"
+msgstr "KONUMU GÖSTER"
+
+#: booknetic/app/Backend/Services/view/modal/add_new.php:53
+msgid "UNHIDE SERVICE"
+msgstr "HİZMETİ GÖSTER"
+
+#: booknetic/app/Backend/Staff/view/modal/add_new.php:70
+msgid "UNHIDE STAFF"
+msgstr "PERSONELİ GÖSTER"
+
+#: booknetic/app/Backend/Boostore/view/details.php:64
+#: booknetic/app/Backend/Boostore/view/modal/addons_v1.php:60
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:70
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:77
+msgid "UNINSTALL"
+msgstr "KALDIR"
+
+#: booknetic/app/Backend/Appointments/Controller.php:121
+msgid "Upcoming"
+msgstr "Yaklaşan"
+
+#: booknetic/app/Backend/Base/view/index.php:118
+#: booknetic/app/Backend/Base/view/index.php:393
+#: booknetic/app/Backend/Base/view/index.php:405
+#: booknetic/app/Backend/Base/view/index.php:417
+#: booknetic/app/Backend/Base/view/index.php:429
+msgid "Update"
+msgstr "Güncelle"
+
+#: booknetic/app/Backend/Staff/view/tab/details.php:78
+msgid "Update Wordpress User"
+msgstr "Kullanıcıyı güncelle"
+
+#: booknetic/app/Backend/Settings/Controller.php:144
+msgid "Update your profile information"
+msgstr "Profil bilgilerinizi güncelleme"
+
+#: booknetic/app/Backend/Base/view/modal/permission_denied.php:12
+msgid "Upgrade needed!"
+msgstr "Yükseltme gerekli!"
+
+#: booknetic/app/Backend/Base/view/modal/permission_denied.php:19
+msgid "UPGRADE NOW"
+msgstr "ŞİMDİ YÜKSELT"
+
+#: booknetic/app/Backend/Settings/view/modal/payment_gateways_settings.php:60
+msgid "Upload"
+msgstr "Yükle"
+
+#: booknetic/app/Config.php:248
+msgid "Upload a logo to the booking panel"
+msgstr "Rezervasyon paneline bir logo yükleyin"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:26
+msgid "Upload Image"
+msgstr "Resim Yükle"
+
+#: booknetic/app/Backend/Settings/view/modal/profile_details.php:46
+msgid "Upload image"
+msgstr "Resim yükle"
+
+#: booknetic/app/Backend/Settings/view/tabs/step_confirm.php:47
+msgid "URL for redirection"
+msgstr "Yönlendirme için URL"
+
+#: booknetic/app/Backend/Settings/view/modal/booking_panel_steps_settings.php:321
+msgid "URL of \"FINISH BOOKING\" button"
+msgstr "\"REZERVASYONU BİTİR\" düğmesinin URL'si"
+
+#: booknetic/app/Config.php:1141
+msgid "URL to complete customer sign up"
+msgstr "Müşteri kaydını tamamlamak için URL"
+
+#: booknetic/app/Config.php:1146
+msgid "URL to reset customer password"
+msgstr "Müşteri şifresini sıfırlamak için URL"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:67
+#: booknetic/app/Backend/Staff/view/tab/details.php:53
+msgid "Use existing WordPress user"
+msgstr "Mevcut WordPress kullanıcısını kullan"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:93
+#: booknetic/app/Backend/Staff/view/tab/details.php:88
+msgid "User password"
+msgstr "Kullanıcı şifresi"
+
+#: booknetic/app/Frontend/view/signin/signin.php:13
+msgid "Username or Email Address"
+msgstr "Kullanıcı Adı veya E-posta Adresi"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentRequestData.php:586
+#: booknetic/app/Backend/Customers/Ajax.php:132
+msgid ""
+"Users with role of \"Administrator\" or \"Staff\" cannot be used as customers"
+msgstr ""
+"“Yönetici” veya ‘Personel’ rolüne sahip kullanıcılar müşteri olarak "
+"kullanılamaz"
+
+#: booknetic/app/Providers/Helpers/Helper.php:1134
+#, php-format
+msgid "View ( %s ) not found!"
+msgstr "Görünüm (%s ) bulunamadı!"
+
+#: booknetic/app/Backend/Boostore/view/details.php:80
+#: booknetic/app/Backend/Boostore/view/modal/addons_v2.php:92
+msgid "VIEW CART"
+msgstr "SEPETİ GÖR"
+
+#: booknetic/app/Backend/Settings/Ajax.php:180
+#: booknetic/app/Providers/Helpers/Helper.php:44
+#: booknetic/app/Providers/Helpers/Helper.php:58
+msgid "w"
+msgstr "h"
+
+#: booknetic/app/Backend/Boostore/view/my_purchases.php:105
+msgid "We are migrating your data."
+msgstr "Verilerinizi aktarıyoruz."
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:109
+msgid "We aren’t able to process your payment. Please, try again."
+msgstr "Ödemenizi işleme koyamayız. Lütfen, tekrar dene."
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password.php:29
+#: booknetic/app/Frontend/view/signup/signup.php:43
+msgid "We need to verify your email."
+msgstr "E-postanızı doğrulamamız gerekiyor."
+
+#: booknetic/app/Backend/Settings/view/modal/company_settings.php:47
+msgid "Website"
+msgstr "İnternet sitesi"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:103
+#: booknetic/app/Backend/Base/view/index.php:107
+#: booknetic/app/Backend/Dashboard/view/modal/svg_tpl.php:77
+#: booknetic/app/Backend/Settings/Ajax.php:116
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:38
+#: booknetic/app/Providers/Core/BookingPanelService.php:286
+#: booknetic/app/Providers/Core/Frontend.php:351
+msgid "Wed"
+msgstr "Çarş"
+
+#: booknetic/app/Backend/Appointments/view/tab/details.php:160
+#: booknetic/app/Backend/Appointments/view/tab/details.php:281
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:119
+#: booknetic/app/Backend/Settings/Ajax.php:124
+#: booknetic/app/Backend/Settings/view/modal/business_hours_settings.php:58
+#: booknetic/app/Backend/Staff/view/tab/timesheet.php:26
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_monthly.php:42
+#: booknetic/app/Frontend/view/booking_panel/date_time_recurring_weekly.php:103
+msgid "Wednesday"
+msgstr "Çarşamba"
+
+#: booknetic/app/Backend/Calendar/view/index.php:173
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:249
+#: booknetic/app/Providers/Helpers/Helper.php:84
+#: booknetic/app/Providers/Helpers/Helper.php:98
+msgid "week"
+msgstr "hafta"
+
+#: booknetic/app/Backend/Settings/view/modal/general_settings.php:63
+msgid "Week starts on"
+msgstr "Hafta başlıyor"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_service_details.php:229
+msgid "Weekly"
+msgstr "Haftalık"
+
+#: booknetic/app/Backend/Services/view/tab/add_new_timesheet.php:99
+#: booknetic/app/Backend/Staff/Ajax.php:94
+msgid "WEEKLY SCHEDULE"
+msgstr "HAFTALIK PROGRAM"
+
+#: booknetic/app/Providers/Helpers/Helper.php:84
+#: booknetic/app/Providers/Helpers/Helper.php:98
+msgid "weeks"
+msgstr "haftalar"
+
+#: booknetic/app/Backend/Services/view/index.php:143
+msgid "What do you want to create?"
+msgstr "Ne yapmak istiyorsun?"
+
+#: booknetic/app/Backend/Workflow/view/edit.php:52
+msgid "When"
+msgstr "Ne zaman"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:33
+msgid "When This Happens"
+msgstr "Bu Olduğunda"
+
+#: booknetic/app/Backend/Base/view/install.php:35
+msgid "Where did You find us?"
+msgstr "Bizi nerede buldun?"
+
+#: booknetic/app/Backend/Base/view/index.php:569
+msgid "Why use the Beta?"
+msgstr "Neden Beta kullanılmalı?"
+
+#: booknetic/app/Config.php:453
+msgid "WORDPRESS"
+msgstr "WORDPRESS"
+
+#: booknetic/app/Backend/Customers/view/tab/add_customer_details.php:76
+#: booknetic/app/Backend/Staff/view/tab/details.php:62
+msgid "WordPress user"
+msgstr "WordPress kullanıcısı"
+
+#: booknetic/app/Config.php:427
+msgid "Workflow"
+msgstr "İş akışı"
+
+#: booknetic/app/Config.php:190 booknetic/app/Config.php:256
+msgid "Workflow module"
+msgstr "İş akışı modülü"
+
+#: booknetic/app/Backend/Workflow/view/modal/add_new.php:26
+msgid "Workflow Name"
+msgstr "İş akışı Adı"
+
+#: booknetic/app/Backend/Workflow/view/edit.php:33
+msgid "Workflow name"
+msgstr "İş akışı adı"
+
+#: booknetic/app/Backend/Workflow/Controller.php:49
+#: booknetic/app/Backend/Workflow/view/edit.php:22
+msgid "Workflows"
+msgstr "İş akışları"
+
+#: booknetic/app/Backend/Base/view/index.php:122
+msgid "Would you like to reschedule the appointment?"
+msgstr "Randevuyu yeniden planlamak ister misiniz?"
+
+#: booknetic/app/Backend/Dashboard/view/index.php:48
+msgid "Yesterday"
+msgstr "Dün"
+
+#: booknetic/app/Providers/Core/Frontend.php:70
+#: booknetic/app/Providers/Core/Frontend.php:93
+#: booknetic/app/Providers/Core/Frontend.php:217
+msgid "You are already signed in. Please wait, you are being redirected..."
+msgstr "Zaten oturum açtınız. Lütfen bekleyin, yönlendiriliyorsunuz..."
+
+#: booknetic/app/Backend/Settings/Controller.php:106
+msgid "You can change settings for integrated services from here."
+msgstr "Tümleşik hizmetler ayarlarını buradan değiştirebilirsiniz."
+
+#: booknetic/app/Backend/Settings/Controller.php:31
+msgid ""
+"You can customize booking and customer panel and change labels from here"
+msgstr ""
+"Rezervasyon ve müşteri panelini özelleştirebilir ve etiketleri buradan "
+"değiştirebilirsiniz"
+
+#: booknetic/app/Backend/Settings/Controller.php:19
+msgid "You can customize general settings about booking from here"
+msgstr "Rezervasyonla ilgili genel ayarları buradan özelleştirebilirsiniz"
+
+#: booknetic/app/Backend/Settings/Controller.php:129
+msgid "You can export all Booknetic data and import from here."
+msgstr ""
+"Tüm Booknetic verilerini dışa aktarabilir ve buradan içe aktarabilirsiniz."
+
+#: booknetic/app/Backend/Staff/StaffObject.php:338
+msgid "You can not add tenant email to a staff!"
+msgstr "Bir personele kiracı e-postası ekleyemezsiniz!"
+
+#: booknetic/app/Backend/Appearance/Ajax.php:125
+msgid "You can not delete default theme!"
+msgstr "Varsayılan temayı silemezsiniz!"
+
+#: booknetic/app/Backend/Settings/Controller.php:99
+msgid "You can select dates that you are unavailable or on holiday"
+msgstr "Müsait olmadığınız veya tatilde olduğunuz tarihleri seçebilirsiniz"
+
+#: booknetic/app/Backend/Locations/Ajax.php:34
+#: booknetic/app/Backend/Locations/Ajax.php:88
+#, php-format
+msgid ""
+"You can't add more than %d Location. Please upgrade your plan to add more "
+"Location."
+msgstr ""
+"%d Konumundan fazlasını ekleyemezsiniz. Daha fazla Konum eklemek için lütfen "
+"planınızı yükseltin."
+
+#: booknetic/app/Backend/Services/Ajax.php:377
+#, php-format
+msgid ""
+"You can't add more than %d Service Extras. Please upgrade your plan to add "
+"more Service Extra."
+msgstr ""
+"%d'den fazla Hizmet Ekstrası ekleyemezsiniz. Daha fazla Hizmet Ekstra "
+"eklemek için lütfen planınızı yükseltin."
+
+#: booknetic/app/Backend/Services/Ajax.php:62
+#: booknetic/app/Backend/Services/ServiceObject.php:227
+#, php-format
+msgid ""
+"You can't add more than %d Service. Please upgrade your plan to add more "
+"Service."
+msgstr ""
+" %d 'den fazla Hizmet ekleyemezsiniz. Daha fazla Hizmet eklemek için lütfen "
+"planınızı yükseltin."
+
+#: booknetic/app/Backend/Staff/Ajax.php:53
+#: booknetic/app/Backend/Staff/StaffObject.php:192
+#, php-format
+msgid ""
+"You can't add more than %d Staff. Please upgrade your plan to add more Staff."
+msgstr ""
+" %d 'den fazla Personel ekleyemezsiniz. Daha fazla Personel eklemek için "
+"lütfen planınızı yükseltin."
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:18
+msgid ""
+"You can't receive appointments. Please upgrade your plan to receive "
+"appointments."
+msgstr "Randevu alamazsınız. Randevu almak için lütfen planınızı yükseltin."
+
+#: booknetic/app/Backend/Customers/Ajax.php:180
+msgid ""
+"You cannot change user email or password, because this customer has been "
+"used on another tenant also"
+msgstr ""
+"Kullanıcı e-postasını veya şifresini değiştiremezsiniz, çünkü bu müşteri "
+"başka bir kiracıda da kullanılmıştır"
+
+#: booknetic/app/Backend/Staff/Ajax.php:64
+#: booknetic/app/Backend/Staff/Controller.php:25
+#: booknetic/app/Backend/Staff/StaffObject.php:119
+msgid "You do not have sufficient permissions to perform this action"
+msgstr "Bu eylemi gerçekleştirmek için yeterli izniniz yok"
+
+#: booknetic/app/Frontend/view/signup/signup-completed.php:20
+msgid "You have successfully signed up!"
+msgstr "Başarıyla kaydoldunuz!"
+
+#: booknetic/app/Backend/Customers/view/modal/import.php:29
+msgid "You may import list of clients in CSV format."
+msgstr "Müşteri listesini CSV formatında içe aktarabilirsiniz."
+
+#: booknetic/app/Backend/Settings/Ajax.php:665
+msgid "You must add at least one Location to hide the Location step."
+msgstr "Konum adımını gizlemek için en az bir Konum eklemeniz gerekir."
+
+#: booknetic/app/Backend/Settings/Ajax.php:673
+msgid "You must add at least one Service to hide the Service step."
+msgstr "Hizmet adımını gizlemek için en az bir Hizmet eklemeniz gerekir."
+
+#: booknetic/app/Backend/Settings/Ajax.php:669
+msgid "You must add at least one Staff to hide the Staff step."
+msgstr "Personel adımını gizlemek için en az bir Personel eklemeniz gerekir."
+
+#: booknetic/app/Backend/Settings/Controller.php:90
+msgid "You will be able to co-ordinate your company's overall work schedule"
+msgstr "Şirketinizin genel çalışma programını koordine edebileceksiniz"
+
+#: booknetic/app/Frontend/view/signup/signup-completed.php:21
+msgid "You will be redirected in "
+msgstr "Şu adrese yönlendirileceksiniz "
+
+#: booknetic/app/Frontend/Controller/SigninAjax.php:34
+msgid "Your account is not activated"
+msgstr "Hesabınız etkin değil"
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentChangeStatus.php:34
+msgid "Your appointment status is already changed."
+msgstr "Randevu durumunuz zaten değişti."
+
+#: booknetic/app/Backend/Boostore/Ajax.php:281
+msgid "Your cart is already empty."
+msgstr "Sepetiniz zaten boş."
+
+#: booknetic/app/Backend/Boostore/view/cart/index.php:120
+msgid "Your Cart is empty"
+msgstr "Sepetiniz boş"
+
+#: booknetic/app/Frontend/view/booking_panel/booknetic.php:129
+msgid "Your confirmation number:"
+msgstr "Sizin onay kodunuz:"
+
+#: booknetic/app/Frontend/view/forgot_password/forgot_password_complete.php:32
+msgid "Your password has been reset successfully !"
+msgstr "Şifreniz başarıyla sıfırlandı!"
+
+#: booknetic/app/Backend/Base/view/disabled.php:20
+msgid "Your plugin is disabled. Please activate the plugin."
+msgstr "Eklentiniz devre dışı bırakıldı. Lütfen eklentiyi etkinleştirin."
+
+#: booknetic/app/Backend/Base/view/index.php:113
+msgid "Your session has expired. Please refresh the page and try again."
+msgstr "Oturumunuzun süresi doldu. Lütfen sayfayı yenileyin ve tekrar deneyin."
+
+#: booknetic/app/Backend/Appointments/Helpers/AppointmentChangeStatus.php:32
+msgid "Your token has been expired."
+msgstr "Kullanım süresi doldu."

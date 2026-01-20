@@ -1,0 +1,85 @@
+.mobile-app-menu-button {
+    gap: 8px;
+    padding: 8px;
+    background-color: #F1F5F9;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #344054;
+    border-radius: 6px;
+    transition: background-color .2s ease;
+    height: 36px;
+}
+
+.mobile-app-menu-button:hover {
+    text-decoration: none;
+    background-color: #E2E8F0;
+    color: #1E293B;
+}
+
+.mobile-app-menu-button span {
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+    border-radius: 6px;
+    background: #4362FF;
+    padding: 4px;
+}
+
+.mobile-app-menu-dropdown {
+    top: 45px;
+    left: -100px;
+    border: 1px solid #CCD7DC;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.10);
+    display: none;
+}
+
+.mobile-app-menu-dropdown .tippy {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.mobile-app-menu-dropdown h1 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #292D32;
+    padding: 16px;
+    border-bottom: thin solid #ECF1FE;
+}
+
+.mobile-app-menu-dropdown > div {
+    padding: 24px;
+}
+
+.mobile-app-menu-dropdown .legal-badges {
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.legal-badges a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: auto;
+}
+
+.legal-badges img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.mobile-app-menu-dropdown p {
+    color: #95A0A9;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}

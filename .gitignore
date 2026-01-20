@@ -1,0 +1,66 @@
+.gitignore# ----------------------------------
+# OS / Editor files
+# ----------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.log
+.idea/
+.vscode/
+
+# ----------------------------------
+# WordPress core (if installed via zip)
+# ----------------------------------
+wp-admin/
+wp-includes/
+wp-content/index.php
+wp-content/languages/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/uploads/
+wp-content/backups/
+
+# ----------------------------------
+# Config & environment
+# ----------------------------------
+wp-config.php
+.env
+.env.*
+*.local
+
+# ----------------------------------
+# Plugins & Themes (ignore all except custom ones)
+# ----------------------------------
+wp-content/plugins/*
+!wp-content/plugins/booknetic/
+!wp-content/plugins/booknetic-saas/
+!wp-content/plugins/booknetic-collaborative-services/
+
+wp-content/themes/*
+# !wp-content/themes/your-custom-theme/
+
+# ----------------------------------
+# MU plugins (optional)
+# ----------------------------------
+wp-content/mu-plugins/
+!wp-content/mu-plugins/your-mu-plugin.php
+
+# ----------------------------------
+# Dependency directories
+# ----------------------------------
+node_modules/
+vendor/
+
+# ----------------------------------
+# Build / cache files
+# ----------------------------------
+*.zip
+*.tar.gz
+*.map
+
+# ----------------------------------
+# Logs
+# ----------------------------------
+error_log
+debug.log

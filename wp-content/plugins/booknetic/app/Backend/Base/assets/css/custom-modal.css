@@ -1,0 +1,117 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    background: rgba(0, 10, 102, 0.15);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+
+    &.is-open {
+        opacity: 1;
+    }
+    &.is-closing {
+        opacity: 0;
+    }
+}
+
+.booknetic-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+
+    &.is-open {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &.is-closing {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    .modal-header {
+        padding: 14px 16px;
+        border-bottom: 1px solid #E3EBF4;
+        background: #F7F8FB;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+
+        .modal-title {
+            color: #292D32;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        .modal-close-btn {
+            all: unset;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .modal-body {
+        padding: 24px 16px;
+
+        .modal-text {
+            margin: 0;
+            color: #292D32;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+    }
+
+    .modal-footer {
+        border-top: 1px solid #E3EBF4;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .button {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        padding: 10px 32px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &:disabled {
+            border: 1px solid #E0E8F1 !important;
+            background-color: #F7F8FB !important;
+            cursor: not-allowed;
+            color: #8895A0 !important;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .booknetic-modal {
+        bottom: 0;
+        top: auto;
+        left: 0;
+        transform: translateY(0) !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 100%;
+    }
+
+    .manage-seats-container {
+        flex-direction: column;
+    }
+
+    .booknetic-modal .modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+}

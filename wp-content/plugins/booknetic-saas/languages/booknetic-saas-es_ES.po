@@ -1,0 +1,2264 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Booknetic SaaS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-27 09:58+0400\n"
+"PO-Revision-Date: 2025-03-27 09:58+0400\n"
+"Last-Translator: \n"
+"Language-Team: Español\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ../app\n"
+"X-Poedit-KeywordsList: bkntcsaas__\n"
+"X-Loco-Version: 2.6.1; wp-5.9.3\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Backend/Base/view/disabled.php:9 Backend/Base/view/index.php:38
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: Backend/Base/view/disabled.php:9
+msgid "( it can take some time, please wait... )"
+msgstr "(puede tomar algo de tiempo, por favor espere...)"
+
+#: Backend/Base/view/disabled.php:19
+msgid "Your plugin is disabled. Please activate the plugin."
+msgstr "Su complemento está deshabilitado. Activa el complemento."
+
+#: Backend/Base/view/disabled.php:22
+#, php-format
+msgid "Reason: %s"
+msgstr "Razón: %s"
+
+#: Backend/Base/view/index.php:14
+msgid "Are you sure?"
+msgstr "¿Estas seguro?"
+
+#: Backend/Base/view/index.php:15
+msgid "Deleted!"
+msgstr "Borrado!"
+
+#: Backend/Base/view/index.php:18
+msgid "Select..."
+msgstr "Seleccione..."
+
+#: Backend/Base/view/index.php:19
+msgid "Please firstly choose a service!"
+msgstr "Por favor, primero elija un servicio!"
+
+#: Backend/Base/view/index.php:20 Backend/Payments/Ajax.php:72
+#: Backend/Plans/Ajax.php:104 Backend/Settings/Ajax.php:591
+#: Backend/Settings/Ajax.php:608 Backend/Tenants/Ajax.php:109
+#: Frontend/Controller/Ajax.php:73 Frontend/Controller/Ajax.php:200
+#: Frontend/Controller/Ajax.php:216 Frontend/Controller/Ajax.php:223
+#: Frontend/Controller/Ajax.php:235 Frontend/Controller/Ajax.php:257
+#: Frontend/Controller/Ajax.php:264 Frontend/Controller/Ajax.php:281
+#: Frontend/Controller/Ajax.php:377 Frontend/Controller/Ajax.php:436
+#: Frontend/Controller/Ajax.php:441
+msgid "Please fill in all required fields correctly!"
+msgstr "¡Por favor complete todos los campos requeridos correctamente!"
+
+#: Backend/Base/view/index.php:21
+msgid "This time slot is not available!"
+msgstr "¡Esta franja horaria no está disponible!"
+
+#: Backend/Base/view/index.php:24
+msgid "Are you sure you want to delete?"
+msgstr "¿Estás seguro de que quieres eliminar?"
+
+#: Backend/Base/view/index.php:25
+msgid "Rows deleted!"
+msgstr "¡Filas eliminadas!"
+
+#: Backend/Base/view/index.php:26
+msgid "DELETE"
+msgstr "BORRAR"
+
+#: Backend/Base/view/index.php:27 Backend/Payments/view/modal/add_new.php:38
+#: Backend/Plans/view/modal/add_new.php:39
+#: Backend/Settings/view/modal/workflow_action_edit.php:83
+#: Backend/Tenants/view/modal/add_new.php:41
+msgid "CANCEL"
+msgstr "CANELAR"
+
+#: Backend/Base/view/index.php:28
+msgid "Dear user"
+msgstr "Querido usuario"
+
+#: Backend/Base/view/index.php:31
+msgid "Group appointment"
+msgstr "Cita de grupo"
+
+#: Backend/Base/view/index.php:34
+msgid "Select services..."
+msgstr "Seleccionar servicios..."
+
+#: Backend/Base/view/index.php:35
+msgid "Changes has been saved!"
+msgstr "¡Los cambios se han guardado!"
+
+#: Backend/Base/view/index.php:41
+msgid "Fill the form correctly!"
+msgstr "Llene el formulario correctamente!"
+
+#: Backend/Base/view/index.php:42
+msgid "Saved succesfully!"
+msgstr "¡Guardado con éxito!"
+
+#: Backend/Base/view/index.php:43
+msgid "Please type email!"
+msgstr "¡Escriba el correo electrónico!"
+
+#: Backend/Base/view/index.php:44
+msgid "Please type phone number!"
+msgstr "¡Por favor escriba el número de teléfono!"
+
+#: Backend/Base/view/index.php:47
+msgid "Are you sure that you want to delete this service extra?"
+msgstr "¿Está seguro de que desea eliminar este servicio adicional?"
+
+#: Backend/Base/view/index.php:48
+msgid "No more Staff exists for select!"
+msgstr "¡No existe más personal para seleccionar!"
+
+#: Backend/Base/view/index.php:49
+msgid "Are you sure to delete this special day?"
+msgstr "¿Estás seguro de eliminar este día especial?"
+
+#: Backend/Base/view/index.php:50
+msgid "time(s) per month"
+msgstr "veces por mes"
+
+#: Backend/Base/view/index.php:51
+msgid "time(s) per week"
+msgstr "veces por semana"
+
+#: Backend/Base/view/index.php:52
+msgid "Every n day(s)"
+msgstr "Cada n día(s)"
+
+#: Backend/Base/view/index.php:53
+msgid "Are you sure you want to delete this service?"
+msgstr "¿Está seguro de que desea eliminar este servicio?"
+
+#: Backend/Base/view/index.php:54
+msgid "Are you sure you want to delete this category?"
+msgstr "¿Está seguro de que desea eliminar esta categoría?"
+
+#: Backend/Base/view/index.php:55
+msgid "Category name"
+msgstr "Nombre de la categoría"
+
+#: Backend/Base/view/index.php:58
+msgid "January"
+msgstr "Enero"
+
+#: Backend/Base/view/index.php:59
+msgid "February"
+msgstr "Febrero"
+
+#: Backend/Base/view/index.php:60
+msgid "March"
+msgstr "Marzo"
+
+#: Backend/Base/view/index.php:61
+msgid "April"
+msgstr "Abril"
+
+#: Backend/Base/view/index.php:62
+msgid "May"
+msgstr "May"
+
+#: Backend/Base/view/index.php:63
+msgid "June"
+msgstr "Junio"
+
+#: Backend/Base/view/index.php:64
+msgid "July"
+msgstr "Julio"
+
+#: Backend/Base/view/index.php:65
+msgid "August"
+msgstr "Agosto"
+
+#: Backend/Base/view/index.php:66
+msgid "September"
+msgstr "Setiembre"
+
+#: Backend/Base/view/index.php:67
+msgid "October"
+msgstr "Octubre"
+
+#: Backend/Base/view/index.php:68
+msgid "November"
+msgstr "Noviembre"
+
+#: Backend/Base/view/index.php:69
+msgid "December"
+msgstr "Diciembre"
+
+#: Backend/Base/view/index.php:72
+msgid "Mon"
+msgstr "Lun"
+
+#: Backend/Base/view/index.php:73
+msgid "Tue"
+msgstr "Mar"
+
+#: Backend/Base/view/index.php:74
+msgid "Wed"
+msgstr "Mie"
+
+#: Backend/Base/view/index.php:75
+msgid "Thu"
+msgstr "Jue"
+
+#: Backend/Base/view/index.php:76
+msgid "Fri"
+msgstr "Vie"
+
+#: Backend/Base/view/index.php:77
+msgid "Sat"
+msgstr "Sab"
+
+#: Backend/Base/view/index.php:78
+msgid "Sun"
+msgstr "Dom"
+
+#: Backend/Base/view/index.php:80
+msgid "Your session has expired. Please refresh the page and try again."
+msgstr "Su sesión ha caducado. Actualice la página y vuelva a intentarlo."
+
+#: Backend/Base/view/index.php:81
+msgid "Congratulations, you are a beta user!"
+msgstr "Felicidades, eres un usuario beta!"
+
+#: Backend/Base/view/index.php:197 Config.php:645
+msgid "Boostore"
+msgstr "Boostore"
+
+#: Backend/Base/view/index.php:204
+msgid "Back to WordPress"
+msgstr "Volver a WordPress"
+
+#: Backend/Base/view/index.php:254
+msgid "Contact Us"
+msgstr "Contáctanos"
+
+#: Backend/Base/view/index.php:272
+msgid "Discord community"
+msgstr "Comunidad de Discord"
+
+#: Backend/Base/view/index.php:285
+msgid "Contact support"
+msgstr "Contacta a soporte"
+
+#: Backend/Base/view/index.php:289
+msgid "Get informed"
+msgstr "Manténgase informado"
+
+#: Backend/Base/view/index.php:294
+msgid "Documentation"
+msgstr "Documentación"
+
+#: Backend/Base/view/index.php:300
+msgid "FAQ"
+msgstr "FAQ"
+
+#: Backend/Base/view/index.php:306
+msgid "Blog"
+msgstr "Blog"
+
+#: Backend/Base/view/index.php:312 Backend/Base/view/index.php:317
+msgid "Join beta"
+msgstr "Unirse a la beta"
+
+#: Backend/Base/view/index.php:339
+msgid "Beta user request confirmation"
+msgstr "Confirmación de solicitud de usuario Beta"
+
+#: Backend/Base/view/index.php:349
+msgid ""
+"Thank you for joining our Beta program! Your participation is invaluable to "
+"us and helps improve our product. 🚀"
+msgstr ""
+"¡Gracias por unirte a nuestro programa Beta! Su participación es invaluable "
+"para nosotros y ayuda a mejorar nuestro producto. 🚀"
+
+#: Backend/Base/view/index.php:350
+msgid "Why use the Beta?"
+msgstr "¿Por qué usar la Beta?"
+
+#: Backend/Base/view/index.php:352
+msgid "For You: Get early access to new features and enhancements."
+msgstr "Para usted: obtenga acceso anticipado a nuevas funciones y mejoras."
+
+#: Backend/Base/view/index.php:353
+msgid "For Us: Your feedback helps us refine and enhance the plugin."
+msgstr ""
+"Para nosotros: sus comentarios nos ayudan a perfeccionar y mejorar el "
+"complemento."
+
+#: Backend/Base/view/index.php:355
+msgid ""
+"As a valued member of our Beta Program, you have the unique opportunity to "
+"utilize Booknetic Beta in a second domain exclusively for staging or testing "
+"purposes. This benefit is currently available only to our Beta users, "
+"empowering you to:"
+msgstr ""
+"Como miembro valioso de nuestro Programa Beta, tiene la oportunidad única de "
+"utilizar Booknetic Beta en un segundo dominio exclusivamente con fines de "
+"preparación o prueba. Actualmente, este beneficio está disponible solo para "
+"nuestros usuarios Beta y le permite:"
+
+#: Backend/Base/view/index.php:357
+msgid ""
+"Safely Experiment: Test new features and configurations in a controlled "
+"staging environment without affecting your main website."
+msgstr ""
+"Experimente de forma segura: pruebe nuevas funciones y configuraciones en un "
+"entorno de prueba controlado sin afectar su sitio web principal."
+
+#: Backend/Base/view/index.php:358
+msgid ""
+"Provide Feedback: Your insights are crucial. Directly influence the "
+"development of Booknetic by sharing your experiences and suggestions."
+msgstr ""
+"Proporcione comentarios: sus conocimientos son cruciales. Influye "
+"directamente en el desarrollo de Booknetic compartiendo tus experiencias y "
+"sugerencias."
+
+#: Backend/Base/view/index.php:361
+msgid "Important Note:"
+msgstr "Nota IMPORTANTE:"
+
+#: Backend/Base/view/index.php:362
+msgid ""
+" We recommend using the Beta in a staging environment (subdomain) to avoid "
+"any oversights. If needed, you can request direct support. We’ll allow Beta "
+"usage on your staging subdomain."
+msgstr ""
+"Recomendamos utilizar la Beta en un entorno provisional (subdominio) para "
+"evitar descuidos. Si es necesario, puede solicitar soporte directo. "
+"Permitiremos el uso Beta en su subdominio provisional."
+
+#: Backend/Base/view/index.php:364
+msgid ""
+"Remember, the staging environment is a mirror of your production site, "
+"allowing you to assess the impact of updates in real-time without any risk "
+"to your live operations."
+msgstr ""
+"Recuerde, el entorno de prueba es un espejo de su sitio de producción, lo "
+"que le permite evaluar el impacto de las actualizaciones en tiempo real sin "
+"ningún riesgo para sus operaciones en vivo."
+
+#: Backend/Base/view/index.php:371
+msgid "Accept outlined"
+msgstr "Aceptar delineado"
+
+#: Backend/Base/view/index.php:375
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: Backend/Base/view/index.php:376
+msgid "Request"
+msgstr "Pedido"
+
+#: Backend/Base/view/index.php:388
+msgid "Hello"
+msgstr "Hola"
+
+#: Backend/Base/view/index.php:395
+#: Backend/Settings/view/modal/email_settings.php:109
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+#: Backend/Billing/Ajax.php:70
+msgid "You don't have enough balance!"
+msgstr "¡No tienes suficiente saldo!"
+
+#: Backend/Billing/Ajax.php:226
+msgid "Please enter a valid deposit!"
+msgstr "¡Por favor ingrese un depósito válido!"
+
+#: Backend/Billing/Controller.php:25
+msgid "DATE"
+msgstr "FECHA"
+
+#: Backend/Billing/Controller.php:26
+msgid "EVENT"
+msgstr "EVENTO"
+
+#: Backend/Billing/Controller.php:30
+msgid "Deposit added"
+msgstr "Depósito añadido"
+
+#: Backend/Billing/Controller.php:34
+msgid "Payment received"
+msgstr "Pago recibido"
+
+#: Backend/Billing/Controller.php:38 Backend/Tenants/Controller.php:41
+msgid "Subscribed"
+msgstr "Suscrito"
+
+#: Backend/Billing/Controller.php:43 Backend/Payments/view/tab/details.php:32
+#: Backend/Tenants/view/tab/details.php:65
+msgid "Plan"
+msgstr "Plan"
+
+#: Backend/Billing/Controller.php:44 Backend/Payments/Controller.php:65
+msgid "AMOUNT"
+msgstr "MONTO"
+
+#: Backend/Billing/Controller.php:46 Backend/Payments/Controller.php:67
+msgid "PAYMENT METHOD"
+msgstr "MÉTODO DE PAGO"
+
+#: Backend/Billing/Controller.php:51 Backend/Payments/Controller.php:77
+#: Backend/Tenants/Controller.php:37
+msgid "STATUS"
+msgstr "ESTADO"
+
+#: Backend/Billing/Controller.php:55 Backend/Payments/Controller.php:38
+#: Backend/Payments/Controller.php:81
+msgid "Pending"
+msgstr "Pendiente"
+
+#: Backend/Billing/Controller.php:59
+msgid "OK"
+msgstr "OK"
+
+#: Backend/Billing/Controller.php:63
+msgid "NOT OK"
+msgstr "NO ESTÁ BIEN"
+
+#: Backend/Billing/view/index.php:19
+msgid "Your plan has expired."
+msgstr ""
+
+#: Backend/Billing/view/index.php:22
+#, php-format
+msgid "Your current plan is %s."
+msgstr "Su plan actual es %s."
+
+#: Backend/Billing/view/index.php:23
+#, php-format
+msgid "The plan expiration date is %s."
+msgstr "La fecha de vencimiento del plan es %s."
+
+#: Backend/Billing/view/index.php:28
+msgid "CANCEL SUBSCRIPTION"
+msgstr "CANCELAR SUSCRIPCIÓN"
+
+#: Backend/Billing/view/index.php:30
+msgid "CURRENT PLAN"
+msgstr "PLAN ACTUAL"
+
+#: Backend/Billing/view/index.php:31
+msgid "UPGRADE PLAN"
+msgstr "PLAN DE ACTUALIZACIÓN"
+
+#: Backend/Billing/view/index.php:36
+#, php-format
+msgid "Your balance: %s"
+msgstr "Tu saldo: %s"
+
+#: Backend/Billing/view/index.php:38
+#: Backend/Billing/view/modal/add_deposit.php:56
+msgid "ADD DEPOSIT"
+msgstr "AÑADIR DEPÓSITO"
+
+#: Backend/Billing/view/index.php:46
+msgid "Choose a plan"
+msgstr "Seleccione un plan"
+
+#: Backend/Billing/view/index.php:47
+msgid "Upgrade your account"
+msgstr "Actualiza tu cuenta"
+
+#: Backend/Billing/view/index.php:50
+#: Backend/Billing/view/modal/add_deposit.php:35
+#: Backend/Payments/Controller.php:52 Backend/Payments/Controller.php:74
+#: Backend/Payments/view/tab/details.php:63
+#: Providers/Common/ShortCodeServiceImpl.php:58
+msgid "Monthly"
+msgstr "Mensual"
+
+#: Backend/Billing/view/index.php:55
+#: Backend/Billing/view/modal/add_deposit.php:36
+#: Backend/Payments/Controller.php:53 Backend/Payments/Controller.php:74
+#: Backend/Payments/view/tab/details.php:64
+#: Providers/Common/ShortCodeServiceImpl.php:58
+msgid "Annually"
+msgstr "Anualmente"
+
+#: Backend/Billing/view/index.php:70 Backend/Billing/view/index.php:76
+#, php-format
+msgid "%d%% off ( Normally %s )"
+msgstr "%d%% de descuento (normalmente %s)"
+
+#: Backend/Billing/view/index.php:72
+msgid "per month"
+msgstr "por mes"
+
+#: Backend/Billing/view/index.php:78
+msgid "per year"
+msgstr "por año"
+
+#: Backend/Billing/view/index.php:89
+msgid "SELECTED"
+msgstr "SELECCIONADO"
+
+#: Backend/Billing/view/index.php:94
+msgid "CHOOSE"
+msgstr "SELECCIONE"
+
+#: Backend/Billing/view/index.php:108
+msgid "back"
+msgstr "volver"
+
+#: Backend/Billing/view/index.php:110
+msgid "Select payment method"
+msgstr "Seleccione el método de pago"
+
+#: Backend/Billing/view/index.php:111
+#, php-format
+msgid "You have chosen %s plan"
+msgstr "Ha elegido el plan %s"
+
+#: Backend/Billing/view/index.php:119 Backend/Payments/Controller.php:45
+#: Backend/Payments/view/tab/details.php:56
+#: Providers/Common/ShortCodeServiceImpl.php:57
+#: Providers/Helpers/Helper.php:640
+msgid "Credit card"
+msgstr "Tarjeta de crédito"
+
+#: Backend/Billing/view/index.php:130
+msgid "Balance"
+msgstr "Balance"
+
+#: Backend/Billing/view/index.php:136
+msgid "No available payment methods!"
+msgstr "¡No hay métodos de pago disponibles!"
+
+#: Backend/Billing/view/index.php:147
+msgid "Payment Successful"
+msgstr "Pago exitoso"
+
+#: Backend/Billing/view/index.php:148
+msgid "It might take some time to activate your new plan."
+msgstr "Puede tomar algún tiempo activar su nuevo plan."
+
+#: Backend/Billing/view/index.php:150 Backend/Billing/view/index.php:163
+#: Backend/Billing/view/index.php:176
+#: Backend/Billing/view/modal/add_deposit.php:57
+#: Backend/Billing/view/modal/share_page.php:58
+#: Backend/Plans/view/modal/add_new.php:72 Providers/Helpers/Helper.php:48
+msgid "CLOSE"
+msgstr "CERRAR"
+
+#: Backend/Billing/view/index.php:160
+msgid "Payment Canceled"
+msgstr "Pago cancelado"
+
+#: Backend/Billing/view/index.php:161
+msgid "We aren't able to process your payment. Please try again."
+msgstr "No podemos procesar su pago. Inténtalo de nuevo."
+
+#: Backend/Billing/view/index.php:173
+msgid "Payment Pending"
+msgstr "Pago pendiente"
+
+#: Backend/Billing/view/index.php:174
+msgid "We have received your payment request and it is currently pending"
+msgstr "Hemos recibido su solicitud de pago y actualmente está pendiente"
+
+#: Backend/Billing/view/index.php:190
+msgid "Are you sure you want to cancel subscription?"
+msgstr "¿Estás seguro de que deseas cancelar la suscripción?"
+
+#: Backend/Billing/view/index.php:191
+msgid "YES"
+msgstr "SI"
+
+#: Backend/Billing/view/index.php:192
+msgid "NO"
+msgstr "NO"
+
+#: Backend/Billing/view/modal/add_deposit.php:13
+msgid "Add deposit"
+msgstr "Agregar depósito"
+
+#: Backend/Billing/view/modal/add_deposit.php:20
+msgid "Price calculator"
+msgstr "Calculadora de precios"
+
+#: Backend/Billing/view/modal/add_deposit.php:25
+msgid "Select plan"
+msgstr "Seleccionar plan"
+
+#: Backend/Billing/view/modal/add_deposit.php:33
+#: Backend/Payments/Controller.php:50 Backend/Payments/view/tab/details.php:61
+msgid "Payment cycle"
+msgstr "Ciclo de pago"
+
+#: Backend/Billing/view/modal/add_deposit.php:40
+msgid "Calculate"
+msgstr "Calcular"
+
+#: Backend/Billing/view/modal/add_deposit.php:47
+#: Backend/Payments/view/tab/details.php:45
+msgid "Amount"
+msgstr "Cantidad"
+
+#: Backend/Billing/view/modal/share_page.php:20
+msgid "Share your page"
+msgstr "Comparte tu página"
+
+#: Backend/Billing/view/modal/share_page.php:29
+msgid "Your page URL"
+msgstr "URL de tu página"
+
+#: Backend/Billing/view/modal/share_page.php:31
+msgid "Schedule time with me"
+msgstr "Agenda tiempo conmigo"
+
+#: Backend/Billing/view/modal/share_page.php:31
+#, php-format
+msgid "You can see my real-time availability and schedule time with me at %s"
+msgstr ""
+"Puedes ver mi disponibilidad en tiempo real y programar tiempo conmigo en %s"
+
+#: Backend/Billing/view/modal/share_page.php:31
+msgid "Send link via Email"
+msgstr "Enviar enlace por correo electrónico"
+
+#: Backend/Billing/view/modal/share_page.php:37
+msgid "The QR for your page"
+msgstr "El QR para tu página"
+
+#: Backend/Billing/view/modal/share_page.php:41
+msgid "Click to download QR"
+msgstr "Haga clic para descargar QR"
+
+#: Backend/Billing/view/modal/share_page.php:47
+msgid "Add to your Website"
+msgstr "Agregar a su sitio web"
+
+#: Backend/Customfields/Helpers/FormElements.php:173
+#: Backend/Customfields/Helpers/FormElements.php:225
+msgid "Choice 1"
+msgstr "Opción 1"
+
+#: Backend/Customfields/Helpers/FormElements.php:180
+#: Backend/Customfields/Helpers/FormElements.php:232
+msgid "Choice 2"
+msgstr "Opción 2"
+
+#: Backend/Customfields/Helpers/FormElements.php:277
+msgid "BROWSE"
+msgstr "NAVEGAR"
+
+#: Backend/Customfields/view/edit_form.php:27
+msgid "Tenant custom fields"
+msgstr "Campos personalizados de arrendatario"
+
+#: Backend/Customfields/view/edit_form.php:29
+msgid "SAVE FORM"
+msgstr "GUARDAR FORMULARIO"
+
+#: Backend/Customfields/view/edit_form.php:39
+msgid "Elements"
+msgstr "Elementos"
+
+#: Backend/Customfields/view/edit_form.php:46
+#: Backend/Customfields/view/edit_form.php:157
+msgid "Label"
+msgstr "Etiqueta"
+
+#: Backend/Customfields/view/edit_form.php:51
+msgid "Text input"
+msgstr "Entrada de texto"
+
+#: Backend/Customfields/view/edit_form.php:56
+msgid "Textarea"
+msgstr "Área de texto"
+
+#: Backend/Customfields/view/edit_form.php:61
+msgid "Number input"
+msgstr "Entrada de número"
+
+#: Backend/Customfields/view/edit_form.php:66
+msgid "Date input"
+msgstr "Entrada de fecha"
+
+#: Backend/Customfields/view/edit_form.php:71
+msgid "Time input"
+msgstr "Entrada de tiempo"
+
+#: Backend/Customfields/view/edit_form.php:76
+msgid "Select"
+msgstr "Seleccione"
+
+#: Backend/Customfields/view/edit_form.php:81
+msgid "Check-box"
+msgstr "Check-box"
+
+#: Backend/Customfields/view/edit_form.php:86
+msgid "Radio buttons"
+msgstr "Botones de radio"
+
+#: Backend/Customfields/view/edit_form.php:91
+msgid "File"
+msgstr "Archivo"
+
+#: Backend/Customfields/view/edit_form.php:96
+msgid "Link"
+msgstr "Link"
+
+#: Backend/Customfields/view/edit_form.php:107
+msgid "Form"
+msgstr "Formulario"
+
+#: Backend/Customfields/view/edit_form.php:152
+msgid "Options"
+msgstr "Opciones"
+
+#: Backend/Customfields/view/edit_form.php:158
+msgid "Max: 255 symbol"
+msgstr "Máx: 255 símbolos"
+
+#: Backend/Customfields/view/edit_form.php:164
+msgid "Placeholder"
+msgstr "Marcador de posición"
+
+#: Backend/Customfields/view/edit_form.php:165
+#: Backend/Customfields/view/edit_form.php:206
+msgid "Max: 200 symbol"
+msgstr "Máx: 200 símbolos"
+
+#: Backend/Customfields/view/edit_form.php:171
+msgid "Min length"
+msgstr "Longitud mínima"
+
+#: Backend/Customfields/view/edit_form.php:175
+msgid "Max length"
+msgstr "Longitud máxima"
+
+#: Backend/Customfields/view/edit_form.php:182
+msgid "Help text"
+msgstr "Texto de ayuda"
+
+#: Backend/Customfields/view/edit_form.php:183
+msgid "Max: 500 symbol"
+msgstr "Máx: 500 símbolos"
+
+#: Backend/Customfields/view/edit_form.php:189
+msgid "Allowed file formats"
+msgstr "Formatos de archivo permitidos"
+
+#: Backend/Customfields/view/edit_form.php:198
+msgid "Is required"
+msgstr "Es requerido"
+
+#: Backend/Customfields/view/edit_form.php:205
+#: Frontend/view/signup_complete.php:15
+msgid "URL"
+msgstr "URL"
+
+#: Backend/Customfields/view/edit_form.php:213
+msgid "Choices"
+msgstr "Opciones"
+
+#: Backend/Customfields/view/edit_form.php:215
+msgid "Add new"
+msgstr "Añadir nuevo"
+
+#: Backend/Dashboard/view/index.php:36 Config.php:604
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: Backend/Dashboard/view/index.php:45 Backend/Tenants/Controller.php:25
+#: Config.php:609
+msgid "Tenants"
+msgstr "Inquilinos"
+
+#: Backend/Dashboard/view/index.php:52
+msgid "Appointments"
+msgstr "Turnos"
+
+#: Backend/Dashboard/view/index.php:59
+msgid "Income of the month"
+msgstr "Ingreso del mes"
+
+#: Backend/Dashboard/view/index.php:66
+msgid "Income of the previous month"
+msgstr "Ingresos del mes anterior"
+
+#: Backend/Payments/Ajax.php:23 Backend/Tenants/Ajax.php:27
+#: Backend/Tenants/Ajax.php:376
+msgid "Tenant not found!"
+msgstr "Inquilino no encontrado!"
+
+#: Backend/Payments/Ajax.php:49 Backend/Plans/Ajax.php:60
+msgid "DETAILS"
+msgstr "DETALLES"
+
+#: Backend/Payments/Ajax.php:83
+msgid "Payment not found or permission denied!"
+msgstr "¡Pago no encontrado o permiso denegado!"
+
+#: Backend/Payments/Controller.php:27 Backend/Plans/Controller.php:19
+#: Backend/Tenants/Controller.php:22
+msgid "Edit"
+msgstr "Editar"
+
+#: Backend/Payments/Controller.php:29
+#: Backend/Payments/view/modal/add_new.php:39
+msgid "ADD PAYMENT"
+msgstr "AÑADIR PAGO"
+
+#: Backend/Payments/Controller.php:31
+#: Backend/Settings/view/modal/payment_gateways_settings.php:44
+#: Backend/Settings/view/modal/payment_split_payments_settings.php:26
+#: Backend/Settings/view/modal/payments_settings.php:18 Config.php:614
+msgid "Payments"
+msgstr "Pagos"
+
+#: Backend/Payments/Controller.php:35
+msgid "Status"
+msgstr "Estado"
+
+#: Backend/Payments/Controller.php:37 Backend/Payments/Controller.php:85
+msgid "Paid"
+msgstr "Pagado"
+
+#: Backend/Payments/Controller.php:42 Backend/Payments/view/tab/details.php:52
+msgid "Payment method"
+msgstr "Método de pago"
+
+#: Backend/Payments/Controller.php:44 Backend/Payments/view/tab/details.php:55
+#: Backend/Settings/view/modal/payment_gateways_settings.php:15
+#: Providers/Common/ShortCodeServiceImpl.php:57
+msgid "Paypal"
+msgstr "Paypal"
+
+#: Backend/Payments/Controller.php:46 Backend/Payments/view/tab/details.php:54
+#: Providers/Helpers/Helper.php:649
+msgid "Offline"
+msgstr "Desconectado"
+
+#: Backend/Payments/Controller.php:57
+msgid "DATE TIME"
+msgstr "FECHA Y HORA"
+
+#: Backend/Payments/Controller.php:59
+msgid "TENANT"
+msgstr "INQUILINO"
+
+#: Backend/Payments/Controller.php:64 Backend/Tenants/Controller.php:35
+msgid "PLAN"
+msgstr "PLAN"
+
+#: Backend/Payments/Controller.php:72
+msgid "PAYMENT CYCLE"
+msgstr "CICLO DE PAGO"
+
+#: Backend/Payments/Controller.php:89
+msgid "Canceled"
+msgstr "Cancelado"
+
+#: Backend/Payments/view/modal/add_new.php:14
+msgid "Add Payment"
+msgstr "Agregar pago"
+
+#: Backend/Payments/view/modal/add_new.php:39
+msgid "SAVE PAYMENT"
+msgstr "GUARDAR PAGO"
+
+#: Backend/Payments/view/tab/details.php:17
+msgid "Tenant"
+msgstr "Inquilino"
+
+#: Backend/Payments/view/tab/details.php:71
+msgid "Payment date"
+msgstr "Fecha de pago"
+
+#: Backend/Plans/Ajax.php:29
+msgid "Plan not found!"
+msgstr "¡Plan no encontrado!"
+
+#: Backend/Plans/Ajax.php:66
+msgid "PERMISSIONS"
+msgstr "PERMISOS"
+
+#: Backend/Plans/Ajax.php:72
+msgid "LIMITS"
+msgstr "LÍMITES"
+
+#: Backend/Plans/Ajax.php:113
+msgid "Plan not found or permission denied!"
+msgstr "¡Plan no encontrado o permiso denegado!"
+
+#: Backend/Plans/Controller.php:18
+msgid "Set as trial plan"
+msgstr "Establecer como plan de prueba"
+
+#: Backend/Plans/Controller.php:20 Backend/Tenants/Controller.php:23
+msgid "Delete"
+msgstr "Borrar"
+
+#: Backend/Plans/Controller.php:22 Config.php:619
+msgid "Plans"
+msgstr "Planes"
+
+#: Backend/Plans/Controller.php:24 Backend/Plans/view/modal/add_new.php:40
+msgid "ADD PLAN"
+msgstr "AÑADIR PLAN"
+
+#: Backend/Plans/Controller.php:28 Backend/Tenants/Controller.php:31
+msgid "ID"
+msgstr "ID"
+
+#: Backend/Plans/Controller.php:29
+msgid "NAME"
+msgstr "NOMBRE"
+
+#: Backend/Plans/Controller.php:31
+msgid "Default plan"
+msgstr "Plan predeterminado"
+
+#: Backend/Plans/Controller.php:33
+msgid "PRICE"
+msgstr "PRECIO"
+
+#: Backend/Plans/Controller.php:35
+msgid "Free"
+msgstr "Gratis"
+
+#: Backend/Plans/Controller.php:37
+msgid "ORDER NUMBER"
+msgstr "NÚMERO DE ORDEN"
+
+#: Backend/Plans/Controller.php:55
+msgid "You can not delete plans that is assigned as a default plan"
+msgstr ""
+"No puede eliminar planes que están asignados como un plan predeterminado"
+
+#: Backend/Plans/Controller.php:61
+msgid "You can not delete plans that is assigned as an expire plan"
+msgstr "No puede eliminar planes que están asignados como un plan de caducidad"
+
+#: Backend/Plans/Controller.php:69
+msgid "You can not delete this plan, because it has registered tenants"
+msgstr "No puedes eliminar este plan, porque tiene inquilinos registrados"
+
+#: Backend/Plans/Controller.php:78
+msgid "You can not delete this plan, because there is only one plan"
+msgstr "No puede eliminar este plan, porque solo hay un plan"
+
+#: Backend/Plans/view/modal/add_new.php:15
+msgid "Add Plan"
+msgstr "Agregar plan"
+
+#: Backend/Plans/view/modal/add_new.php:40
+msgid "SAVE PLAN"
+msgstr "GUARDAR PLAN"
+
+#: Backend/Plans/view/modal/add_new.php:45
+msgid "Select colors"
+msgstr "Seleccionar colores"
+
+#: Backend/Plans/view/modal/add_new.php:66
+msgid "Hex"
+msgstr "Hex"
+
+#: Backend/Plans/view/modal/add_new.php:73
+#: Backend/Settings/view/modal/workflow_action_edit.php:85
+msgid "SAVE"
+msgstr "GUARDAR"
+
+#: Backend/Plans/view/tab/details.php:12
+msgid "Name"
+msgstr "Nombre"
+
+#: Backend/Plans/view/tab/details.php:16
+msgid "Bookmark"
+msgstr "Marcador"
+
+#: Backend/Plans/view/tab/details.php:23
+msgid "Color"
+msgstr "Color"
+
+#: Backend/Plans/view/tab/details.php:28
+msgid "Order number"
+msgstr "Número de orden"
+
+#: Backend/Plans/view/tab/details.php:35
+msgid "Monthly price"
+msgstr "Máx: 200 símbolos"
+
+#: Backend/Plans/view/tab/details.php:39
+msgid "Discount for first month"
+msgstr "Descuento por el primer mes"
+
+#: Backend/Plans/view/tab/details.php:46
+msgid "Annually price"
+msgstr "Precio anual"
+
+#: Backend/Plans/view/tab/details.php:50
+msgid "Discount for first year"
+msgstr "Descuento por primer año"
+
+#: Backend/Plans/view/tab/details.php:58
+msgid "Hidden plan"
+msgstr "Ocultar Plan"
+
+#: Backend/Plans/view/tab/details.php:69
+msgid "Description"
+msgstr "Descripción"
+
+#: Backend/Settings/Ajax.php:80
+#: Backend/Settings/Exceptions/SettingsNotFoundException.php:11
+msgid "Selected settings not found!"
+msgstr "¡Configuraciones seleccionadas no encontradas!"
+
+#: Backend/Settings/Ajax.php:249 Backend/Settings/Ajax.php:254
+msgid "Confirmation number is invalid!"
+msgstr "¡El número de confirmación no es válido!"
+
+#: Backend/Settings/Ajax.php:302
+msgid "The Backend Slug can not be empty!"
+msgstr "¡El Backend Slug no puede estar vacío!"
+
+#: Backend/Settings/Ajax.php:310 Backend/Settings/Ajax.php:336
+#: Frontend/Controller/Ajax.php:302
+msgid "Only JPG and PNG images allowed!"
+msgstr "¡Solo se permiten imágenes JPG y PNG!"
+
+#: Backend/Settings/Ajax.php:419
+msgid "Please fill the SMTP credentials!"
+msgstr "¡Complete las credenciales de SMTP!"
+
+#: Backend/Settings/Ajax.php:421
+msgid "Please fill the Gmail SMTP credentials!"
+msgstr "¡Complete las credenciales SMTP de Gmail!"
+
+#: Backend/Settings/Ajax.php:425
+msgid "Please type the sender name field!"
+msgstr "¡Escriba el campo del nombre del remitente!"
+
+#: Backend/Settings/Ajax.php:429
+msgid "Please type the sender email field!"
+msgstr "¡Escriba el campo de correo electrónico del remitente!"
+
+#: Backend/Settings/Ajax.php:514
+msgid ""
+"For using WooCommerce as a payment method, you should install and enable it "
+"on WordPress plugins!"
+msgstr ""
+"¡Para usar WooCommerce como método de pago, debe instalarlo y habilitarlo en "
+"los complementos de WordPress!"
+
+#: Backend/Settings/Controller.php:16
+#: Backend/Settings/view/modal/general_settings.php:22
+msgid "General settings"
+msgstr "Ajustes generales"
+
+#: Backend/Settings/Controller.php:17
+msgid "You can customize general settings about booking from here"
+msgstr "Puede personalizar la configuración general sobre el turno desde aquí"
+
+#: Backend/Settings/Controller.php:23 Backend/Settings/Controller.php:49
+msgid "General"
+msgstr "General"
+
+#: Backend/Settings/Controller.php:27 Backend/Settings/Controller.php:34
+msgid "White Label settings"
+msgstr "Configuración de White Label"
+
+#: Backend/Settings/Controller.php:28
+msgid "You can change your business details from here"
+msgstr "Puedes cambiar los detalles de tu negocio desde aquí"
+
+#: Backend/Settings/Controller.php:39
+msgid "Pages"
+msgstr "Paginas"
+
+#: Backend/Settings/Controller.php:42
+msgid "Payment settings"
+msgstr "Configuración de pago"
+
+#: Backend/Settings/Controller.php:43
+msgid ""
+"Currency, price format , general settings about payment , paypal, stripe and "
+"so on"
+msgstr ""
+"Moneda, formato de precio, configuración general sobre pago, paypal, stripe, "
+"etc."
+
+#: Backend/Settings/Controller.php:54
+#: Backend/Settings/view/modal/email_settings.php:26
+msgid "Email settings"
+msgstr "Ajustes del correo electrónico"
+
+#: Backend/Settings/Controller.php:55
+msgid ""
+"You must set this settings for email notifications ( wp_mail or SMTP "
+"settings )"
+msgstr ""
+"Debe establecer esta configuración para las notificaciones por correo "
+"electrónico (configuración de wp_mail o SMTP)"
+
+#: Backend/Settings/Controller.php:60
+#: Backend/Settings/view/modal/payment_gateways_settings.php:45
+msgid "Payment methods"
+msgstr "Métodos de pago"
+
+#: Backend/Settings/Controller.php:67
+#: Backend/Settings/view/modal/payment_split_payments_settings.php:27
+msgid "Split Payments"
+msgstr "Pagos divididos"
+
+#: Backend/Settings/Controller.php:73
+msgid "Integrations settings"
+msgstr "Configuración de integraciones"
+
+#: Backend/Settings/Controller.php:74
+msgid "You can change settings for integrated services from here."
+msgstr "Puede cambiar la configuración de los servicios integrados desde aquí."
+
+#: Backend/Settings/Controller.php:80
+msgid "Continue with Facebook"
+msgstr "Continuar con Facebook"
+
+#: Backend/Settings/Controller.php:85
+msgid "Continue with Google"
+msgstr "Continuar con Google"
+
+#: Backend/Settings/Exceptions/SplitPaymentNotSupportedException.php:11
+msgid "You don't have any Split Payment supported gateways!"
+msgstr "¡No tiene ninguna pasarela compatible con pagos divididos!"
+
+#: Backend/Settings/view/index.php:16 Backend/Settings/view/index.php:26
+#: Config.php:634
+msgid "Settings"
+msgstr "Ajustes"
+
+#: Backend/Settings/view/modal/email_settings.php:21
+#: Backend/Settings/view/modal/general_settings.php:17
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:14
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:14
+#: Backend/Settings/view/modal/page_settings.php:16
+#: Backend/Settings/view/modal/payment_gateways_settings.php:39
+#: Backend/Settings/view/modal/payment_split_payments_settings.php:21
+#: Backend/Settings/view/modal/payments_settings.php:13
+#: Backend/Settings/view/modal/sms_settings.php:13
+#: Backend/Settings/view/modal/whitelabel_settings.php:13
+#: Backend/Settings/view/modal/woocommerce_settings.php:13
+msgid "SAVE CHANGES"
+msgstr "GUARDAR CAMBIOS"
+
+#: Backend/Settings/view/modal/email_settings.php:32
+msgid "Mail Gateway"
+msgstr "Puerta de enlace de correo"
+
+#: Backend/Settings/view/modal/email_settings.php:34
+msgid "WordPress Mail"
+msgstr "Correo de WordPress"
+
+#: Backend/Settings/view/modal/email_settings.php:35
+msgid "SMTP"
+msgstr "SMTP"
+
+#: Backend/Settings/view/modal/email_settings.php:36
+msgid "Gmail SMTP"
+msgstr "Gmail SMTP"
+
+#: Backend/Settings/view/modal/email_settings.php:44
+msgid "SMTP Hostname"
+msgstr "SMTP Hostname"
+
+#: Backend/Settings/view/modal/email_settings.php:48
+msgid "SMTP Port"
+msgstr "Puerto SMTP"
+
+#: Backend/Settings/view/modal/email_settings.php:52
+msgid "SMTP Secure"
+msgstr "SMTP seguro"
+
+#: Backend/Settings/view/modal/email_settings.php:54
+msgid "TLS"
+msgstr "TLS"
+
+#: Backend/Settings/view/modal/email_settings.php:55
+msgid "SSL"
+msgstr "SSL"
+
+#: Backend/Settings/view/modal/email_settings.php:56
+msgid "Disabled ( not recommend )"
+msgstr "Deshabilitado (no recomendado)"
+
+#: Backend/Settings/view/modal/email_settings.php:63
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: Backend/Settings/view/modal/email_settings.php:67
+#: Frontend/view/signin.php:17 Frontend/view/signup.php:22
+msgid "Password"
+msgstr "Contraseña"
+
+#: Backend/Settings/view/modal/email_settings.php:83
+msgid ""
+"Looks like there was an unknown error caused by Google, please contact "
+"support https://support.fs-code.com/"
+msgstr ""
+
+#: Backend/Settings/view/modal/email_settings.php:106
+msgid "Authorize"
+msgstr "Autorizar"
+
+#: Backend/Settings/view/modal/email_settings.php:108
+#, php-format
+msgid "Logged as %s"
+msgstr "Registrado como %s"
+
+#: Backend/Settings/view/modal/email_settings.php:118
+msgid "Sender E-mail"
+msgstr "Correo electrónico del remitente"
+
+#: Backend/Settings/view/modal/email_settings.php:122
+msgid "Sender Name"
+msgstr "Nombre del remitente"
+
+#: Backend/Settings/view/modal/general_settings.php:30
+msgid "Starting Appointment ID number"
+msgstr "Número de identificación de la cita inicial"
+
+#: Backend/Settings/view/modal/general_settings.php:37
+msgid "Google Maps API Key"
+msgstr "Clave API de Google Maps"
+
+#: Backend/Settings/view/modal/general_settings.php:41
+msgid "Google Maps Map ID"
+msgstr ""
+
+#: Backend/Settings/view/modal/general_settings.php:49
+msgid "Activate Google reCAPTCHA"
+msgstr "Activar Google reCAPTCHA"
+
+#: Backend/Settings/view/modal/general_settings.php:57
+msgid "Site Key"
+msgstr "Clave del sitio"
+
+#: Backend/Settings/view/modal/general_settings.php:61
+msgid "Secret Key"
+msgstr "Clave secreta"
+
+#: Backend/Settings/view/modal/general_settings.php:68
+msgid "Trial plan"
+msgstr "Plan de prueba"
+
+#: Backend/Settings/view/modal/general_settings.php:68
+msgid ""
+"When a new Tenant registers, the Tenant automatically has permissions "
+"according to the trial plan you choose here."
+msgstr ""
+"Cuando se registra un nuevo Inquilino, el Inquilino automáticamente tiene "
+"permisos de acuerdo con el plan de prueba que elija aquí."
+
+#: Backend/Settings/view/modal/general_settings.php:76
+msgid "Trial period (days)"
+msgstr "Período de prueba (días)"
+
+#: Backend/Settings/view/modal/general_settings.php:80
+msgid "Plan for the expired tenants"
+msgstr "Plan para los inquilinos vencidos"
+
+#: Backend/Settings/view/modal/general_settings.php:80
+msgid ""
+"If the plan that the tenant subscribed to is expired and the Tenant does not "
+"pay for the next cycle, the Tenant's permissions will automatically be "
+"limited according to the plan you choose here."
+msgstr ""
+"Si el plan al que se suscribió el arrendatario vence y el arrendatario no "
+"paga el próximo ciclo, los permisos del arrendatario se limitarán "
+"automáticamente según el plan que elija aquí."
+
+#: Backend/Settings/view/modal/general_settings.php:93
+msgid "Enable the Language switcher for tenants"
+msgstr "Habilite el selector de idiomas para inquilinos"
+
+#: Backend/Settings/view/modal/general_settings.php:101
+msgid "Select languages"
+msgstr "Seleccionar idiomas"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:19
+msgid "Facebook API / Continue with Facebook button"
+msgstr "API de Facebook / Continuar con el botón de Facebook"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:29
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:29
+#: Backend/Settings/view/modal/woocommerce_settings.php:28
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:33
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:33
+#: Backend/Settings/view/modal/woocommerce_settings.php:32
+#: Backend/Settings/view/modal/workflow_action_edit.php:80
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:42
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:42
+msgid "Redirect URI"
+msgstr "URI de redirección"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:49
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:49
+msgid "App ID"
+msgstr "ID de la aplicación"
+
+#: Backend/Settings/view/modal/integrations_facebook_api_settings.php:56
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:56
+msgid "App Secret"
+msgstr "Secreto de la aplicación"
+
+#: Backend/Settings/view/modal/integrations_google_login_settings.php:19
+msgid "Google API / Continue with Google button"
+msgstr "API de Google / Botón Continuar con Google"
+
+#: Backend/Settings/view/modal/page_settings.php:21
+msgid "Page settings"
+msgstr "Configuración de página"
+
+#: Backend/Settings/view/modal/page_settings.php:29
+msgid "Sign-in page"
+msgstr "Página de inicio de sesión"
+
+#: Backend/Settings/view/modal/page_settings.php:37
+msgid "Sign-Up page"
+msgstr "Página de registro"
+
+#: Backend/Settings/view/modal/page_settings.php:45
+msgid "Forgot Password page"
+msgstr "Página de reestablecimiento de contraseña"
+
+#: Backend/Settings/view/modal/page_settings.php:64
+msgid "Booking page"
+msgstr "Página de turnos"
+
+#: Backend/Settings/view/modal/page_settings.php:75
+msgid "Sign-in page for customers"
+msgstr "Página de inicio de sesión para los clientes"
+
+#: Backend/Settings/view/modal/page_settings.php:83
+msgid "Sign-Up page for customers"
+msgstr "Página de registro para clientes"
+
+#: Backend/Settings/view/modal/page_settings.php:91
+msgid "Forgot Password page for customers"
+msgstr "Página de contraseña olvidada para clientes"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:11
+msgid "Stripe"
+msgstr "Stripe"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:19
+#: Providers/Helpers/Helper.php:643
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:71
+#: Backend/Settings/view/modal/payment_gateways_settings.php:103
+msgid "Webhook URI"
+msgstr "URI de Webhook"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:76
+msgid "Mode"
+msgstr "Modo"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:78
+msgid "Sandbox"
+msgstr "Caja de arena"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:79
+msgid "Live"
+msgstr "Vivo"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:84
+msgid "Client ID"
+msgstr "ID de cliente"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:89
+msgid "Client Secret"
+msgstr "Secreto de cliente"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:94
+msgid "Webhook ID"
+msgstr "ID de Webhook"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:108
+msgid "Publishable key"
+msgstr "Clave publica"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:113
+msgid "Secret key"
+msgstr "Clave secreta"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:118
+msgid "Webhook Signing secret"
+msgstr "Secreto de firma de webhook"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:127
+msgid "Redirect tenant to"
+msgstr "Redirigir inquilino a"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:129
+#: Backend/Settings/view/modal/woocommerce_settings.php:54
+msgid "Cart page"
+msgstr "Página del carrito"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:130
+#: Backend/Settings/view/modal/woocommerce_settings.php:55
+msgid "Checkout page"
+msgstr "Página de pago"
+
+#: Backend/Settings/view/modal/payment_gateways_settings.php:135
+msgid "WooCommerce order statuses for successfull payment"
+msgstr "Estados de pedidos de WooCommerce para pagos exitosos"
+
+#: Backend/Settings/view/modal/payments_settings.php:26
+msgid "Currency"
+msgstr "Divisa"
+
+#: Backend/Settings/view/modal/payments_settings.php:37
+msgid "Currency symbol"
+msgstr "Símbolo de moneda"
+
+#: Backend/Settings/view/modal/payments_settings.php:41
+msgid "Currency format"
+msgstr "Formato de moneda"
+
+#: Backend/Settings/view/modal/payments_settings.php:53
+msgid "Tenant default currency"
+msgstr "Moneda predeterminada del arrendatario"
+
+#: Backend/Settings/view/modal/payments_settings.php:64
+msgid "Tenant default currency symbol"
+msgstr "Símbolo de moneda predeterminado del arrendatario"
+
+#: Backend/Settings/view/modal/payments_settings.php:68
+msgid "Tenant default currency format"
+msgstr "Formato de moneda predeterminado del arrendatario"
+
+#: Backend/Settings/view/modal/payments_settings.php:80
+msgid "Price number format"
+msgstr "Formato de número de precio"
+
+#: Backend/Settings/view/modal/payments_settings.php:90
+msgid "Price number of decimals"
+msgstr "Precio número de decimales"
+
+#: Backend/Settings/view/modal/sms_settings.php:18
+msgid "SMS/WhatsApp settings"
+msgstr "Configuración de SMS/WhatsApp"
+
+#: Backend/Settings/view/modal/sms_settings.php:24
+msgid "Account SID"
+msgstr "SID de la cuenta"
+
+#: Backend/Settings/view/modal/sms_settings.php:31
+msgid "Auth Token"
+msgstr "Token de autenticación"
+
+#: Backend/Settings/view/modal/sms_settings.php:38
+msgid "Sender phone number for SMS"
+msgstr "Número de teléfono del remitente para SMS"
+
+#: Backend/Settings/view/modal/sms_settings.php:45
+msgid "Sender phone number for WhatsApp"
+msgstr "Número de teléfono del remitente para WhatsApp"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:18
+msgid "Whitelabel settings"
+msgstr "Configuración de White Label"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:26
+msgid "Logo"
+msgstr "Logo"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:32
+msgid "Small logo"
+msgstr "Logotipo pequeño"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:40
+msgid "Title of Back-end"
+msgstr "Título de back-end"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:48
+msgid "Slug of Back-end"
+msgstr "Slug of Back-end"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:55
+msgid "URL of documentation"
+msgstr "URL de la documentación"
+
+#: Backend/Settings/view/modal/whitelabel_settings.php:62
+msgid "Powered by"
+msgstr "Desarrollado por"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:18
+msgid "Woocommerce settings"
+msgstr "Configuración de Woocommerce"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:43
+msgid "Skip the Confirmation step"
+msgstr "Saltar el paso de Confirmación"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:43
+msgid ""
+"If you use Deposit Payments or Coupons, then you can have a confirmation "
+"step for your customers. If you enabled Local Payment this option must be "
+"turned off. Otherwise, it will redirect to WooCommerce by automatically "
+"skipping this step."
+msgstr ""
+"Si usa Pagos de depósito o Cupones, entonces puede tener un paso de "
+"confirmación para sus clientes. Si habilitó Pago local, esta opción debe "
+"estar desactivada. De lo contrario, se redirigirá a WooCommerce omitiendo "
+"automáticamente este paso."
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:52
+msgid "Redirect customer to"
+msgstr "Redirigir al cliente a"
+
+#: Backend/Settings/view/modal/woocommerce_settings.php:60
+msgid "Woocommerce order details"
+msgstr "Detalles del pedido de Woocommerce"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:28
+msgid "Edit action"
+msgstr "Editar acción"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:38
+msgid "To"
+msgstr "Para"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:49
+msgid "Subject"
+msgstr "Sujeto"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:56
+msgid "Body"
+msgstr "Cuerpo"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:63
+msgid "Attachment(s)"
+msgstr "Archivos adjuntos"
+
+#: Backend/Settings/view/modal/workflow_action_edit.php:84
+msgid "SAVE & TEST"
+msgstr "GUARDAR & TESTEAR"
+
+#: Backend/Tenants/Ajax.php:74
+msgid "Tenant details"
+msgstr "Detalles del inquilino"
+
+#: Backend/Tenants/Ajax.php:80 Config.php:624
+msgid "Custom fields"
+msgstr "Campos Personalizados"
+
+#: Backend/Tenants/Ajax.php:120
+msgid "Tenant not found or permission denied!"
+msgstr "Inquilino no encontrado o permiso denegado!"
+
+#: Backend/Tenants/Ajax.php:127
+msgid "Domain name must be unique!"
+msgstr "¡El nombre de dominio debe ser único!"
+
+#: Backend/Tenants/Ajax.php:134 Backend/Tenants/Ajax.php:139
+#: Backend/Tenants/Ajax.php:155
+msgid "Please select WordPress user!"
+msgstr "¡Seleccione un usuario de WordPress!"
+
+#: Backend/Tenants/Ajax.php:145
+msgid "One WordPress user can be assigned to only one tenant!"
+msgstr "¡Un usuario de WordPress se puede asignar a un solo inquilino!"
+
+#: Backend/Tenants/Ajax.php:164
+msgid "Please type the password of the WordPress user!"
+msgstr "Por favor escriba la contraseña del usuario de WordPress!"
+
+#: Backend/Tenants/Ajax.php:168
+msgid "The WordPress user with the same email address already exists!"
+msgstr ""
+"¡El usuario de WordPress con la misma dirección de correo electrónico ya "
+"existe!"
+
+#: Backend/Tenants/Ajax.php:183 Backend/Tenants/Ajax.php:221
+msgid "An error occurred when saving data!"
+msgstr "¡Ocurrió un error al guardar los datos!"
+
+#: Backend/Tenants/Ajax.php:261 Backend/Tenants/Ajax.php:267
+#: Backend/Tenants/Ajax.php:282 Backend/Tenants/Ajax.php:287
+msgid "Please fill custom fields form correctly!"
+msgstr "¡Complete correctamente el formulario de campos personalizados!"
+
+#: Backend/Tenants/Ajax.php:274 Backend/Tenants/Ajax.php:294
+msgid "Selected custom field not found!"
+msgstr "¡No se encontró el campo personalizado seleccionado!"
+
+#: Backend/Tenants/Ajax.php:313 Frontend/Controller/Ajax.php:289
+msgid "File extension is not allowed!"
+msgstr "¡La extensión del archivo no está permitida!"
+
+#: Backend/Tenants/Controller.php:21
+msgid "Payment history"
+msgstr "Historial de pagos"
+
+#: Backend/Tenants/Controller.php:27 Backend/Tenants/view/modal/add_new.php:42
+msgid "ADD TENANT"
+msgstr "AÑADIR INQUILINO"
+
+#: Backend/Tenants/Controller.php:32
+msgid "DOMAIN"
+msgstr "DOMINIO"
+
+#: Backend/Tenants/Controller.php:33
+msgid "FULL NAME"
+msgstr "NOMBRE COMPLETO"
+
+#: Backend/Tenants/Controller.php:34
+msgid "EMAIL"
+msgstr "EMAIL"
+
+#: Backend/Tenants/Controller.php:36
+msgid "EXPIRES IN"
+msgstr "EXPIRA EN"
+
+#: Backend/Tenants/Controller.php:45
+msgid "Expired"
+msgstr "Vencido"
+
+#: Backend/Tenants/Controller.php:49
+msgid "Not activated"
+msgstr "No esta activado"
+
+#: Backend/Tenants/Controller.php:49
+msgid "Resend activation email"
+msgstr "Reenviar email de activación"
+
+#: Backend/Tenants/Controller.php:53
+msgid "Not subscribed"
+msgstr "No suscrito"
+
+#: Backend/Tenants/Controller.php:64
+msgid "Are you sure you want to resend the activation email to the tenant?"
+msgstr ""
+"¿Está seguro de que desea volver a enviar el correo electrónico de "
+"activación al inquilino?"
+
+#: Backend/Tenants/Controller.php:65
+msgid "Resend"
+msgstr "Reenviar"
+
+#: Backend/Tenants/Controller.php:66
+msgid "The activation code was sent successfully!"
+msgstr "¡El código de activación fue enviado con éxito!"
+
+#: Backend/Tenants/view/modal/add_new.php:15
+msgid "Edit Tenant"
+msgstr "Editar cliente"
+
+#: Backend/Tenants/view/modal/add_new.php:15
+msgid "Add Tenant"
+msgstr "Agregar inquilino"
+
+#: Backend/Tenants/view/modal/add_new.php:42
+msgid "SAVE TENANT"
+msgstr "GUARDAR INQUILINO"
+
+#: Backend/Tenants/view/tab/details.php:12
+msgid "Assign to WordPress user"
+msgstr "Asignar a usuario de WordPress"
+
+#: Backend/Tenants/view/tab/details.php:14
+msgid "Create new WordPress user"
+msgstr "Crear nuevo usuario de WordPress"
+
+#: Backend/Tenants/view/tab/details.php:15
+msgid "Use existing WordPress user"
+msgstr "Usar usuario de WordPress existente"
+
+#: Backend/Tenants/view/tab/details.php:22
+msgid "Select WordPress user"
+msgstr "Seleccionar usuario de WordPress"
+
+#: Backend/Tenants/view/tab/details.php:35 Frontend/view/forgot_password.php:14
+#: Frontend/view/signup.php:18
+msgid "Email"
+msgstr "Email"
+
+#: Backend/Tenants/view/tab/details.php:39
+msgid "User password"
+msgstr "Contraseña de usuario"
+
+#: Backend/Tenants/view/tab/details.php:46
+msgid "Domain"
+msgstr "Dominio"
+
+#: Backend/Tenants/view/tab/details.php:58
+msgid "Full Name"
+msgstr "Nombre completo"
+
+#: Backend/Tenants/view/tab/details.php:78
+msgid "Expires on"
+msgstr "Expira el"
+
+#: Config.php:132
+msgid "Booknetic SaaS Tenant"
+msgstr "Inquilino SaaS Booknetic"
+
+#: Config.php:164
+msgid "Tenant Info"
+msgstr "Información del inquilino"
+
+#: Config.php:165
+msgid "Plan & Billing"
+msgstr "Planificación y facturación"
+
+#: Config.php:166
+msgid "Customer info"
+msgstr "Información del cliente"
+
+#: Config.php:169
+msgid "Tenant ID"
+msgstr "ID de inquilino"
+
+#: Config.php:175
+msgid "Tenant Full Name"
+msgstr "Nombre completo del inquilino"
+
+#: Config.php:181
+msgid "Tenant Email"
+msgstr "Correo electrónico del inquilino"
+
+#: Config.php:188
+msgid "Tenant Registration Date"
+msgstr "Fecha de registro del inquilino"
+
+#: Config.php:194
+msgid "Plan ID"
+msgstr "ID del plan"
+
+#: Config.php:200
+msgid "Plan Name"
+msgstr "Nombre del plan"
+
+#: Config.php:206
+msgid "Plan Color"
+msgstr "Plan Color"
+
+#: Config.php:212
+msgid "Plan Description"
+msgstr "Descripción del plan"
+
+#: Config.php:218
+msgid "Payment Amount"
+msgstr "Monto del pago"
+
+#: Config.php:224
+msgid "Payment Method"
+msgstr "Método de pago"
+
+#: Config.php:230
+msgid "Payment Cycle"
+msgstr "Ciclo de pago"
+
+#: Config.php:238
+msgid "Tenant Company Name"
+msgstr "Nombre de la empresa del arrendatario"
+
+#: Config.php:244
+msgid "Tenant Company Address"
+msgstr "Dirección de la empresa del arrendatario"
+
+#: Config.php:250
+msgid "Tenant Company Phone"
+msgstr "Teléfono de la empresa del arrendatario"
+
+#: Config.php:257
+msgid "Tenant Company Website"
+msgstr "Sitio web de la empresa arrendataria"
+
+#: Config.php:263
+msgid "Tenant Company Image URL"
+msgstr "URL de la imagen de la empresa del arrendatario"
+
+#: Config.php:269
+msgid "Tenant Domain"
+msgstr "Dominio del arrendatario"
+
+#: Config.php:275
+msgid "URL To Complete Signup"
+msgstr "URL para completar el registro"
+
+#: Config.php:281
+msgid "Tenant subscription expiration date"
+msgstr "Fecha de vencimiento de la suscripción del inquilino"
+
+#: Config.php:287
+msgid "Customer full name"
+msgstr "Nombre completo del cliente"
+
+#: Config.php:292
+msgid "Customer first name"
+msgstr "Nombre del cliente"
+
+#: Config.php:297
+msgid "Customer last name"
+msgstr "Apellido del cliente"
+
+#: Config.php:302
+msgid "Customer phone number"
+msgstr "Número de teléfono del cliente"
+
+#: Config.php:308
+msgid "Customer email"
+msgstr "Correo electrónico del cliente"
+
+#: Config.php:314
+msgid "Customer birthdate"
+msgstr "Fecha de nacimiento del cliente"
+
+#: Config.php:319
+msgid "URL to complete customer sign up"
+msgstr "URL para completar el registro del cliente"
+
+#: Config.php:324
+msgid "URL to reset customer password"
+msgstr "URL para restablecer la contraseña del cliente"
+
+#: Config.php:329
+msgid "Customer notes"
+msgstr "Notas de los clientes"
+
+#: Config.php:334
+msgid "Customer image URL"
+msgstr "URL de la imagen del cliente"
+
+#: Config.php:340
+msgid "Booknetic Sign In Page"
+msgstr "Página de inicio de sesión de Booknetic"
+
+#: Config.php:344
+msgid "Booknetic Sign Up Page"
+msgstr "Página de registro de Booknetic"
+
+#: Config.php:349
+msgid "URL To Reset Password"
+msgstr "URL para restablecer la contraseña"
+
+#: Config.php:359 Config.php:366 Config.php:373 Config.php:381
+msgid "Custom Field - "
+msgstr "Campo personalizado - "
+
+#: Config.php:392
+msgid "New tenant signed up"
+msgstr "Nuevo inquilino registrado"
+
+#: Config.php:396
+msgid "Tenant sign-up completed"
+msgstr "Registro de inquilino completado"
+
+#: Config.php:400
+msgid "Tenant forgot password"
+msgstr "El inquilino olvidó la contraseña"
+
+#: Config.php:404
+msgid "Tenant password was reset"
+msgstr "Se restableció la contraseña del inquilino"
+
+#: Config.php:408
+msgid "Tenant subscribed to a plan"
+msgstr "Inquilino suscrito a un plan"
+
+#: Config.php:412
+#, fuzzy
+#| msgid "Tenant details"
+msgid "Tenant deleted"
+msgstr "Detalles del inquilino"
+
+#: Config.php:416
+msgid "Tenant unsubscribed to a plan"
+msgstr "Inquilino no suscrito a un plan"
+
+#: Config.php:420
+msgid "Tenant payment received"
+msgstr "Pago del inquilino recibido"
+
+#: Config.php:424
+msgid "Tenant notified to subscribe to plan"
+msgstr "Inquilino notificado para suscribirse al plan"
+
+#: Config.php:428
+msgid "Customer signs up"
+msgstr "Registro del cliente"
+
+#: Config.php:432
+msgid "Customer forgot password"
+msgstr "El cliente olvidó la contraseña"
+
+#: Config.php:629
+msgid "Workflows"
+msgstr "Flujos de trabajo"
+
+#: Config.php:639
+msgid "WORDPRESS"
+msgstr "Wordpress"
+
+#: Frontend/Controller/Ajax.php:26
+msgid "Please enter your email and password correctly!"
+msgstr "¡Por favor ingrese su correo electrónico y contraseña correctamente!"
+
+#: Frontend/Controller/Ajax.php:33
+msgid "Email or password is incorrect!"
+msgstr "¡Correo electrónico o contraseña incorrectos!"
+
+#: Frontend/Controller/Ajax.php:43
+msgid ""
+"To access your account, you must first complete your registration. Please "
+"log in to your email to complete your registration."
+msgstr ""
+"Para acceder a su cuenta, primero debe completar su registro. Inicie sesión "
+"en su correo electrónico para completar su registro."
+
+#: Frontend/Controller/Ajax.php:79
+msgid "This email is already registered!"
+msgstr "¡Este correo electrónico ya está registrado!"
+
+#: Frontend/Controller/Ajax.php:158 Frontend/Controller/Ajax.php:207
+#: Frontend/Controller/Ajax.php:448
+msgid "Invalid request!"
+msgstr "¡Solicitud no válida!"
+
+#: Frontend/Controller/Ajax.php:163
+msgid "Minimum symbol length is 3 and maximum symbol length is 35."
+msgstr ""
+"La longitud mínima de los símbolos es 3 y la longitud máxima de los símbolos "
+"es 35."
+
+#: Frontend/Controller/Ajax.php:168
+msgid "Allowed characters for domain name is [a-z A-Z 0-9 - _]"
+msgstr ""
+"Los caracteres permitidos para el nombre de dominio son [a-z A-Z 0-9 - _]"
+
+#: Frontend/Controller/Ajax.php:174 Frontend/Controller/Ajax.php:181
+msgid "This domain name is already taken. Please choose another one."
+msgstr "Este nombre de dominio ya está en uso. Por favor elije otro."
+
+#: Frontend/Controller/Ajax.php:243
+#, php-format
+msgid "Minimum length of \"%s\" field is %d!"
+msgstr "¡La longitud mínima del campo \"%s\" es %d!"
+
+#: Frontend/Controller/Ajax.php:248
+#, php-format
+msgid "Maximum length of \"%s\" field is %d!"
+msgstr "¡La longitud máxima del campo \"%s\" es %d!"
+
+#: Frontend/Controller/Ajax.php:383
+msgid "The email address is not registered!"
+msgstr "¡La dirección de correo electrónico no está registrada!"
+
+#: Frontend/view/forgot_password.php:11
+msgid "Forgot Password"
+msgstr "Contraseña Olvidada"
+
+#: Frontend/view/forgot_password.php:18 Frontend/view/signup.php:26
+#: Frontend/view/signup_complete.php:22
+msgid "CONTINUE"
+msgstr "CONTINUAR"
+
+#: Frontend/view/forgot_password.php:22 Frontend/view/signup.php:30
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: Frontend/view/forgot_password.php:23 Frontend/view/signup.php:31
+msgid "Sign in"
+msgstr "Iniciar sesión"
+
+#: Frontend/view/forgot_password.php:27
+#: Frontend/view/forgot_password_complete.php:30 Frontend/view/signup.php:35
+#: Frontend/view/signup_complete.php:97
+msgid "Congratulations!"
+msgstr "¡Felicidades!"
+
+#: Frontend/view/forgot_password.php:29 Frontend/view/signup.php:37
+msgid "We need to verify your email."
+msgstr "Necesitamos verificar tu correo electrónico."
+
+#: Frontend/view/forgot_password.php:30 Frontend/view/signup.php:38
+msgid "Please, check your inbox for a confirmation link."
+msgstr ""
+"Por favor, revise su bandeja de entrada para obtener un enlace de "
+"confirmación."
+
+#: Frontend/view/forgot_password.php:36 Frontend/view/signup.php:44
+msgid "Didn't receive the email?"
+msgstr "¿No recibiste el correo electrónico?"
+
+#: Frontend/view/forgot_password.php:37 Frontend/view/signup.php:45
+msgid "Resend again"
+msgstr "Reenviar de nuevo"
+
+#: Frontend/view/forgot_password_complete.php:11
+msgid "Reset password"
+msgstr "Restablecer la contraseña"
+
+#: Frontend/view/forgot_password_complete.php:14
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+#: Frontend/view/forgot_password_complete.php:18
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: Frontend/view/forgot_password_complete.php:22
+msgid "RESET PASSWORD"
+msgstr "RESTABLECER LA CONTRASEÑA"
+
+#: Frontend/view/forgot_password_complete.php:32
+msgid "Your password has been reset successfully !"
+msgstr "¡Su contraseña ha sido restablecida con éxito!"
+
+#: Frontend/view/forgot_password_complete.php:35 Frontend/view/signin.php:22
+msgid "SIGN IN"
+msgstr "INICIAR SESION"
+
+#: Frontend/view/signin.php:10
+msgid "Sign In"
+msgstr "Iniciar Sesión"
+
+#: Frontend/view/signin.php:13
+msgid "Username or Email Address"
+msgstr "Nombre de usuario o dirección de correo electrónico"
+
+#: Frontend/view/signin.php:20
+msgid "Forgot password?"
+msgstr "¿Contraseña olvidada?"
+
+#: Frontend/view/signin.php:26
+msgid "Don't have an account?"
+msgstr "¿No tienes una cuenta?"
+
+#: Frontend/view/signin.php:27
+msgid "Sign up"
+msgstr "Registrarse"
+
+#: Frontend/view/signup.php:11
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: Frontend/view/signup.php:14
+msgid "Full name"
+msgstr "Nombre completo"
+
+#: Frontend/view/signup_complete.php:11
+msgid "Create URL"
+msgstr "Crear URL"
+
+#: Frontend/view/signup_complete.php:12
+msgid ""
+"Create a username for your page, this will be used when sharing your new "
+"booking page."
+msgstr ""
+"Cree un nombre de usuario para su página, este se utilizará cuando comparta "
+"su nueva página de reservas."
+
+#: Frontend/view/signup_complete.php:35
+msgid "Company Details"
+msgstr "Detalles de la compañía"
+
+#: Frontend/view/signup_complete.php:42
+msgid "Company name"
+msgstr "Nombre de la companía"
+
+#: Frontend/view/signup_complete.php:43
+msgid "Enter company name"
+msgstr "Introduzca el nombre de la empresa"
+
+#: Frontend/view/signup_complete.php:47
+msgid "Address"
+msgstr "Dirección"
+
+#: Frontend/view/signup_complete.php:48
+msgid "Enter address"
+msgstr "Ingresa la direccion"
+
+#: Frontend/view/signup_complete.php:53
+msgid "Phone number"
+msgstr "Número de teléfono"
+
+#: Frontend/view/signup_complete.php:54
+msgid "Enter phone number"
+msgstr "Ingresa número telefónico"
+
+#: Frontend/view/signup_complete.php:57
+msgid "Website"
+msgstr "Sitio web"
+
+#: Frontend/view/signup_complete.php:58
+msgid "Enter website"
+msgstr "Ingrese el sitio web"
+
+#: Frontend/view/signup_complete.php:81
+msgid "COMPLETE REGISTRATION"
+msgstr "COMPLETAR EL REGISTRO"
+
+#: Frontend/view/signup_complete.php:99
+msgid "You have successfully signed up. Head over to your Dashboard!"
+msgstr "Te has registrado correctamente. ¡Dirígete a tu Panel!"
+
+#: Frontend/view/signup_complete.php:102
+msgid "GO TO DASHBOARD"
+msgstr "IR AL PANEL DE CONTROL"
+
+#: Integrations/PaymentGateways/Paypal.php:323
+#, php-format
+msgid "first month %s"
+msgstr "primer mes %s"
+
+#: Integrations/PaymentGateways/WooCoommerce.php:40
+msgid "Adding deposit"
+msgstr "Agregando depósito"
+
+#: Providers/Common/EmailWorkflowDriver.php:24
+msgid "Send Email"
+msgstr "Enviar correo electrónico"
+
+#: Providers/Core/Backend.php:60
+msgid "Page not found or access denied!"
+msgstr "¡Página no encontrada o acceso denegado!"
+
+#: Providers/Core/Backend.php:160
+msgid "Error! Migration files not found."
+msgstr ""
+
+#: Providers/Core/Bootstrap.php:50
+msgid "Booknetic SaaS is updating, please wait."
+msgstr "Booknetic SaaS se está actualizando, espere."
+
+#: Providers/Core/Bootstrap.php:60
+msgid ""
+"Booknetic SaaS require Booknetic 3.0.0 or later to be installed, please "
+"update to latest version."
+msgstr ""
+"Booknetic SaaS requiere la instalación de Booknetic 3.0.0 o posterior, "
+"actualice a la última versión."
+
+#: Providers/Core/Bootstrap.php:84
+msgid "Booknetic SaaS requires Booknetic plugin to be installed and activated."
+msgstr ""
+"Booknetic SaaS requiere que el complemento Booknetic esté instalado y "
+"activado."
+
+#: Providers/Core/Frontend.php:177 Providers/Core/Frontend.php:201
+#: Providers/Core/Frontend.php:295
+msgid "You are already signed in. Please wait, you are being redirected..."
+msgstr "Ya estás registrado. Por favor espera, estás siendo redirigido..."
+
+#: Providers/Core/Frontend.php:215 Providers/Core/Frontend.php:308
+msgid "Redirecting..."
+msgstr "Redireccionando..."
+
+#: Providers/Helpers/Helper.php:637
+msgid "PayPal"
+msgstr "PayPal"
+
+#: Providers/Helpers/Helper.php:646
+msgid "From balance"
+msgstr "Del saldo"
+
+#~ msgid "Location"
+#~ msgstr "Ubicación"
+
+#~ msgid "Service"
+#~ msgstr "Servicio"
+
+#~ msgid "Staff"
+#~ msgstr "Profesional"
+
+#~ msgid "Service Extras"
+#~ msgstr "Servicio extra"
+
+#~ msgid "Billing"
+#~ msgstr "Facturación"
+
+#~ msgid "new"
+#~ msgstr "nuevo"
+
+#, php-format
+#~ msgid "%s addon just released"
+#~ msgstr "Complemento %s recién lanzado"
+
+#~ msgid "Client secret"
+#~ msgstr "Secreto del cliente"
+
+#~ msgid "Create a new wordpress user on new booking"
+#~ msgstr "Crear un nuevo usuario de wordpress en nueva reserva"
+
+#~ msgid "Change Appointment Status Page"
+#~ msgstr "Cambiar la página de estado de la cita"
+
+#~ msgid "No custom fields found"
+#~ msgstr "No se encontraron campos personalizados"
+
+#~ msgid "Customer reset password"
+#~ msgstr "Restablecer contraseña del cliente"
+
+#~ msgid "Booknetic Forgot Password SaaS"
+#~ msgstr "Booknetic Olvidé mi contraseña SaaS"
+
+#~ msgid "Booknetic Sign In SaaS"
+#~ msgstr "SaaS de inicio de sesión de Booknetic"
+
+#~ msgid "Booknetic Sign Up SaaS"
+#~ msgstr "SaaS de registro de Booknetic"
+
+#~ msgid ""
+#~ "Booknetic Database update is running, please wait. If this notice doesn't "
+#~ "gone in few minutes contact support."
+#~ msgstr ""
+#~ "La actualización de la base de datos de Booknetic se está ejecutando, "
+#~ "espere. Si este aviso no desaparece en unos minutos, comuníquese con "
+#~ "soporte."
+
+#, php-format
+#~ msgid "Booknetic! Installation error! Response error! Response: %s"
+#~ msgstr ""
+#~ "Booknético! ¡Error de instalación! ¡Error de respuesta! Respuesta: %s"
+
+#, php-format
+#~ msgid ""
+#~ "Booknetic! Your server can not access our license server via CURL! Our "
+#~ "license server is \"%s\". Please contact your hosting provider/server "
+#~ "administrator and ask them to solve the problem. If you are sure that "
+#~ "problem is not your server/hosting side then contact Booknetic "
+#~ "administrators."
+#~ msgstr ""
+#~ "Booknetic! ¡Su servidor no puede acceder a nuestro servidor de licencias "
+#~ "a través de CURL! Nuestro servidor de licencias es \"%s\". Póngase en "
+#~ "contacto con su proveedor de alojamiento/administrador del servidor y "
+#~ "pídales que resuelvan el problema. Si está seguro de que el problema no "
+#~ "es su servidor/alojamiento, póngase en contacto con los administradores "
+#~ "de Booknetic."
+
+#, php-format
+#~ msgid "Error! Response: %s"
+#~ msgstr "¡Error! Respuesta: %s"
