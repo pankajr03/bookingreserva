@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Plugin Name: Booknetic - Collaborative Services
  * Plugin URI:  https://github.com/pankajr03/booknetic-add-on
@@ -22,6 +22,7 @@ if (file_exists(BKNTCCS_PLUGIN_DIR . 'app/Helpers/logger.php')) {
 final class BookneticCollaborativeServices {
 
     private static $instance = null;
+    private bool $tenantAllowed = true;
 
     public static function get_instance() {
         if (self::$instance === null) {
@@ -35,15 +36,35 @@ final class BookneticCollaborativeServices {
     }
 
     public function init() {
-        
+        // Ensure core Booknetic is available before proceeding
         if (!class_exists('BookneticApp\Providers\UI\SettingsMenuUI')) {
             add_action('admin_notices', function () {
                 echo '<div class="notice notice-error"><p>Booknetic must be installed and active.</p></div>';
             });
             return;
         }
-        
+
+        // 1) Register a tenant capability so it appears in SaaS Plans -> Permissions
+        //    This makes "Collaborative Services" selectable per plan without editing SaaS files.
+        if (class_exists('BookneticApp\\Providers\\Core\\Capabilities')) {
+            \BookneticApp\Providers\Core\Capabilities::registerTenantCapability(
+                'collaborative_services',
+                function_exists('bkntc__') ? bkntc__('Collaborative Services') : __('Collaborative Services', 'booknetic')
+            );
+
+            // 2) Gate all features by plan permission (tenants without permission won't load plugin features)
+            $this->tenantAllowed = \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services');
+        }
+
+        // If tenant doesn't have permission, skip registering routes/menus/assets.
+        // Capability will still be visible in the Plans UI for admins to assign.
+        if (!$this->tenantAllowed) {
+            return;
+        }
+
         add_action('bkntc_init_backend', [$this, 'register_routes']);
+        // Register settings submenu only after Booknetic backend is initialized,
+        // so SaaS capability filters are active and tenant context is available.
         add_action('admin_init', [$this, 'add_menu_item']);
         // Also log request params early to capture module/view when admin page runs
         add_action('admin_init', [$this, 'log_request_params'], 5);
@@ -1424,6 +1445,14 @@ final class BookneticCollaborativeServices {
                 return;
         }
 
+        // Gate route registration by plan permission at runtime as well,
+        // in case init-time gating occurred before SaaS filters were attached.
+        if (class_exists('BookneticApp\\Providers\\Core\\Capabilities') &&
+            ! \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services')) {
+            if (function_exists('bkntc_cs_log')) bkntc_cs_log('register_routes: gated by tenant capability');
+            return;
+        }
+
         // Load the plugin controller so the class is available
         $controller_file = BKNTCCS_PLUGIN_DIR . 'app/Backend/CollaborativeServices/Controller.php';
             if (file_exists($controller_file)) {
@@ -1451,6 +1480,15 @@ final class BookneticCollaborativeServices {
     }
 
     public function add_menu_item() {
+        if (!$this->tenantAllowed) {
+            return;
+        }
+        // Do not add menu if tenant plan does not allow collaborative services
+        if (class_exists('BookneticApp\\Providers\\Core\\Capabilities') &&
+            ! \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services')) {
+            if (function_exists('bkntc_cs_log')) bkntc_cs_log('add_menu_item: gated by tenant capability');
+            return;
+        }
 
         if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
             if (function_exists('bkntc_cs_log')) bkntc_cs_log('add_menu_item: not on booknetic page; page=' . (isset($_GET['page']) ? $_GET['page'] : '')); 
