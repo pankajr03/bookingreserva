@@ -1,0 +1,13 @@
+<?php
+
+namespace BookneticApp\Backend\Customers\Exceptions;
+
+use Exception;
+
+class InvalidWordpressUserIdException extends Exception
+{
+    public function __construct()
+    {
+        parent::__construct(bkntc__('Invalid Wordpress User ID provided!'));
+    }
+}

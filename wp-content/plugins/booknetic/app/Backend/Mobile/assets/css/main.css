@@ -1,0 +1,327 @@
+#mobile-app {
+    margin: 32px 48px 0 24px;
+    background: #fff;
+    border-radius: 4px;
+    height: calc(100vh - 80px - 4rem);
+    overflow: auto;
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+}
+
+.button {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:disabled {
+        border: 1px solid #E0E8F1 !important;
+        background-color: #F7F8FB !important;
+        cursor: not-allowed;
+        color: #8895A0 !important;
+    }
+}
+
+button:focus {
+    outline: none !important;
+}
+
+header {
+    padding: 16px;
+    border-bottom: 1px solid #E3EBF4;
+
+    h1 {
+        color: #292D32;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 32px;
+    }
+}
+
+.mobile-app-menu {
+    flex: 0 1 auto;
+    padding: 16px;
+    border-right: thin solid #E3EBF4;
+
+    .legal-badges {
+        gap: 12px;
+    }
+}
+
+.mobile-app-container {
+    flex: 1;
+}
+
+.mobile-app-navigation {
+    gap: 24px;
+
+    li {
+        list-style-type: none;
+
+        &.active {
+            a {
+                color: #0a0a0a;
+                text-decoration: none;
+            }
+        }
+
+        a {
+            color: #717171;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            gap: 8px;
+
+            img {
+                width: 20px;
+            }
+
+            &:hover {
+                color: #0a0a0a;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.gets-seats {
+    border-radius: 10px;
+    border: 1px solid #E3EBF4;
+    padding-top: 12px;
+    margin-top: 24px;
+
+    & > div {
+        gap: 12px;
+        padding-inline: 12px;
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+}
+
+.seats-bar {
+    padding-inline: 12px;
+
+    progress {
+        height: 6px;
+        border: 1px solid #F5F7FF;
+        border-radius: 10px;
+        background-color: #F5F7FF;
+        -webkit-appearance: none;
+        appearance: none;
+        overflow: hidden;
+    }
+
+    progress::-webkit-progress-bar {
+        background-color: #F5F7FF;
+        border-radius: 10px;
+    }
+
+    progress::-webkit-progress-value {
+        background-color: #6C70DC;
+        border-radius: 10px;
+    }
+
+    progress::-moz-progress-bar {
+        background-color: #6C70DC;
+        border-radius: 10px;
+    }
+}
+
+.get-seats-button {
+    border-top: 1px solid #E3EBF4;
+    margin-top: 6px;
+    padding-block: 12px;
+}
+
+.mobile-app-view-area {
+    flex: 1;
+    padding: 16px;
+    overflow: auto;
+    max-height: calc(100vh - 209px);
+}
+
+.terms-and-conditions {
+    margin-top: 24px;
+    padding-inline: 16px;
+    gap: 12px;
+
+    a {
+        color: #8895A0;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+
+    .vertical-line {
+        width: 1px;
+        height: 14px;
+        background: #D5DBE9;
+    }
+}
+
+.danger-alert {
+    background: #FEE2E2;
+    color: #842029;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.manage-seats-modal {
+    width: 860px;
+
+    .terms-and-conditions {
+        padding-block: 16px;
+        justify-content: center;
+        border-top: thin solid #E3EBF4;
+    }
+}
+
+.modal-body {
+    padding-inline: 24px;
+
+    .manage-seats-info {
+        margin-top: 24px;
+        color: #292D32;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .seat-input {
+        border-radius: 4px;
+        border: 1px solid #E0E8F1;
+
+        .seat-btn {
+            border-radius: 4px;
+            background: #F7F8FB;
+            padding: 6px 8px;
+            user-select: none;
+            -webkit-user-select: none;
+
+            &:first-child {
+                border-right: 1px solid #E0E8F1;
+            }
+
+            &:last-child {
+                border-left: 1px solid #E0E8F1;
+            }
+        }
+
+        input[type="number"] {
+            border: none;
+            width: 58px;
+            margin-inline: 2px;
+            height: 32px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: #fff;
+            color: #0a0a0a;
+        }
+
+        input[type="number"]:focus{
+            outline: 1px solid #6C70DC;
+            border-radius: 4px;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    .seats-info, .billing-info {
+        gap: 12px;
+    }
+}
+
+.manage-seats-container {
+    gap: 10px;
+
+    & > div {
+        flex: 1;
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px solid #E3EBF4;
+
+        p {
+            color: #8895A0;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+
+        span {
+            color: #292D32;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 28px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .mobile-app-container {
+        flex-direction: column;
+    }
+
+    .mobile-map-menu {
+        border-right: 0;
+    }
+
+    .mobile-app-navigation {
+        flex-direction: row !important;
+        row-gap: 12px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #E3EBF4;
+
+        li {
+            padding-bottom: 8px;
+
+            &.active {
+                border-bottom: 2px solid #0a0a0a;
+            }
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    .legal-badges {
+        flex-wrap: wrap;
+        margin-top: 24px !important;
+        justify-content: flex-start !important;
+    }
+}
+
+@media (max-width: 992px) {
+    #mobile-app {
+        height: auto;
+    }
+
+    .mobile-app-view-area {
+        max-height: initial;
+    }
+}

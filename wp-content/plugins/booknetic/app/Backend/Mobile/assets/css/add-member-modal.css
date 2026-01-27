@@ -1,0 +1,20 @@
+.no-user-available {
+    .modal-body {
+        display: grid;
+        place-items: center;
+        gap: 16px;
+        text-align: center;
+
+        button {
+            gap: 10px;
+        }
+    }
+}
+
+.add-users-modal label {
+    color: #292D32;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 8px;
+}

@@ -1,0 +1,223 @@
+.manage-seats-table {
+    border: 1px solid #ECF1FE;
+    border-radius: 4px;
+    min-width: 700px;
+}
+
+.staff-member {
+    cursor: pointer;
+
+    &:hover {
+        background-color: #EAF4FF;
+    }
+}
+
+.table-header {
+    color: #626C76;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 12px 16px;
+    background-color: #F7F8FB;
+
+    & > div {
+        gap: 4px;
+    }
+
+    span {
+        color: #000;
+    }
+
+    button {
+        margin-left: 32px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+    }
+
+    .column-break {
+        width: 1px;
+        height: 14px;
+        background: #D5DBE9;
+        margin-inline: 12px;
+    }
+}
+
+.empty-info {
+    margin: 32px 16px;
+
+    h2 {
+        color: #292D32;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+    }
+
+    p {
+        margin-block: 12px 0;
+        color: #292D32;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}
+
+.table-body {
+
+    &.empty {
+        text-align: center;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.member {
+    padding: 12px 16px;
+
+    & > div {
+        flex: 1
+    }
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #ECF1FE;
+    }
+}
+
+.member-user-info {
+    gap: 8px;
+    flex: 0;
+    min-width: 0;
+
+    & > div {
+        gap: 2px;
+
+        p {
+            color: #292D32;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px
+        }
+
+        span {
+            color: #95A0A9;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+        }
+    }
+
+    img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+}
+
+.member-user-device {
+    display: grid;
+    gap: 2px;
+    flex: 0 0 auto;
+
+    & > div {
+        color: #292D32;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        gap: 6px;
+
+        a {
+            color: #FA1C1C;
+            white-space: nowrap;
+        }
+    }
+
+    span {
+        color: #95A0A9;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+}
+
+.member-status {
+    gap: 16px;
+    justify-content: flex-end;
+
+    .help-icon {
+        margin-right: 8px;
+        color: #FC9C79 !important;
+    }
+}
+
+.status-badge {
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 30px;
+    background: #EDEEF0;
+    color: #8E9CA7;
+
+    &.logged-in {
+        color: #54C16A;
+        background: #DDF7E1;
+    }
+
+    &.deleted {
+        color: #FA3E6E;
+        background: #FFE0E7;
+    }
+
+    &.not-logged-in {
+        color: #FC9C79;
+        background: #FFEEE8;
+    }
+}
+
+.member-dropdown-btn {
+    color: #8895A0;
+}
+
+.member-dropdown {
+    display: none;
+    width: 180px;
+    padding-block: 8px;
+    top: 40px;
+    right: 0;
+    border-radius: 2px;
+    border: 1px solid #E2EAF3;
+    background: #FFF;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.06);
+    z-index: 999;
+
+    button {
+        all: unset;
+        cursor: pointer;
+        padding: 8px 16px;
+        box-sizing: border-box;
+        gap: 10px;
+        width: 100%;
+        color: #8895A0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+
+        &:hover {
+            background-color: #F7F8FB;
+            color: #292D32;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .manage-seats-table {
+        overflow-x: auto;
+    }
+
+    .member {
+        flex-wrap: nowrap;
+    }
+}

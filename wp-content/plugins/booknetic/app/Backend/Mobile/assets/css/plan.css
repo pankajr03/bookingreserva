@@ -1,0 +1,224 @@
+.plan-header {
+    padding-inline: 16px;
+    margin-top: 16px;
+
+    h2 {
+        color: #292D32;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+
+    p {
+        margin-top: 4px;
+        color: #717171;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+}
+
+.plan-wrapper {
+    margin-top: 24px;
+    padding-inline: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.plan-card {
+    border-radius: 12px;
+    border: 1px solid #E3EBF4;
+    background: #F2F2F2;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
+    padding: 4px;
+
+    .card-heading {
+        color: #292D32;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+    }
+
+    &.plan-exists {
+        input[type="range"] {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        button {
+            color: #828F9A !important;
+            border-color: #CAD2D9 !important;
+            background-color: #CAD2D9 !important;
+            cursor: not-allowed;
+        }
+    }
+
+    &.business {
+        border: 1px solid #49BC67;
+        background: linear-gradient(162deg, rgba(73, 188, 103, 0.18) 0.51%, rgba(73, 182, 188, 0.10) 41.39%);
+
+        .header {
+            background-color: transparent;
+        }
+    }
+
+    .header {
+        padding: 12px;
+        gap: 6px;
+        background-color: #F2F2F2;
+
+        .plan-badge {
+            gap: 2px;
+            color: #FFF;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            border-radius: 30px;
+            background: #49BC67;
+            padding: 2px 6px 2px 4px;
+        }
+
+        .card-header {
+            color: #292D32;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+        }
+
+        .card-header-description {
+            color: #8895A0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+
+    .card-body {
+        padding: 12px;
+        border-radius: 10px;
+        background: #FFF;
+
+        .price {
+            color: #292D32;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 28px;
+            gap: 8px;
+
+            .original-price {
+                color: #8895A0;
+                text-decoration: line-through;
+            }
+        }
+
+        .billed {
+            margin-top: 4px;
+            color: #8895A0;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 20px
+        }
+
+        .horizontal-line {
+            height: 1px;
+            width: 100%;
+            margin-block: 16px;
+            background-color: #F2F2F2;
+        }
+
+        .features {
+            gap: 12px;
+
+            li {
+                gap: 8px;
+                list-style-type: none;
+                color: #292D32;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px
+            }
+        }
+
+        .additional-seats {
+
+            & > div {
+                margin-top: 12px;
+                gap: 12px;
+            }
+
+            .ranger {
+                flex: 1;
+            }
+
+            p {
+                color: #292D32;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 20px;
+            }
+
+            span {
+                color: #8895A0;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 18px;
+            }
+
+            .additional-seat {
+                text-align: center;
+                width: 58px;
+                padding: 6px 8px;
+                border-radius: 6px;
+                border: 1px solid #F2F2F2;
+                color: #000;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                appearance: textfield;
+            }
+
+            .additional-seat:focus{
+                outline: 2px solid #6C70DC;
+            }
+
+            .additional-seat::-webkit-inner-spin-button{
+                display: none;
+            }
+
+            input[type="range"] {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 6px;
+                background: linear-gradient(to right, #6C70DC var(--val, 0%), #E3EBF4 var(--val, 0%));
+                border-radius: 10px;
+                outline: none;
+                cursor: pointer;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                border-radius: 40px;
+                background: #6C70DC;
+                box-shadow: 0 0 2px 0 #383CBE;
+                height: 16px;
+                width: 16px;
+            }
+
+            input[type="range"]::-moz-range-thumb {
+                -webkit-appearance: none;
+                border-radius: 40px;
+                background: #6C70DC;
+                box-shadow: 0 0 2px 0 #383CBE;
+                height: 16px;
+                width: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .plan-wrapper{
+        grid-template-columns: 1fr;
+    }
+}
