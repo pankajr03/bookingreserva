@@ -935,9 +935,11 @@ final class BookneticCollaborativeServices {
         if (!isset($_GET['ajax']) || (string) $_GET['ajax'] !== '1') return;
 
         $action = isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : '');
+        $module = isset($_POST['module']) ? $_POST['module'] : (isset($_GET['module']) ? $_GET['module'] : '');
         
         // Only intercept our specific collaborative_services actions - be very strict
-        if ($action !== 'collaborative_services' && 
+        if ($action !== 'collaborative_services' &&
+            $module !== 'collaborative_services' && 
             $action !== 'settings.collaborative_services' && 
             $action !== 'collaborative_services.save' && 
             $action !== 'settings.collaborative_services.save') {
@@ -948,25 +950,46 @@ final class BookneticCollaborativeServices {
             bkntc_cs_log('maybe_handle_booknetic_ajax: intercepted action=' . $action . ' | POST: ' . json_encode($_POST));
         }
 
+        
         // Handle save action
-        if ($action === 'collaborative_services.save' || $action === 'settings.collaborative_services.save') {
-            
-            // Check permissions
-            if (!current_user_can('manage_options')) {
-                echo json_encode(['status' => 'error', 'message' => 'Permission denied']);
-                exit;
-            }
-            
+        if ($action === 'collaborative_services.save' || $action === 'save') {
+           
             // Get and sanitize settings
-            $collaborative_enabled = isset($_POST['collaborative_enabled']) ? sanitize_text_field($_POST['collaborative_enabled']) : 'off';
-            $guest_info_required = isset($_POST['guest_info_required']) ? sanitize_text_field($_POST['guest_info_required']) : 'optional';
-
+            $collaborative_enabled = isset($_POST['collaborative_enabled']) ? intval($_POST['collaborative_enabled']) : 0;
+            $guest_info_required = isset($_POST['guest_info_required']) ? intval($_POST['guest_info_required']) : 0;
+            
             // Save settings
-            update_option('bkntc_collaborative_services_enabled', $collaborative_enabled);
-            update_option('bkntc_collaborative_guest_info_required', $guest_info_required);
+            // Get current tenant ID (assuming Booknetic provides this method; adjust if needed)
+            $user_id = 0;
+            $current_user = wp_get_current_user();
+            if ($current_user && $current_user->ID) {
+                $user_id = $current_user->ID;
+            }
+            if ($user_id) {
+                global $wpdb;
+                $tenants_table = $wpdb->prefix . 'bkntc_tenants';
+                
+                $result = $wpdb->update(
+                    $tenants_table,
+                    [
+                        'collaborative_enabled' => $collaborative_enabled,
+                        'guest_info_required' => $guest_info_required
+                    ],
+                    ['user_id' => $user_id],
+                    ['%d', '%d'],
+                    ['%d']
+                );
+                
+                if ($result !== false) {
+                    if (function_exists('bkntc_cs_log')) {
+                        bkntc_cs_log('maybe_handle_booknetic_ajax: saved to tenants table - enabled=' . $collaborative_enabled . ' guest_info=' . $guest_info_required . ' for tenant=' . $user_id);
+                    }
+                } 
+            } 
+
 
             if (function_exists('bkntc_cs_log')) {
-                bkntc_cs_log('maybe_handle_booknetic_ajax: saved - enabled=' . $collaborative_enabled . ' guest_info=' . $guest_info_required);
+                bkntc_cs_log('maybe_handle_booknetic_ajax: saved - enabled=' . $collaborative_enabled . ' guest_info=' . $guest_info_required. ' tenantid=' . $user_id);
             }
 
             echo json_encode(['status' => 'ok', 'message' => bkntc__('Settings saved successfully')]);
