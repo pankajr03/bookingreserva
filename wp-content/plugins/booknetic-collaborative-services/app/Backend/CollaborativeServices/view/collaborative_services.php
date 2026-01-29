@@ -10,7 +10,7 @@ if ($current_user && $current_user->ID) {
 
 // Fetch settings from tenants table if tenant_id is available
 $collaborative_enabled = 0; // Default
-$guest_info_required = 1; // Default
+$guest_info_required = 0; // Default
 
 if ($user_id) {
     global $wpdb;
