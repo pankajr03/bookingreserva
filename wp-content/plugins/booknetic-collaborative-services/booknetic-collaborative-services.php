@@ -65,10 +65,12 @@ final class BookneticCollaborativeServices {
         add_action('bkntc_init_backend', [$this, 'register_routes']);
         // Register settings submenu only after Booknetic backend is initialized,
         // so SaaS capability filters are active and tenant context is available.
+        // Settings -> General Settings -> Collaborative Services
         add_action('admin_init', [$this, 'add_menu_item']);
-        add_action('bkntc_init_backend', [$this, 'add_menu_item']);
+
         // Also log request params early to capture module/view when admin page runs
         add_action('admin_init', [$this, 'log_request_params'], 5);
+        
         // Intercept Booknetic AJAX settings requests
         add_action('admin_init', [$this, 'maybe_handle_booknetic_ajax'], 1);
         
@@ -94,7 +96,7 @@ final class BookneticCollaborativeServices {
         // Register Appointment AJAX handlers
         add_action('wp_ajax_bkntc_collab_get_appointment_staff', [$this, 'ajax_get_appointment_staff']);
         add_action('wp_ajax_bkntc_collab_save_appointment_staff', [$this, 'ajax_save_appointment_staff']);
-            add_action('wp_ajax_bkntc_collab_get_category_rules', [$this, 'ajax_get_category_rules']);
+        add_action('wp_ajax_bkntc_collab_get_category_rules', [$this, 'ajax_get_category_rules']);
         
         // Enqueue appointment assets
         add_action('admin_enqueue_scripts', [$this, 'enqueue_appointment_assets']);
@@ -1524,6 +1526,9 @@ final class BookneticCollaborativeServices {
             if (function_exists('bkntc_cs_log')) bkntc_cs_log('register_routes: routes registered for module=settings');
     }
 
+    /**
+     * Add menu item under Booknetic settings -> General Settings -> Collaborative Services
+     */
     public function add_menu_item() {
         if (!$this->tenantAllowed) {
             return;
@@ -1549,15 +1554,19 @@ final class BookneticCollaborativeServices {
         // the controller handles capability checks via Capabilities::must('settings')
         \BookneticApp\Providers\UI\SettingsMenuUI::get('general_settings')
             ->subItem('collaborative_services')
-            ->setTitle(bkntc__('Collaborative Services'))
+            ->setTitle(bkntc__(' Collaborative Services'))
             ->setPriority(7);
         if (function_exists('bkntc_cs_log')) bkntc_cs_log('add_menu_item: submenu collaborative_services added');
     }
 
+
+
     // Service Collaborative handlers
     public function enqueue_service_assets() {
         $screen = get_current_screen();
-        
+        if (function_exists('bkntc_cs_log')) {
+            bkntc_cs_log('Service collaborative assets enqueued');
+        }
         // Only load on Services page
         if ($screen && strpos($screen->id, 'booknetic') !== false) {
             wp_enqueue_script(
