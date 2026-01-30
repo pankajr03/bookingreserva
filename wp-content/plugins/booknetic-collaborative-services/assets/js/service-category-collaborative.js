@@ -13,13 +13,11 @@
         console.log('Booknetic Collaborative Category Script Loaded with jQuery');
 
         var bkntcCollab = {
-            staffList: [],
             currentCategoryId: null,
             settingsLoaded: false,
 
             init: function () {
                 console.log('Initializing collaborative category features');
-                this.loadStaffList();
                 this.hookIntoBookneticAjax();
                 this.bindSaveEvent();
             },
@@ -37,9 +35,9 @@
                             console.log('Detected service category modal load via AJAX');
 
                             // Wait for DOM to be ready
-                            setTimeout(function () {
-                                self.injectCollaborativeFields();
-                            }, 100);
+                            // setTimeout(function () {
+                            //     self.injectCollaborativeFields();
+                            // }, 100);
 
                             setTimeout(function () {
                                 self.injectCollaborativeFields();
@@ -85,6 +83,28 @@
                             return;
                         }
                     }
+
+
+                    // Check if this is a category save action
+                    if (settings.data && typeof settings.data === 'string' &&
+                        settings.data.includes('module=service_categories') &&
+                        (settings.data.includes('action=save') || settings.data.includes('action=create') || settings.data.includes('action=update'))) {
+
+                        // Check if response indicates success
+                        if (response && response.status === 'ok') {
+                            var categoryId = response.id ? parseInt(response.id) : self.getCategoryIdFromForm();
+                            if (categoryId && categoryId > 0) {
+                                console.log('Detected Booknetic category save with ID:', categoryId);
+                                console.log('This is a category save, will save collaborative settings');
+
+                                setTimeout(function () {
+                                    self.performSave(categoryId);
+                                }, 300);
+                                return;
+                            }
+                        }
+                    }
+
                 });
 
                 // Also listen for AJAX errors
@@ -98,37 +118,6 @@
                             console.error('Category save AJAX failed');
                             console.error('Response:', xhr.responseText);
                         }
-                    }
-                });
-            },
-
-            loadStaffList: function () {
-                var self = this;
-
-                console.log('Loading staff list from:', bkntcCollabCategory.ajaxurl);
-                console.log('Using nonce:', bkntcCollabCategory.nonce);
-
-                $.ajax({
-                    url: bkntcCollabCategory.ajaxurl,
-                    type: 'POST',
-                    data: {
-                        action: 'bkntc_collab_get_staff_list',
-                        nonce: bkntcCollabCategory.nonce
-                    },
-                    success: function (response) {
-                        console.log('Staff list response:', response);
-                        if (response.success) {
-                            self.staffList = response.data;
-                            console.log('Loaded ' + self.staffList.length + ' staff members');
-                        } else {
-                            console.error('Staff list response failed:', response);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Error loading staff list:', error);
-                        console.error('XHR:', xhr);
-                        console.error('Status:', status);
-                        console.error('Response Text:', xhr.responseText);
                     }
                 });
             },
@@ -193,30 +182,16 @@
                     } else {
                         console.log('No valid category ID found, this is a new category');
                     }
-                }, 300);
+                }, 600);
 
                 // Try again with longer delay
-                setTimeout(function () {
-                    var categoryId = self.getCategoryIdFromForm();
-                    if (categoryId && categoryId > 0 && !self.settingsLoaded) {
-                        console.log('Second attempt - Loading settings for category:', categoryId);
-                        self.loadCategorySettings(categoryId);
-                    }
-                }, 800);
-            },
-
-            populateStaffDropdown: function () {
-                var select = $('#bkntc_collab_staff_ids');
-                select.empty();
-
-                console.log('Populating staff dropdown with', this.staffList.length, 'staff');
-
-                this.staffList.forEach(function (staff) {
-                    select.append($('<option>', {
-                        value: staff.id,
-                        text: staff.name
-                    }));
-                });
+                // setTimeout(function () {
+                //     var categoryId = self.getCategoryIdFromForm();
+                //     if (categoryId && categoryId > 0 && !self.settingsLoaded) {
+                //         console.log('Second attempt - Loading settings for category:', categoryId);
+                //         self.loadCategorySettings(categoryId);
+                //     }
+                // }, 800);
             },
 
             loadCategorySettings: function (categoryId) {
@@ -401,6 +376,15 @@
                     if (match) {
                         categoryId = parseInt(match[1]);
                         console.log('Method 5 - From modal title:', categoryId);
+                    }
+                }
+
+                // Method 6: Check the script tag's data-category-id
+                if (!categoryId) {
+                    var scriptDataId = $("#add_new_JS").data('category-id');
+                    if (scriptDataId && !isNaN(scriptDataId) && parseInt(scriptDataId) > 0) {
+                        categoryId = parseInt(scriptDataId);
+                        console.log('Method 6 - From script data-category-id:', categoryId);
                     }
                 }
 

@@ -493,15 +493,15 @@ final class BookneticCollaborativeServices {
     public function ajax_save_category_settings() {
         check_ajax_referer('bkntc_collab_category_nonce', 'nonce');
         
-        if (!current_user_can('manage_options')) {
-            wp_send_json_error(['message' => 'Permission denied']);
-        }
+        // if (!current_user_can('manage_options')) {
+        //     wp_send_json_error(['message' => 'Permission denied']);
+        // }
 
         $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
         $allow_multi_select = isset($_POST['allow_multi_select']) ? intval($_POST['allow_multi_select']) : null;
-        $min_staff = isset($_POST['min_staff']) ? intval($_POST['min_staff']) : null;
-        $max_staff = isset($_POST['max_staff']) ? intval($_POST['max_staff']) : null;
-        $eligible_staff = isset($_POST['eligible_staff']) ? array_map('intval', (array)$_POST['eligible_staff']) : null;
+        // $min_staff = isset($_POST['min_staff']) ? intval($_POST['min_staff']) : null;
+        // $max_staff = isset($_POST['max_staff']) ? intval($_POST['max_staff']) : null;
+        // $eligible_staff = isset($_POST['eligible_staff']) ? array_map('intval', (array)$_POST['eligible_staff']) : null;
 
         if ($category_id <= 0) {
             wp_send_json_error(['message' => 'Invalid category ID']);
@@ -517,18 +517,6 @@ final class BookneticCollaborativeServices {
         if ($allow_multi_select !== null) {
             $update_data['allow_multi_select'] = $allow_multi_select;
             $update_format[] = '%d';
-        }
-        if ($min_staff !== null) {
-            $update_data['collab_min_staff'] = $min_staff;
-            $update_format[] = '%d';
-        }
-        if ($max_staff !== null) {
-            $update_data['collab_max_staff'] = $max_staff;
-            $update_format[] = '%d';
-        }
-        if ($eligible_staff !== null) {
-            $update_data['collab_eligible_staff'] = json_encode($eligible_staff);
-            $update_format[] = '%s';
         }
         
         if (empty($update_data)) {
@@ -560,17 +548,15 @@ final class BookneticCollaborativeServices {
     public function ajax_get_category_settings() {
         check_ajax_referer('bkntc_collab_category_nonce', 'nonce');
         
-        if (!current_user_can('manage_options')) {
-            wp_send_json_error(['message' => 'Permission denied']);
-        }
+        // if (!current_user_can('manage_options')) {
+        //     wp_send_json_error(['message' => 'Permission denied']);
+        // }
 
         $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
 
         if ($category_id <= 0) {
             wp_send_json_success([
-                'min_staff' => 0,
-                'max_staff' => 0,
-                'eligible_staff' => []
+                'allow_multi_select' => 0
             ]);
             return;
         }
@@ -580,7 +566,7 @@ final class BookneticCollaborativeServices {
         
         $category = $wpdb->get_row(
             $wpdb->prepare(
-                "SELECT collab_min_staff, collab_max_staff, collab_eligible_staff FROM {$table} WHERE id = %d",
+                "SELECT allow_multi_select FROM {$table} WHERE id = %d",
                 $category_id
             ),
             ARRAY_A
@@ -588,15 +574,12 @@ final class BookneticCollaborativeServices {
         
         if ($category) {
             $settings = [
-                'min_staff' => intval($category['collab_min_staff']),
-                'max_staff' => intval($category['collab_max_staff']),
-                'eligible_staff' => $category['collab_eligible_staff'] ? json_decode($category['collab_eligible_staff'], true) : []
+                'allow_multi_select' => intval($category['allow_multi_select'])
             ];
         } else {
             $settings = [
-                'min_staff' => 0,
-                'max_staff' => 0,
-                'eligible_staff' => []
+                'allow_multi_select' => 0
+              
             ];
         }
 
@@ -1619,19 +1602,6 @@ final class BookneticCollaborativeServices {
         
         // Add columns to service categories table
         $categories_table = $wpdb->prefix . 'bkntc_service_categories';
-        $columns = $wpdb->get_results("SHOW COLUMNS FROM {$categories_table} LIKE 'collab_%'");
-        
-        if (empty($columns)) {
-            $wpdb->query("ALTER TABLE {$categories_table} 
-                ADD COLUMN collab_min_staff INT(11) DEFAULT 0,
-                ADD COLUMN collab_max_staff INT(11) DEFAULT 0,
-                ADD COLUMN collab_eligible_staff TEXT,
-                ADD COLUMN allow_multi_select TINYINT(1) DEFAULT 0");
-            
-            if (function_exists('bkntc_cs_log')) {
-                bkntc_cs_log('Added collaborative columns to service categories table');
-            }
-        }
         
         // Add allow_multi_select if missing
         $multi_select_column = $wpdb->get_results("SHOW COLUMNS FROM {$categories_table} LIKE 'allow_multi_select'");
