@@ -34,11 +34,6 @@
 
                             console.log('Detected service category modal load via AJAX');
 
-                            // Wait for DOM to be ready
-                            // setTimeout(function () {
-                            //     self.injectCollaborativeFields();
-                            // }, 100);
-
                             setTimeout(function () {
                                 self.injectCollaborativeFields();
                             }, 500);
@@ -184,14 +179,6 @@
                     }
                 }, 600);
 
-                // Try again with longer delay
-                // setTimeout(function () {
-                //     var categoryId = self.getCategoryIdFromForm();
-                //     if (categoryId && categoryId > 0 && !self.settingsLoaded) {
-                //         console.log('Second attempt - Loading settings for category:', categoryId);
-                //         self.loadCategorySettings(categoryId);
-                //     }
-                // }, 800);
             },
 
             loadCategorySettings: function (categoryId) {
@@ -218,21 +205,15 @@
                         if (response.success) {
                             var data = response.data;
                             var checkbox = $('#bkntc_collab_allow_multi_select');
-
-                            console.log('Checkbox element found:', checkbox.length > 0);
-                            console.log('Setting allow_multi_select to:', data.allow_multi_select);
-
                             checkbox.prop('checked', data.allow_multi_select == 1);
 
-                            console.log('Checkbox now checked:', checkbox.is(':checked'));
                         } else {
                             console.error('Failed to load settings:', response.data ? response.data.message : 'Unknown error');
                         }
                     },
                     error: function (xhr, status, error) {
                         console.error('=== AJAX Error Loading Settings ===');
-                        console.error('Error:', error);
-                        console.error('Response:', xhr.responseText);
+
                     }
                 });
             },
@@ -257,8 +238,6 @@
                 var checkbox = $('#bkntc_collab_allow_multi_select');
                 var allowMultiSelect = checkbox.is(':checked') ? 1 : 0;
 
-                console.log('Checkbox element:', checkbox.length > 0 ? 'Found' : 'NOT FOUND');
-                console.log('Checkbox checked:', checkbox.is(':checked'));
                 console.log('Saving:', { categoryId: categoryId, allowMultiSelect: allowMultiSelect });
 
                 $.ajax({
@@ -273,22 +252,15 @@
                     success: function (response) {
                         console.log('=== COLLABORATIVE SETTINGS SAVE RESPONSE ===');
                         console.log('Success:', response.success);
-                        console.log('Full response:', response);
-                        console.log('Response.data:', response.data);
-                        console.log('Response.data keys:', response.data ? Object.keys(response.data) : 'N/A');
 
                         if (response.success) {
                             console.log('✓ Settings saved for category ' + categoryId);
-                            console.log('response.data.settings:', response.data.settings);
-                            console.log('response.data.message:', response.data.message);
-                            console.log('response.data.updated_rows:', response.data.updated_rows);
 
                             if (typeof booknetic !== 'undefined' && booknetic.toast) {
                                 booknetic.toast('Collaborative settings saved', 'success');
                             }
                         } else {
                             console.error('✗ Save failed:', response);
-                            console.error('Error message:', response.data ? response.data.message : 'Unknown');
                             if (typeof booknetic !== 'undefined' && booknetic.toast) {
                                 booknetic.toast('Error: ' + (response.data ? response.data.message : 'Unknown error'), 'error');
                             }
@@ -296,9 +268,7 @@
                     },
                     error: function (xhr, status, error) {
                         console.error('=== COLLABORATIVE SETTINGS AJAX ERROR ===');
-                        console.error('Error:', error);
-                        console.error('Status:', status);
-                        console.error('Response text:', xhr.responseText);
+
                         if (typeof booknetic !== 'undefined' && booknetic.toast) {
                             booknetic.toast('AJAX Error: ' + error, 'error');
                         }
@@ -315,7 +285,6 @@
                 var urlParams = new URLSearchParams(window.location.search);
                 if (urlParams.has('id')) {
                     categoryId = parseInt(urlParams.get('id'));
-                    console.log('Method 1 - URL param "id":', categoryId);
                 }
 
                 // Method 2: Look for edit action data in AJAX
