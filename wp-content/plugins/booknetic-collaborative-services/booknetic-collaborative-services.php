@@ -38,6 +38,34 @@ final class BookneticCollaborativeServices {
         add_action('plugins_loaded', [$this, 'init']);
     }
 
+    public function backend_init() {
+        add_action('bkntc_init_backend', [$this, 'register_routes']);
+        // Register settings submenu only after Booknetic backend is initialized,
+        // so SaaS capability filters are active and tenant context is available.
+        // Settings -> General Settings -> Collaborative Services
+        add_action('admin_init', [$this, 'add_menu_item']);
+
+        // Also log request params early to capture module/view when admin page runs
+        add_action('admin_init', [$this, 'log_request_params'], 5);
+        
+        // Intercept Booknetic AJAX settings requests
+        add_action('admin_init', [$this, 'maybe_handle_booknetic_ajax'], 1);
+        
+        // Initialize Service Category Collaborative features
+        add_action('admin_init', [$this, 'init_service_category_collaborative'], 5);
+        add_action('admin_init', [$this, 'init_service_collaborative'], 6);
+        
+        // Service Collaborative features [Register AJAX handlers directly]
+        add_action('wp_ajax_bkntc_collab_save_category_settings', [$this, 'ajax_save_category_settings']);
+        add_action('wp_ajax_bkntc_collab_get_category_settings', [$this, 'ajax_get_category_settings']);
+        
+        // Service Collaborative features
+        // add_action('admin_enqueue_scripts', [$this, 'enqueue_service_assets']);
+        // add_action('wp_ajax_bkntc_collab_get_service_settings', [$this, 'ajax_get_service_settings']);
+        // add_action('wp_ajax_bkntc_collab_save_service_settings', [$this, 'ajax_save_service_settings']);
+        
+    }
+
     public function init() {
         // Ensure core Booknetic is available before proceeding
         if (!class_exists('BookneticApp\Providers\UI\SettingsMenuUI')) {
@@ -65,35 +93,10 @@ final class BookneticCollaborativeServices {
             return;
         }
 
-        add_action('bkntc_init_backend', [$this, 'register_routes']);
-        // Register settings submenu only after Booknetic backend is initialized,
-        // so SaaS capability filters are active and tenant context is available.
-        // Settings -> General Settings -> Collaborative Services
-        add_action('admin_init', [$this, 'add_menu_item']);
-
-        // Also log request params early to capture module/view when admin page runs
-        add_action('admin_init', [$this, 'log_request_params'], 5);
-        
-        // Intercept Booknetic AJAX settings requests
-        add_action('admin_init', [$this, 'maybe_handle_booknetic_ajax'], 1);
-        
-        // Initialize Service Category Collaborative features
-        add_action('admin_init', [$this, 'init_service_category_collaborative'], 5);
-        add_action('admin_init', [$this, 'init_service_collaborative'], 6);
-        
-        //add_action('admin_print_scripts', [$this, 'inject_service_category_scripts']);
-        //add_action('admin_print_footer_scripts', [$this, 'inject_service_category_scripts']);
-        //add_action('admin_head', [$this, 'inject_service_category_scripts']);
+        $this->backend_init();
         
         // Register AJAX handlers directly
         add_action('wp_ajax_bkntc_collab_get_staff_list', [$this, 'ajax_get_staff_list']);
-        add_action('wp_ajax_bkntc_collab_save_category_settings', [$this, 'ajax_save_category_settings']);
-        add_action('wp_ajax_bkntc_collab_get_category_settings', [$this, 'ajax_get_category_settings']);
-        
-        // Service Collaborative features
-        add_action('admin_enqueue_scripts', [$this, 'enqueue_service_assets']);
-        add_action('wp_ajax_bkntc_collab_get_service_settings', [$this, 'ajax_get_service_settings']);
-        add_action('wp_ajax_bkntc_collab_save_service_settings', [$this, 'ajax_save_service_settings']);
         
         // Hook into Booknetic service save to persist collab fields
         add_filter('bkntc_service_insert_data', [$this, 'filter_service_save_data'], 10, 1);
@@ -1057,8 +1060,61 @@ final class BookneticCollaborativeServices {
         }
     }
 
+    private function get_frontend_tenant_id() {
+        // 1) explicit request
+        if (isset($_REQUEST['tenant_id'])) {
+            return intval($_REQUEST['tenant_id']);
+        }
+
+        // 2) cookie
+        if (!empty($_COOKIE['bkntc_tenant_id'])) {
+            return intval($_COOKIE['bkntc_tenant_id']);
+        }
+
+        global $wpdb;
+
+        // 3) current user's tenant (common in SaaS setups)
+        $current_user = wp_get_current_user();
+        if ($current_user && $current_user->ID) {
+            $tenants_table = $wpdb->prefix . 'bkntc_tenants';
+            $tenant_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM {$tenants_table} WHERE user_id = %d LIMIT 1", $current_user->ID));
+            if ($tenant_id) {
+                return intval($tenant_id);
+            }
+        }
+
+        $uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field($_SERVER['REQUEST_URI']) : '';
+        if ($uri) {
+            $parts = explode('/', trim($uri, '/'));
+            if (!empty($parts[1])) {
+                $first = $parts[1];
+                $tenants_table = $wpdb->prefix . 'bkntc_tenants';
+                $like = '%' . $wpdb->esc_like($first) . '%';
+                $tenant_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM {$tenants_table} WHERE domain LIKE %s LIMIT 1", $like));
+                if ($tenant_id) return intval($tenant_id);
+            }
+        }
+       
+
+        return 0;
+
+    }
+
     public function enqueue_frontend_booking_assets() {
         // Load on all frontend pages (Booknetic can be loaded via shortcode, popup, iframe, etc.)
+        $tenant_id = $this->get_frontend_tenant_id();
+        global $wpdb;
+        if ( $tenant_id > 0 ) {
+            $tenants_table = $wpdb->prefix . 'bkntc_tenants';
+            $collaborative_enabled = $wpdb->get_var($wpdb->prepare("SELECT collaborative_enabled FROM {$tenants_table} WHERE id = %d LIMIT 1", $tenant_id));
+            if ( ! $collaborative_enabled ) {
+                if (function_exists('bkntc_cs_log')) {
+                    bkntc_cs_log('enqueue_frontend_booking_assets: collaborative disabled for tenant ' . $tenant_id );
+                }
+                return;
+            }
+        } 
+        
         if (!is_admin()) {
             // Gate by tenant plan: do not load collaborative assets if plan disallows
             if (class_exists('BookneticApp\\Providers\\Core\\Capabilities') &&
