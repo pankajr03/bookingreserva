@@ -159,6 +159,17 @@
                                 </div>\
                                 <small class="form-text text-muted">Allow customers to select multiple services from this category in one booking</small>\
                             </div>\
+                            <div class="form-group col-md-12">\
+                                <label class="form-label" for="bkntc_collab_service_selection_limit">\
+                                    <strong>Service Selection Limit</strong>\
+                                </label>\
+                                <input type="text" \
+                                       class="form-control" \
+                                       id="bkntc_collab_service_selection_limit" \
+                                       name="service_selection_limit" \
+                                       value="1">\
+                                <small class="form-text text-muted">Set the maximum number of services a customer can book within this category group.</small>\
+                            </div >\
                         </div>\
                     </div>\
                 ';
@@ -206,6 +217,7 @@
                             var data = response.data;
                             var checkbox = $('#bkntc_collab_allow_multi_select');
                             checkbox.prop('checked', data.allow_multi_select == 1);
+                            $('#bkntc_collab_service_selection_limit').val(data.service_selection_limit);
 
                         } else {
                             console.error('Failed to load settings:', response.data ? response.data.message : 'Unknown error');
@@ -237,6 +249,7 @@
 
                 var checkbox = $('#bkntc_collab_allow_multi_select');
                 var allowMultiSelect = checkbox.is(':checked') ? 1 : 0;
+                var serviceSelectionLimit = parseInt($('#bkntc_collab_service_selection_limit').val()) || 1;
 
                 console.log('Saving:', { categoryId: categoryId, allowMultiSelect: allowMultiSelect });
 
@@ -247,7 +260,8 @@
                         action: 'bkntc_collab_save_category_settings',
                         nonce: bkntcCollabCategory.nonce,
                         category_id: categoryId,
-                        allow_multi_select: allowMultiSelect
+                        allow_multi_select: allowMultiSelect,
+                        service_selection_limit: serviceSelectionLimit
                     },
                     success: function (response) {
                         console.log('=== COLLABORATIVE SETTINGS SAVE RESPONSE ===');

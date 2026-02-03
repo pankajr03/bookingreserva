@@ -1,3 +1,4 @@
+
 (function ($) {
     'use strict';
 
@@ -8,7 +9,8 @@
     console.log('bookneticHooks available:', typeof bookneticHooks !== 'undefined');
 
     var collaborativeService = {
-        categorySettings: null,
+        categorySettings: {}, // map: category_id or category_name -> {settings, name}
+        multiSelectCategories: {}, // map: category_id or category_name -> bool
         selectedServices: [], // Array of {service_id, assigned_to}
         isMultiSelectMode: false
     };
@@ -570,63 +572,142 @@
         return data;
     });
 
-    // Fetch category settings to check if multi-select is enabled
+    // Fetch category settings to check if multi-select is enabled (supports multiple categories on the page)
     function checkCategoryMultiSelect(booknetic) {
         let booking_panel_js = booknetic.panel_js;
 
         console.log('=== SERVICE COLLABORATIVE: CHECK MULTI-SELECT ===');
         console.log('BookneticCollabFrontend available:', typeof BookneticCollabFrontend !== 'undefined');
 
-        // Get the category ID from the step
-        var categoryId = getCurrentCategoryId(booking_panel_js);
+        // Gather categories by scanning the category header elements
+        var categories = [];
+        booking_panel_js.find('.booknetic_service_category').each(function () {
+            var elem = $(this);
+            // try attributes: category-id or data-parent (some themes use data-parent)
+            var cid = elem.data('category-id') || elem.attr('data-category-id') || elem.data('parent') || elem.attr('data-parent');
+            var name = elem.clone().children().remove().end().text().trim();
+            if (!name) name = elem.text().trim();
+            categories.push({ id: cid || null, name: name, elem: elem });
+        });
 
-        console.log('Category ID:', categoryId);
+        // Fallback: try previous single-detection methods
+        if (categories.length === 0) {
+            var single = getCurrentCategoryId(booking_panel_js);
+            if (single) categories.push({ id: single, name: null, elem: null });
+        }
 
-        if (!categoryId) {
-            console.log('Service Collaborative: No category ID found, skipping multi-select check');
+        if (categories.length === 0) {
+            console.log('Service Collaborative: No category header(s) found, skipping multi-select check');
             return;
         }
 
-        console.log('Service Collaborative: Checking category settings for ID:', categoryId);
+        console.log('Service Collaborative: Found categories on page:', categories.map(function (c) { return { id: c.id, name: c.name }; }));
 
-        $.ajax({
-            url: BookneticCollabFrontend.ajaxurl,
-            type: 'POST',
-            data: {
-                action: 'bkntc_collab_get_category_settings_frontend',
-                nonce: BookneticCollabFrontend.nonce,
-                category_id: categoryId
-            },
-            success: function (response) {
-                console.log('=== CATEGORY SETTINGS RESPONSE ===');
-                console.log('Full response:', response);
-                console.log('Response.success:', response.success);
-                console.log('Response.data:', response.data);
+        // Reset global flag; will set to true if any category allows multi-select
+        collaborativeService.isMultiSelectMode = false;
 
-                if (response.success && response.data) {
-                    collaborativeService.categorySettings = response.data;
-                    console.log('allow_multi_select value:', response.data.allow_multi_select);
-                    console.log('allow_multi_select == 1:', response.data.allow_multi_select == 1);
-
-                    if (response.data.allow_multi_select == 1) {
-                        console.log('✓ Service Collaborative: Multi-select ENABLED for category', categoryId);
-                        collaborativeService.isMultiSelectMode = true;
-                        console.log('About to convert to multi-select...');
-                        convertServiceToMultiSelect(booknetic);
-                        console.log('Conversion complete');
+        // Local helpers
+        var doAjaxWithId = function (cid, categoryName) {
+            console.log('Service Collaborative: Checking category settings for ID:', cid, ' (name:', categoryName, ')');
+            $.ajax({
+                url: BookneticCollabFrontend.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'bkntc_collab_get_category_settings_frontend',
+                    nonce: BookneticCollabFrontend.nonce,
+                    category_id: cid,
+                    category_name: categoryName
+                },
+                success: function (response) {
+                    console.log('=== CATEGORY SETTINGS RESPONSE for', cid, '===');
+                    console.log('Full response:', response);
+                    if (response.success && response.data) {
+                        collaborativeService.categorySettings = collaborativeService.categorySettings || {};
+                        collaborativeService.categorySettings[cid] = { settings: response.data, name: categoryName };
+                        if (categoryName) collaborativeService.categorySettings[categoryName] = collaborativeService.categorySettings[cid];
+                        var allow = response.data.allow_multi_select == 1;
+                        collaborativeService.multiSelectCategories = collaborativeService.multiSelectCategories || {};
+                        collaborativeService.multiSelectCategories[cid] = allow;
+                        if (categoryName) collaborativeService.multiSelectCategories[categoryName] = allow;
+                        console.log('allow_multi_select for', cid, ':', response.data.allow_multi_select);
+                        if (allow) {
+                            collaborativeService.isMultiSelectMode = true;
+                            convertServiceToMultiSelect(booknetic, cid);
+                        }
                     } else {
-                        console.log('✗ Service Collaborative: Single-select mode (allow_multi_select =', response.data.allow_multi_select, ')');
-                        collaborativeService.isMultiSelectMode = false;
+                        console.error('Invalid response structure for category', cid, response);
                     }
-                } else {
-                    console.error('Invalid response structure:', response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('=== AJAX ERROR for category', cid, '===');
+                    console.error('Status:', status);
+                    console.error('Error:', error);
+                    console.error('Response text:', xhr.responseText);
                 }
-            },
-            error: function (xhr, status, error) {
-                console.error('=== AJAX ERROR ===');
-                console.error('Status:', status);
-                console.error('Error:', error);
-                console.error('Response text:', xhr.responseText);
+            });
+        };
+
+        var doAjaxWithName = function (name) {
+            console.log('Service Collaborative: Checking category settings for NAME:', name);
+            $.ajax({
+                url: BookneticCollabFrontend.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'bkntc_collab_get_category_settings_frontend',
+                    nonce: BookneticCollabFrontend.nonce,
+                    category_name: name
+                },
+                success: function (response) {
+                    console.log('=== CATEGORY SETTINGS RESPONSE for name:', name, '===');
+                    console.log('Full response:', response);
+                    if (response.success && response.data) {
+                        collaborativeService.categorySettings = collaborativeService.categorySettings || {};
+                        var returnedId = response.data.category_id || null;
+                        if (returnedId) {
+                            collaborativeService.categorySettings[returnedId] = { settings: response.data, name: name };
+                            collaborativeService.categorySettings[name] = collaborativeService.categorySettings[returnedId];
+                        } else {
+                            collaborativeService.categorySettings[name] = { settings: response.data, name: name };
+                        }
+                        var allow = response.data.allow_multi_select == 1;
+                        collaborativeService.multiSelectCategories = collaborativeService.multiSelectCategories || {};
+                        collaborativeService.multiSelectCategories[name] = allow;
+                        console.log('allow_multi_select for name', name, ':', response.data.allow_multi_select);
+                        if (allow) {
+                            collaborativeService.isMultiSelectMode = true;
+                            convertServiceToMultiSelect(booknetic, name);
+                        }
+                    } else {
+                        console.error('Invalid response structure for category name', name, response);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('=== AJAX ERROR for category name', name, '===');
+                    console.error('Status:', status);
+                    console.error('Error:', error);
+                    console.error('Response text:', xhr.responseText);
+                }
+            });
+        };
+
+        // Process each detected category
+        categories.forEach(function (cat) {
+            if (cat.id) {
+                doAjaxWithId(cat.id, cat.name);
+            } else if (cat.name) {
+                // Try to infer an id by looking at the first service card after this header
+                if (cat.elem) {
+                    var nextService = cat.elem.nextAll('.booknetic_service_card').first();
+                    if (nextService.length > 0) {
+                        var inferred = nextService.data('category') || nextService.attr('data-category') || nextService.data('category-id') || nextService.attr('data-category-id');
+                        if (inferred) {
+                            doAjaxWithId(inferred, cat.name);
+                            return;
+                        }
+                    }
+                }
+                // fallback: ask server by name
+                doAjaxWithName(cat.name);
             }
         });
     }
@@ -705,7 +786,8 @@
     }
 
     // Convert service cards to multi-select with checkboxes
-    function convertServiceToMultiSelect(booknetic) {
+    // `categoryKey` can be a category id (number/string) or a category name
+    function convertServiceToMultiSelect(booknetic, categoryKey) {
         let panel = booknetic.panel_js;
 
         console.log('Service Collaborative: Converting to multi-select mode');
@@ -717,13 +799,15 @@
             return;
         }
 
-        // Add hint text
-        var hintHtml = '<div class="booknetic_collab_hint" style="background: #e3f2fd; padding: 12px; margin-bottom: 15px; border-left: 4px solid #2196F3; border-radius: 4px;">' +
-            '<strong style="color: #1976d2;">Multi-Service Booking:</strong> ' +
-            'Select multiple services and assign each to "Me" or "Guest".' +
-            '</div>';
+        // Add hint text (only once)
+        if (panel.find('.booknetic_collab_hint').length === 0) {
+            var hintHtml = '<div class="booknetic_collab_hint" style="background: #e3f2fd; padding: 12px; margin-bottom: 15px; border-left: 4px solid #2196F3; border-radius: 4px;">' +
+                '<strong style="color: #1976d2;">Multi-Service Booking:</strong> ' +
+                'Select multiple services and assign each to "Me" or "Guest".' +
+                '</div>';
 
-        panel.find('.booknetic_services_container').before(hintHtml);
+            panel.find('.booknetic_services_container').before(hintHtml);
+        }
 
         // Convert each service card
         serviceCards.each(function () {
@@ -732,28 +816,60 @@
 
             if (!serviceId) return;
 
+            // If a categoryKey is provided, only process cards that match it
+            if (categoryKey) {
+                var isNumericId = !isNaN(Number(categoryKey));
+
+                // try explicit attributes on card
+                var cardCategory = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
+
+                // find nearest preceding category header for name/id fallback
+                var prevCat = card.prevAll('.booknetic_service_category').first();
+                var prevCatId = null;
+                var prevCatName = null;
+                if (prevCat.length > 0) {
+                    prevCatId = prevCat.data('category-id') || prevCat.attr('data-category-id') || prevCat.data('parent') || prevCat.attr('data-parent');
+                    prevCatName = prevCat.clone().children().remove().end().text().trim() || prevCat.text().trim();
+                }
+
+                if (!cardCategory && prevCatId) cardCategory = prevCatId;
+
+                if (isNumericId) {
+                    if (!cardCategory || String(cardCategory) !== String(categoryKey)) {
+                        return; // skip cards that don't match numeric id
+                    }
+                } else {
+                    var matchName = prevCatName || card.data('category-name') || card.attr('data-category-name');
+                    if (!matchName || String(matchName).trim() !== String(categoryKey).trim()) {
+                        return; // skip cards that don't match name
+                    }
+                }
+            }
+
             // CRITICAL: Unbind ALL existing click handlers from Booknetic's default behavior
             card.off('click');
 
-            // Add checkbox
+            var header = card.find('.booknetic_service_card_header');
+            var price = header.find('.booknetic_service_card_price');
+
             if (card.find('.booknetic_collab_service_checkbox').length === 0) {
-                var checkboxHtml = '<div class="booknetic_collab_service_checkbox" style="position: absolute; top: 10px; right: 10px; z-index: 10;">' +
-                    '<input type="checkbox" data-service-id="' + serviceId + '" style="width: 20px; height: 20px; cursor: pointer;">' +
+                var checkboxHtml = '<div class="booknetic_collab_service_checkbox" style="float: right; height: 100%; display: flex; align-items: center; padding-right: 10px; padding-left: 20px;">' +
+                    '<input type="checkbox" data-service-id="' + serviceId + '" style="width: 18px; height: 18px; cursor: pointer;">' +
                     '</div>';
-                card.append(checkboxHtml);
+                price.before(checkboxHtml);
             }
 
             // Add assignment radio buttons
             if (card.find('.booknetic_collab_assignment').length === 0) {
-                var assignmentHtml = '<div class="booknetic_collab_assignment" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e0e0e0; display: none;">' +
+                var assignmentHtml = '<div class="booknetic_collab_assignment" style="padding: 10px; margin:10px; border-top: 1px solid #e0e0e0; display: none;">' +
                     '<label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 5px;">Assign to:</label>' +
                     '<div style="display: flex; gap: 15px;">' +
-                    '<label style="font-size: 13px; cursor: pointer;">' +
-                    '<input type="radio" name="assign_to_' + serviceId + '" value="me" checked style="margin-right: 5px;">' +
+                    '<label style="display: flex; align-items: center; font-size: 13px; cursor: pointer;">' +
+                    '<input type="radio" name="assign_to_' + serviceId + '" value="me" checked style="margin-right: 6px;">' +
                     'Me' +
                     '</label>' +
-                    '<label style="font-size: 13px; cursor: pointer;">' +
-                    '<input type="radio" name="assign_to_' + serviceId + '" value="guest" style="margin-right: 5px;">' +
+                    '<label style="display: flex; align-items: center; font-size: 13px; cursor: pointer;">' +
+                    '<input type="radio" name="assign_to_' + serviceId + '" value="guest" style="margin-right: 6px;">' +
                     'Guest' +
                     '</label>' +
                     '</div>' +

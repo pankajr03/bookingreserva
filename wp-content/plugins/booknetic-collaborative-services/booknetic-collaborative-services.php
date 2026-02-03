@@ -25,7 +25,7 @@ final class BookneticCollaborativeServices {
     private bool $tenantAllowed = true;
     private $collaborative_enabled_for_tenant = 0;
     private $guest_info_required_for_tenant = 0;
-    
+    private $backend_slug = 'booknetic';
     
     public static function get_instance() {
         if (self::$instance === null) {
@@ -39,6 +39,8 @@ final class BookneticCollaborativeServices {
     }
 
     public function backend_init() {
+        
+        $this->backend_slug = \BookneticSaaS\Providers\Helpers\Helper::getOption('backend_slug', 'booknetic');
         add_action('bkntc_init_backend', [$this, 'register_routes']);
         // Register settings submenu only after Booknetic backend is initialized,
         // so SaaS capability filters are active and tenant context is available.
@@ -67,6 +69,7 @@ final class BookneticCollaborativeServices {
     }
 
     public function init() {
+        
         // Ensure core Booknetic is available before proceeding
         if (!class_exists('BookneticApp\Providers\UI\SettingsMenuUI')) {
             add_action('admin_notices', function () {
@@ -80,7 +83,7 @@ final class BookneticCollaborativeServices {
         if (class_exists('BookneticApp\\Providers\\Core\\Capabilities')) {
             \BookneticApp\Providers\Core\Capabilities::registerTenantCapability(
                 'collaborative_services',
-                function_exists('bkntc__') ? bkntc__('Collaborative Services') : __('Collaborative Services', 'booknetic')
+                function_exists('bkntc__') ? bkntc__('Collaborative Services') : __('Collaborative Services', $this->backend_slug), 
             );
 
             // 2) Gate all features by plan permission (tenants without permission won't load plugin features)
@@ -157,7 +160,7 @@ final class BookneticCollaborativeServices {
         }
         
         // Only on Booknetic appointments page
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             if (function_exists('bkntc_cs_log')) {
                 bkntc_cs_log('Not booknetic page, skipping');
             }
@@ -209,7 +212,7 @@ final class BookneticCollaborativeServices {
      * Fallback to inject script directly in footer if enqueue didn't work
      */
     public function enqueue_admin_appointments_list_fallback() {
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             return;
         }
         
@@ -503,6 +506,7 @@ final class BookneticCollaborativeServices {
 
         $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
         $allow_multi_select = isset($_POST['allow_multi_select']) ? intval($_POST['allow_multi_select']) : null;
+        $service_selection_limit = isset($_POST['service_selection_limit']) ? intval($_POST['service_selection_limit']) : null;
         
         if ($category_id <= 0) {
             wp_send_json_error(['message' => 'Invalid category ID']);
@@ -517,6 +521,11 @@ final class BookneticCollaborativeServices {
         
         if ($allow_multi_select !== null) {
             $update_data['allow_multi_select'] = $allow_multi_select;
+            $update_format[] = '%d';
+        }
+        
+        if ($service_selection_limit !== null) {
+            $update_data['service_selection_limit'] = $service_selection_limit;
             $update_format[] = '%d';
         }
         
@@ -557,7 +566,8 @@ final class BookneticCollaborativeServices {
 
         if ($category_id <= 0) {
             wp_send_json_success([
-                'allow_multi_select' => 0
+                'allow_multi_select' => 0,
+                'service_selection_limit' => 1
             ]);
             return;
         }
@@ -567,7 +577,7 @@ final class BookneticCollaborativeServices {
         
         $category = $wpdb->get_row(
             $wpdb->prepare(
-                "SELECT allow_multi_select FROM {$table} WHERE id = %d",
+                "SELECT allow_multi_select, service_selection_limit, name FROM {$table} WHERE id = %d",
                 $category_id
             ),
             ARRAY_A
@@ -575,11 +585,15 @@ final class BookneticCollaborativeServices {
         
         if ($category) {
             $settings = [
+                'service_selection_limit' => intval($category['service_selection_limit']) ?? 0,
+                'category_name' => $category['name'],
                 'allow_multi_select' => intval($category['allow_multi_select'])
             ];
         } else {
             $settings = [
-                'allow_multi_select' => 0
+                'allow_multi_select' => 0,
+                'category_name' => '',
+                'service_selection_limit' => 0
               
             ];
         }
@@ -830,7 +844,7 @@ final class BookneticCollaborativeServices {
         }
         
         // Only on Booknetic appointments page
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             return;
         }
         if (!isset($_GET['module']) || $_GET['module'] !== 'appointments') {
@@ -870,7 +884,7 @@ final class BookneticCollaborativeServices {
 
     public function maybe_override_booknetic_view()
     {
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             return;
         }
 
@@ -918,7 +932,7 @@ final class BookneticCollaborativeServices {
 
     public function maybe_handle_booknetic_ajax()
     {
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') return;
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) return;
         if (!isset($_GET['ajax']) || (string) $_GET['ajax'] !== '1') return;
 
         $action = isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : '');
@@ -1017,7 +1031,7 @@ final class BookneticCollaborativeServices {
             return;
         }
         
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             return;
         }
 
@@ -1299,10 +1313,11 @@ final class BookneticCollaborativeServices {
             return;
         }
         
-        $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
+        //$category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
+        $category_name = isset($_POST['category_name']) ? sanitize_text_field($_POST['category_name']) : '';
         
-        if (!$category_id) {
-            wp_send_json_error(['message' => 'Category ID required']);
+        if (!$category_name) {
+            wp_send_json_error(['message' => 'Category name required']);
             return;
         }
         
@@ -1311,28 +1326,20 @@ final class BookneticCollaborativeServices {
         // Get category settings including allow_multi_select
         $categories_table = $wpdb->prefix . 'bkntc_service_categories';
         $category_data = $wpdb->get_row($wpdb->prepare(
-            "SELECT collab_min_staff, collab_max_staff, collab_eligible_staff, allow_multi_select 
-             FROM {$categories_table} WHERE id = %d",
-            $category_id
+            "SELECT id, allow_multi_select 
+             FROM {$categories_table} WHERE name = %s",
+            $category_name  
         ), ARRAY_A);
         
         if ($category_data) {
             wp_send_json_success([
-                'min_staff' => !empty($category_data['collab_min_staff']) ? intval($category_data['collab_min_staff']) : 0,
-                'max_staff' => !empty($category_data['collab_max_staff']) ? intval($category_data['collab_max_staff']) : 0,
-                'eligible_staff' => !empty($category_data['collab_eligible_staff']) 
-                    ? json_decode($category_data['collab_eligible_staff'], true) 
-                    : [],
                 'allow_multi_select' => !empty($category_data['allow_multi_select']) ? intval($category_data['allow_multi_select']) : 0,
-                'category_id' => $category_id
+                'category_id' => $category_data['id']
             ]);
         } else {
             wp_send_json_success([
-                'min_staff' => 0,
-                'max_staff' => 0,
-                'eligible_staff' => [],
                 'allow_multi_select' => 0,
-                'category_id' => $category_id
+                'category_id' => 0
             ]);
         }
     }
@@ -1579,7 +1586,7 @@ final class BookneticCollaborativeServices {
             return;
         }
 
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             if (function_exists('bkntc_cs_log')) bkntc_cs_log('add_menu_item: not on booknetic page; page=' . (isset($_GET['page']) ? $_GET['page'] : '')); 
             return;
         }
@@ -1607,7 +1614,7 @@ final class BookneticCollaborativeServices {
             bkntc_cs_log('Service collaborative assets enqueued');
         }
         // Only load on Services page
-        if ($screen && strpos($screen->id, 'booknetic') !== false) {
+        if ($screen && strpos($screen->id, $this->backend_slug) !== false) {
             wp_enqueue_script(
                 'bkntc-collab-service',
                 BKNTCCS_PLUGIN_URL . 'assets/js/service-collaborative.js',
@@ -1743,6 +1750,11 @@ final class BookneticCollaborativeServices {
         if (empty($multi_select_column)) {
             $wpdb->query("ALTER TABLE {$categories_table} ADD COLUMN allow_multi_select TINYINT(1) DEFAULT 0");
         }
+        $service_selection_limit_column = $wpdb->get_results("SHOW COLUMNS FROM {$categories_table} LIKE 'service_selection_limit'");
+        if (empty($service_selection_limit_column)) {
+            $wpdb->query("ALTER TABLE {$categories_table} ADD COLUMN service_selection_limit INT(11) DEFAULT 1");
+        }
+        
         
         // Add columns to services table
         $services_table = $wpdb->prefix . 'bkntc_services';
@@ -1847,7 +1859,7 @@ final class BookneticCollaborativeServices {
      */
     public function enqueue_admin_booking_steps_script($hook) {
         // Only on Booknetic admin pages
-        if (!isset($_GET['page']) || $_GET['page'] !== 'booknetic') {
+        if (!isset($_GET['page']) || $_GET['page'] !== $this->backend_slug) {
             return;
         }
         
