@@ -1362,7 +1362,7 @@ final class BookneticCollaborativeServices {
         // Get category settings including allow_multi_select
         $categories_table = $wpdb->prefix . 'bkntc_service_categories';
         $category_data = $wpdb->get_row($wpdb->prepare(
-            "SELECT id, allow_multi_select 
+            "SELECT id, allow_multi_select, service_selection_limit 
              FROM {$categories_table} WHERE name = %s",
             $category_name  
         ), ARRAY_A);
@@ -1370,11 +1370,13 @@ final class BookneticCollaborativeServices {
         if ($category_data) {
             wp_send_json_success([
                 'allow_multi_select' => !empty($category_data['allow_multi_select']) ? intval($category_data['allow_multi_select']) : 0,
+                'service_selection_limit' => !empty($category_data['service_selection_limit']) ? intval($category_data['service_selection_limit']) : 0,
                 'category_id' => $category_data['id']
             ]);
         } else {
             wp_send_json_success([
                 'allow_multi_select' => 0,
+                'service_selection_limit' => 0,
                 'category_id' => 0
             ]);
         }

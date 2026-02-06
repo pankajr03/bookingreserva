@@ -99,6 +99,37 @@
             }
         }
 
+
+        // Check service selection limit if set
+        if (collaborativeService.categorySettings && collaborativeService.categorySettings.service_selection_limit > 0) {
+            if (selectedServices.length !== collaborativeService.categorySettings.service_selection_limit) {
+                return {
+                    status: false,
+                    errorMsg: 'Please select exactly ' + collaborativeService.categorySettings.service_selection_limit + ' service(s).'
+                };
+            }
+            // Special validation for limit = 2: exactly one "me" and one "guest"
+            if (collaborativeService.categorySettings.service_selection_limit === 2) {
+                var meCount = 0;
+                var guestCount = 0;
+                for (var i = 0; i < selectedServices.length; i++) {
+                    if (selectedServices[i].assigned_to === 'me') {
+                        meCount++;
+                    } else if (selectedServices[i].assigned_to === 'guest') {
+                        guestCount++;
+                    }
+                }
+                if (meCount !== 1 || guestCount !== 1) {
+                    return {
+                        status: false,
+                        errorMsg: 'For this booking, please assign exactly one service to "Me" and one service to "Guest".'
+                    };
+                }
+            }
+        }
+
+
+
         // Store selected services for cart
         collaborativeService.selectedServices = selectedServices;
 
@@ -625,10 +656,12 @@
                         collaborativeService.categorySettings = collaborativeService.categorySettings || {};
                         collaborativeService.categorySettings[cid] = { settings: response.data, name: categoryName };
                         if (categoryName) collaborativeService.categorySettings[categoryName] = collaborativeService.categorySettings[cid];
+                        collaborativeService.categorySettings.service_selection_limit = response.data.service_selection_limit;
                         var allow = response.data.allow_multi_select == 1;
                         collaborativeService.multiSelectCategories = collaborativeService.multiSelectCategories || {};
                         collaborativeService.multiSelectCategories[cid] = allow;
                         if (categoryName) collaborativeService.multiSelectCategories[categoryName] = allow;
+
                         console.log('allow_multi_select for', cid, ':', response.data.allow_multi_select);
                         if (allow) {
                             collaborativeService.isMultiSelectMode = true;
