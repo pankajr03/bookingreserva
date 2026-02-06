@@ -4,7 +4,6 @@
     // Wait for jQuery to be available
     function initCollaborativeCategories() {
         if (typeof jQuery === 'undefined') {
-            console.log('jQuery not ready yet, waiting...');
             setTimeout(initCollaborativeCategories, 100);
             return;
         }
@@ -28,17 +27,18 @@
                 // Hook into jQuery AJAX complete event
                 $(document).ajaxComplete(function (event, xhr, settings) {
                     // Check if this is a Booknetic modal load for service_categories
+
                     if (settings.data && typeof settings.data === 'string') {
                         if (settings.data.includes('module=service_categories') &&
                             (settings.data.includes('action=add_new') || settings.data.includes('action=edit'))) {
-
-                            console.log('Detected service category modal load via AJAX');
 
                             setTimeout(function () {
                                 self.injectCollaborativeFields();
                             }, 500);
                         }
                     }
+
+
                 });
             },
 
@@ -47,13 +47,6 @@
 
                 // Listen for successful Booknetic save via AJAX
                 $(document).ajaxSuccess(function (event, xhr, settings) {
-                    console.log('AJAX Success detected:', {
-                        url: settings.url,
-                        dataType: typeof settings.data,
-                        responseJSON: xhr.responseJSON,
-                        responseText: xhr.responseText
-                    });
-
                     // Try to parse response if responseJSON is not available
                     var response = xhr.responseJSON;
                     if (!response && xhr.responseText) {
@@ -69,8 +62,6 @@
                         // Check if URL contains Booknetic
                         if (settings.url && (settings.url.includes('page=booknetic') || settings.url.includes('?page=booknetic'))) {
                             var categoryId = parseInt(response.id);
-                            console.log('Detected Booknetic save with ID:', categoryId);
-                            console.log('This is a category save, will save collaborative settings');
 
                             setTimeout(function () {
                                 self.performSave(categoryId);
@@ -89,8 +80,6 @@
                         if (response && response.status === 'ok') {
                             var categoryId = response.id ? parseInt(response.id) : self.getCategoryIdFromForm();
                             if (categoryId && categoryId > 0) {
-                                console.log('Detected Booknetic category save with ID:', categoryId);
-                                console.log('This is a category save, will save collaborative settings');
 
                                 setTimeout(function () {
                                     self.performSave(categoryId);
@@ -110,8 +99,6 @@
                                 settings.data.includes('action=create') ||
                                 settings.data.includes('action=update') ||
                                 settings.data.includes('action=edit'))) {
-                            console.error('Category save AJAX failed');
-                            console.error('Response:', xhr.responseText);
                         }
                     }
                 });
@@ -119,7 +106,7 @@
 
             injectCollaborativeFields: function () {
                 console.log('Attempting to inject collaborative fields...');
-
+                $("#bkntc_collab_service_fields").hide()
                 // Reset settings loaded flag
                 this.settingsLoaded = false;
 
@@ -196,10 +183,6 @@
                 var self = this;
                 self.settingsLoaded = true; // Mark that we've attempted to load
 
-                console.log('=== Loading Category Settings ===');
-                console.log('Category ID:', categoryId);
-                console.log('AJAX URL:', bkntcCollabCategory.ajaxurl);
-
                 $.ajax({
                     url: bkntcCollabCategory.ajaxurl,
                     type: 'POST',
@@ -209,9 +192,6 @@
                         category_id: categoryId
                     },
                     success: function (response) {
-                        console.log('=== Category Settings Response ===');
-                        console.log('Success:', response.success);
-                        console.log('Data:', response.data);
 
                         if (response.success) {
                             var data = response.data;
@@ -234,8 +214,6 @@
                 // For new categories, we need to get the ID from the response
                 var categoryId = this.getCategoryIdFromForm();
 
-                console.log('Attempting to save category settings for ID:', categoryId);
-
                 if (!categoryId || categoryId == 0) {
                     console.log('Category ID is 0 (new category), settings saved on next edit');
                     return;
@@ -251,8 +229,6 @@
                 var allowMultiSelect = checkbox.is(':checked') ? 1 : 0;
                 var serviceSelectionLimit = parseInt($('#bkntc_collab_service_selection_limit').val()) || 1;
 
-                console.log('Saving:', { categoryId: categoryId, allowMultiSelect: allowMultiSelect });
-
                 $.ajax({
                     url: bkntcCollabCategory.ajaxurl,
                     type: 'POST',
@@ -265,7 +241,6 @@
                     },
                     success: function (response) {
                         console.log('=== COLLABORATIVE SETTINGS SAVE RESPONSE ===');
-                        console.log('Success:', response.success);
 
                         if (response.success) {
                             console.log('✓ Settings saved for category ' + categoryId);
@@ -331,7 +306,6 @@
 
                     if (idInput.length && idInput.val()) {
                         categoryId = parseInt(idInput.val());
-                        console.log('Method 3 - Form input[name="id"]:', categoryId);
                     }
                 }
 

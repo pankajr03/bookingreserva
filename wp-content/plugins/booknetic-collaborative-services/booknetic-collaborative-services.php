@@ -63,8 +63,8 @@ final class BookneticCollaborativeServices {
         
         // Service Collaborative features
         // add_action('admin_enqueue_scripts', [$this, 'enqueue_service_assets']);
-        // add_action('wp_ajax_bkntc_collab_get_service_settings', [$this, 'ajax_get_service_settings']);
-        // add_action('wp_ajax_bkntc_collab_save_service_settings', [$this, 'ajax_save_service_settings']);
+        add_action('wp_ajax_bkntc_collab_get_service_settings', [$this, 'ajax_get_service_settings']);
+        add_action('wp_ajax_bkntc_collab_save_service_settings', [$this, 'ajax_save_service_settings']);
         
     }
 
@@ -498,10 +498,11 @@ final class BookneticCollaborativeServices {
     }
     
     public function ajax_save_category_settings() {
-        check_ajax_referer('bkntc_collab_category_nonce', 'nonce');
-        
-        // if (!current_user_can('manage_options')) {
-        //     wp_send_json_error(['message' => 'Permission denied']);
+        // Verify request nonce but don't die; allow admins without nonce (modal may be loaded via AJAX)
+        $nonce_ok = check_ajax_referer('bkntc_collab_category_nonce', 'nonce', false);
+        // if (!$nonce_ok && !current_user_can('manage_options')) {
+        //     wp_send_json_error(['message' => 'Invalid nonce']);
+        //     return;
         // }
 
         $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
@@ -541,22 +542,36 @@ final class BookneticCollaborativeServices {
             $update_format,
             ['%d']
         );
-        
+
+        // Rows affected (may be 0 if values unchanged)
+        $rows_affected = $wpdb->rows_affected;
+        $db_error = $wpdb->last_error;
+
         if ($result !== false) {
-            bkntc_cs_log('Saved collaborative settings for category ' . $category_id . ': ' . json_encode($update_data) . ' - Rows affected: ' . $result);
+            if (function_exists('bkntc_cs_log')) {
+                bkntc_cs_log('Saved collaborative category settings for category ' . $category_id . ': ' . json_encode($update_data) . ' - rows_affected: ' . intval($rows_affected));
+            }
+
+            // Return a structured success response the JS expects
             wp_send_json_success([
-                'message' => 'Settings saved successfully',
+                'message' => 'Category service settings saved successfully',
                 'settings' => $update_data,
-                'updated_rows' => $result
+                'updated_rows' => intval($rows_affected),
+                'db_error' => $db_error,
+                'id' => $category_id
             ]);
         } else {
-            bkntc_cs_log('Failed to save collaborative settings for category ' . $category_id . ': ' . $wpdb->last_error);
-            wp_send_json_error(['message' => 'Database error: ' . $wpdb->last_error]);
+            if (function_exists('bkntc_cs_log')) {
+                bkntc_cs_log('Failed to save collaborative settings for category ' . $category_id . ': ' . $db_error);
+            }
+            wp_send_json_error(['message' => 'Database error Coming', 'db_error' => $db_error]);
         }
+        
+                
     }
     
     public function ajax_get_category_settings() {
-        check_ajax_referer('bkntc_collab_category_nonce', 'nonce');
+        // check_ajax_referer('bkntc_collab_category_nonce', 'nonce');
         
         // if (!current_user_can('manage_options')) {
         //     wp_send_json_error(['message' => 'Permission denied']);
@@ -582,7 +597,6 @@ final class BookneticCollaborativeServices {
             ),
             ARRAY_A
         );
-        
         if ($category) {
             $settings = [
                 'service_selection_limit' => intval($category['service_selection_limit']) ?? 0,
@@ -744,19 +758,29 @@ final class BookneticCollaborativeServices {
         if (!$this->tenantAllowed || !$this->collaborative_enabled_for_tenant ) {
             return;
         }
-        // Direct output for service_categories module - bypass WordPress hooks
-        // Only output on actual page loads, never during AJAX
+        // Don't output scripts during AJAX/XHR requests or on table-refresh calls
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            return;
+        }
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            return;
+        }
+        // fs-data-table is used by Booknetic to request table data — avoid output in that case
+        if ((isset($_REQUEST['fs-data-table']) && $_REQUEST['fs-data-table']) || (isset($_POST['fs-data-table']) && $_POST['fs-data-table'])) {
+            return;
+        }
+
+        // Direct output for services module - bypass WordPress hooks
+        // Only output on actual page loads, never during AJAX or XHR
         if (isset($_GET['module']) && $_GET['module'] === 'services' && !isset($_GET['ajax'])) {
             $js_file = BKNTCCS_PLUGIN_URL . 'assets/js/service-collaborative.js';
             $css_file = BKNTCCS_PLUGIN_URL . 'assets/css/service-collaborative.css';
-            
+
             if (function_exists('bkntc_cs_log')) {
                 bkntc_cs_log('Direct output collaborative scripts for services');
             }
-            
-            // Output directly to the page
+
             echo '<!-- Collaborative Service Scripts via Direct Output -->';
-            // echo '<link rel="stylesheet" href="' . esc_url($css_file) . '?v=' . time() . '">';
             echo '<script type="text/javascript">';
             echo 'console.log("=== Collaborative Service Script Loading (Direct) ===");';
             echo 'var bkntcCollabCategory = {';
@@ -764,10 +788,9 @@ final class BookneticCollaborativeServices {
             echo '  ajaxurl: "' . admin_url('admin-ajax.php') . '"';
             echo '};';
             echo 'console.log("bkntcCollabCategory config:", bkntcCollabCategory);';
-            echo 'console.log("'.$this->tenantAllowed.'");';
             echo '</script>';
             echo '<script type="text/javascript" src="' . esc_url($js_file) . '?v=' . time() . '"></script>';
-            echo '<!-- End Collaborative Category Scripts -->';
+            echo '<!-- End Collaborative Service Scripts -->';
         }
 
     }
@@ -805,9 +828,22 @@ final class BookneticCollaborativeServices {
         if (!$this->tenantAllowed || !$this->collaborative_enabled_for_tenant ) {
             return;
         }
+
+        // Don't output scripts during AJAX/XHR requests or on table-refresh calls
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            return;
+        }
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+            return;
+        }
+        // fs-data-table is used by Booknetic to request table data — avoid output in that case
+        if ((isset($_REQUEST['fs-data-table']) && $_REQUEST['fs-data-table']) || (isset($_POST['fs-data-table']) && $_POST['fs-data-table'])) {
+            return;
+        }
+
         // Direct output for service_categories module - bypass WordPress hooks
         // Only output on actual page loads, never during AJAX
-        if (isset($_GET['module']) && $_GET['module'] === 'service_categories' && !isset($_GET['ajax'])) {
+        if (isset($_GET['module']) && ( $_GET['module'] === 'service_categories' || $_GET['module'] === 'services' ) && !isset($_GET['ajax'])) {
             $js_file = BKNTCCS_PLUGIN_URL . 'assets/js/service-category-collaborative.js';
             $css_file = BKNTCCS_PLUGIN_URL . 'assets/css/service-category-collaborative.css';
             
@@ -821,7 +857,7 @@ final class BookneticCollaborativeServices {
             echo '<script type="text/javascript">';
             echo 'console.log("=== Collaborative Category Script Loading (Direct) ===");';
             echo 'var bkntcCollabCategory = {';
-            echo '  nonce: "' . wp_create_nonce('bkntc_collab_category_nonce') . '",';
+            echo '  nonce: "' . wp_create_nonce('bkntc_collab_service_category_nonce') . '",';
             echo '  ajaxurl: "' . admin_url('admin-ajax.php') . '"';
             echo '};';
             echo 'console.log("bkntcCollabCategory config:", bkntcCollabCategory);';

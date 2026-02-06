@@ -7,11 +7,9 @@ function initServiceCollaborative() {
     }
 
     var $ = jQuery;
-    console.log('ServiceCollaborative: jQuery loaded, initializing');
 
     var ServiceCollaborative = {
         init: function () {
-            console.log('ServiceCollaborative: Initializing');
 
             // Hook into service modal open
             $(document).on('DOMNodeInserted', function (e) {
@@ -25,7 +23,6 @@ function initServiceCollaborative() {
             // Hook into service save - listen for multiple possible save button selectors used by Booknetic
             var saveSelectors = '#addServiceSave, .fs-modal .validate-button, .fs-modal .btn-primary, .modal .btn-success, .fs-modal .btn-success';
             $(document).on('click', saveSelectors, function (e) {
-                console.log('ServiceCollaborative: save button clicked - selector matched', e.currentTarget);
                 // small delay to allow Booknetic to collect form data / perform its own actions
                 setTimeout(function () {
                     ServiceCollaborative.saveServiceSettings();
@@ -40,10 +37,8 @@ function initServiceCollaborative() {
                             if (node && node.nodeType === 1) {
                                 var el = node;
                                 if (el.classList && el.classList.contains('modal')) {
-                                    console.log('ServiceCollaborative: MutationObserver detected modal node');
                                     setTimeout(function () { ServiceCollaborative.injectServiceFields(); }, 300);
                                 } else if (el.querySelector && el.querySelector('.modal')) {
-                                    console.log('ServiceCollaborative: MutationObserver detected nested modal');
                                     setTimeout(function () { ServiceCollaborative.injectServiceFields(); }, 300);
                                 }
                             }
@@ -73,7 +68,6 @@ function initServiceCollaborative() {
 
                 if (settings && settings.data && typeof settings.data === 'string') {
                     if (settings.data.includes('module=services') && (settings.data.includes('action=save') || settings.data.includes('action=create') || settings.data.includes('action=update'))) {
-                        console.log('ServiceCollaborative: Detected Booknetic service save AJAX');
                         if (response && response.status === 'ok') {
                             // Ensure collab settings saved shortly after core save completes
                             setTimeout(function () {
@@ -89,13 +83,11 @@ function initServiceCollaborative() {
             console.log('ServiceCollaborative: injectServiceFields called');
             // Try common modal containers and direct form presence (Booknetic returns raw HTML)
             var modal = $('.modal:visible, .fs-modal:visible').last();
-            console.log('ServiceCollaborative: modal found counts -> .modal:visible=', $('.modal:visible').length, ', .fs-modal:visible=', $('.fs-modal:visible').length);
 
             // If no modal wrapper, try to find the Booknetic form directly (it may be injected without wrapper yet)
             var form = modal.length ? modal.find('form').first() : $();
             if (!form.length) {
                 form = $('form#addServiceForm, form#addServiceForm:visible, .fs-modal form#addServiceForm').first();
-                console.log('ServiceCollaborative: direct #addServiceForm found count:', $('form#addServiceForm').length);
             }
 
             // As another fallback, try to find any visible form that looks like the service form
@@ -103,15 +95,12 @@ function initServiceCollaborative() {
                 form = $('.fs-modal:visible form, .modal:visible form, form:visible').filter(function () {
                     return $(this).find('input[name="name"]').length || $(this).find('select[name="category_id"]').length;
                 }).first();
-                console.log('ServiceCollaborative: fallback visible form search result count:', form.length);
             }
 
-            console.log('ServiceCollaborative: final form found:', form.length, 'id:', form.attr('id'), 'name inputs:', form.find('input[name="name"]').length, 'category selects:', form.find('select[name="category_id"]').length);
             if (form.length === 0) return;
 
             // Check if already injected inside this modal/form
             if (modal.find('#bkntc_collab_service_fields').length > 0 || form.find('#bkntc_collab_service_fields').length > 0) {
-                console.log('ServiceCollaborative: Fields already injected in this modal/form');
                 return;
             }
 
@@ -121,11 +110,9 @@ function initServiceCollaborative() {
             var hasCategory = form.find('select[name="category_id"]').length > 0 || form.find('#input_category, select[id*="category"]').length > 0;
             console.log('ServiceCollaborative: form hasName:', hasName, 'hasCategory:', hasCategory);
             if (!hasName && !hasCategory) {
-                console.log('ServiceCollaborative: form does not appear to be service modal (no name/category fields), aborting');
                 return;
             }
 
-            console.log('ServiceCollaborative: Injecting min/max staff fields into service modal');
 
             var html = '\
                 <div id="bkntc_collab_service_fields" class="form-row">\
@@ -167,8 +154,6 @@ function initServiceCollaborative() {
                 targetPane = form.find('.form-row').last();
             }
 
-            console.log('ServiceCollaborative: targetPane selector chosen:', targetPane.length ? targetPane.get(0).className || targetPane.get(0).id : 'none');
-
             if (targetPane.length > 0) {
                 // Try to insert before the first .form-row inside the pane if present
                 var paneFirstRow = targetPane.find('.form-row').first();
@@ -185,12 +170,9 @@ function initServiceCollaborative() {
             // Diagnostic: check injection result
             var injected = modal.find('#bkntc_collab_service_fields');
             if (!injected.length) injected = form.find('#bkntc_collab_service_fields');
-            console.log('ServiceCollaborative: injected element found count:', injected.length);
             if (injected.length) {
                 console.log('ServiceCollaborative: injected element parent:', injected.parent().get(0));
             }
-
-            console.log('ServiceCollaborative: Fields injected successfully');
 
             // Load existing values if editing
             this.loadServiceSettings();
@@ -234,7 +216,6 @@ function initServiceCollaborative() {
                 var v = candidates[i];
                 if (typeof v !== 'undefined' && v !== null && v !== '' && !isNaN(parseInt(v))) {
                     serviceId = parseInt(v);
-                    console.log('ServiceCollaborative: serviceId detected via candidate[' + i + ']:', v);
                     break;
                 }
             }
@@ -243,8 +224,6 @@ function initServiceCollaborative() {
                 console.log('ServiceCollaborative: No serviceId found, assuming new service (defaults remain) - candidates:', candidates);
                 return;
             }
-
-            console.log('ServiceCollaborative: Loading settings for service ID:', serviceId);
 
             var ajaxUrl = (typeof bkntcCollabCategory !== 'undefined' && bkntcCollabCategory.ajaxurl) ? bkntcCollabCategory.ajaxurl : (typeof ajaxurl !== 'undefined' ? ajaxurl : window.location.origin + '/wp-admin/admin-ajax.php');
 
@@ -282,7 +261,7 @@ function initServiceCollaborative() {
             var maxStaff = $('#bkntc_collab_service_max_staff').val();
 
             console.log('ServiceCollaborative: Saving settings for service ID:', serviceId, 'min:', minStaff, 'max:', maxStaff);
-            alert('Saving Collaborative Service Settings:\nService ID: ' + serviceId + '\nMin Staff: ' + minStaff + '\nMax Staff: ' + maxStaff);
+            // alert('Saving Collaborative Service Settings:\nService ID: ' + serviceId + '\nMin Staff: ' + minStaff + '\nMax Staff: ' + maxStaff);
             if (!serviceId || serviceId == '0') {
                 console.log('ServiceCollaborative: New service, settings will be saved on form submit');
                 return;
@@ -300,7 +279,6 @@ function initServiceCollaborative() {
                     collab_max_staff: maxStaff
                 },
                 success: function (response) {
-                    console.log('ServiceCollaborative: Save response:', response);
                     if (response.success) {
                         console.log('ServiceCollaborative: Settings saved successfully');
                     } else {
