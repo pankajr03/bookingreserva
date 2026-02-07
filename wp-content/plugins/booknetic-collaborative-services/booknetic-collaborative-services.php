@@ -785,7 +785,8 @@ final class BookneticCollaborativeServices {
             echo 'console.log("=== Collaborative Service Script Loading (Direct) ===");';
             echo 'var bkntcCollabCategory = {';
             echo '  nonce: "' . wp_create_nonce('bkntc_collab_category_nonce') . '",';
-            echo '  ajaxurl: "' . admin_url('admin-ajax.php') . '"';
+            echo '  ajaxurl: "' . admin_url('admin-ajax.php') . '",';
+            echo '  slug: "' . $this->backend_slug . '"';
             echo '};';
             echo 'console.log("bkntcCollabCategory config:", bkntcCollabCategory);';
             echo '</script>';
@@ -858,7 +859,8 @@ final class BookneticCollaborativeServices {
             echo 'console.log("=== Collaborative Category Script Loading (Direct) ===");';
             echo 'var bkntcCollabCategory = {';
             echo '  nonce: "' . wp_create_nonce('bkntc_collab_service_category_nonce') . '",';
-            echo '  ajaxurl: "' . admin_url('admin-ajax.php') . '"';
+            echo '  ajaxurl: "' . admin_url('admin-ajax.php') . '",';
+            echo '  slug: "' . $this->backend_slug . '"';
             echo '};';
             echo 'console.log("bkntcCollabCategory config:", bkntcCollabCategory);';
             echo 'console.log("'.$this->tenantAllowed.'");';

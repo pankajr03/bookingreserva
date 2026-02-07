@@ -44,7 +44,6 @@
 
             bindSaveEvent: function () {
                 var self = this;
-
                 // Listen for successful Booknetic save via AJAX
                 $(document).ajaxSuccess(function (event, xhr, settings) {
                     // Try to parse response if responseJSON is not available
@@ -60,9 +59,9 @@
                     // Check if response indicates a category save
                     if (response && response.id && response.status === 'ok') {
                         // Check if URL contains Booknetic
-                        if (settings.url && (settings.url.includes('page=booknetic') || settings.url.includes('?page=booknetic'))) {
+                        // alert('AJAX completed: ' + settings.url + '\nData: ' + settings.data);
+                        if (settings.url && (settings.url.includes('page=' + bkntcCollabCategory.slug) || settings.url.includes('?page=' + bkntcCollabCategory.slug))) {
                             var categoryId = parseInt(response.id);
-
                             setTimeout(function () {
                                 self.performSave(categoryId);
                             }, 300);
@@ -213,7 +212,7 @@
             saveCategorySettings: function () {
                 // For new categories, we need to get the ID from the response
                 var categoryId = this.getCategoryIdFromForm();
-
+                // alert('saveCategorySettings called for category ID: ' + categoryId);
                 if (!categoryId || categoryId == 0) {
                     console.log('Category ID is 0 (new category), settings saved on next edit');
                     return;
@@ -224,7 +223,7 @@
 
             performSave: function (categoryId) {
                 console.log('performSave called with categoryId:', categoryId);
-
+                // alert('Saving settings for category ID: ' + categoryId);
                 var checkbox = $('#bkntc_collab_allow_multi_select');
                 var allowMultiSelect = checkbox.is(':checked') ? 1 : 0;
                 var serviceSelectionLimit = parseInt($('#bkntc_collab_service_selection_limit').val()) || 1;
