@@ -39,8 +39,12 @@ final class BookneticCollaborativeServices {
     }
 
     public function backend_init() {
-        
-        $this->backend_slug = \BookneticSaaS\Providers\Helpers\Helper::getOption('backend_slug', 'booknetic');
+        if (class_exists('\BookneticSaaS\Providers\Helpers\Helper')) {
+            $this->backend_slug = \BookneticSaaS\Providers\Helpers\Helper::getOption('backend_slug', 'booknetic');
+        } else {
+            $this->backend_slug = \BookneticApp\Providers\Helpers\Helper::getOption('backend_slug', 'booknetic');
+        }
+            
         add_action('bkntc_init_backend', [$this, 'register_routes']);
         // Register settings submenu only after Booknetic backend is initialized,
         // so SaaS capability filters are active and tenant context is available.
@@ -740,18 +744,26 @@ final class BookneticCollaborativeServices {
 
         if ($user_id) {
             global $wpdb;
-            $tenants_table = $wpdb->prefix . 'bkntc_tenants';
             
-            $settings = $wpdb->get_row($wpdb->prepare(
-                "SELECT collaborative_enabled, guest_info_required FROM {$tenants_table} WHERE user_id = %d",
-                $user_id
-            ), ARRAY_A);
+            if (class_exists('BookneticSaaS\Providers\Helpers\Helper')) {
+                $tenants_table = $wpdb->prefix . 'bkntc_tenants';
             
-            if ($settings) {
-                $collaborative_enabled = $settings['collaborative_enabled'] ? $settings['collaborative_enabled'] : 0; // Convert to string for select
-                $guest_info_required = $settings['guest_info_required'] ? $settings['guest_info_required'] : 0;
+                $settings = $wpdb->get_row($wpdb->prepare(
+                    "SELECT collaborative_enabled, guest_info_required FROM {$tenants_table} WHERE user_id = %d",
+                    $user_id
+                ), ARRAY_A);
+                
+                if ($settings) {
+                    $collaborative_enabled = $settings['collaborative_enabled'] ? $settings['collaborative_enabled'] : 0; // Convert to string for select
+                    $guest_info_required = $settings['guest_info_required'] ? $settings['guest_info_required'] : 0;
+                }
+            } else {
+                $collaborative_enabled = get_option('bkntc_collaborative_services_enabled', 0) ? 1 : 0;
+                $guest_info_required = get_option('bkntc_collaborative_guest_info_required', 0) ? 1 : 0; 
             }
+            
         }
+
         $this->tenantAllowed = \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services');
         $this->collaborative_enabled_for_tenant = $collaborative_enabled;
         
@@ -811,17 +823,24 @@ final class BookneticCollaborativeServices {
 
         if ($user_id) {
             global $wpdb;
-            $tenants_table = $wpdb->prefix . 'bkntc_tenants';
+
+            if (class_exists('BookneticSaaS\Providers\Helpers\Helper')) {   
+                $tenants_table = $wpdb->prefix . 'bkntc_tenants';
             
-            $settings = $wpdb->get_row($wpdb->prepare(
-                "SELECT collaborative_enabled, guest_info_required FROM {$tenants_table} WHERE user_id = %d",
-                $user_id
-            ), ARRAY_A);
-            
-            if ($settings) {
-                $collaborative_enabled = $settings['collaborative_enabled'] ? $settings['collaborative_enabled'] : 0; // Convert to string for select
-                $guest_info_required = $settings['guest_info_required'] ? $settings['guest_info_required'] : 0;
+                $settings = $wpdb->get_row($wpdb->prepare(
+                    "SELECT collaborative_enabled, guest_info_required FROM {$tenants_table} WHERE user_id = %d",
+                    $user_id
+                ), ARRAY_A);
+                
+                if ($settings) {
+                    $collaborative_enabled = $settings['collaborative_enabled'] ? $settings['collaborative_enabled'] : 0; // Convert to string for select
+                    $guest_info_required = $settings['guest_info_required'] ? $settings['guest_info_required'] : 0;
+                }
+            } else {
+                $collaborative_enabled = get_option('bkntc_collaborative_services_enabled', 0) ? 1 : 0;
+                $guest_info_required = get_option('bkntc_collaborative_guest_info_required', 0) ? 1 : 0;
             }
+            
         }
         $this->tenantAllowed = \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services');
         $this->collaborative_enabled_for_tenant = $collaborative_enabled;
@@ -1006,24 +1025,28 @@ final class BookneticCollaborativeServices {
             }
             if ($user_id) {
                 global $wpdb;
-                $tenants_table = $wpdb->prefix . 'bkntc_tenants';
                 
-                $result = $wpdb->update(
-                    $tenants_table,
-                    [
-                        'collaborative_enabled' => $collaborative_enabled,
-                        'guest_info_required' => $guest_info_required
-                    ],
-                    ['user_id' => $user_id],
-                    ['%d', '%d'],
-                    ['%d']
-                );
+                if (class_exists('BookneticSaaS\Providers\Helpers\Helper')) {   
+                    $tenants_table = $wpdb->prefix . 'bkntc_tenants';
                 
-                if ($result !== false) {
-                    if (function_exists('bkntc_cs_log')) {
-                        bkntc_cs_log('maybe_handle_booknetic_ajax: saved to tenants table - enabled=' . $collaborative_enabled . ' guest_info=' . $guest_info_required . ' for tenant=' . $user_id);
-                    }
-                } 
+                    $result = $wpdb->update(
+                        $tenants_table,
+                        [
+                            'collaborative_enabled' => $collaborative_enabled,
+                            'guest_info_required' => $guest_info_required
+                        ],
+                        ['user_id' => $user_id],
+                        ['%d', '%d'],
+                        ['%d']
+                    );
+
+                } else {
+                    update_option('bkntc_collaborative_services_enabled', $collaborative_enabled ? 1 : 0);
+                    update_option('bkntc_collaborative_guest_info_required', $guest_info_required ? 1 : 0);
+                }
+
+                
+                 
             } 
 
 
@@ -1815,15 +1838,25 @@ final class BookneticCollaborativeServices {
         $tenants_table = $wpdb->prefix . 'bkntc_tenants';
         $tenants_columns = $wpdb->get_results("SHOW COLUMNS FROM {$tenants_table} LIKE 'collaborative_%'");
         
-        if (empty($tenants_columns)) {
-            $wpdb->query("ALTER TABLE {$tenants_table} 
-                ADD COLUMN collaborative_enabled TINYINT(1) DEFAULT 0 AFTER money_balance,
-                ADD COLUMN guest_info_required TINYINT(1) DEFAULT 0 AFTER collaborative_enabled");
+        if (class_exists('\BookneticSaaS\Providers\Helpers\Helper')) {
+            // Add columns to bkntc_tenants (existing logic)
+            if (empty($tenants_columns)) {
+                $wpdb->query("ALTER TABLE {$tenants_table} 
+                    ADD COLUMN collaborative_enabled TINYINT(1) DEFAULT 0 AFTER money_balance,
+                    ADD COLUMN guest_info_required TINYINT(1) DEFAULT 0 AFTER collaborative_enabled");
             
-            if (function_exists('bkntc_cs_log')) {
-                bkntc_cs_log('Added collaborative columns to tenants table');
+                if (function_exists('bkntc_cs_log')) {
+                    bkntc_cs_log('Added collaborative columns to tenants table');
+                }
             }
+        } else {
+            // Initialize options
+            add_option('bkntc_collaborative_services_enabled', 0);
+            add_option('bkntc_collaborative_guest_info_required', 0);
         }
+        
+
+
 
         
         // Add column to appointments table for multi-staff support
@@ -1877,21 +1910,26 @@ final class BookneticCollaborativeServices {
     public static function uninstall()
     {
         global $wpdb;
+        if (!class_exists('\BookneticSaaS\Providers\Helpers\Helper')) {
+            delete_option('bkntc_collaborative_services_enabled');
+            delete_option('bkntc_collaborative_guest_info_required');
+        } else {
+            $tenants_table = $wpdb->prefix . 'bkntc_tenants';
 
+            $col = $wpdb->get_results("SHOW COLUMNS FROM {$tenants_table} LIKE 'collaborative_enabled'");
+            if (!empty($col)) {
+                $wpdb->query("ALTER TABLE {$tenants_table} DROP COLUMN collaborative_enabled");
+                if (function_exists('bkntc_cs_log')) bkntc_cs_log('Uninstall: dropped bkntc_tenants.collaborative_enabled');
+            }
+
+            $col = $wpdb->get_results("SHOW COLUMNS FROM {$tenants_table} LIKE 'guest_info_required'");
+            if (!empty($col)) {
+                $wpdb->query("ALTER TABLE {$tenants_table} DROP COLUMN guest_info_required");
+                if (function_exists('bkntc_cs_log')) bkntc_cs_log('Uninstall: dropped bkntc_tenants.guest_info_required');
+            }
+        }
         // Drop columns from tenants table if they exist
-        $tenants_table = $wpdb->prefix . 'bkntc_tenants';
-
-        $col = $wpdb->get_results("SHOW COLUMNS FROM {$tenants_table} LIKE 'collaborative_enabled'");
-        if (!empty($col)) {
-            $wpdb->query("ALTER TABLE {$tenants_table} DROP COLUMN collaborative_enabled");
-            if (function_exists('bkntc_cs_log')) bkntc_cs_log('Uninstall: dropped bkntc_tenants.collaborative_enabled');
-        }
-
-        $col = $wpdb->get_results("SHOW COLUMNS FROM {$tenants_table} LIKE 'guest_info_required'");
-        if (!empty($col)) {
-            $wpdb->query("ALTER TABLE {$tenants_table} DROP COLUMN guest_info_required");
-            if (function_exists('bkntc_cs_log')) bkntc_cs_log('Uninstall: dropped bkntc_tenants.guest_info_required');
-        }
+        
     }
     
     /**

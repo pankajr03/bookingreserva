@@ -13,18 +13,27 @@ $collaborative_enabled = 0; // Default
 $guest_info_required = 0; // Default
 
 if ($user_id) {
-    global $wpdb;
-    $tenants_table = $wpdb->prefix . 'bkntc_tenants';
     
-    $settings = $wpdb->get_row($wpdb->prepare(
-        "SELECT collaborative_enabled, guest_info_required FROM {$tenants_table} WHERE user_id = %d",
-        $user_id
-    ), ARRAY_A);
+    if (class_exists('\BookneticSaaS\Providers\Helpers\Helper')) {
     
-    if ($settings) {
-        $collaborative_enabled = $settings['collaborative_enabled'] ? '1' : '0'; // Convert to string for select
-        $guest_info_required = $settings['guest_info_required'] ? '1' : '0';
+        global $wpdb;
+        $tenants_table = $wpdb->prefix . 'bkntc_tenants';
+        
+        $settings = $wpdb->get_row($wpdb->prepare(
+            "SELECT collaborative_enabled, guest_info_required FROM {$tenants_table} WHERE user_id = %d",
+            $user_id
+        ), ARRAY_A);
+        
+        if ($settings) {
+            $collaborative_enabled = $settings['collaborative_enabled'] ? '1' : '0'; // Convert to string for select
+            $guest_info_required = $settings['guest_info_required'] ? '1' : '0';
+        }
+    } else {
+        $collaborative_enabled = get_option('bkntc_collaborative_services_enabled', 0) ? 1 : 0;
+        $guest_info_required = get_option('bkntc_collaborative_guest_info_required', 0) ? 1 : 0;
     }
+
+    
 } 
 ?>
 
