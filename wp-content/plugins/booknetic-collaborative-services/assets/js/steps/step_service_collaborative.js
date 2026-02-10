@@ -48,7 +48,7 @@
     // Service step validation
     bookneticHooks.addFilter('step_validation_service', function (result, booknetic) {
         let booking_panel_js = booknetic.panel_js;
-
+        // alert('Service step validation triggered');
         if (!collaborativeService.isMultiSelectMode) {
             console.log('Service Collaborative: Single-select mode, using default validation');
             return result;
@@ -62,12 +62,19 @@
 
         console.log('Found checked boxes:', checkedBoxes.length);
 
+        // If no checkboxes are checked (e.g., user selected from individual category), use default validation
+        if (checkedBoxes.length === 0) {
+            console.log('Service Collaborative: No multi-select checkboxes checked, using default validation');
+            return result;
+        }
+
         checkedBoxes.each(function () {
             var serviceId = parseInt($(this).data('service-id'));
             var card = $(this).closest('.booknetic_service_card');
             var assignedTo = card.find('input[name="assign_to_' + serviceId + '"]:checked').val();
+            var categoryId = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
 
-            console.log('Service ID:', serviceId, 'Assigned to:', assignedTo);
+            console.log('Service ID:', serviceId, 'Assigned to:', assignedTo, 'Category ID:', categoryId);
 
             if (!assignedTo) {
                 assignedTo = 'me'; // Default to "me"
@@ -75,13 +82,37 @@
 
             selectedServices.push({
                 service_id: serviceId,
-                assigned_to: assignedTo
+                assigned_to: assignedTo,
+                category_id: categoryId
             });
         });
 
         console.log('Selected services:', selectedServices);
 
-        // Validate selection
+        // Check if all selected services are from the same category
+        if (selectedServices.length > 0) {
+            var firstCategory = selectedServices[0].category_id;
+            for (var i = 1; i < selectedServices.length; i++) {
+                if (selectedServices[i].category_id !== firstCategory) {
+                    return {
+                        status: false,
+                        errorMsg: 'Please select services from the same category.'
+                    };
+                }
+            }
+        }
+
+        // Get category settings for the selected category
+        var categoryKey = selectedServices[0].category_id;
+        var categorySettings = collaborativeService.categorySettings[categoryKey];
+        if (!categorySettings || !categorySettings.settings) {
+            return {
+                status: false,
+                errorMsg: 'Category settings not found. Please refresh the page.'
+            };
+        }
+
+        var limit = categorySettings.settings.service_selection_limit;
         if (selectedServices.length === 0) {
             return {
                 status: false,
@@ -100,29 +131,49 @@
         }
 
 
-        // Check service selection limit if set
-        if (collaborativeService.categorySettings && collaborativeService.categorySettings.service_selection_limit > 0) {
-            if (selectedServices.length !== collaborativeService.categorySettings.service_selection_limit) {
+        // Check service selection limit and assignment rules
+        if (limit > 0) {
+            if (selectedServices.length !== limit) {
                 return {
                     status: false,
-                    errorMsg: 'Please select exactly ' + collaborativeService.categorySettings.service_selection_limit + ' service(s).'
+                    errorMsg: 'Please select exactly ' + limit + ' service(s).'
                 };
             }
-            // Special validation for limit = 2: exactly one "me" and one "guest"
-            if (collaborativeService.categorySettings.service_selection_limit === 2) {
-                var meCount = 0;
-                var guestCount = 0;
-                for (var i = 0; i < selectedServices.length; i++) {
-                    if (selectedServices[i].assigned_to === 'me') {
-                        meCount++;
-                    } else if (selectedServices[i].assigned_to === 'guest') {
-                        guestCount++;
-                    }
+
+            // Count assignments
+            var meCount = 0;
+            var guestCount = 0;
+            for (var i = 0; i < selectedServices.length; i++) {
+                if (selectedServices[i].assigned_to === 'me') {
+                    meCount++;
+                } else if (selectedServices[i].assigned_to === 'guest') {
+                    guestCount++;
                 }
+            }
+
+            // Validation based on limit
+            if (limit === 2) {
+                // Couple Services: Exactly 1 "Me" and 1 "Guest"
                 if (meCount !== 1 || guestCount !== 1) {
                     return {
                         status: false,
                         errorMsg: 'For this booking, please assign exactly one service to "Me" and one service to "Guest".'
+                    };
+                }
+            } else if (limit === 5) {
+                // Group Services: At least 1 "Me", remaining to "Guest"(s)
+                if (meCount < 1) {
+                    return {
+                        status: false,
+                        errorMsg: 'Please assign at least one service to "Me".'
+                    };
+                }
+            } else {
+                // Default: At least 1 "Me" for other limits
+                if (meCount < 1) {
+                    return {
+                        status: false,
+                        errorMsg: 'Please assign at least one service to "Me".'
                     };
                 }
             }
@@ -656,7 +707,6 @@
                         collaborativeService.categorySettings = collaborativeService.categorySettings || {};
                         collaborativeService.categorySettings[cid] = { settings: response.data, name: categoryName };
                         if (categoryName) collaborativeService.categorySettings[categoryName] = collaborativeService.categorySettings[cid];
-                        collaborativeService.categorySettings.service_selection_limit = response.data.service_selection_limit;
                         var allow = response.data.allow_multi_select == 1;
                         collaborativeService.multiSelectCategories = collaborativeService.multiSelectCategories || {};
                         collaborativeService.multiSelectCategories[cid] = allow;
@@ -705,6 +755,9 @@
                         var allow = response.data.allow_multi_select == 1;
                         collaborativeService.multiSelectCategories = collaborativeService.multiSelectCategories || {};
                         collaborativeService.multiSelectCategories[name] = allow;
+                        if (returnedId) {
+                            collaborativeService.multiSelectCategories[returnedId] = allow;
+                        }
                         console.log('allow_multi_select for name', name, ':', response.data.allow_multi_select);
                         if (allow) {
                             collaborativeService.isMultiSelectMode = true;
@@ -725,22 +778,12 @@
 
         // Process each detected category
         categories.forEach(function (cat) {
-            if (cat.id) {
-                doAjaxWithId(cat.id, cat.name);
-            } else if (cat.name) {
-                // Try to infer an id by looking at the first service card after this header
-                if (cat.elem) {
-                    var nextService = cat.elem.nextAll('.booknetic_service_card').first();
-                    if (nextService.length > 0) {
-                        var inferred = nextService.data('category') || nextService.attr('data-category') || nextService.data('category-id') || nextService.attr('data-category-id');
-                        if (inferred) {
-                            doAjaxWithId(inferred, cat.name);
-                            return;
-                        }
-                    }
-                }
-                // fallback: ask server by name
+            if (cat.name) {
+                // Always use name-based lookup since IDs may not be set on headers yet
                 doAjaxWithName(cat.name);
+            } else if (cat.id) {
+                // Fallback: if no name but have ID, use ID
+                doAjaxWithId(cat.id, cat.name);
             }
         });
     }
@@ -823,7 +866,24 @@
     function convertServiceToMultiSelect(booknetic, categoryKey) {
         let panel = booknetic.panel_js;
 
-        console.log('Service Collaborative: Converting to multi-select mode');
+        console.log('Service Collaborative: Converting to multi-select mode for category:', categoryKey);
+
+        // Ensure all category headers have data-category-id set from settings
+        var categoryHeaders = panel.find('.booknetic_service_category');
+        categoryHeaders.each(function () {
+            var header = $(this);
+            var headerText = header.clone().children().remove().end().text().trim() || header.text().trim();
+            var currentId = header.data('category-id') || header.attr('data-category-id');
+
+            // If this header doesn't have an ID set, try to find it from settings
+            if (!currentId) {
+                // Check if we have settings for this header name
+                var categorySettings = collaborativeService.categorySettings[headerText];
+                if (categorySettings && categorySettings.settings && categorySettings.settings.category_id) {
+                    header.attr('data-category-id', categorySettings.settings.category_id);
+                }
+            }
+        });
 
         var serviceCards = panel.find('.booknetic_service_card');
 
@@ -849,34 +909,35 @@
 
             if (!serviceId) return;
 
-            // If a categoryKey is provided, only process cards that match it
-            if (categoryKey) {
-                var isNumericId = !isNaN(Number(categoryKey));
+            // Determine and set category data on the card for validation purposes
+            var cardCategory = null;
 
-                // try explicit attributes on card
-                var cardCategory = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
+            // First, try to find from nearest preceding category header
+            var prevCat = card.prevAll('.booknetic_service_category').first();
+            if (prevCat.length > 0) {
+                cardCategory = prevCat.data('category-id') || prevCat.attr('data-category-id');
+            }
 
-                // find nearest preceding category header for name/id fallback
-                var prevCat = card.prevAll('.booknetic_service_category').first();
-                var prevCatId = null;
-                var prevCatName = null;
-                if (prevCat.length > 0) {
-                    prevCatId = prevCat.data('category-id') || prevCat.attr('data-category-id') || prevCat.data('parent') || prevCat.attr('data-parent');
-                    prevCatName = prevCat.clone().children().remove().end().text().trim() || prevCat.text().trim();
-                }
+            // Fallback to existing attributes on card
+            if (!cardCategory) {
+                cardCategory = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
+            }
 
-                if (!cardCategory && prevCatId) cardCategory = prevCatId;
+            // Set the category data on the card for validation purposes
+            if (cardCategory) {
+                card.attr('data-category', cardCategory);
+            } else if (categoryKey && !isNaN(Number(categoryKey))) {
+                card.attr('data-category', categoryKey);
+                cardCategory = categoryKey;
+            }
 
-                if (isNumericId) {
-                    if (!cardCategory || String(cardCategory) !== String(categoryKey)) {
-                        return; // skip cards that don't match numeric id
-                    }
-                } else {
-                    var matchName = prevCatName || card.data('category-name') || card.attr('data-category-name');
-                    if (!matchName || String(matchName).trim() !== String(categoryKey).trim()) {
-                        return; // skip cards that don't match name
-                    }
-                }
+            // Only add multi-select UI if this card's category has multi-select enabled
+            var hasMultiSelect = cardCategory && collaborativeService.multiSelectCategories[cardCategory];
+            if (!hasMultiSelect) {
+                // For categories without multi-select, ensure no collaborative UI is present
+                card.find('.booknetic_collab_service_checkbox').remove();
+                card.find('.booknetic_collab_assignment').remove();
+                return; // skip this card
             }
 
             // CRITICAL: Unbind ALL existing click handlers from Booknetic's default behavior
