@@ -1375,7 +1375,7 @@ final class BookneticCollaborativeServices {
         }
         
         //$category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
-        $category_name = isset($_POST['category_name']) ? sanitize_text_field($_POST['category_name']) : '';
+        $category_name = isset($_POST['category_name']) ? sanitize_text_field(wp_unslash($_POST['category_name'])) : '';
         
         if (!$category_name) {
             wp_send_json_error(['message' => 'Category name required']);

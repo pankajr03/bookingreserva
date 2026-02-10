@@ -778,6 +778,7 @@
 
         // Process each detected category
         categories.forEach(function (cat) {
+            console.log('Processing category:', cat);
             if (cat.name) {
                 // Always use name-based lookup since IDs may not be set on headers yet
                 doAjaxWithName(cat.name);
