@@ -512,6 +512,8 @@ final class BookneticCollaborativeServices {
         $category_id = isset($_POST['category_id']) ? intval($_POST['category_id']) : 0;
         $allow_multi_select = isset($_POST['allow_multi_select']) ? intval($_POST['allow_multi_select']) : null;
         $service_selection_limit = isset($_POST['service_selection_limit']) ? intval($_POST['service_selection_limit']) : null;
+        $min_services_per_person = isset($_POST['min_services_per_person']) ? intval($_POST['min_services_per_person']) : null; 
+        $max_services_per_person = isset($_POST['max_services_per_person']) ? intval($_POST['max_services_per_person']) : null; 
         
         if ($category_id <= 0) {
             wp_send_json_error(['message' => 'Invalid category ID']);
@@ -531,6 +533,15 @@ final class BookneticCollaborativeServices {
         
         if ($service_selection_limit !== null) {
             $update_data['service_selection_limit'] = $service_selection_limit;
+            $update_format[] = '%d';
+        }
+        if ($min_services_per_person !== null) {
+            $update_data['min_services_per_person'] = $min_services_per_person;
+            $update_format[] = '%d';
+        }
+
+        if ($max_services_per_person !== null) {
+            $update_data['max_services_per_person'] = $max_services_per_person;
             $update_format[] = '%d';
         }
         
@@ -586,7 +597,9 @@ final class BookneticCollaborativeServices {
         if ($category_id <= 0) {
             wp_send_json_success([
                 'allow_multi_select' => 0,
-                'service_selection_limit' => 1
+                'service_selection_limit' => 1,
+                'min_services_per_person' => 1,
+                'max_services_per_person' => 1,
             ]);
             return;
         }
@@ -596,7 +609,7 @@ final class BookneticCollaborativeServices {
         
         $category = $wpdb->get_row(
             $wpdb->prepare(
-                "SELECT allow_multi_select, service_selection_limit, name FROM {$table} WHERE id = %d",
+                "SELECT allow_multi_select, service_selection_limit, min_services_per_person, max_services_per_person,name FROM {$table} WHERE id = %d",
                 $category_id
             ),
             ARRAY_A
@@ -605,13 +618,17 @@ final class BookneticCollaborativeServices {
             $settings = [
                 'service_selection_limit' => intval($category['service_selection_limit']) ?? 0,
                 'category_name' => $category['name'],
-                'allow_multi_select' => intval($category['allow_multi_select'])
+                'allow_multi_select' => intval($category['allow_multi_select']),
+                'min_services_per_person' => intval($category['min_services_per_person']) ?? 1, 
+                'max_services_per_person' => intval($category['max_services_per_person']) ?? 1, 
             ];
         } else {
             $settings = [
                 'allow_multi_select' => 0,
                 'category_name' => '',
-                'service_selection_limit' => 0
+                'service_selection_limit' => 0,
+                'min_services_per_person' => 0,
+                'max_services_per_person' => 0, 
               
             ];
         }
@@ -1387,7 +1404,7 @@ final class BookneticCollaborativeServices {
         // Get category settings including allow_multi_select
         $categories_table = $wpdb->prefix . 'bkntc_service_categories';
         $category_data = $wpdb->get_row($wpdb->prepare(
-            "SELECT id, allow_multi_select, service_selection_limit 
+            "SELECT id, allow_multi_select, service_selection_limit, min_services_per_person, max_services_per_person     
              FROM {$categories_table} WHERE name = %s",
             $category_name  
         ), ARRAY_A);
@@ -1396,12 +1413,16 @@ final class BookneticCollaborativeServices {
             wp_send_json_success([
                 'allow_multi_select' => !empty($category_data['allow_multi_select']) ? intval($category_data['allow_multi_select']) : 0,
                 'service_selection_limit' => !empty($category_data['service_selection_limit']) ? intval($category_data['service_selection_limit']) : 0,
+                'min_services_per_person' => !empty($category_data['min_services_per_person']) ? intval($category_data['min_services_per_person']) : 0,
+                'max_services_per_person' => !empty($category_data['max_services_per_person']) ? intval($category_data['max_services_per_person']) : 0,
                 'category_id' => $category_data['id']
             ]);
         } else {
             wp_send_json_success([
                 'allow_multi_select' => 0,
                 'service_selection_limit' => 0,
+                'min_services_per_person' => 0,
+                'max_services_per_person' => 0,
                 'category_id' => 0
             ]);
         }
@@ -1816,6 +1837,16 @@ final class BookneticCollaborativeServices {
         $service_selection_limit_column = $wpdb->get_results("SHOW COLUMNS FROM {$categories_table} LIKE 'service_selection_limit'");
         if (empty($service_selection_limit_column)) {
             $wpdb->query("ALTER TABLE {$categories_table} ADD COLUMN service_selection_limit INT(11) DEFAULT 1");
+        }
+
+        $min_services_per_person_column = $wpdb->get_results("SHOW COLUMNS FROM {$categories_table} LIKE 'min_services_per_person'");
+        if (empty($min_services_per_person_column)) {
+            $wpdb->query("ALTER TABLE {$categories_table} ADD COLUMN min_services_per_person INT(11) DEFAULT 1");
+        }
+
+        $max_services_per_person_column = $wpdb->get_results("SHOW COLUMNS FROM {$categories_table} LIKE 'max_services_per_person'");
+        if (empty($max_services_per_person_column)) {
+            $wpdb->query("ALTER TABLE {$categories_table} ADD COLUMN max_services_per_person INT(11) DEFAULT 1");
         }
         
         

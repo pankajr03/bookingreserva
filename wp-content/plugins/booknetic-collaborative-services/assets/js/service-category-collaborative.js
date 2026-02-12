@@ -156,6 +156,28 @@
                                        value="1">\
                                 <small class="form-text text-muted">Set the maximum number of services a customer can book within this category group.</small>\
                             </div >\
+                            <div class="form-group col-md-12">\
+                                <label class="form-label" for="bkntc_collab_min_services_per_person">\
+                                    <strong>Minimum Services Per Person</strong>\
+                                </label>\
+                                <input type="text" \
+                                       class="form-control" \
+                                       id="bkntc_collab_min_services_per_person" \
+                                       name="min_services_per_person" \
+                                       value="1">\
+                                <small class="form-text text-muted">Set the minimum number of services a customer can book within this category group.</small>\
+                            </div >\
+                            <div class="form-group col-md-12">\
+                                <label class="form-label" for="bkntc_collab_max_services_per_person">\
+                                    <strong>Maximum Services Per Person</strong>\
+                                </label>\
+                                <input type="text" \
+                                       class="form-control" \
+                                       id="bkntc_collab_max_services_per_person" \
+                                       name="max_services_per_person" \
+                                       value="1">\
+                                <small class="form-text text-muted">Set the maximum number of services a customer can book within this category group.</small>\
+                            </div >\
                         </div>\
                     </div>\
                 ';
@@ -197,6 +219,9 @@
                             var checkbox = $('#bkntc_collab_allow_multi_select');
                             checkbox.prop('checked', data.allow_multi_select == 1);
                             $('#bkntc_collab_service_selection_limit').val(data.service_selection_limit);
+                            $('#bkntc_collab_min_services_per_person').val(data.min_services_per_person);
+                            $('#bkntc_collab_max_services_per_person').val(data.max_services_per_person);
+                            // console.log('✓ Settings loaded for category ' + categoryId);
 
                         } else {
                             console.error('Failed to load settings:', response.data ? response.data.message : 'Unknown error');
@@ -227,6 +252,9 @@
                 var checkbox = $('#bkntc_collab_allow_multi_select');
                 var allowMultiSelect = checkbox.is(':checked') ? 1 : 0;
                 var serviceSelectionLimit = parseInt($('#bkntc_collab_service_selection_limit').val()) || 1;
+                var minServicesPerPerson = parseInt($('#bkntc_collab_min_services_per_person').val()) || 1;
+                var maxServicesPerPerson = parseInt($('#bkntc_collab_max_services_per_person').val()) || 1;
+
 
                 $.ajax({
                     url: bkntcCollabCategory.ajaxurl,
@@ -236,7 +264,9 @@
                         nonce: bkntcCollabCategory.nonce,
                         category_id: categoryId,
                         allow_multi_select: allowMultiSelect,
-                        service_selection_limit: serviceSelectionLimit
+                        service_selection_limit: serviceSelectionLimit,
+                        min_services_per_person: minServicesPerPerson,
+                        max_services_per_person: maxServicesPerPerson
                     },
                     success: function (response) {
                         console.log('=== COLLABORATIVE SETTINGS SAVE RESPONSE ===');
