@@ -994,12 +994,13 @@
                 var isCheckbox = $(e.target).is('input[type="checkbox"]');
                 var isRadio = $(e.target).is('input[type="radio"]');
                 var isLabel = $(e.target).is('label');
+                var isButton = $(e.target).hasClass('booknetic_view_more_service_notes_button') || $(e.target).hasClass('booknetic_view_less_service_notes_button') || $(e.target).closest('.booknetic_view_more_service_notes_button, .booknetic_view_less_service_notes_button').length > 0;
 
                 // ALWAYS stop Booknetic's default handler from running
                 e.stopImmediatePropagation();
 
                 // Only preventDefault for non-input clicks
-                if (!isCheckbox && !isRadio) {
+                if (!isCheckbox && !isRadio && !isButton) {
                     e.preventDefault();
                 }
 
@@ -1023,11 +1024,34 @@
                     }
                 }
 
+                if (isButton) {
+                    // Button clicked - let it handle its own click
+                    return;
+                }
+
                 // Card background clicked - toggle the checkbox
-                var checkbox = $(this).find('.booknetic_collab_service_checkbox input');
-                checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
+                // var checkbox = $(this).find('.booknetic_collab_service_checkbox input');
+                // checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
 
                 return false;
+            });
+
+            // Handle "Show more" button click to display full service description
+            card.find('.booknetic_view_more_service_notes_button').on('click', function (e) {
+                e.stopPropagation();
+                card.find('.booknetic_service_card_description_wrapped').hide();
+                card.find('.booknetic_service_card_description_fulltext').show();
+                $(this).hide();
+                card.find('.booknetic_view_less_service_notes_button').show();
+            });
+
+            // Handle "Show less" button click to display wrapped service description
+            card.find('.booknetic_view_less_service_notes_button').on('click', function (e) {
+                e.stopPropagation();
+                card.find('.booknetic_service_card_description_fulltext').hide();
+                card.find('.booknetic_service_card_description_wrapped').show();
+                $(this).hide();
+                card.find('.booknetic_view_more_service_notes_button').show();
             });
         });
 
