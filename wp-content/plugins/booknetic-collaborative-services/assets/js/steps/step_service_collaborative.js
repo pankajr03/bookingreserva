@@ -181,6 +181,27 @@
 
 
 
+        // Per-person validation: Check min/max services per person
+        var minPerPerson = categorySettings.settings.min_services_per_person || 0;
+        var maxPerPerson = categorySettings.settings.max_services_per_person || Infinity;
+
+        if (minPerPerson > 0 || maxPerPerson < Infinity) {
+            if (meCount < minPerPerson || meCount > maxPerPerson) {
+                return {
+                    status: false,
+                    errorMsg: 'Each person must have between ' + minPerPerson + ' and ' + (maxPerPerson === Infinity ? 'unlimited' : maxPerPerson) + ' services. Currently "Me" has ' + meCount + ' service(s).'
+                };
+            }
+            if (guestCount < minPerPerson || guestCount > maxPerPerson) {
+                return {
+                    status: false,
+                    errorMsg: 'Each person must have between ' + minPerPerson + ' and ' + (maxPerPerson === Infinity ? 'unlimited' : maxPerPerson) + ' services. Currently "Guest" has ' + guestCount + ' service(s).'
+                };
+            }
+        }
+
+
+
         // Store selected services for cart
         collaborativeService.selectedServices = selectedServices;
 
