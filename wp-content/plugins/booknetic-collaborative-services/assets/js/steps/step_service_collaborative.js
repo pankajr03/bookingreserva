@@ -39,6 +39,10 @@
 
         console.log('Service Collaborative: Service step loaded');
 
+        // Reset mode for each service step load - will be set to true only if multi-select is enabled
+        collaborativeService.isMultiSelectMode = false;
+        collaborativeService.selectedServices = [];
+
         // Check if we need to enable multi-select mode
         setTimeout(function () {
             checkCategoryMultiSelect(booknetic);
@@ -48,13 +52,15 @@
     // Service step validation
     bookneticHooks.addFilter('step_validation_service', function (result, booknetic) {
         let booking_panel_js = booknetic.panel_js;
-        // alert('Service step validation triggered');
+
+        // CRITICAL CHECK: Only apply collaborative validation if multi-select is explicitly enabled
+        // Don't check for selected_services in cart - it hasn't been added yet
         if (!collaborativeService.isMultiSelectMode) {
-            console.log('Service Collaborative: Single-select mode, using default validation');
-            return result;
+            console.log('Service Collaborative: Not in multi-select mode - using default Booknetic validation');
+            return result;  // Use Booknetic's default validation
         }
 
-        console.log('Service Collaborative: Multi-select mode validation');
+        console.log('Service Collaborative: Multi-select mode validation (allow_multi_select = 1)');
 
         // Use the selectedServices that were populated when checkboxes were checked
         var selectedServices = JSON.parse(JSON.stringify(collaborativeService.selectedServices)) || [];
@@ -62,52 +68,27 @@
         console.log('✓ Using selectedServices from collaborative service state:', selectedServices);
         console.log('Found services count:', selectedServices.length);
 
-        // If selectedServices is empty, try to rebuild from checkboxes (fallback)
+        // Validate that services were selected
         if (selectedServices.length === 0) {
-            console.log('⚠️ selectedServices is empty, rebuilding from checked checkboxes...');
-            var checkedBoxes = booking_panel_js.find('.booknetic_collab_service_checkbox input:checked');
-
-            console.log('Found checked boxes:', checkedBoxes.length);
-
-            // If no checkboxes are checked (e.g., user selected from individual category), use default validation
-            if (checkedBoxes.length === 0) {
-                console.log('Service Collaborative: No multi-select checkboxes checked, using default validation');
-                return result;
-            }
-
-            checkedBoxes.each(function () {
-                var serviceId = parseInt($(this).data('service-id'));
-                var card = $(this).closest('.booknetic_service_card');
-                var assignedTo = card.find('input[name="assign_to_' + serviceId + '"]:checked').val();
-                var categoryId = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
-
-                console.log('Service ID:', serviceId, 'Assigned to:', assignedTo, 'Category ID:', categoryId);
-
-                if (!assignedTo) {
-                    assignedTo = 'me'; // Default to "me"
-                }
-
-                selectedServices.push({
-                    service_id: serviceId,
-                    assigned_to: assignedTo,
-                    category_id: categoryId,
-                    custom_duration: null // Will be set from collaborativeService.selectedServices
-                });
-            });
-        } else {
-            // Update assigned_to from current radio button state (user may have changed it)
-            selectedServices.forEach(function (service) {
-                var card = booking_panel_js.find('.booknetic_service_card[data-id="' + service.service_id + '"]');
-                if (card.length > 0) {
-                    var currentAssignment = card.find('input[name="assign_to_' + service.service_id + '"]:checked').val();
-                    if (currentAssignment) {
-                        service.assigned_to = currentAssignment;
-                    }
-                }
-            });
+            console.log('⚠️ selectedServices is empty!');
+            return {
+                status: false,
+                errorMsg: booknetic.__('select_service') || 'Please select at least one service.'
+            };
         }
 
         console.log('Selected services after validation prep:', selectedServices);
+
+        // Get the category ID from first service
+        var categoryKey = selectedServices[0].category_id;
+        var categorySettings = collaborativeService.categorySettings[categoryKey];
+
+        if (!categorySettings || !categorySettings.settings) {
+            return {
+                status: false,
+                errorMsg: 'Category settings not found. Please refresh the page.'
+            };
+        }
 
         // Check if all selected services are from the same category
         if (selectedServices.length > 0) {
@@ -122,23 +103,7 @@
             }
         }
 
-        // Get category settings for the selected category
-        var categoryKey = selectedServices[0].category_id;
-        var categorySettings = collaborativeService.categorySettings[categoryKey];
-        if (!categorySettings || !categorySettings.settings) {
-            return {
-                status: false,
-                errorMsg: 'Category settings not found. Please refresh the page.'
-            };
-        }
-
         var limit = categorySettings.settings.service_selection_limit;
-        if (selectedServices.length === 0) {
-            return {
-                status: false,
-                errorMsg: booknetic.__('select_service') || 'Please select at least one service.'
-            };
-        }
 
         // Check if assignment is set for all services
         for (var i = 0; i < selectedServices.length; i++) {
@@ -150,25 +115,37 @@
             }
         }
 
+        // Count unique services and assignments
+        var uniqueServices = {};
+        var meCount = 0;
+        var guestCount = 0;
 
-        // Check service selection limit and assignment rules
+        for (var i = 0; i < selectedServices.length; i++) {
+            var serviceId = selectedServices[i].service_id;
+            if (!uniqueServices[serviceId]) {
+                uniqueServices[serviceId] = 0;
+            }
+            uniqueServices[serviceId]++;
+
+            if (selectedServices[i].assigned_to === 'me') {
+                meCount++;
+            } else if (selectedServices[i].assigned_to === 'guest') {
+                guestCount++;
+            }
+        }
+
+        var uniqueServiceCount = Object.keys(uniqueServices).length;
+        var totalEntries = selectedServices.length; // Total number of assignments (entries)
+        console.log('Unique services: ' + uniqueServiceCount + ', Total entries: ' + totalEntries + ', Me entries: ' + meCount + ', Guest entries: ' + guestCount);
+
+        // Check service selection limit (based on total entries, not unique services)
+        // This allows 1 service selected for both Me and Guest to count as 2 entries
         if (limit > 0) {
-            if (selectedServices.length !== limit) {
+            if (totalEntries !== limit) {
                 return {
                     status: false,
-                    errorMsg: 'Please select exactly ' + limit + ' service(s).'
+                    errorMsg: 'Please select exactly ' + limit + ' booking(s). (Tip: Selecting 1 service for both "Me" and "Guest" counts as 2 bookings.)'
                 };
-            }
-
-            // Count assignments
-            var meCount = 0;
-            var guestCount = 0;
-            for (var i = 0; i < selectedServices.length; i++) {
-                if (selectedServices[i].assigned_to === 'me') {
-                    meCount++;
-                } else if (selectedServices[i].assigned_to === 'guest') {
-                    guestCount++;
-                }
             }
 
             // Validation based on limit
@@ -177,29 +154,27 @@
                 if (meCount !== 1 || guestCount !== 1) {
                     return {
                         status: false,
-                        errorMsg: 'For this booking, please assign exactly one service to "Me" and one service to "Guest".'
+                        errorMsg: 'For a couple booking, you need exactly 1 assignment for "Me" and 1 for "Guest".'
                     };
                 }
             } else if (limit === 5) {
-                // Group Services: At least 1 "Me", remaining to "Guest"(s)
+                // Group Services: At least 1 "Me"
                 if (meCount < 1) {
                     return {
                         status: false,
-                        errorMsg: 'Please assign at least one service to "Me".'
+                        errorMsg: 'Please assign at least one booking to "Me".'
                     };
                 }
             } else {
-                // Default: At least 1 "Me" for other limits
+                // Default: At least 1 "Me"
                 if (meCount < 1) {
                     return {
                         status: false,
-                        errorMsg: 'Please assign at least one service to "Me".'
+                        errorMsg: 'Please assign at least one booking to "Me".'
                     };
                 }
             }
         }
-
-
 
         // Per-person validation: Check min/max services per person
         var minPerPerson = categorySettings.settings.min_services_per_person || 0;
@@ -209,18 +184,16 @@
             if (meCount < minPerPerson || meCount > maxPerPerson) {
                 return {
                     status: false,
-                    errorMsg: 'Each person must have between ' + minPerPerson + ' and ' + (maxPerPerson === Infinity ? 'unlimited' : maxPerPerson) + ' services. Currently "Me" has ' + meCount + ' service(s).'
+                    errorMsg: 'Each person must have between ' + minPerPerson + ' and ' + (maxPerPerson === Infinity ? 'unlimited' : maxPerPerson) + ' services. Currently "Me" has ' + meCount + ' booking(s).'
                 };
             }
             if (guestCount < minPerPerson || guestCount > maxPerPerson) {
                 return {
                     status: false,
-                    errorMsg: 'Each person must have between ' + minPerPerson + ' and ' + (maxPerPerson === Infinity ? 'unlimited' : maxPerPerson) + ' services. Currently "Guest" has ' + guestCount + ' service(s).'
+                    errorMsg: 'Each person must have between ' + minPerPerson + ' and ' + (maxPerPerson === Infinity ? 'unlimited' : maxPerPerson) + ' services. Currently "Guest" has ' + guestCount + ' booking(s).'
                 };
             }
         }
-
-
 
         // Store selected services for cart
         collaborativeService.selectedServices = selectedServices;
@@ -236,8 +209,6 @@
             errorMsg: ''
         };
     });
-
-    // Hook to save selected services array to cart
     bookneticHooks.addFilter('bkntc_cart', function (cartItem, booknetic) {
         console.log('=== bkntc_cart FILTER: Cart item before modification ===');
         console.log('isMultiSelectMode:', collaborativeService.isMultiSelectMode);
@@ -1006,22 +977,29 @@
                 price.before(checkboxHtml);
             }
 
-            // Add assignment radio buttons
+            // Add assignment checkboxes (allows selecting both Me and Guest)
             if (card.find('.booknetic_collab_assignment').length === 0) {
                 var assignmentHtml = '<div class="booknetic_collab_assignment" style="padding: 10px; margin:10px; border-top: 1px solid #e0e0e0; display: none;">' +
                     '<label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 5px;">Assign to:</label>' +
                     '<div style="display: flex; gap: 15px;">' +
                     '<label style="display: flex; align-items: center; font-size: 13px; cursor: pointer;">' +
-                    '<input type="radio" name="assign_to_' + serviceId + '" value="me" checked style="margin-right: 6px;">' +
+                    '<input type="checkbox" class="booknetic_assign_me" data-service-id="' + serviceId + '" value="me" checked style="margin-right: 6px;">' +
                     'Me' +
                     '</label>' +
                     '<label style="display: flex; align-items: center; font-size: 13px; cursor: pointer;">' +
-                    '<input type="radio" name="assign_to_' + serviceId + '" value="guest" style="margin-right: 6px;">' +
+                    '<input type="checkbox" class="booknetic_assign_guest" data-service-id="' + serviceId + '" value="guest" style="margin-right: 6px;">' +
                     'Guest' +
                     '</label>' +
                     '</div>' +
+                    '<small style="color: #999; display: block; margin-top: 5px;">Select who will book this service</small>' +
                     '</div>';
                 card.append(assignmentHtml);
+
+                // Handle assignment checkbox changes
+                card.find('.booknetic_assign_me, .booknetic_assign_guest').off('change').on('change', function () {
+                    console.log('Assignment checkbox changed for service ' + serviceId);
+                    rebuildServiceAssignments(serviceId, card);
+                });
             }
 
             // Handle checkbox change
@@ -1033,29 +1011,8 @@
                     card.addClass('booknetic_card_selected');
                     card.find('.booknetic_collab_assignment').slideDown(200);
 
-                    // CRITICAL: Add service to selectedServices immediately when checked
-                    var existingIndex = collaborativeService.selectedServices.findIndex(function (s) {
-                        return s.service_id === serviceId;
-                    });
-
-                    var assignedTo = card.find('input[name="assign_to_' + serviceId + '"]:checked').val() || 'me';
-
-                    if (existingIndex === -1) {
-                        // Not yet in list, add it
-                        console.log('✓ Adding service ' + serviceId + ' to selectedServices (assigned to: ' + assignedTo + ')');
-                        collaborativeService.selectedServices.push({
-                            service_id: serviceId,
-                            assigned_to: assignedTo,
-                            category_id: card.data('category'),
-                            custom_duration: null
-                        });
-                    } else {
-                        // Already in list, just update assignment
-                        collaborativeService.selectedServices[existingIndex].assigned_to = assignedTo;
-                        console.log('✓ Updated service ' + serviceId + ' assignment to: ' + assignedTo);
-                    }
-
-                    console.log('selectedServices now:', collaborativeService.selectedServices);
+                    // CRITICAL: Add entries for both selected assignments
+                    rebuildServiceAssignments(serviceId, card);
 
                     // Check if service has custom durations
                     var hasCustomDuration = window.servicesWithCustomDuration && window.servicesWithCustomDuration.some(function (row) {
@@ -1064,13 +1021,14 @@
 
                     if (hasCustomDuration) {
                         // Show custom duration popup for this service
+                        // Note: If both Me and Guest are selected, popup will show once and apply to both
                         showCustomDurationPopup(booknetic, serviceId, card);
                     }
                 } else {
                     card.removeClass('booknetic_card_selected');
                     card.find('.booknetic_collab_assignment').slideUp(200);
 
-                    // CRITICAL: Remove from selectedServices when unchecked
+                    // CRITICAL: Remove ALL entries for this service when unchecked
                     var initialLength = collaborativeService.selectedServices.length;
                     collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
                         return s.service_id !== serviceId;
@@ -1185,13 +1143,92 @@
 
         console.log('Service Collaborative: Restoring previous selections:', collaborativeService.selectedServices);
 
+        // Group selected services by service_id
+        var serviceMap = {};
         collaborativeService.selectedServices.forEach(function (item) {
-            var card = panel.find('.booknetic_service_card[data-id="' + item.service_id + '"]');
-            if (card.length > 0) {
-                card.find('.booknetic_collab_service_checkbox input').prop('checked', true).trigger('change');
-                card.find('input[name="assign_to_' + item.service_id + '"][value="' + item.assigned_to + '"]').prop('checked', true);
+            if (!serviceMap[item.service_id]) {
+                serviceMap[item.service_id] = {
+                    service_id: item.service_id,
+                    me: false,
+                    guest: false,
+                    category_id: item.category_id
+                };
+            }
+            if (item.assigned_to === 'me') {
+                serviceMap[item.service_id].me = true;
+            } else if (item.assigned_to === 'guest') {
+                serviceMap[item.service_id].guest = true;
             }
         });
+
+        // Restore selections
+        Object.keys(serviceMap).forEach(function (serviceId) {
+            var serviceData = serviceMap[serviceId];
+            var card = panel.find('.booknetic_service_card[data-id="' + serviceId + '"]');
+
+            if (card.length > 0) {
+                // Check the service checkbox
+                card.find('.booknetic_collab_service_checkbox input').prop('checked', true).trigger('change');
+
+                // Restore assignment checkboxes
+                card.find('.booknetic_assign_me[data-service-id="' + serviceId + '"]').prop('checked', serviceData.me);
+                card.find('.booknetic_assign_guest[data-service-id="' + serviceId + '"]').prop('checked', serviceData.guest);
+
+                console.log('✓ Restored service ' + serviceId + ' - Me: ' + serviceData.me + ', Guest: ' + serviceData.guest);
+            }
+        });
+    }
+
+    // Function to rebuild service assignments when Me/Guest checkboxes change
+    function rebuildServiceAssignments(serviceId, card) {
+        console.log('Rebuilding assignments for service ' + serviceId);
+
+        // Get which assignments are checked
+        var isMe = card.find('.booknetic_assign_me[data-service-id="' + serviceId + '"]').is(':checked');
+        var isGuest = card.find('.booknetic_assign_guest[data-service-id="' + serviceId + '"]').is(':checked');
+
+        console.log('Service ' + serviceId + ' - Me: ' + isMe + ', Guest: ' + isGuest);
+
+        // Validate: At least one must be selected
+        if (!isMe && !isGuest) {
+            console.warn('⚠️ At least one assignment must be selected!');
+            // Auto-select "Me" as default
+            card.find('.booknetic_assign_me[data-service-id="' + serviceId + '"]').prop('checked', true);
+            isMe = true;
+            console.log('Auto-selected "Me" as default');
+        }
+
+        // Remove all existing entries for this service
+        var beforeCount = collaborativeService.selectedServices.length;
+        var categoryId = card.data('category');
+
+        collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
+            return s.service_id !== serviceId;
+        });
+        console.log('Removed existing entries for service ' + serviceId + ' (was ' + beforeCount + ', now ' + collaborativeService.selectedServices.length + ')');
+
+        // Add new entries based on checked assignments
+        if (isMe) {
+            collaborativeService.selectedServices.push({
+                service_id: serviceId,
+                assigned_to: 'me',
+                category_id: categoryId,
+                custom_duration: null
+            });
+            console.log('✓ Added entry: Service ' + serviceId + ' → Me');
+        }
+
+        if (isGuest) {
+            collaborativeService.selectedServices.push({
+                service_id: serviceId,
+                assigned_to: 'guest',
+                category_id: categoryId,
+                custom_duration: null
+            });
+            console.log('✓ Added entry: Service ' + serviceId + ' → Guest');
+        }
+
+        console.log('Updated selectedServices:', collaborativeService.selectedServices);
     }
 
     // Function to show custom duration popup for a specific service
@@ -1239,17 +1276,22 @@
                 var durationId = $(e.currentTarget).data('duration-id');
                 console.log('Duration selected:', durationId, 'for service:', serviceId);
 
-                // Update the service in selectedServices with the custom duration
-                var serviceIndex = collaborativeService.selectedServices.findIndex(function (s) {
-                    return s.service_id === serviceId;
+                // Update ALL entries for this service with the custom duration
+                // (there might be multiple if service is assigned to both Me and Guest)
+                var foundCount = 0;
+                collaborativeService.selectedServices.forEach(function (service, index) {
+                    if (service.service_id === serviceId) {
+                        collaborativeService.selectedServices[index].custom_duration = durationId;
+                        foundCount++;
+                        console.log('✓ Updated custom_duration for service ' + serviceId + ' (entry ' + (foundCount) + '):', durationId);
+                    }
                 });
 
-                if (serviceIndex !== -1) {
-                    collaborativeService.selectedServices[serviceIndex].custom_duration = durationId;
-                    console.log('✓ Updated custom_duration for service ' + serviceId + ':', durationId);
-                    console.log('Updated selectedServices:', collaborativeService.selectedServices);
-                } else {
+                if (foundCount === 0) {
                     console.warn('⚠️ Service ' + serviceId + ' not found in selectedServices!');
+                } else {
+                    console.log('✓ Updated ' + foundCount + ' entry/entries with duration ' + durationId);
+                    console.log('Updated selectedServices:', collaborativeService.selectedServices);
                 }
 
                 // Close popup
@@ -1268,16 +1310,20 @@
             booknetic.panel_js.find('#bkntc_custom_duration_continue').off('click').on('click', function () {
                 console.log('Continue without duration selection for service:', serviceId);
 
-                // Update the service to have empty duration (skip this duration)
-                var serviceIndex = collaborativeService.selectedServices.findIndex(function (s) {
-                    return s.service_id === serviceId;
+                // Update ALL entries for this service to have empty duration
+                var foundCount = 0;
+                collaborativeService.selectedServices.forEach(function (service, index) {
+                    if (service.service_id === serviceId) {
+                        collaborativeService.selectedServices[index].custom_duration = '';
+                        foundCount++;
+                        console.log('✓ Service ' + serviceId + ' (entry ' + foundCount + ') set to continue without duration');
+                    }
                 });
 
-                if (serviceIndex !== -1) {
-                    collaborativeService.selectedServices[serviceIndex].custom_duration = '';
-                    console.log('✓ Service ' + serviceId + ' set to continue without duration (duration cleared)');
-                } else {
+                if (foundCount === 0) {
                     console.warn('⚠️ Service ' + serviceId + ' not found in selectedServices!');
+                } else {
+                    console.log('✓ Cleared custom_duration for ' + foundCount + ' entry/entries');
                 }
 
                 booknetic.panel_js.find('.popup-overlay').removeClass('enter');
