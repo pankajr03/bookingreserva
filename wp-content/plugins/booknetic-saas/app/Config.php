@@ -6,6 +6,10 @@ use BookneticApp\Providers\Common\ShortCodeService;
 use BookneticApp\Providers\Common\WorkflowDriversManager;
 use BookneticApp\Providers\Common\WorkflowEventsManager;
 use BookneticApp\Providers\Core\Capabilities;
+use BookneticSaaS\Backend\Notifications\InAppNotification;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantDeleteNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantSubscribedNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\Registerer\NotificationWorkflowEventRegisterer;
 use BookneticApp\Providers\Core\Notifications;
 use BookneticApp\Providers\Core\Permission;
 use BookneticApp\Providers\Core\Permission as PermissionRegular;
@@ -15,6 +19,14 @@ use BookneticApp\Providers\UI\Abstracts\AbstractMenuUI;
 use BookneticApp\Providers\UI\MenuUI;
 use BookneticSaaS\Backend\Billing\Ajax;
 use BookneticSaaS\Backend\Billing\Controller;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantDepositedNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantForgetPasswordNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantNotifiedNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantPaidNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantResetPasswordNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantSignupComplatedNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantSignupNotificationWorkflowEvent;
+use BookneticSaaS\Backend\Notifications\NotificationWorkflowEvents\TenantUnsubscribedNotificationWorkflowEvent;
 use BookneticSaaS\Integrations\PaymentGateways\WooCoommerce;
 use BookneticSaaS\Models\Plan;
 use BookneticSaaS\Models\Tenant;
@@ -427,42 +439,52 @@ class Config
         self::$workflowEventsManager->get('tenant_signup')
             ->setTitle(bkntcsaas__('New tenant signed up'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_signup', TenantSignupNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_signup_completed')
             ->setTitle(bkntcsaas__('Tenant sign-up completed'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_signup_completed', TenantSignupComplatedNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_forgot_password')
             ->setTitle(bkntcsaas__('Tenant forgot password'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_forgot_password', TenantForgetPasswordNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_reset_password')
             ->setTitle(bkntcsaas__('Tenant password was reset'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_reset_password', TenantResetPasswordNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_subscribed')
             ->setTitle(bkntcsaas__('Tenant subscribed to a plan'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_subscribed', TenantSubscribedNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_deleted')
             ->setTitle(bkntcsaas__('Tenant deleted'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_deleted', TenantDeleteNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_unsubscribed')
             ->setTitle(bkntcsaas__('Tenant unsubscribed to a plan'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_unsubscribed', TenantUnsubscribedNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_paid')
             ->setTitle(bkntcsaas__('Tenant payment received'))
             ->setAvailableParams([ 'tenant_id' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_paid', TenantPaidNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_deposited')
             ->setTitle(bkntcsaas__('Tenant deposited'))
             ->setAvailableParams([ 'tenant_id', 'deposit_amount' ]);
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_deposited', TenantDepositedNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('tenant_notified')
             ->setTitle(bkntcsaas__('Tenant notified to subscribe to plan'))
             ->setEditAction('workflow_events', 'event_tenant_notified');
+        NotificationWorkflowEventRegisterer::registerEvents('tenant_notified', TenantNotifiedNotificationWorkflowEvent::class);
 
         self::$workflowEventsManager->get('customer_signup')
             ->setTitle(bkntcsaas__('Customer signs up'))
@@ -584,9 +606,10 @@ class Config
         return self::$workflowEventsManager;
     }
 
-    private static function registerCoreWorkflowDrivers()
+    private static function registerCoreWorkflowDrivers(): void
     {
-        \BookneticSaaS\Config::getWorkflowDriversManager()->register(new EmailWorkflowDriver());
+        self::getWorkflowDriversManager()->register(new EmailWorkflowDriver());
+        //        self::getWorkflowDriversManager()->register(new InAppNotification());
     }
 
     /**
@@ -655,6 +678,8 @@ class Config
 
         SaaSRoute::get('boostore', \BookneticApp\Backend\Boostore\Controller::class);
         SaaSRoute::post('boostore', \BookneticApp\Backend\Boostore\Ajax::class);
+
+        SaaSRoute::post('workflow_actions', new \BookneticSaaS\Backend\Settings\Ajax(self::getWorkflowEventsManager()));
 
         SaaSRoute::get('cart', \BookneticApp\Backend\Boostore\CartController::class);
     }

@@ -80,7 +80,7 @@ class CustomerModule implements IModule
         Capabilities::register('customers_allow_to_login', bkntc__('Allow to login'), 'customers');
         Capabilities::register('customers_delete_wordpress_account', bkntc__('Allow to delete associated WordPress account'), 'customers');
 
-        Capabilities::register('customer_categories', bkntc__('Customers module'));
+        Capabilities::register('customer_categories', bkntc__('Customer Categories module'));
         Capabilities::register('customer_category_add', bkntc__('Add new'), 'customer_categories');
         Capabilities::register('customer_category_edit', bkntc__('Edit'), 'customer_categories');
         Capabilities::register('customer_category_delete', bkntc__('Delete'), 'customer_categories');

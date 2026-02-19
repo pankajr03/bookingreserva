@@ -20,11 +20,13 @@ use BookneticApp\Backend\Customers\Exceptions\SelectWordpressUserException;
 use BookneticApp\Backend\Customers\Services\CustomerService;
 use BookneticApp\Config;
 use BookneticApp\Models\Customer;
+use BookneticApp\Providers\Core\Capabilities;
 use BookneticApp\Providers\Core\Permission;
 use BookneticApp\Providers\Core\RestRequest;
 use BookneticApp\Providers\DB\DB;
 use BookneticApp\Providers\Helpers\Date;
 use BookneticApp\Providers\Helpers\Helper;
+use Exception;
 
 class CustomerRestController
 {
@@ -38,9 +40,12 @@ class CustomerRestController
     /**
      * @param RestRequest $request
      * @return array
+     * @throws Exception
      */
     public function getAll(RestRequest $request): array
     {
+        Capabilities::must('customers');
+
         $skip = $request->param('skip', 0, RestRequest::TYPE_INTEGER);
         $limit = $request->param('limit', 12, RestRequest::TYPE_INTEGER);
         $search = $request->param('search', '', RestRequest::TYPE_STRING);
@@ -54,6 +59,9 @@ class CustomerRestController
 
         $orderDirection = $request->param('orderDirection', 'DESC', RestRequest::TYPE_STRING, ['ASC', 'DESC']);
 
+        if ($limit < 1) {
+            throw new Exception(bkntc__('Limit must be greater than 0'));
+        }
         $filterRequest = new CustomerFilterRequest();
 
         $filterRequest->setSearch($search)
@@ -81,13 +89,11 @@ class CustomerRestController
      */
     public function get(RestRequest $request): CustomerResponse
     {
+        Capabilities::must('customers');
+
         $id = $request->param('id', 0, RestRequest::TYPE_INTEGER);
 
-        $customer = $this->service->get($id);
-
-        $customer->setProfileImage(Helper::profileImage($customer->getProfileImage(), 'Customers'));
-
-        return $customer;
+        return $this->service->get($id);
     }
 
     /**
@@ -97,6 +103,8 @@ class CustomerRestController
      */
     public function delete(RestRequest $request): array
     {
+        Capabilities::must('customers_delete');
+
         $ids = $request->param('ids', [], RestRequest::TYPE_ARRAY);
         $deleteWpUser = $request->param('delete_wp_user', 1, RestRequest::TYPE_INTEGER);
 
@@ -267,7 +275,7 @@ class CustomerRestController
             }
         }
 
-        if (!Permission::isAdministrator()) {
+        if (!Permission::isAdministrator() && !Permission::isMobile()) {
             $wpUser = $isEdit ? $getOldInf->getUserId() : 0;
         } elseif ($allowLogin === 1) {
             if ($wpUserUseExisting === 'yes' && !($wpUser > 0)) {
@@ -351,6 +359,7 @@ class CustomerRestController
             ->setGender($gender)
             ->setBirthdate(empty($birthday) ? null : Date::reformatDateFromCustomFormat($birthday))
             ->setEmail($email)
+            ->setWpUserPassword($wpUserPassword)
             ->setPhoneNumber($phone)
             ->setNotes($note)
             ->setUserId(max($wpUser, 0));

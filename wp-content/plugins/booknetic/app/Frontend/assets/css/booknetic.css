@@ -3281,6 +3281,8 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+	touch-action: manipulation;
 }
 
 .booknetic_number_of_brought_customers_quantity_input

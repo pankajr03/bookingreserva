@@ -516,6 +516,23 @@ var bookneticPaymentStatus;
 				});
 			},
 
+			ajaxRest: (endpoint, method = "GET", data = {}, {noLoading = false} = {}) => {
+				if (!noLoading) booknetic.loading(true);
+
+				return $.ajax({
+					url: restURL + endpoint,
+					method,
+					data,
+					headers: {"X-Wp-Nonce": restNonce},
+				})
+					.always(() => {
+						if (!noLoading) booknetic.loading(false);
+					})
+					.fail((jqXHR) => {
+						booknetic.toast(jqXHR.status + " error!", "unsuccess");
+					});
+			},
+
 			select2Ajax: function ( select, action, parameters )
 			{
 				var params = {};

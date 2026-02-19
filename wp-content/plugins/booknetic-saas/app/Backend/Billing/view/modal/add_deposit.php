@@ -34,7 +34,7 @@ use BookneticSaaS\Providers\Helpers\Helper;
 					<label for="select_payment_cycle"><?php echo bkntcsaas__('Payment cycle')?></label>
 					<select class="form-control" id="select_payment_cycle">
 						<option value="monthly"><?php echo bkntcsaas__('Monthly')?></option>
-						<option value="annually"><?php echo bkntcsaas__('Annually')?></option>
+						<option value="annually"><?php echo bkntcsaas__('Annual')?></option>
 					</select>
 				</div>
 				<div class="form-group col-md-12 calcualte_btn_section">

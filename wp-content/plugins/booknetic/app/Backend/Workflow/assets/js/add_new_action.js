@@ -12,8 +12,9 @@
 
         $('.modal-footer').on('click', '#addActionNextBtn', function ()
         {
-            var action_driver			    = $('#input_do_this').val(),
-                workflow_id					= currentWorkflowID ;
+            let action_driver = $('#input_do_this').val();
+            let workflow_id	= currentWorkflowID;
+            let event = $(this).data('event');
 
             if( action_driver === "" )
             {
@@ -26,17 +27,17 @@
                 $(this).next('span').css('border', '');
             }
 
-            var data = new FormData();
+            let data = new FormData();
 
             data.append('action_driver', action_driver);
             data.append('workflow_id', workflow_id);
 
             booknetic.ajax( 'create_new_action', data, function( result )
             {
-                    booknetic.reloadActionList();
+                booknetic.reloadActionList();
 
                 booknetic.modalHide($(".modal"));
-                booknetic.loadModal(result.edit_action, { 'id' : result.action_id } )
+                booknetic.loadModal(result.edit_action, {'id' : result.action_id, 'event' : event})
             });
         });
 

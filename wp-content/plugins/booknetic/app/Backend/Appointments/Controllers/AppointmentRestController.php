@@ -4,6 +4,8 @@ namespace BookneticApp\Backend\Appointments\Controllers;
 
 use BookneticApp\Backend\Appointments\Exceptions\StatusNotFoundException;
 use BookneticApp\Backend\Appointments\Services\AppointmentService;
+use BookneticApp\Providers\Core\Capabilities;
+use BookneticApp\Providers\Core\CapabilitiesException;
 use BookneticApp\Providers\Core\RestRequest;
 use Exception;
 
@@ -14,8 +16,14 @@ class AppointmentRestController
     {
         $this->appointmentService = $appointmentService;
     }
+
+    /**
+     * @throws CapabilitiesException
+     */
     public function getAll(RestRequest $request): array
     {
+        Capabilities::must('appointments');
+
         $skip = $request->param('skip', 0, RestRequest::TYPE_INTEGER);
         $limit = $request->param('limit', 12, RestRequest::TYPE_INTEGER);
         $search = $request->param('search', '', RestRequest::TYPE_STRING);
@@ -65,6 +73,8 @@ class AppointmentRestController
      */
     public function get(RestRequest $request): array
     {
+        Capabilities::must('appointments');
+
         $id = $request->require('id', RestRequest::TYPE_INTEGER);
 
         $appointment = $this->appointmentService->getAppointment($id);
@@ -89,6 +99,8 @@ class AppointmentRestController
      */
     public function delete(RestRequest $request): array
     {
+        Capabilities::must('appointments_delete');
+
         $id = $request->require('id', RestRequest::TYPE_INTEGER);
         $this->appointmentService->delete($id);
 
@@ -108,9 +120,12 @@ class AppointmentRestController
 
     /**
      * @throws StatusNotFoundException
+     * @throws CapabilitiesException
      */
     public function changeStatus(RestRequest $request): array
     {
+        Capabilities::must('appointments_change_status');
+
         $runWorkflows = $request->param('run_workflows', 1, RestRequest::TYPE_INTEGER, [0, 1]);
 
         $id = $request->param('id', 0, RestRequest::TYPE_INTEGER);

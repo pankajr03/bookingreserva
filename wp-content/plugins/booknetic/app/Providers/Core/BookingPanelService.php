@@ -221,7 +221,7 @@ class BookingPanelService
             'id'    =>  'intlTelInput',
             'type'  =>  'css',
             'src'   =>  Helper::assets('css/intlTelInput.min.css', 'front-end'),
-            'ver'   =>  '24.8.2'
+            'ver'   =>  '24.8.3'
         ];
         $assetsToLoad[] = [
             'id'    =>  'select2-bootstrap',

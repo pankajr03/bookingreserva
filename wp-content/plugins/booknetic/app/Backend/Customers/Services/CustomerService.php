@@ -78,6 +78,8 @@ class CustomerService
             throw new CustomerNotFoundException();
         }
 
+        $customer->profile_image_url = Helper::profileImage($customer->profile_image, 'Customers');
+
         return $this->mapper->toResponse($customer);
     }
 
@@ -294,7 +296,7 @@ class CustomerService
 
         foreach ($customers as $customer) {
             $customer->last_appointment_date = Date::format('Y-m-d H:i:s', $customer->last_appointment_date);
-            $customer->profile_image_url = $customer->profile_image_url ? Helper::profileImage($customer->profile_image_url, 'Customers') : null;
+            $customer->profile_image_url = Helper::profileImage($customer->profile_image_url, 'Customers');
         }
 
         $customers = $this->mapper->toListResponse($customers);

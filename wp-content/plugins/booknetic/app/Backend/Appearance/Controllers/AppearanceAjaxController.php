@@ -82,7 +82,8 @@ class AppearanceAjaxController extends Controller
 
     public function getFontFamilies()
     {
-        $fontList = $this->fontService->getFontsList();
+        $q = Post::string('q');
+        $fontList = $this->fontService->getFontsList($q);
 
         return $this->response(true, [ 'results' => $fontList
      ]);

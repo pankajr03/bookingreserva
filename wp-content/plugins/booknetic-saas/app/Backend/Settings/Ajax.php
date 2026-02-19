@@ -10,9 +10,11 @@ use BookneticApp\Providers\Common\ShortCodeService;
 use BookneticApp\Providers\DB\Collection;
 use BookneticApp\Providers\DB\DB;
 use BookneticApp\Providers\Request\Post;
+use BookneticSaas\Backend\Notifications\Registerer\NotificationWorkflowEventRegisterer;
 use BookneticSaaS\Backend\Settings\Exceptions\SettingsNotFoundException;
 use BookneticSaaS\Backend\Settings\Exceptions\SplitPaymentNotSupportedException;
 use BookneticSaaS\Models\Plan;
+use BookneticSaaS\Models\Tenant;
 use BookneticSaaS\Providers\Common\EmailWorkflowDriver;
 use BookneticSaaS\Providers\Common\GoogleGmailService;
 use BookneticSaaS\Providers\Core\Permission;
@@ -41,6 +43,82 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
         return $this->modalView('general_settings', [
             'confirmation_number' => ( int ) $getConfirmationNumber[ 'AUTO_INCREMENT' ]
         ]);
+    }
+
+    public function plan_settings()
+    {
+        if (!Permission::canUseBooknetic()) {
+            throw new SettingsNotFoundException();
+        }
+
+        $plans = Plan::orderBy('order_by')->fetchAll();
+
+        $expirePlan = Plan::where('expire_plan', 1)->fetch();
+
+        $defaultPlan = Plan::query()->where('is_default', 1)->fetch();
+
+        $annualPlanBadgeText   = Helper::getOption('annual_plan_badge_text', '');
+        $annualPlanBadgeColor  = Helper::getOption('annual_plan_badge_color', '');
+        $isAnnualPlanBadgeEnabled = Helper::getOption('is_annual_plan_badge_enabled', 0) == 1;
+
+        return $this->modalView('plan_settings', [
+            'plans' => $plans,
+            'trial_period' => (int) Helper::getOption('trial_period', 30),
+            'default_interval_on_pricing' => Helper::getOption('default_interval_on_pricing', 'monthly'),
+            'show_monthly_breakdown_on_annual' => Helper::getOption('show_monthly_breakdown_on_annual', 'off'),
+            'expire_plan_id' => (int)$expirePlan->id,
+            'trial_plan_id' => (int)$defaultPlan->id,
+            'annual_plan_badge_text' => $annualPlanBadgeText,
+            'annual_plan_badge_color' => $annualPlanBadgeColor,
+            'is_annual_plan_badge_enabled' => $isAnnualPlanBadgeEnabled
+        ]);
+    }
+
+    public function save_plan_settings()
+    {
+        $trialPlanId  = Post::int('trial_plan_id');
+        $expirePlanId = Post::int('expire_plan_id');
+        $trialPeriod   = Post::int('trial_period', 30);
+        $isAnnualPlanBadgeEnabled = Post::int('is_annual_plan_badge_enabled', 0, [0, 1]);
+        $annualPlanBadgeText = Post::string('annual_plan_badge_text');
+        $annualPlanBadgeColor = Post::string('annual_plan_badge_color');
+
+        $defaultIntervalOnPricing = Post::string(
+            'default_interval_on_pricing',
+            'monthly',
+            ['monthly', 'annual']
+        );
+
+        $showMonthlyBreakdown = Post::string(
+            'show_monthly_breakdown_on_annual',
+            'off',
+            ['on', 'off']
+        );
+
+        Helper::setOption('trial_period', $trialPeriod);
+        Helper::setOption('default_interval_on_pricing', $defaultIntervalOnPricing);
+        Helper::setOption('show_monthly_breakdown_on_annual', $showMonthlyBreakdown);
+        Helper::setOption('is_annual_plan_badge_enabled', $isAnnualPlanBadgeEnabled);
+        Helper::setOption('annual_plan_badge_text', $annualPlanBadgeText);
+        Helper::setOption('annual_plan_badge_color', $annualPlanBadgeColor);
+
+        if ($trialPlanId > 0) {
+            $plan = Plan::query()->get($trialPlanId);
+            if ($plan) {
+                Plan::query()->where('is_default', 1)->update(['is_default' => 0]);
+                Plan::query()->where('id', $trialPlanId)->update(['is_default' => 1]);
+            }
+        }
+
+        if ($expirePlanId > 0) {
+            $plan = Plan::query()->get($expirePlanId);
+            if ($plan) {
+                Plan::query()->where('expire_plan', 1)->update(['expire_plan' => 0]);
+                Plan::query()->where('id', $expirePlanId)->update(['expire_plan' => 1]);
+            }
+        }
+
+        return $this->response(true);
     }
 
     public function whitelabel_settings()
@@ -218,19 +296,18 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
 
     public function save_general_settings()
     {
-        $google_maps_api_key = Helper::_post('google_maps_api_key', '', 'string');
-        $google_maps_map_id = Helper::_post('google_maps_map_id', '', 'string');
-        $google_recaptcha = Helper::_post('google_recaptcha', 'off', 'string', [ 'on', 'off' ]);
-        $google_recaptcha_site_key = Helper::_post('google_recaptcha_site_key', '', 'string');
-        $google_recaptcha_secret_key = Helper::_post('google_recaptcha_secret_key', '', 'string');
-        $confirmation_number = Helper::_post('confirmation_number', '', 'int');
-        $trial_plan_id = Helper::_post('trial_plan_id', '', 'int');
-        $expire_plan_id = Helper::_post('expire_plan_id', '', 'int');
-        $trial_period = Helper::_post('trial_period', '30', 'int');
-        $enable_language_switcher = Helper::_post('enable_language_switcher', 'off', 'string', [ 'on', 'off' ]);
-        $active_languages = Helper::_post('active_languages', [], 'arr');
-        $new_wp_user_on_new_booking = Helper::_post('new_wp_user_on_new_booking', 'off', 'string', [ 'on', 'off' ]);
-        $disallow_tenants_to_enter_wp_dashboard = Post::string('disallow_tenants_to_enter_wp_dashboard', 'off', [ 'on', 'off' ]);
+        $google_maps_api_key            = Helper::_post('google_maps_api_key', '', 'string');
+        $google_maps_map_id             = Helper::_post('google_maps_map_id', '', 'string');
+        $google_recaptcha               = Helper::_post('google_recaptcha', 'off', 'string', [ 'on', 'off' ]);
+        $google_recaptcha_site_key      = Helper::_post('google_recaptcha_site_key', '', 'string');
+        $google_recaptcha_secret_key    = Helper::_post('google_recaptcha_secret_key', '', 'string');
+        $confirmation_number            = Helper::_post('confirmation_number', '', 'int');
+        $enable_language_switcher       = Helper::_post('enable_language_switcher', 'off', 'string', [ 'on', 'off' ]);
+        $active_languages               = Helper::_post('active_languages', [], 'arr');
+        $new_wp_user_on_new_booking     = Helper::_post('new_wp_user_on_new_booking', 'off', 'string', [ 'on', 'off' ]);
+        $disallow_tenants_to_enter_wp_dashboard =
+            Post::string('disallow_tenants_to_enter_wp_dashboard', 'off', [ 'on', 'off' ]);
+
         if ($enable_language_switcher === 'off') {
             $active_languages = [];
         }
@@ -240,7 +317,6 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
         Helper::setOption('google_recaptcha', $google_recaptcha);
         Helper::setOption('google_recaptcha_site_key', $google_recaptcha_site_key);
         Helper::setOption('google_recaptcha_secret_key', $google_recaptcha_secret_key);
-        Helper::setOption('trial_period', $trial_period);
         Helper::setOption('enable_language_switcher', $enable_language_switcher);
         Helper::setOption('new_wp_user_on_new_booking', $new_wp_user_on_new_booking);
         Helper::setOption('disallow_tenants_to_enter_wp_dashboard', $disallow_tenants_to_enter_wp_dashboard);
@@ -250,35 +326,31 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
         }
 
         if ($confirmation_number > 0) {
-            $getConfirmationNumber = DB::DB()->get_row('SELECT `AUTO_INCREMENT` FROM  `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`=database() AND `TABLE_NAME`=\'' . DB::table(Appointment::getTableName()) . '\'', ARRAY_A);
+            $getConfirmationNumber = DB::DB()->get_row(
+                'SELECT `AUTO_INCREMENT`
+             FROM `INFORMATION_SCHEMA`.`TABLES`
+             WHERE `TABLE_SCHEMA` = database()
+             AND `TABLE_NAME` = \'' . DB::table(Appointment::getTableName()) . '\'',
+                ARRAY_A
+            );
 
-            if ((int) $getConfirmationNumber[ 'AUTO_INCREMENT' ] > $confirmation_number) {
+            if ((int)$getConfirmationNumber['AUTO_INCREMENT'] > $confirmation_number) {
                 return $this->response(false, bkntcsaas__('Confirmation number is invalid!'));
             }
 
-            DB::DB()->query("ALTER TABLE `" . DB::table(Appointment::getTableName()) . "` AUTO_INCREMENT=" . (int) $confirmation_number);
-        }
-
-        if ($trial_plan_id > 0) {
-            $checkIfPlanExist = Plan::query()->get($trial_plan_id);
-            if ($checkIfPlanExist) {
-                Plan::query()->where('is_default', 1)->update([ 'is_default' => 0 ]);
-                Plan::query()->where('id', $trial_plan_id)->update([ 'is_default' => 1 ]);
-            }
-        }
-
-        if ($expire_plan_id > 0) {
-            $checkIfPlanExist = Plan::get($expire_plan_id);
-            if ($checkIfPlanExist) {
-                Plan::where('expire_plan', 1)->update([ 'expire_plan' => 0 ]);
-                Plan::where('id', $expire_plan_id)->update([ 'expire_plan' => 1 ]);
-            }
+            DB::DB()->query(
+                "ALTER TABLE `" . DB::table(Appointment::getTableName()) . "` AUTO_INCREMENT=" . (int)$confirmation_number
+            );
         }
 
         $active_languages_arr = [];
         foreach ($active_languages as $active_language) {
-            if (is_string($active_language) && ! empty($active_language) && LocalizationService::isLngCorrect($active_language)) {
-                $active_languages_arr[] = (string) $active_language;
+            if (
+                is_string($active_language) &&
+                !empty($active_language) &&
+                LocalizationService::isLngCorrect($active_language)
+            ) {
+                $active_languages_arr[] = (string)$active_language;
             }
         }
 
@@ -686,6 +758,80 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
                 }
             }
         }
+
+        return $this->response(true);
+    }
+
+    public function in_app_notification_view()
+    {
+        $id = Post::int('id');
+        $action = Post::string('event');
+
+        $workflowActionInfo = WorkflowAction::query()->get($id);
+
+        if (! $workflowActionInfo) {
+            return $this->response(false);
+        }
+
+        if (NotificationWorkflowEventRegisterer::getEventInstance($action) === null) {
+            return $this->response(false, ['error_msg' => 'In App Notification driver not supported for this event']);
+        }
+
+        $availableParams = $this->workflowEventsManager->get(Workflow::get($workflowActionInfo->workflow_id)['when'])
+            ->getAvailableParams();
+
+        $toShortcodes = $this->workflowEventsManager->getShortcodeService()->getShortCodesList($availableParams, ['email']);
+        $subjectAndBodyShortcodes   = $this->workflowEventsManager->getShortcodeService()->getShortCodesList($availableParams);
+        $idShortcodes = $this->workflowEventsManager->getShortcodeService()->getShortCodesList($availableParams, ['staff_id']);
+
+        $data = json_decode($workflowActionInfo->data, true);
+
+        $selectedIds = isset($data['to']) ? explode(',', $data['to']) : [];
+
+        $users = Tenant::query()->select(['user_id as id', 'full_name as name'])->where('user_id', '<>', null)->fetchAll();
+
+        return $this->modalView('in_app_notification_view', [
+            'action_info' => $workflowActionInfo,
+            'users' => $users,
+            'to' => $selectedIds,
+            'title' => $data['title'] ?? null,
+            'toShortcodes' => $toShortcodes,
+            'all_shortcodes' => $subjectAndBodyShortcodes,
+            'message' => $data['message'] ?? null,
+            'status' => $data['status'] ?? null,
+            'run_workflows' => $data['run_workflows'] ?? true
+        ], [
+            'workflow_action_id' => $id,
+        ]);
+    }
+
+    public function in_app_notification_save()
+    {
+        $id = Post::int('id');
+        $to = Post::string('to');
+        $title = Post::string('title');
+        $message = Post::string('message');
+        $status = Post::string('status');
+        $is_active = Post::int('is_active');
+        $run_workflows = Post::int('run_workflows');
+
+        $checkWorkflowActionExist = WorkflowAction::query()->get($id);
+        if (! $checkWorkflowActionExist) {
+            return $this->response(false);
+        }
+
+        $data = [
+            'to' => $to,
+            'title' => $title,
+            'message' => $message,
+            'status' => $status,
+            'run_workflows' => $run_workflows === 1
+        ];
+
+        WorkflowAction::where('id', $id)->update([
+            'data' => json_encode($data),
+            'is_active' => $is_active
+        ]);
 
         return $this->response(true);
     }

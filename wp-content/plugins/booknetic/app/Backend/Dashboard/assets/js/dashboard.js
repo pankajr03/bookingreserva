@@ -47,7 +47,7 @@
 		}).on('click', '.boostore-notification-close', function () {
 			const container = $(this).closest('.boostore-notification-container');
 
-			booknetic.ajax('dismiss_notification', {slug: container.data('slug')}, () => {
+			booknetic.ajax('Base.dismiss_notification', {slug: container.data('slug')}, () => {
 				container.remove()
 			})
 		});

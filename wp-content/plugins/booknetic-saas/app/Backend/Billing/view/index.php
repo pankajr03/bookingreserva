@@ -41,47 +41,128 @@ $currentPlanName = htmlspecialchars($parameters[ 'current_plan' ]->name ?? '-');
 </div>
 
 <div id="choose_plan_window">
-    <div class="close_choose_plan_window_btn"><img src="<?php echo Helper::icon('cross.svg')?>"></div>
-    <div class="choose_plan_title"><?php echo bkntcsaas__('Choose a plan')?></div>
-    <div class="choose_plan_subtitle"><?php echo bkntcsaas__('Upgrade your account')?></div>
+    <div class="close_choose_plan_window_btn">
+        <img src="<?php echo Helper::icon('cross.svg')?>">
+    </div>
+
+    <div class="choose_plan_title">
+        <?php echo bkntcsaas__('Choose a plan')?>
+    </div>
+
+    <div class="choose_plan_subtitle">
+        <?php echo bkntcsaas__('Upgrade your account')?>
+    </div>
 
     <div class="choose_plan_payment_cycle">
-        <div class="payment_cycle active_payment_cycle"><?php echo bkntcsaas__('Monthly')?></div>
+        <div class="payment_cycle active_payment_cycle">
+            <?php echo bkntcsaas__('Monthly')?>
+        </div>
+
         <div class="payment_cycle_swicher">
-            <input type="checkbox" class="payment_cycle_swicher_checkbox" id="input_payment_cycle_swicher">
+            <input type="checkbox"
+                   class="payment_cycle_swicher_checkbox"
+                   id="input_payment_cycle_swicher"
+                    <?php echo Helper::getOption('default_interval_on_pricing', 'monthly') === 'annual'
+                            ? ' checked'
+                            : '' ?>>
             <label class="payment_cycle_swicher_label" for="input_payment_cycle_swicher"></label>
         </div>
-        <div class="payment_cycle"><?php echo bkntcsaas__('Annually')?></div>
+
+        <div class="payment_cycle position-relative">
+            <?php echo bkntcsaas__('Annual')?>
+            <?php if ($parameters['is_annual_plan_badge_enabled']):?>
+                <span class="annual-badge position-absolute" style="background-color: <?php echo htmlspecialchars($parameters['annual_plan_badge_color'])?>"><?php echo htmlspecialchars($parameters['annual_plan_badge_text'])?></span>
+            <?php endif; ?>
+        </div>
     </div>
 
     <div class="plans_area">
 
         <?php foreach ($parameters['plans'] as $plan): ?>
-            <div class="plan_card" data-plan-id="<?php echo (int)$plan->id?>">
+            <div class="plan_card" data-plan-id="<?php echo (int)$plan->id ?>">
+
                 <?php if (!empty($plan->ribbon_text)): ?>
-                    <div class="plan_ribbon"><div><?php echo htmlspecialchars($plan->ribbon_text)?></div></div>
+                    <div class="plan_ribbon">
+                        <div><?php echo htmlspecialchars($plan->ribbon_text) ?></div>
+                    </div>
                 <?php endif; ?>
-                <div class="plan_title"><?php echo htmlspecialchars($plan->name)?></div>
-                <div class="plan_price" data-price="monthly"><?php echo Helper::price($plan->monthly_price * ($plan->monthly_price_discount > 0 && empty($plan->actual_monthly_discount) ? (100 - $plan->monthly_price_discount) / 100 : 1))?></div>
-                <div class="plan_price hidden" data-price="annually"><?php echo Helper::price($plan->annually_price * ($plan->annually_price_discount > 0 && empty($plan->actual_annually_discount) ? (100 - $plan->annually_price_discount) / 100 : 1))?></div>
+
+                <div class="plan_title">
+                    <?php echo htmlspecialchars($plan->name) ?>
+                </div>
+
+                <!-- MONTHLY -->
+                <div class="plan_price" data-price="monthly">
+                    <?php echo Helper::price(
+                        $plan->monthly_price *
+                        ($plan->monthly_price_discount > 0 && empty($plan->actual_monthly_discount)
+                                ? (100 - $plan->monthly_price_discount) / 100
+                                : 1)
+                    ) ?>
+                </div>
+
+                <!-- ANNUAL -->
+                <div class="plan_price hidden" data-price="annually">
+                    <?php
+                    echo Helper::price(
+                        $parameters['show_monthly_breakdown_on_annual']
+                                ? $plan->annual_monthly_breakdown
+                                : (
+                                    $plan->annually_price *
+                                    ($plan->annually_price_discount > 0 && empty($plan->actual_annually_discount)
+                                        ? (100 - $plan->annually_price_discount) / 100
+                                        : 1)
+                                )
+                    );
+            ?>
+                </div>
+
+                <!-- MONTHLY SUBTITLE -->
                 <div class="plan_subtitle" data-price="monthly">
                     <?php if ($plan->monthly_price_discount > 0 && empty($plan->actual_monthly_discount)): ?>
-                        <div class="plan_subtitle_discount_line"><?php echo bkntcsaas__('%d%% off ( Normally %s )', [ (int)$plan->monthly_price_discount, Helper::price($plan->monthly_price) ]) ;?></div>
+                        <div class="plan_subtitle_discount_line">
+                            <?php echo bkntcsaas__(
+                                '%d%% off ( Normally %s )',
+                                [
+                                        (int)$plan->monthly_price_discount,
+                                        Helper::price($plan->monthly_price)
+                                ]
+                            ); ?>
+                        </div>
                     <?php endif; ?>
-                    <div><?php echo bkntcsaas__('per month')?></div>
+                    <div><?php echo bkntcsaas__('per month') ?></div>
                 </div>
+
+                <!-- ANNUAL SUBTITLE -->
                 <div class="plan_subtitle hidden" data-price="annually">
-                    <?php if ($plan->annually_price_discount > 0 && empty($plan->actual_annually_discount)): ?>
-                        <div class="plan_subtitle_discount_line"><?php echo bkntcsaas__('%d%% off ( Normally %s )', [ (int)$plan->annually_price_discount, Helper::price($plan->annually_price) ]) ;?></div>
+                    <?php if (!$parameters['show_monthly_breakdown_on_annual']
+                            && $plan->annually_price_discount > 0
+                            && empty($plan->actual_annually_discount)): ?>
+                        <div class="plan_subtitle_discount_line">
+                            <?php echo bkntcsaas__(
+                                '%d%% off ( Normally %s )',
+                                [
+                                        (int)$plan->annually_price_discount,
+                                        Helper::price($plan->annually_price)
+                                ]
+                            ); ?>
+                        </div>
                     <?php endif; ?>
-                    <div><?php echo bkntcsaas__('per year')?></div>
+
+                    <div>
+                        <?php echo $parameters['show_monthly_breakdown_on_annual']
+                                ? bkntcsaas__('per month')
+                                : bkntcsaas__('per year'); ?>
+                    </div>
                 </div>
+
                 <div class="plan_description">
-                    <?php echo $plan->description?>
+                    <?php echo $plan->description ?>
                 </div>
+
                 <div class="plan_footer">
                     <?php
-                    $isSelectedPlan = $plan->id === $parameters[ 'current_plan' ]->id;
+                    $isSelectedPlan = $plan->id === $parameters['current_plan']->id;
 
             if ($isSelectedPlan) {
                 $buttonText = bkntcsaas__('SELECTED');
@@ -92,13 +173,18 @@ $currentPlanName = htmlspecialchars($parameters[ 'current_plan' ]->name ?? '-');
             }
             ?>
 
-                    <button type="button" class="btn btn-primary choose_plan_btn" style="background: <?php echo htmlspecialchars($plan->color)?> !important;" <?php echo $disabled ?>><?php echo $buttonText?></button>
+                    <button type="button"
+                            class="btn btn-primary choose_plan_btn"
+                            style="background: <?php echo htmlspecialchars($plan->color) ?> !important;"
+                            <?php echo $disabled ?>>
+                        <?php echo $buttonText ?>
+                    </button>
                 </div>
+
             </div>
-        <?php endforeach;?>
+        <?php endforeach; ?>
 
     </div>
-
 </div>
 <div id="choose_payment_method_window">
     <div class="choose_payment_method_back_btn"><img src="<?php echo Helper::icon('arrow.svg')?>"> <?php echo bkntcsaas__('back')?></div>

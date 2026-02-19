@@ -4,6 +4,9 @@ defined('ABSPATH') or die();
 
 use BookneticApp\Providers\Helpers\Helper;
 
+/**
+ * @var array $parameters
+ */
 ?>
 
 <link rel="stylesheet" href="<?php echo Helper::assets('css/general_settings.css', 'Settings')?>">
@@ -19,11 +22,14 @@ use BookneticApp\Providers\Helpers\Helper;
                     </select>
                 </div>
 
-            <div class="form-group col-md-6">
-                <label for="time_priority"><?php echo bkntc__('Time Priority')?>:</label>
-                <select class="form-control" id="time_priority">
-                    <option value="staff"<?php echo $parameters['priority'] == 'staff' ? ' selected' : ''?>><?php echo bkntc__('Staff')?></option>
-                    <option value="service"<?php echo $parameters['priority'] == 'service' ? ' selected' : ''?>><?php echo bkntc__('Service')?></option>
-                </select>
+                <div class="form-group col-md-6">
+                    <label for="time_priority"><?php echo bkntc__('Time Priority')?>:</label>
+                    <select class="form-control" id="time_priority">
+                        <option value="staff"<?php echo $parameters['priority'] == 'staff' ? ' selected' : ''?>><?php echo bkntc__('Staff')?></option>
+                        <option value="service"<?php echo $parameters['priority'] == 'service' ? ' selected' : ''?>><?php echo bkntc__('Service')?></option>
+                    </select>
+                </div>
+
             </div>
-        </form>
+</form>
+

@@ -5,6 +5,9 @@ namespace BookneticApp\Providers\Router;
 use Exception;
 use WP_REST_Request;
 
+/**
+ * @deprecated Use BookneticApp\Providers\Core\RestRequest instead.
+ */
 class RestRequest
 {
     public const TYPE_INTEGER = 'integer';

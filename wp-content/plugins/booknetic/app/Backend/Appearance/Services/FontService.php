@@ -19,7 +19,7 @@ class FontService
         return true;
     }
 
-    public function getFontsList(): array
+    public function getFontsList(string $q = ''): array
     {
         $json_file = __DIR__ . '/../assets/fonts.json';
 
@@ -28,6 +28,21 @@ class FontService
             $fonts = json_decode($json, true);
         } else {
             $fonts = [];
+        }
+        if (!empty($q)) {
+            $q = strtolower($q);
+            $result = [];
+
+            foreach ($fonts as $item) {
+                if (
+                    strpos(strtolower($item['id'] ?? ''), $q) !== false ||
+                    strpos(strtolower($item['text'] ?? ''), $q) !== false
+                ) {
+                    $result[] = $item;
+                }
+            }
+
+            $fonts = $result;
         }
 
         return $fonts;

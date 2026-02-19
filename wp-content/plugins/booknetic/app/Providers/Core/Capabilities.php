@@ -87,7 +87,7 @@ class Capabilities extends AbstractCapabilities
 
     public static function getTenantCapability($capability)
     {
-        return isset(self::$tenantCapabilities[ $capability ]) ? self::$tenantCapabilities[ $capability ] : false;
+        return self::$tenantCapabilities[$capability] ?? false;
     }
 
     public static function mustTenant($capability)
@@ -97,7 +97,7 @@ class Capabilities extends AbstractCapabilities
         }
     }
 
-    public static function tenantCan($capability)
+    public static function tenantCan($capability): bool
     {
         $capabilityInf = self::getTenantCapability($capability);
 
@@ -110,6 +110,11 @@ class Capabilities extends AbstractCapabilities
             return false;
         }
 
-        return apply_filters('bkntc_tenant_capability_filter', true, $capability);
+        return (bool) apply_filters('bkntc_tenant_capability_filter', true, $capability);
+    }
+
+    public static function tenantCannot($capability): bool
+    {
+        return ! self::tenantCan($capability);
     }
 }

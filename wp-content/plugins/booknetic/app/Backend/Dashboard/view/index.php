@@ -6,11 +6,6 @@ use BookneticApp\Providers\Core\Capabilities;
 use BookneticApp\Providers\Helpers\Helper;
 use BookneticApp\Providers\Helpers\NotificationHelper;
 
-$customCss = Helper::getOption('custom_css', '', false);
-
-if (!empty($customCss)) {
-    echo "<style>{$customCss}</style>";
-}
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo Helper::assets('css/dashboard.css', 'Dashboard')?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo Helper::assets('css/daterangepicker.css', 'Dashboard')?>" />

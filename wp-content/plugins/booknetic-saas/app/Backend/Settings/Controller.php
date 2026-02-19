@@ -21,6 +21,11 @@ class Controller extends \BookneticApp\Providers\Core\Controller
                     ->setPriority(1)
                     ->setTitle(bkntcsaas__('General'));
 
+        SettingsMenuUI::get('general_settings')
+                    ->subItem('plan_settings')
+                    ->setPriority(2)
+                    ->setTitle(bkntcsaas__('Plan Settings'));
+
         SettingsMenuUI::get('whitelabel_settings')
                       ->setPriority(2)
                       ->setTitle(bkntcsaas__('White Label settings'))
@@ -81,6 +86,11 @@ class Controller extends \BookneticApp\Providers\Core\Controller
                       ->subItem('integrations_google_login_settings')
                       ->setTitle(bkntcsaas__('Continue with Google'))
                       ->setPriority(2);
+
+        add_filter('bkntc_localization', static fn ($localization) => array_merge($localization, [
+            'annual_plan_badge_text_required' => bkntc__('Annual plan badge text required'),
+            'annual_plan_badge_color_required' => bkntc__('Annual plan badge color required')
+        ]));
 
         $this->view('index', [
             'menu' => SettingsMenuUI::getItems()

@@ -74,11 +74,21 @@ class Controller extends \BookneticApp\Providers\Core\Controller
                       ->setPriority(1);
         }
 
+        if ((Helper::isRegular() || Capabilities::tenantCannot('disable_deposit_payments')) &&
+            Capabilities::tenantCan('settings_deposit') &&
+            Capabilities::userCan('settings_deposit')
+        ) {
+            SettingsMenuUI::get('payment_settings')
+                ->subItem('deposit_settings')
+                ->setTitle(bkntc__('Deposit Settings'))
+                ->setPriority(2);
+        }
+
         if (Capabilities::tenantCan('settings_payments') &&  Capabilities::tenantCan('settings_payment_gateways') && Capabilities::userCan('settings_payment_gateways')) {
             SettingsMenuUI::get('payment_settings')
                       ->subItem('payment_gateways_settings')
                       ->setTitle(bkntc__('Payment methods'))
-                      ->setPriority(2);
+                      ->setPriority(3);
         }
 
         if (Capabilities::userCan('settings_company') && Capabilities::tenantCan('settings_company')) {

@@ -75,9 +75,13 @@
             } else {
                 $(this).closest('.booknetic_service_extra_card').addClass('booknetic_service_extra_card_selected');
             }
-        }).on('click', '.booknetic_number_of_brought_customers_inc', function () {
+        }).on('touchstart click', '.booknetic_number_of_brought_customers_inc', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
             handleQuantityChange($(this), true, booknetic.panel_js);
-        }).on('click', '.booknetic_number_of_brought_customers_dec', function () {
+        }).on('touchstart click', '.booknetic_number_of_brought_customers_dec', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
             handleQuantityChange($(this), false, booknetic.panel_js);
         }).on('keyup', '.booknetic_number_of_brought_customers_quantity_input', function () {
             let val = Number($(this).val());

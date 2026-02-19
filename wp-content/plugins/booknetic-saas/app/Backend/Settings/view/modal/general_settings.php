@@ -2,7 +2,6 @@
 
 defined('ABSPATH') or die();
 
-use BookneticSaaS\Models\Plan;
 use BookneticSaaS\Providers\Helpers\Helper;
 
 $all_pages = get_pages();
@@ -64,29 +63,6 @@ $all_pages = get_pages();
 				</div>
 
 				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="input_trial_plan_id"><?php echo bkntcsaas__('Trial plan')?>: <i class="far fa-question-circle do_tooltip" data-content="<?php echo bkntcsaas__("When a new Tenant registers, the Tenant automatically has permissions according to the trial plan you choose here.")?>"></i></label>
-						<select class="form-control" id="input_trial_plan_id">
-							<?php foreach (Plan::orderBy('order_by')->fetchAll() as $plan) : ?>
-								<option value="<?php echo $plan->id?>"<?php echo ($plan->is_default ? ' selected' : '')?>><?php echo htmlspecialchars($plan->name)?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="input_trial_period"><?php echo bkntcsaas__('Trial period (days)')?>:</label>
-						<input type="text" class="form-control" id="input_trial_period" value="<?php echo (int)Helper::getOption('trial_period', 30)?>">
-					</div>
-					<div class="form-group col-md-6">
-						<label for="input_expire_plan_id"><?php echo bkntcsaas__('Plan for the expired tenants')?>: <i class="far fa-question-circle do_tooltip" data-content="<?php echo bkntcsaas__("If the plan that the tenant subscribed to is expired and the Tenant does not pay for the next cycle, the Tenant's permissions will automatically be limited according to the plan you choose here.")?>"></i></label>
-						<select class="form-control" id="input_expire_plan_id">
-							<?php foreach (Plan::orderBy('order_by')->fetchAll() as $plan) : ?>
-								<option value="<?php echo $plan->id?>"<?php echo ($plan->expire_plan ? ' selected' : '')?>><?php echo htmlspecialchars($plan->name)?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-				</div>
-
-				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label>&nbsp;</label>
 						<div class="form-control-checkbox">
@@ -118,8 +94,6 @@ $all_pages = get_pages();
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-6">
                         <div class="form-control-checkbox">
                             <label for="input_disallow_tenants_to_enter_wp_dashboard"><?php echo bkntc__('Disallow tenants to enter WordPress dashboard')?>:</label>

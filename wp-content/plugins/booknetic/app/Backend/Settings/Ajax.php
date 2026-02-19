@@ -2,6 +2,7 @@
 
 namespace BookneticApp\Backend\Settings;
 
+use BookneticApp\Backend\Settings\DTOs\Response\DepositSettingResponse;
 use BookneticApp\Backend\Settings\Helpers\BackupService;
 use BookneticApp\Backend\Settings\Helpers\LocalizationService;
 use BookneticApp\Config;
@@ -40,12 +41,12 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
     {
         Capabilities::must('settings_advanced');
 
-        $priority = Helper::getOption('time_priority', 'staff');
+        $priority          = Helper::getOption('time_priority', 'staff');
         $flexible_timeslot = Helper::getOption('flexible_timeslot', '1');
 
         return $this->modalView('advanced_settings', [
-            'priority' => $priority,
-            'flexibleTimeslot' => $flexible_timeslot
+            'priority'              => $priority,
+            'flexibleTimeslot'      => $flexible_timeslot
         ]);
     }
 
@@ -248,6 +249,27 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
         $paramaters[ 'currency' ] = Helper::currencySymbol();
 
         return $this->modalView('payments_settings', $paramaters);
+    }
+
+    public function deposit_settings()
+    {
+        Capabilities::must('settings_deposit');
+
+        if (Helper::isSaaSVersion() && Capabilities::tenantCan('disable_deposit_payments')) {
+            return $this->response(false, bkntc__('Deposit payments are disabled for your account'));
+        }
+
+        $isEnabled = Helper::getOption('deposit_enabled', 0);
+        $value   = Helper::getOption('deposit_value', 0);
+        $type    = Helper::getOption('deposit_type', 'percent');
+
+        $response = new DepositSettingResponse();
+
+        $response->setIsEnabled((bool) $isEnabled);
+        $response->setValue((float) $value);
+        $response->setType((string) $type);
+
+        return $this->modalView('deposit_settings', $response);
     }
 
     public function payment_gateways_settings()
@@ -636,11 +658,34 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
             return $this->response(false);
         }
 
-        $flexible_timeslot = Helper::_post('flexible_timeslot', '1', 'int', [ 0, 1 ]);
-        $time_priority = Helper::_post('time_priority', 'staff', 'string', [ 'staff', 'service' ]);
+        $flexibleTimeslot = Post::int('flexible_timeslot', 1, [0, 1]);
+        $timePriority     = Post::string('time_priority', 'staff', ['staff', 'service']);
 
-        Helper::setOption('flexible_timeslot', $flexible_timeslot);
-        Helper::setOption('time_priority', $time_priority);
+        Helper::setOption('flexible_timeslot', $flexibleTimeslot);
+        Helper::setOption('time_priority', $timePriority);
+
+        return $this->response(true);
+    }
+
+    public function save_deposit_settings()
+    {
+        Capabilities::must('settings_deposit');
+
+        if (Helper::isSaaSVersion() && Capabilities::tenantCan('disable_deposit_payments')) {
+            return $this->response(false, bkntc__('Deposit payments are disabled for your account'));
+        }
+
+        $isEnabled = Post::int('deposit_enabled', 0, [0, 1]);
+        $type = Post::string('deposit_type', 'percent', ['percent', 'fixed']);
+        $value = Post::float('deposit_value');
+
+        if ($isEnabled && $type === 'percent' && $value > 100) {
+            return $this->response(false, bkntc__('Deposit percentage can\'t be higher than 100%'));
+        }
+
+        Helper::setOption('deposit_enabled', $isEnabled);
+        Helper::setOption('deposit_type', $type);
+        Helper::setOption('deposit_value', $value);
 
         return $this->response(true);
     }

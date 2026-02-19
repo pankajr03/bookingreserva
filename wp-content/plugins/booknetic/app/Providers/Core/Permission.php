@@ -7,14 +7,17 @@ use BookneticApp\Providers\DB\DB;
 use BookneticApp\Providers\Helpers\Date;
 use BookneticApp\Providers\Helpers\Helper;
 use BookneticSaaS\Models\Tenant;
+use WP_User;
+
+use function get_current_user_id;
+use function wp_get_current_user;
 
 class Permission
 {
-    private static $current_user_info;
-    private static $assigned_staff_list;
-    private static $is_back_end = false;
-    private static bool $is_mobile = false;
-    private static $tenantTables = [
+    private static ?array $assignedStaffs = null;
+    private static bool $isBackend = false;
+    private static bool $isMobile = false;
+    private static array $tenantTables = [
         'appearance',
         'appointments',
         'customers',
@@ -42,24 +45,31 @@ class Permission
 
     public static function setAsBackEnd()
     {
-        self::$is_back_end = true;
+        self::$isBackend = true;
     }
 
-    public static function isBackEnd()
+    public static function isBackEnd(): bool
     {
         // doit bu isBackendi bir arashdirmaq lazimdi seliqeli shekilde...
-        if (self::$is_back_end) {
+        if (self::$isBackend) {
             return true;
         }
 
-        if (!(Helper::isAjax() && !Helper::isUpdateProcess()) && is_admin() && Permission::canUseBooknetic()) {
+        if (
+            !(
+                (Helper::isAjax() || Helper::isRest()) &&
+                !Helper::isUpdateProcess()
+            ) &&
+            is_admin() &&
+            Permission::canUseBooknetic()
+        ) {
             return true;
         }
 
         return false;
     }
 
-    public static function canUseBooknetic()
+    public static function canUseBooknetic(): bool
     {
         if (! self::userInfo()->exists()) {
             return false;
@@ -80,26 +90,17 @@ class Permission
         return false;
     }
 
-    public static function userInfo()
+    public static function userInfo(): ?WP_User
     {
-        if (is_null(self::$current_user_info)) {
-            self::$current_user_info = \wp_get_current_user();
-        }
-
-        return self::$current_user_info;
+        return wp_get_current_user();
     }
 
-    public static function userId()
+    public static function userId(): int
     {
         return get_current_user_id();
     }
 
-    public static function userEmail()
-    {
-        return wp_get_current_user()->user_email;
-    }
-
-    public static function isAdministrator()
+    public static function isAdministrator(): bool
     {
         if (in_array('administrator', self::userInfo()->roles)) {
             return true;
@@ -116,7 +117,7 @@ class Permission
         return false;
     }
 
-    public static function isSuperAdministrator()
+    public static function isSuperAdministrator(): bool
     {
         if (self::isDemoVersion() && !in_array('booknetic_saas_tenant', self::userInfo()->roles)) {
             return true;
@@ -129,16 +130,16 @@ class Permission
         return false;
     }
 
-    public static function myStaffList()
+    public static function myStaffList(): array
     {
-        if (is_null(self::$assigned_staff_list)) {
-            self::$assigned_staff_list = Staff::noTenant()->withoutGlobalScope('user_id')->where('user_id', self::userId())->fetchAll();
+        if (is_null(self::$assignedStaffs)) {
+            self::$assignedStaffs = Staff::noTenant()->withoutGlobalScope('user_id')->where('user_id', self::userId())->fetchAll();
         }
 
-        return self::$assigned_staff_list;
+        return self::$assignedStaffs;
     }
 
-    public static function myStaffId()
+    public static function myStaffId(): array
     {
         $staffList = self::myStaffList();
 
@@ -150,7 +151,7 @@ class Permission
         return $ids;
     }
 
-    public static function queryFilter($table, $column = 'id', $joiner = 'AND', $tenant_column = '`tenant_id`')
+    public static function queryFilter($table, $column = 'id', $joiner = 'AND', $tenant_column = '`tenant_id`'): string
     {
         $query = '';
 
@@ -160,7 +161,7 @@ class Permission
             $query .= DB::tenantFilter('', $tenant_column);
         }
 
-        if (!self::$is_back_end) {
+        if (!self::$isBackend) {
             return empty($query) ? $query : $joiner . $query;
         }
 
@@ -227,7 +228,7 @@ class Permission
          * cunki tenantidnin deyishib deyismediyine baxmirdi bu shert. Ikinci sherti elave etdim ki lazim olanda gedib yeniden ceksin datalari
          */
         if (is_null(self::$tenantInf) || self::$tenantInf->id !== self::tenantId()) {
-            self::$tenantInf = Tenant::get(self::tenantId());
+            self::$tenantInf = Tenant::query()->get(self::tenantId());
         }
 
         return self::$tenantInf;
@@ -246,7 +247,7 @@ class Permission
         return defined('FS_CODE_DEMO_VERSION');
     }
 
-    public static function getTenantBookingPageURL()
+    public static function getTenantBookingPageURL(): string
     {
         return site_url() . '/' . htmlspecialchars(self::tenantInf()->domain);
     }
@@ -263,11 +264,11 @@ class Permission
 
     public static function isMobile(): bool
     {
-        return self::$is_mobile;
+        return self::$isMobile;
     }
 
-    public static function setIsMobile(bool $is_mobile): void
+    public static function setIsMobile(bool $isMobile): void
     {
-        self::$is_mobile = $is_mobile;
+        self::$isMobile = $isMobile;
     }
 }

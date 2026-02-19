@@ -46,10 +46,12 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
 
     public function add_new_action()
     {
+        $event = Post::string('event');
         $drivers = $this->workflowDriversManager->getList();
 
         return $this->modalView('add_new_action', [
-            'drivers' => $drivers
+            'drivers' => $drivers,
+            'event' => $event
         ]);
     }
 
@@ -126,8 +128,10 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
         }
 
         $workflowActions = $this->workflowActionRepository->getAllByWorkflowId($workflowId);
+        $workflowInfo = $this->workflowRepository->get($workflowId);
 
         return $this->modalView('action_list_view', [
+            'workflow_info' => $workflowInfo,
             'actions' => $workflowActions,
             'events_manager' => $this->workflowEventsManager
         ]);

@@ -38,7 +38,7 @@
                 } else {
                     parentRow.remove();
                 }
-            } )
+            }, undefined, undefined, undefined, undefined, {z_index: 1052} )
 
         } ).on( 'click', '#bkntcSaveTranslationsBtn', function () {
 

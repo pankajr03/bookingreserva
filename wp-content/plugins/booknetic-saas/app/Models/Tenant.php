@@ -21,6 +21,7 @@ use BookneticSaaS\Providers\Helpers\Helper;
  * @property int $plan_id
  * @property string $expires_in
  * @property string $inserted_at
+ * @property string $invoice_id
  * @property string $remember_token
  * @property string $remember_token_sent_at
  * @property string $verified_at
@@ -37,7 +38,7 @@ class Tenant extends Model
         'plan'      => [ Plan::class, 'id', 'plan_id' ]
     ];
 
-    public static function billingStatusUpdate($billing_id, $subscription)
+    public static function billingStatusUpdate($billing_id, $subscription, $expireDate = null, string $invoiceId = null)
     {
         $paymentInf = TenantBilling::noTenant()->get($billing_id);
 
@@ -45,10 +46,21 @@ class Tenant extends Model
             return;
         }
 
+        if ($paymentInf->payment_method === 'credit_card') {
+            if ($paymentInf->invoice_id === $invoiceId) {
+                return;
+            }
+        } else {
+            if ($paymentInf && abs(Date::epoch() - Date::epoch($paymentInf->created_at)) < 3 * 24 * 60 * 60) {
+                return;
+            }
+        }
+
         TenantBilling::noTenant()->where('id', $billing_id)->update([
-            'status'        =>  'paid',
-            'agreement_id'  =>  $subscription,
-            'event_type'    =>  'payment_received'
+            'status' => 'paid',
+            'agreement_id' => $subscription,
+            'event_type' => 'payment_received',
+            'invoice_id' => $invoiceId
         ]);
 
         $paymentInf->status = 'paid';
@@ -61,17 +73,21 @@ class Tenant extends Model
                 if ($activeBillingInfo->payment_method === 'paypal') {
                     $payment = new Paypal();
                     $payment->cancelSubscription($activeBillingInfo->agreement_id);
-                } elseif ($activeBillingInfo->payment_method === 'stripe') {
+                } elseif ($activeBillingInfo->payment_method === 'credit_card') {
                     $payment = new Stripe();
                     $payment->cancelSubscription($activeBillingInfo->agreement_id);
                 }
             }
         }
 
-        if (! empty($tenantInf->plan_id) && Date::epoch($tenantInf->expires_in) > Date::epoch()) {
-            $newExpireDate = Date::dateSQL($tenantInf->expires_in, $paymentInf->payment_cycle === 'monthly' ? '+1 month' : '+1 year');
+        if ($paymentInf->payment_method === 'credit_card') {
+            $newExpireDate = Date::dateSQL($expireDate);
         } else {
-            $newExpireDate = Date::dateSQL('now', $paymentInf->payment_cycle === 'monthly' ? '+1 month' : '+1 year');
+            if (! empty($tenantInf->plan_id) && Date::epoch($tenantInf->expires_in) > Date::epoch()) {
+                $newExpireDate = Date::dateSQL($tenantInf->expires_in, $paymentInf->payment_cycle === 'monthly' ? '+1 month' : '+1 year');
+            } else {
+                $newExpireDate = Date::dateSQL('now', $paymentInf->payment_cycle === 'monthly' ? '+1 month' : '+1 year');
+            }
         }
 
         Tenant::where('id', $paymentInf->tenant_id)->update([
@@ -83,7 +99,7 @@ class Tenant extends Model
         do_action('bkntcsaas_tenant_subscribed', $paymentInf->tenant_id);
     }
 
-    public static function paymentSucceded($subscriptionId, $billingId = null)
+    public static function paymentSucceded($subscriptionId, $billingId = null, $expireDate = null, $invoiceId = null)
     {
         $paymentInf = TenantBilling::noTenant()->where('agreement_id', $subscriptionId);
 
@@ -97,8 +113,8 @@ class Tenant extends Model
             return false;
         }
 
-        if (empty($paymentInf->aggrement_id)) {
-            self::billingStatusUpdate($paymentInf->id, $subscriptionId);
+        if (empty($paymentInf->agreement_id)) {
+            self::billingStatusUpdate($paymentInf->id, $subscriptionId, $expireDate, $invoiceId);
         }
 
         // avoid dublicate insert
@@ -109,11 +125,21 @@ class Tenant extends Model
             ->limit(1)
             ->fetch();
 
-        if ($lastBillingInvoice && abs(Date::epoch() - Date::epoch($lastBillingInvoice->created_at)) < 3 * 24 * 60 * 60) {
+        if ($paymentInf->payment_method === 'credit_card') {
+            if (empty($paymentInf->agreement_id) && abs(Date::epoch() - Date::epoch($paymentInf->created_at)) < 3 * 24 * 60 * 60) {
+                return true;
+            }
+        } else {
+            if (isset($lastBillingInvoice) && abs(Date::epoch() - Date::epoch($lastBillingInvoice->created_at)) < 3 * 24 * 60 * 60) {
+                return true;
+            }
+        }
+
+        if ($lastBillingInvoice && $lastBillingInvoice->invoice_id === $invoiceId) {
             return true;
         }
 
-        if (empty($paymentInf->aggrement_id)) {
+        if (empty($paymentInf->agreement_id)) {
             self::billingStatusUpdate($paymentInf->id, $subscriptionId);
         }
 
@@ -125,16 +151,31 @@ class Tenant extends Model
             'status'                =>  'paid',
             'created_at'            =>  Date::dateTimeSQL(),
             'plan_id'               =>  $paymentInf->plan_id,
+            'invoice_id'            =>  $invoiceId,
             'payment_method'        =>  $paymentInf->payment_method,
             'payment_cycle'         =>  $paymentInf->payment_cycle,
             'error'                 =>  '',
             'agreement_id'          =>  $subscriptionId
         ]);
 
-        $newExpireDate = Date::dateSQL($paymentInf->payment_cycle === 'monthly' ? '+1 month' : '+1 year');
+        $tenant = Tenant::query()->get($paymentInf->tenant_id);
+
+        if ($tenant === null) {
+            return false;
+        }
+
+        if ($paymentInf->payment_method === 'credit_card') {
+            $newExpireDate = Date::dateTimeSQL($expireDate);
+        } else {
+            $newExpireDate = Date::dateSQL(
+                $paymentInf->payment_cycle === 'monthly'
+                    ? $tenant->expires_in . ' +1 month'
+                    : $tenant->expires_in . ' +1 year'
+            );
+        }
 
         Tenant::query()
-            ->where('id', $paymentInf->tenant_id)
+            ->where('id', $tenant->id)
             ->update([
                 'expires_in'    =>  $newExpireDate,
                 'plan_id'       =>  $paymentInf->plan_id

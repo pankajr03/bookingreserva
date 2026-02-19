@@ -3,7 +3,7 @@
 /*
  * Plugin Name: Booknetic SaaS
  * Description: WordPress Appointment Booking and Scheduling system ( SaaS )
- * Version: 3.8.1
+ * Version: 3.9.1
  * Author: FS-Code
  * Author URI: https://www.booknetic.com
  * License: Commercial

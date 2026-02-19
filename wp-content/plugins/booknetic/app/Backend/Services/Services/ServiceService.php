@@ -18,7 +18,7 @@ class ServiceService
         $this->appointmentExtraRepository = $appointmentExtraRepository;
         $this->serviceExtraRepository = $serviceExtraRepository;
     }
-    public function getServices(string $search, int $category): array
+    public function getServices(string $search, int $category = 0): array
     {
         return $this->serviceRepository->getServices($search, $category);
     }
@@ -41,5 +41,21 @@ class ServiceService
         }
 
         return $extras;
+    }
+
+    public function getServicesForSelect(string $search)
+    {
+        $services = $this->serviceRepository->getServices($search);
+
+        $data = [];
+
+        foreach ($services as $service) {
+            $data[] = [
+                'id'				=>	(int)$service['id'],
+                'text'				=>	htmlspecialchars($service['text'])
+            ];
+        }
+
+        return $data;
     }
 }

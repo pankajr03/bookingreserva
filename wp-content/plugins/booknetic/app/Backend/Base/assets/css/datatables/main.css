@@ -22,7 +22,7 @@
     padding-bottom: 12px;
 }
 
-.table-wrapper-header .export-csv {
+.export-csv {
     all: unset;
     cursor: pointer;
     background-color: #e3ebf4;
@@ -35,6 +35,14 @@
     border-radius: 0.375rem;
     gap: 10px;
     font-style: normal;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .table-wrapper-header > div {
@@ -112,9 +120,13 @@
     border-radius: 0.375rem;
     padding: 10px 16px;
     gap: 10px;
+
+    &:hover {
+        filter: brightness(90%);
+    }
 }
 
-.advanced-filter{
+.advanced-filter {
     height: 52%;
 }
 
@@ -281,12 +293,12 @@
     background-color: #edeef0;
 }
 
-.status-dropdown-btn.pending{
+.status-dropdown-btn.pending {
     background-color: #F5F2EA;
     color: #FD9B78;
 }
 
-.status-dropdown-btn.canceled{
+.status-dropdown-btn.canceled {
     background-color: #FFF1F1;
     color: #FB3E6E;
 }
@@ -414,7 +426,7 @@
     border-top-right-radius: 12px;
 }
 
-.table-navigations .nav-item a{
+.table-navigations .nav-item a {
     font-size: 14px !important;
 }
 

@@ -6,6 +6,7 @@ use BookneticApp\Backend\Base\Modules\IModule;
 use BookneticApp\Backend\Staff\Controllers\StaffAjaxController;
 use BookneticApp\Backend\Staff\Controllers\StaffController;
 use BookneticApp\Backend\Staff\Controllers\StaffRestController;
+use BookneticApp\Backend\Staff\Repository\StaffRepository;
 use BookneticApp\Backend\Staff\Services\StaffService;
 use BookneticApp\Providers\Core\RestGroup;
 use BookneticApp\Providers\Core\Route;
@@ -17,6 +18,7 @@ class StaffModule implements IModule
     public static function registerDependencies(): void
     {
         Container::addBulk([
+            StaffRepository::class,
             StaffService::class,
             StaffRestController::class,
         ]);

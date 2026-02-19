@@ -74,22 +74,10 @@ class Customer extends Model
                 return;
             }
 
-            $subQuery = Appointment::select('customer_id', true);
+            $subQuery = Appointment::query()->select('customer_id', true);
 
             $builder->where(function ($query) use ($subQuery) {
-                $query->where('created_by', Permission::userId())->orWhere('id', 'in', $subQuery);
-            });
-        });
-
-        self::addGlobalScope('mobile_app', function (QueryBuilder $builder, $queryType) {
-            if (!Permission::isMobile()) {
-                return;
-            }
-
-            $subQuery = Appointment::withoutGlobalScope('mobile_app')->select('customer_id', true);
-
-            $builder->where(function ($query) use ($subQuery) {
-                $query->where('created_by', Permission::userId())->orWhere('id', 'in', $subQuery);
+                $query->where(Customer::getField('created_by'), Permission::userId())->orWhere(Customer::getField('id'), 'in', $subQuery);
             });
         });
     }

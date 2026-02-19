@@ -12,6 +12,7 @@ use BookneticApp\Providers\Core\Permission;
 use BookneticApp\Providers\Core\Route;
 use BookneticApp\Providers\Helpers\Helper;
 use BookneticApp\Providers\Helpers\Session;
+use BookneticApp\Providers\Helpers\NotificationHelper;
 use BookneticApp\Providers\UI\Abstracts\AbstractMenuUI;
 use BookneticApp\Providers\UI\MenuUI;
 
@@ -149,6 +150,7 @@ $localization = [
     'finish' => bkntc__('Finish'),
 
     'max_seat_reached' => bkntc__('Maximum number of seats reached, please upgrade your plan.'),
+    'learn_more' => bkntc__('Learn more'),
 ];
 $localization = apply_filters('bkntc_localization', $localization);
 
@@ -220,6 +222,7 @@ if (Helper::isSaaSVersion() && Helper::isTenant()) {
     <script>
         var ajaxurl			            = '?page=<?php echo Helper::getSlugName()?>&ajax=1',
             pageURL                     = "<?php echo admin_url() ?>",
+            restURL                     = "<?php echo site_url() ?>/index.php?rest_route=/booknetic/v1/",
             currentModule	            = "<?php echo htmlspecialchars(Route::getCurrentModule())?>",
             assetsUrl		            = "<?php echo Helper::assets('')?>",
             frontendAssetsUrl	        = "<?php echo Helper::assets('', 'front-end')?>",
@@ -238,6 +241,7 @@ if (Helper::isSaaSVersion() && Helper::isTenant()) {
                 currency: "<?php echo htmlspecialchars(Helper::getOption('currency', 'USD'))?>",
                 currencies: <?php print json_encode(Helper::currencies())?>
             };
+        var restNonce =  "<?php echo wp_create_nonce('wp_rest')?>";
     </script>
 
     <?php do_action('bkntc_enqueue_assets', $currentModule, $currentAction, $fullViewPath);?>
@@ -686,7 +690,8 @@ if (! empty($url)): ?>
             <?php do_action('bkntc_tenant_notification_area') ?>
         <?php endif; ?>
 
-        <div class="booknetic_notification_area" style="display: none">
+        <?php $addons = Capabilities::userCan('boostore') ? NotificationHelper::getVisible() : []; ?>
+        <div class="booknetic_notification_area">
             <button class="booknetic_notification_button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
                   <path d="M9.69916 16.5833H6.36583M13.0325 5.75C13.0325 4.42392 12.5057 3.15215 11.568 2.21447C10.6303 1.27678 9.35858 0.75 8.0325 0.75C6.70641 0.75 5.43464 1.27678 4.49696 2.21447C3.55928 3.15215 3.0325 4.42392 3.0325 5.75C3.0325 8.32515 2.38289 10.0883 1.65722 11.2545C1.0451 12.2382 0.739045 12.7301 0.750267 12.8673C0.762693 13.0192 0.79488 13.0772 0.91731 13.168C1.02788 13.25 1.52632 13.25 2.52321 13.25H13.5418C14.5387 13.25 15.0371 13.25 15.1477 13.168C15.2701 13.0772 15.3023 13.0192 15.3147 12.8673C15.3259 12.7301 15.0199 12.2382 14.4078 11.2545C13.6821 10.0883 13.0325 8.32515 13.0325 5.75Z" stroke="#626C76" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -698,81 +703,44 @@ if (! empty($url)): ?>
                 <div class="notification_panel_header">
                     <div>
                         <h5><?php echo bkntc__('Notifications')?></h5>
-                        <p class="notifcation_panel_header-count">(0)</p>
+                        <p class="notification_panel_header-count">(0)</p>
                     </div>
                     <button class="notification_panel_clear_btn"><?php echo bkntc__('Mark all as read')?></button>
                 </div>
                 <div class="notification-body">
-                    <div class="notification-carousel-wrapper">
-                        <div class="notification-carousel-item notification-survey">
-                            <div class="notification-carousel-item-header">
-                                <p>
-                                    <img src="<?php echo Helper::icon('survey_icon.svg') ?>" alt="survey icon"/>
-                                    <span>Survey</span>
-                                </p>
-                               <button><img src="<?php echo Helper::icon('notification_close.svg') ?>" alt="close icon"/></button>
-                            </div>
-                            <div class="notification-carousel-item-content">We need your help. <b>Let's Participate our survey</b></div>
-                            <a href="">Learn More
-                                <span class="learn_more_icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M4.66666 11.3333L11.3333 4.66666M11.3333 4.66666H4.66666M11.3333 4.66666V11.3333" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </span>
-                            </a>
+                    <?php if (!empty($addons)): ?>
+                        <div class="notification-carousel-wrapper">
+                            <?php foreach ($addons as $addon): ?>
+                                <div class="notification-carousel-item notification-addon" data-slug="<?php echo $addon[ 'slug' ] ?>">
+                                    <div class="notification-carousel-item-header">
+                                        <p>
+                                            <img src="<?php echo Helper::icon('addon_icon.svg') ?>" alt="addon icon"/>
+                                            <span>Addon</span>
+                                        </p>
+                                       <button><img src="<?php echo Helper::icon('notification_close.svg') ?>" alt="close icon"/></button>
+                                    </div>
+                                    <div class="notification-carousel-item-content">
+                                        <?php echo wp_kses(bkntc__('%s addon just released', [ '<b>' . esc_html($addon['name']) . '</b>' ], false), [ 'b' => [] ]); ?>
+                                    </div>
+                                    <a href="" class="notification-carousel-item-link"><?php echo bkntc__('Learn More') ?>
+                                        <span class="learn_more_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4.66666 11.3333L11.3333 4.66666M11.3333 4.66666H4.66666M11.3333 4.66666V11.3333" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="notification-carousel-item notification-addon">
-                            <div class="notification-carousel-item-header">
-                                <p>
-                                    <img src="<?php echo Helper::icon('addon_icon.svg') ?>" alt="addon icon"/>
-                                    <span>Addon</span>
-                                </p>
-                               <button><img src="<?php echo Helper::icon('notification_close.svg') ?>" alt="close icon"/></button>
-                            </div>
-                            <div class="notification-carousel-item-content">We've just released <b>Package add-on. </b>Check it out.</div>
-                            <a href="">Learn More
-                                <span class="learn_more_icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M4.66666 11.3333L11.3333 4.66666M11.3333 4.66666H4.66666M11.3333 4.66666V11.3333" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="notification-card">
-                        <div class="notification-card_header">
-                            <p>
-                                 <img src="<?php echo Helper::icon('update_icon.svg') ?>" alt="bell icon"/>
-                                 <span><?php echo bkntc__('Update')?></span>
-                            </p>
-                            <span class="d-flex align-items-center"><?php echo bkntc__('2 min ago')?><div class="notification_time_badge ml-2 d-none"></div></span>
-                        </div>
-                        <div class="notification-content">There is an update available. <b>Version 2.16.24</b></div>
-                        <a href="">Learn More <span class="learn_more_icon"><img src="<?php echo Helper::icon('learn_more.svg') ?>" alt="Learn more"/></span></a>
-                    </div>
-
-                    <div class="notification-card unread-notification">
-                        <div class="notification-card_header">
-                            <p>
-                                 <img src="<?php echo Helper::icon('update_icon.svg') ?>" alt="bell icon"/>
-                                 <span><?php echo bkntc__('Update')?></span>
-                            </p>
-                            <span class="d-flex align-items-center"><?php echo bkntc__('2 min ago')?><div class="notification_time_badge ml-2"></div></span>
-                        </div>
-                        <div class="notification-content">There is an update available. <b>Version 2.16.24</b></div>
-                        <a href="">Learn More <span class="learn_more_icon"><img src="<?php echo Helper::icon('learn_more.svg') ?>" alt="Learn more"/></span></a>
-                    </div>
-
-                    <div class="notification-card">
-                        <div class="notification-card_header">
-                            <p>
-                                 <img src="<?php echo Helper::icon('update_icon.svg') ?>" alt="bell icon"/>
-                                 <span><?php echo bkntc__('Update')?></span>
-                            </p>
-                            <span class="d-flex align-items-center"><?php echo bkntc__('2 min ago')?><div class="notification_time_badge ml-2 d-none"></div></span>
-                        </div>
-                        <div class="notification-content">There is an update available. <b>Version 2.16.24</b></div>
-                        <a href="">Learn More <span class="learn_more_icon"><img src="<?php echo Helper::icon('learn_more.svg') ?>" alt="Learn more"/></span></a>
+                    <?php endif; ?>
+                    <div class="notification-cards"></div>
+                    <div class="notification-empty-state text-center" style="display: none">
+                        <img
+                            src="<?php echo Helper::icon('no-notification.svg'); ?>"
+                            alt="no notifications"
+                        />
+                        <h6><?php echo bkntc__('You’re all set.') ?></h6>
+                        <p><?php echo bkntc__('We’ll keep you updated on any future notifications.') ?></p>
                     </div>
                 </div>
             </div>

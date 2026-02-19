@@ -3,6 +3,7 @@
 namespace BookneticApp\Providers\Core;
 
 use BookneticApp\Backend\Boostore\Helpers\BoostoreHelper;
+use BookneticApp\Backend\Settings\Helpers\LocalizationService;
 use BookneticApp\Providers\FSCode\Clients\FSCodeAPIClient;
 use BookneticApp\Providers\Helpers\Date;
 use BookneticApp\Providers\Helpers\Helper;
@@ -111,6 +112,10 @@ class PluginUpdater
             } else {
                 $response = $this->fsCodeApiService->checkUpdatesAndSync($addons);
 
+                if (empty($response)) {
+                    return $transient;
+                }
+
                 $this->updates = $response['updates'] ?? [];
                 Helper::setOption('addons_updates_cache', json_encode(['time' => Date::epoch(), 'updates' => $this->updates]), false);
             }
@@ -153,6 +158,7 @@ class PluginUpdater
     {
         if ($options[ 'action' ] === 'update' && $options[ 'type' ] === 'plugin') {
             delete_transient('fscode_upgrade_' . $this->plugin_slug);
+            LocalizationService::restoreLocalizations();
         }
     }
 

@@ -83,6 +83,6 @@ class MobileAppModule implements IModule
 
     public static function registerTenantPermissions(): void
     {
-        Capabilities::registerTenantCapability('mobile-app', bkntc__('Mobile App module'));
+        //        Capabilities::registerTenantCapability('mobile-app', bkntc__('Mobile App module'));
     }
 }

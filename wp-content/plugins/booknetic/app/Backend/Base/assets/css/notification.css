@@ -28,6 +28,7 @@
   height: 0.625rem;
   background-color: #fb3e6e;
   border-radius: 50%;
+  display: none;
 }
 
 .booknetic_notification_panel {
@@ -88,13 +89,14 @@
 
 .notification-body {
   overflow-y: auto;
-  min-height: 14rem;
+  /*min-height: 11rem;*/
   max-height: 30rem;
   scrollbar-width: none;
 }
 
 .notification-card {
   padding: 16px;
+  cursor: pointer;
 }
 
 .notification-body .notification-card:not(:last-child) {
@@ -108,12 +110,29 @@
   color: #666670;
   font-size: 0.75rem;
   font-weight: 400;
+  gap: 10px;
+}
+
+.notification-card_header p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.notification-time {
+    min-width: max-content;
 }
 
 .notification-content {
   font-size: 0.875rem;
   font-weight: 400;
   margin-block: 8px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .notification-card a {
@@ -130,8 +149,33 @@
   margin-right: 5px;
 }
 
+.notification-empty-state {
+    padding: 16px;
+}
+
+.notification-empty-state img {
+    border-radius: 30px;
+    background: #F2F7FB;
+    padding: 10px;
+}
+
+.notification-empty-state h6 {
+    color: #292D32;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 16px 0 12px;
+}
+
+.notification-empty-state p {
+    color: #626C76;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
 .unread-notification {
-  background: rgba(71, 120, 245, 0.15);
+  background: rgba(71, 120, 245, 0.1);
 }
 
 .unread-notification .learn_more_icon img {
@@ -244,4 +288,14 @@
 
 .notification-addon a .learn_more_icon path {
   stroke: #fff;
+}
+
+@media screen and (max-width: 410px) {
+    .booknetic_notification_pointer {
+        left: 70%;
+    }
+
+    .booknetic_notification_panel {
+        right: 70px;
+    }
 }

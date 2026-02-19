@@ -13,6 +13,7 @@
             const offset_value		    = $("#input_offset_value").val();
             const input_time			= $("#input_time").val();
             var categories     	        = $("#input_categories").val();
+            const locale			    = $("#input_locale").val();
 
 
             const data = new FormData();
@@ -25,6 +26,7 @@
             data.append('offset_value',offset_value);
             data.append('input_time', input_time );
             data.append('categories', JSON.stringify( categories ));
+            data.append('locale', locale);
 
             booknetic.ajax( 'workflow_events.event_customer_birthday_changed_save', data, function()
             {

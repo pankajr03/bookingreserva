@@ -430,6 +430,16 @@
     width: 200px;
 }
 
+.annual-badge {
+    top: -25px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+    text-wrap: nowrap;
+}
+
 @media only screen and (max-width: 1000px)
 {
     .m_header_alert > div

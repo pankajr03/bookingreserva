@@ -71,7 +71,7 @@ function breakTpl($start = '', $end = '', $display = false)
 	<?php
     if ($parameters->getId() > 0) {
         ?>
-		<button type="button" class="btn btn-lg btn-outline-secondary" id="hideStaffBtn"><?php echo $parameters->getStaff()->isActive() ? bkntc__('UNHIDE STAFF') : bkntc__('HIDE STAFF')?></button>
+		<button type="button" class="btn btn-lg btn-outline-secondary" id="hideStaffBtn"><?php echo $parameters->getStaff()->isActive() ? bkntc__('HIDE STAFF') : bkntc__('UNHIDE STAFF')?></button>
 		<?php
     }
 ?>

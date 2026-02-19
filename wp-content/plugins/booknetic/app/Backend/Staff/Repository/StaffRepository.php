@@ -96,4 +96,13 @@ class StaffRepository
 
         return $staff->fetchAll();
     }
+
+    /**
+     * @param array $ids
+     * @return Staff[]
+     */
+    public function getStaffInArray(array $ids): array
+    {
+        return Staff::query()->where('id', 'in', $ids)->fetchAll();
+    }
 }

@@ -83,6 +83,8 @@ class CustomerRepository
             "phone_number",
             "birthdate",
             'gender',
+            'user_id',
+            'notes',
             'profile_image as profile_image_url',
         ])
             ->selectSubQuery(

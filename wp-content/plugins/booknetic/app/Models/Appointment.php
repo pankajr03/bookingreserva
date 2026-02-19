@@ -61,14 +61,6 @@ class Appointment extends Model
 
             $builder->where('staff_id', Permission::myStaffId());
         });
-
-        self::addGlobalScope('mobile_app', function (QueryBuilder $builder, $queryType) {
-            if (!Permission::isMobile()) {
-                return;
-            }
-
-            $builder->where('staff_id', Permission::myStaffId());
-        });
     }
 
     public static function getStatusNameAttribute($appointmentInf)

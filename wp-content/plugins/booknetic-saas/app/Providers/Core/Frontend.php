@@ -138,7 +138,7 @@ class Frontend
         $result  = $payment->checkSession($sessionId);
 
         if ($result[ 'status' ] === true) {
-            Tenant::billingStatusUpdate($result[ 'billing_id' ], $result[ 'subscription' ]);
+            Tenant::billingStatusUpdate($result[ 'billing_id' ], $result[ 'subscription' ], $result['invoice_id']);
 
             Helper::redirect(admin_url('admin.php?page=' . \BookneticApp\Providers\Helpers\Helper::getSlugName() . '&module=billing&payment_status=success'));
 

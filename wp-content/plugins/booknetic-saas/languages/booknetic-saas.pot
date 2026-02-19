@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-17 18:58+0400\n"
+"POT-Creation-Date: 2026-01-30 17:46+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,252 +16,252 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: Booknetic SaaS 3.8.1\n"
-"POT-Creation-Date: 2025-12-25T13:14:07.809Z\n"
+"Project-Id-Version: Booknetic SaaS 3.9.0\n"
+"POT-Creation-Date: 2026-01-30T13:52:20.664Z\n"
 "X-Addon-Author: FS-Code\n"
 "X-Addon-Author-URI: https://www.booknetic.com\n"
 "X-Addon-Description: WordPress Appointment Booking and Scheduling system ( SaaS )\n"
 "X-Poedit-KeywordsList: bkntcsaas__\n"
 "X-Poedit-SearchPath-0: bkntcsaas__/app\n"
 
-#: Config.php:163
+#: Config.php:175
 msgid "Booknetic SaaS Tenant"
 msgstr ""
 
-#: Config.php:194
+#: Config.php:206
 msgid "Tenant Info"
 msgstr ""
 
-#: Config.php:195
+#: Config.php:207
 msgid "Plan & Billing"
 msgstr ""
 
-#: Config.php:196
+#: Config.php:208
 msgid "Customer info"
 msgstr ""
 
-#: Config.php:199
+#: Config.php:211
 msgid "Tenant ID"
 msgstr ""
 
-#: Config.php:205
+#: Config.php:217
 msgid "Tenant Full Name"
 msgstr ""
 
-#: Config.php:211
+#: Config.php:223
 msgid "Tenant Email"
 msgstr ""
 
-#: Config.php:218
+#: Config.php:230
 msgid "Tenant Registration Date"
 msgstr ""
 
-#: Config.php:224
+#: Config.php:236
 msgid "Plan ID"
 msgstr ""
 
-#: Config.php:230
+#: Config.php:242
 msgid "Plan Name"
 msgstr ""
 
-#: Config.php:236
+#: Config.php:248
 msgid "Plan Color"
 msgstr ""
 
-#: Config.php:242
+#: Config.php:254
 msgid "Plan Description"
 msgstr ""
 
-#: Config.php:248
+#: Config.php:260
 msgid "Deposit Amount"
 msgstr ""
 
-#: Config.php:254
+#: Config.php:266
 msgid "Payment Amount"
 msgstr ""
 
-#: Config.php:260
+#: Config.php:272
 msgid "Payment Method"
 msgstr ""
 
-#: Config.php:266
+#: Config.php:278
 msgid "Payment Cycle"
 msgstr ""
 
-#: Config.php:273
+#: Config.php:285
 msgid "Tenant Company Name"
 msgstr ""
 
-#: Config.php:279
+#: Config.php:291
 msgid "Tenant Company Address"
 msgstr ""
 
-#: Config.php:285
+#: Config.php:297
 msgid "Tenant Company Phone"
 msgstr ""
 
-#: Config.php:292
+#: Config.php:304
 msgid "Tenant Company Website"
 msgstr ""
 
-#: Config.php:298
+#: Config.php:310
 msgid "Tenant Company Image URL"
 msgstr ""
 
-#: Config.php:304
+#: Config.php:316
 msgid "Tenant Domain"
 msgstr ""
 
-#: Config.php:310
+#: Config.php:322
 msgid "URL To Complete Signup"
 msgstr ""
 
-#: Config.php:316
+#: Config.php:328
 msgid "Tenant subscription expiration date"
 msgstr ""
 
-#: Config.php:322
+#: Config.php:334
 msgid "Customer full name"
 msgstr ""
 
-#: Config.php:327
+#: Config.php:339
 msgid "Customer first name"
 msgstr ""
 
-#: Config.php:332
+#: Config.php:344
 msgid "Customer last name"
 msgstr ""
 
-#: Config.php:337
+#: Config.php:349
 msgid "Customer phone number"
 msgstr ""
 
-#: Config.php:343
+#: Config.php:355
 msgid "Customer email"
 msgstr ""
 
-#: Config.php:349
+#: Config.php:361
 msgid "Customer birthdate"
 msgstr ""
 
-#: Config.php:354
+#: Config.php:366
 msgid "URL to complete customer sign up"
 msgstr ""
 
-#: Config.php:359
+#: Config.php:371
 msgid "URL to reset customer password"
 msgstr ""
 
-#: Config.php:364
+#: Config.php:376
 msgid "Customer notes"
 msgstr ""
 
-#: Config.php:369
+#: Config.php:381
 msgid "Customer image URL"
 msgstr ""
 
-#: Config.php:375
+#: Config.php:387
 msgid "Booknetic Sign In Page"
 msgstr ""
 
-#: Config.php:379
+#: Config.php:391
 msgid "Booknetic Sign Up Page"
 msgstr ""
 
-#: Config.php:384
+#: Config.php:396
 msgid "URL To Reset Password"
 msgstr ""
 
-#: Config.php:396 Config.php:403 Config.php:410 Config.php:418
+#: Config.php:408 Config.php:415 Config.php:422 Config.php:430
 msgid "Custom Field - "
 msgstr ""
 
-#: Config.php:428
+#: Config.php:440
 msgid "New tenant signed up"
 msgstr ""
 
-#: Config.php:432
+#: Config.php:445
 msgid "Tenant sign-up completed"
 msgstr ""
 
-#: Config.php:436
+#: Config.php:450
 msgid "Tenant forgot password"
 msgstr ""
 
-#: Config.php:440
+#: Config.php:455
 msgid "Tenant password was reset"
 msgstr ""
 
-#: Config.php:444
+#: Config.php:460
 msgid "Tenant subscribed to a plan"
 msgstr ""
 
-#: Config.php:448
+#: Config.php:465
 msgid "Tenant deleted"
 msgstr ""
 
-#: Config.php:452
+#: Config.php:470
 msgid "Tenant unsubscribed to a plan"
 msgstr ""
 
-#: Config.php:456
+#: Config.php:475
 msgid "Tenant payment received"
 msgstr ""
 
-#: Config.php:460
+#: Config.php:480
 msgid "Tenant deposited"
 msgstr ""
 
-#: Config.php:464
+#: Config.php:485
 msgid "Tenant notified to subscribe to plan"
 msgstr ""
 
-#: Config.php:468
+#: Config.php:490
 msgid "Customer signs up"
 msgstr ""
 
-#: Config.php:472
+#: Config.php:494
 msgid "Customer forgot password"
 msgstr ""
 
-#: Config.php:665 Backend/Dashboard/view/index.php:36
+#: Config.php:690 Backend/Dashboard/view/index.php:36
 msgid "Dashboard"
 msgstr ""
 
-#: Config.php:670 Backend/Tenants/Controller.php:25
+#: Config.php:695 Backend/Tenants/Controller.php:25
 #: Backend/Dashboard/view/index.php:45
 msgid "Tenants"
 msgstr ""
 
-#: Config.php:675 Backend/Payments/Controller.php:29
+#: Config.php:700 Backend/Payments/Controller.php:29
 #: Backend/Settings/view/modal/payment_gateways_settings.php:43
 #: Backend/Settings/view/modal/payment_split_payments_settings.php:26
 #: Backend/Settings/view/modal/payments_settings.php:18
 msgid "Payments"
 msgstr ""
 
-#: Config.php:680 Backend/Plans/Controller.php:21
+#: Config.php:705 Backend/Plans/Controller.php:21
 msgid "Plans"
 msgstr ""
 
-#: Config.php:685 Backend/Tenants/Ajax.php:73
+#: Config.php:710 Backend/Tenants/Ajax.php:73
 msgid "Custom fields"
 msgstr ""
 
-#: Config.php:690
+#: Config.php:715
 msgid "Workflows"
 msgstr ""
 
-#: Config.php:695 Backend/Settings/view/index.php:18
-#: Backend/Settings/view/index.php:28
+#: Config.php:720 Backend/Settings/view/index.php:20
+#: Backend/Settings/view/index.php:30
 msgid "Settings"
 msgstr ""
 
-#: Config.php:700
+#: Config.php:725
 msgid "WORDPRESS"
 msgstr ""
 
-#: Config.php:706 Backend/Base/view/index.php:203
+#: Config.php:731 Backend/Base/view/index.php:203
 msgid "Boostore"
 msgstr ""
 
@@ -269,62 +269,62 @@ msgstr ""
 msgid "You don't have enough balance!"
 msgstr ""
 
-#: Backend/Billing/Ajax.php:203
+#: Backend/Billing/Ajax.php:206
 msgid "Please enter a valid deposit!"
 msgstr ""
 
-#: Backend/Billing/Controller.php:20
+#: Backend/Billing/Controller.php:21
 msgid "Billing"
 msgstr ""
 
-#: Backend/Billing/Controller.php:24
+#: Backend/Billing/Controller.php:25
 msgid "DATE"
 msgstr ""
 
-#: Backend/Billing/Controller.php:25
+#: Backend/Billing/Controller.php:26
 msgid "EVENT"
 msgstr ""
 
-#: Backend/Billing/Controller.php:27
+#: Backend/Billing/Controller.php:28
 msgid "Deposit added"
 msgstr ""
 
-#: Backend/Billing/Controller.php:31
+#: Backend/Billing/Controller.php:32
 msgid "Payment received"
 msgstr ""
 
-#: Backend/Billing/Controller.php:35 Backend/Tenants/Controller.php:39
+#: Backend/Billing/Controller.php:36 Backend/Tenants/Controller.php:39
 msgid "Subscribed"
 msgstr ""
 
-#: Backend/Billing/Controller.php:40 Backend/Payments/Controller.php:61
+#: Backend/Billing/Controller.php:41 Backend/Payments/Controller.php:61
 #: Backend/Tenants/Controller.php:35
 msgid "PLAN"
 msgstr ""
 
-#: Backend/Billing/Controller.php:41 Backend/Payments/Controller.php:62
+#: Backend/Billing/Controller.php:42 Backend/Payments/Controller.php:62
 msgid "AMOUNT"
 msgstr ""
 
-#: Backend/Billing/Controller.php:43 Backend/Payments/Controller.php:64
+#: Backend/Billing/Controller.php:44 Backend/Payments/Controller.php:64
 msgid "PAYMENT METHOD"
 msgstr ""
 
-#: Backend/Billing/Controller.php:47 Backend/Payments/Controller.php:72
+#: Backend/Billing/Controller.php:48 Backend/Payments/Controller.php:72
 #: Backend/Tenants/Controller.php:37
 msgid "STATUS"
 msgstr ""
 
-#: Backend/Billing/Controller.php:49 Backend/Payments/Controller.php:36
+#: Backend/Billing/Controller.php:50 Backend/Payments/Controller.php:36
 #: Backend/Payments/Controller.php:74
 msgid "Pending"
 msgstr ""
 
-#: Backend/Billing/Controller.php:51
+#: Backend/Billing/Controller.php:52
 msgid "OK"
 msgstr ""
 
-#: Backend/Billing/Controller.php:53
+#: Backend/Billing/Controller.php:54
 msgid "NOT OK"
 msgstr ""
 
@@ -338,7 +338,7 @@ msgid "DETAILS"
 msgstr ""
 
 #: Backend/Payments/Ajax.php:65 Backend/Plans/Ajax.php:98
-#: Backend/Settings/Ajax.php:572 Backend/Settings/Ajax.php:589
+#: Backend/Settings/Ajax.php:624 Backend/Settings/Ajax.php:641
 #: Backend/Tenants/Ajax.php:101 Frontend/Controller/Ajax.php:64
 #: Frontend/Controller/Ajax.php:181 Frontend/Controller/Ajax.php:194
 #: Frontend/Controller/Ajax.php:200 Frontend/Controller/Ajax.php:210
@@ -384,7 +384,7 @@ msgstr ""
 
 #: Backend/Payments/Controller.php:43
 #: Providers/Common/ShortCodeServiceImpl.php:56
-#: Providers/Helpers/Helper.php:582 Backend/Billing/view/index.php:115
+#: Providers/Helpers/Helper.php:582 Backend/Billing/view/index.php:192
 #: Backend/Payments/view/tab/details.php:53
 msgid "Credit card"
 msgstr ""
@@ -402,7 +402,7 @@ msgstr ""
 
 #: Backend/Payments/Controller.php:50 Backend/Payments/Controller.php:69
 #: Providers/Common/ShortCodeServiceImpl.php:57
-#: Backend/Billing/view/index.php:49
+#: Backend/Billing/view/index.php:58
 #: Backend/Billing/view/modal/add_deposit.php:36
 #: Backend/Payments/view/tab/details.php:60
 msgid "Monthly"
@@ -410,8 +410,6 @@ msgstr ""
 
 #: Backend/Payments/Controller.php:51 Backend/Payments/Controller.php:69
 #: Providers/Common/ShortCodeServiceImpl.php:57
-#: Backend/Billing/view/index.php:54
-#: Backend/Billing/view/modal/add_deposit.php:37
 #: Backend/Payments/view/tab/details.php:61
 msgid "Annually"
 msgstr ""
@@ -500,47 +498,47 @@ msgstr ""
 msgid "You can not delete this plan, because there is only one plan"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:78
+#: Backend/Settings/Ajax.php:136
 #: Backend/Settings/Exceptions/SettingsNotFoundException.php:11
 msgid "Selected settings not found!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:249 Backend/Settings/Ajax.php:256
+#: Backend/Settings/Ajax.php:305 Backend/Settings/Ajax.php:318
 msgid "Confirmation number is invalid!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:304
+#: Backend/Settings/Ajax.php:356
 msgid "The Backend Slug can not be empty!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:312 Backend/Settings/Ajax.php:339
+#: Backend/Settings/Ajax.php:364 Backend/Settings/Ajax.php:391
 msgid "Only JPG, PNG and SVG images allowed!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:423
+#: Backend/Settings/Ajax.php:475
 msgid "Please fill the SMTP credentials!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:425
+#: Backend/Settings/Ajax.php:477
 msgid "Please fill the Gmail SMTP credentials!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:429
+#: Backend/Settings/Ajax.php:481
 msgid "Please type the sender name field!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:433
+#: Backend/Settings/Ajax.php:485
 msgid "Please type the sender email field!"
 msgstr ""
 
-#: Backend/Settings/Ajax.php:522
+#: Backend/Settings/Ajax.php:574
 msgid ""
 "For using WooCommerce as a payment method, you should install and enable it "
 "on WordPress plugins!"
 msgstr ""
 
 #: Backend/Settings/Controller.php:15
-#: Backend/Settings/view/modal/general_settings.php:22
+#: Backend/Settings/view/modal/general_settings.php:21
 msgid "General settings"
 msgstr ""
 
@@ -548,66 +546,71 @@ msgstr ""
 msgid "You can customize general settings about booking from here"
 msgstr ""
 
-#: Backend/Settings/Controller.php:22 Backend/Settings/Controller.php:48
+#: Backend/Settings/Controller.php:22 Backend/Settings/Controller.php:53
 msgid "General"
 msgstr ""
 
-#: Backend/Settings/Controller.php:26 Backend/Settings/Controller.php:33
+#: Backend/Settings/Controller.php:27
+#: Backend/Settings/view/modal/plan_settings.php:26
+msgid "Plan Settings"
+msgstr ""
+
+#: Backend/Settings/Controller.php:31 Backend/Settings/Controller.php:38
 msgid "White Label settings"
 msgstr ""
 
-#: Backend/Settings/Controller.php:27
+#: Backend/Settings/Controller.php:32
 msgid "You can change your business details from here"
 msgstr ""
 
-#: Backend/Settings/Controller.php:38
+#: Backend/Settings/Controller.php:43
 msgid "Pages"
 msgstr ""
 
-#: Backend/Settings/Controller.php:41
+#: Backend/Settings/Controller.php:46
 msgid "Payment settings"
 msgstr ""
 
-#: Backend/Settings/Controller.php:42
+#: Backend/Settings/Controller.php:47
 msgid ""
 "Currency, price format , general settings about payment , paypal, stripe and "
 "so on"
 msgstr ""
 
-#: Backend/Settings/Controller.php:53
+#: Backend/Settings/Controller.php:58
 #: Backend/Settings/view/modal/email_settings.php:25
 msgid "Email settings"
 msgstr ""
 
-#: Backend/Settings/Controller.php:54
+#: Backend/Settings/Controller.php:59
 msgid ""
 "You must set this settings for email notifications ( wp_mail or SMTP "
 "settings )"
 msgstr ""
 
-#: Backend/Settings/Controller.php:59
+#: Backend/Settings/Controller.php:64
 #: Backend/Settings/view/modal/payment_gateways_settings.php:44
 msgid "Payment methods"
 msgstr ""
 
-#: Backend/Settings/Controller.php:65
+#: Backend/Settings/Controller.php:70
 #: Backend/Settings/view/modal/payment_split_payments_settings.php:27
 msgid "Split Payments"
 msgstr ""
 
-#: Backend/Settings/Controller.php:70
+#: Backend/Settings/Controller.php:75
 msgid "Integrations settings"
 msgstr ""
 
-#: Backend/Settings/Controller.php:71
+#: Backend/Settings/Controller.php:76
 msgid "You can change settings for integrated services from here."
 msgstr ""
 
-#: Backend/Settings/Controller.php:77
+#: Backend/Settings/Controller.php:82
 msgid "Continue with Facebook"
 msgstr ""
 
-#: Backend/Settings/Controller.php:82
+#: Backend/Settings/Controller.php:87
 msgid "Continue with Google"
 msgstr ""
 
@@ -979,11 +982,11 @@ msgstr ""
 msgid "Redirecting..."
 msgstr ""
 
-#: Providers/Helpers/Helper.php:44 Backend/Billing/view/index.php:146
-#: Backend/Billing/view/index.php:159 Backend/Billing/view/index.php:172
+#: Providers/Helpers/Helper.php:44 Backend/Billing/view/index.php:223
+#: Backend/Billing/view/index.php:236 Backend/Billing/view/index.php:249
 #: Backend/Billing/view/modal/add_deposit.php:58
 #: Backend/Billing/view/modal/share_page.php:58
-#: Backend/Plans/view/modal/add_new.php:72
+#: Backend/Plans/view/tab/details.php:56
 msgid "CLOSE"
 msgstr ""
 
@@ -1381,89 +1384,94 @@ msgstr ""
 msgid "ADD DEPOSIT"
 msgstr ""
 
-#: Backend/Billing/view/index.php:45
+#: Backend/Billing/view/index.php:49
 msgid "Choose a plan"
 msgstr ""
 
-#: Backend/Billing/view/index.php:46
+#: Backend/Billing/view/index.php:53
 msgid "Upgrade your account"
 msgstr ""
 
-#: Backend/Billing/view/index.php:69 Backend/Billing/view/index.php:75
+#: Backend/Billing/view/index.php:70
+#: Backend/Billing/view/modal/add_deposit.php:37
+msgid "Annual"
+msgstr ""
+
+#: Backend/Billing/view/index.php:118 Backend/Billing/view/index.php:136
 #, php-format
 msgid "%d%% off ( Normally %s )"
 msgstr ""
 
-#: Backend/Billing/view/index.php:71
+#: Backend/Billing/view/index.php:126
 msgid "per month"
 msgstr ""
 
-#: Backend/Billing/view/index.php:77
+#: Backend/Billing/view/index.php:146
 msgid "per year"
 msgstr ""
 
-#: Backend/Billing/view/index.php:87
+#: Backend/Billing/view/index.php:159
 msgid "SELECTED"
 msgstr ""
 
-#: Backend/Billing/view/index.php:90
+#: Backend/Billing/view/index.php:162
 msgid "CHOOSE"
 msgstr ""
 
-#: Backend/Billing/view/index.php:104
+#: Backend/Billing/view/index.php:181
 msgid "back"
 msgstr ""
 
-#: Backend/Billing/view/index.php:106
+#: Backend/Billing/view/index.php:183
 msgid "Select payment method"
 msgstr ""
 
-#: Backend/Billing/view/index.php:107
+#: Backend/Billing/view/index.php:184
 #, php-format
 msgid "You have chosen %s plan"
 msgstr ""
 
-#: Backend/Billing/view/index.php:126
+#: Backend/Billing/view/index.php:203
 msgid "Balance"
 msgstr ""
 
-#: Backend/Billing/view/index.php:132
+#: Backend/Billing/view/index.php:209
 msgid "No available payment methods!"
 msgstr ""
 
-#: Backend/Billing/view/index.php:143
+#: Backend/Billing/view/index.php:220
 msgid "Payment Successful"
 msgstr ""
 
-#: Backend/Billing/view/index.php:144
+#: Backend/Billing/view/index.php:221
 msgid "It might take some time to activate your new plan."
 msgstr ""
 
-#: Backend/Billing/view/index.php:156
+#: Backend/Billing/view/index.php:233
 msgid "Payment Canceled"
 msgstr ""
 
-#: Backend/Billing/view/index.php:157
+#: Backend/Billing/view/index.php:234
 msgid "We aren't able to process your payment. Please try again."
 msgstr ""
 
-#: Backend/Billing/view/index.php:169
+#: Backend/Billing/view/index.php:246
 msgid "Payment Pending"
 msgstr ""
 
-#: Backend/Billing/view/index.php:170
+#: Backend/Billing/view/index.php:247
 msgid "We have received your payment request and it is currently pending"
 msgstr ""
 
-#: Backend/Billing/view/index.php:186
+#: Backend/Billing/view/index.php:263
 msgid "Are you sure you want to cancel subscription?"
 msgstr ""
 
-#: Backend/Billing/view/index.php:187
+#: Backend/Billing/view/index.php:264
 msgid "YES"
 msgstr ""
 
-#: Backend/Billing/view/index.php:188
+#: Backend/Billing/view/index.php:265
 msgid "NO"
 msgstr ""
 
@@ -1690,19 +1698,6 @@ msgstr ""
 msgid "SAVE PLAN"
 msgstr ""
 
-#: Backend/Plans/view/modal/add_new.php:45
-msgid "Select colors"
-msgstr ""
-
-#: Backend/Plans/view/modal/add_new.php:66
-msgid "Hex"
-msgstr ""
-
-#: Backend/Plans/view/modal/add_new.php:73
-#: Backend/Settings/view/modal/workflow_action_edit.php:85
-msgid "SAVE"
-msgstr ""
-
 #: Backend/Plans/view/tab/details.php:13
 msgid "Name"
 msgstr ""
@@ -1716,41 +1711,55 @@ msgid "Color"
 msgstr ""
 
 #: Backend/Plans/view/tab/details.php:29
+msgid "Select colors"
+msgstr ""
+
+#: Backend/Plans/view/tab/details.php:50
+msgid "Hex"
+msgstr ""
+
+#: Backend/Plans/view/tab/details.php:57
+#: Backend/Settings/view/modal/workflow_action_edit.php:85
+msgid "SAVE"
+msgstr ""
+
+#: Backend/Plans/view/tab/details.php:64
 msgid "Order number"
 msgstr ""
 
-#: Backend/Plans/view/tab/details.php:36
+#: Backend/Plans/view/tab/details.php:71
 msgid "Monthly price"
 msgstr ""
 
-#: Backend/Plans/view/tab/details.php:40
+#: Backend/Plans/view/tab/details.php:75
 msgid "Discount for first month"
 msgstr ""
 
-#: Backend/Plans/view/tab/details.php:47
-msgid "Annually price"
+#: Backend/Plans/view/tab/details.php:82
+msgid "Annual price"
 msgstr ""
 
-#: Backend/Plans/view/tab/details.php:51
+#: Backend/Plans/view/tab/details.php:86
 msgid "Discount for first year"
 msgstr ""
 
-#: Backend/Plans/view/tab/details.php:59
+#: Backend/Plans/view/tab/details.php:94
 msgid "Hidden plan"
 msgstr ""
 
-#: Backend/Plans/view/tab/details.php:70
+#: Backend/Plans/view/tab/details.php:105
 msgid "Description"
 msgstr ""
 
 #: Backend/Settings/view/modal/email_settings.php:20
-#: Backend/Settings/view/modal/general_settings.php:17
+#: Backend/Settings/view/modal/general_settings.php:16
 #: Backend/Settings/view/modal/integrations_facebook_api_settings.php:14
 #: Backend/Settings/view/modal/integrations_google_login_settings.php:14
 #: Backend/Settings/view/modal/page_settings.php:16
 #: Backend/Settings/view/modal/payment_gateways_settings.php:38
 #: Backend/Settings/view/modal/payment_split_payments_settings.php:21
 #: Backend/Settings/view/modal/payments_settings.php:13
+#: Backend/Settings/view/modal/plan_settings.php:20
 #: Backend/Settings/view/modal/sms_settings.php:13
 #: Backend/Settings/view/modal/whitelabel_settings.php:14
 #: Backend/Settings/view/modal/woocommerce_settings.php:13
@@ -1824,60 +1833,35 @@ msgstr ""
 msgid "Sender Name"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:30
+#: Backend/Settings/view/modal/general_settings.php:29
 msgid "Starting Appointment ID number"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:37
+#: Backend/Settings/view/modal/general_settings.php:36
 msgid "Google Maps API Key"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:41
+#: Backend/Settings/view/modal/general_settings.php:40
 msgid "Google Maps Map ID"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:49
+#: Backend/Settings/view/modal/general_settings.php:48
 msgid "Activate Google reCAPTCHA"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:57
+#: Backend/Settings/view/modal/general_settings.php:56
 msgid "Site Key"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:61
+#: Backend/Settings/view/modal/general_settings.php:60
 msgid "Secret Key"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:68
-msgid "Trial plan"
-msgstr ""
-
-#: Backend/Settings/view/modal/general_settings.php:68
-msgid ""
-"When a new Tenant registers, the Tenant automatically has permissions "
-"according to the trial plan you choose here."
-msgstr ""
-
-#: Backend/Settings/view/modal/general_settings.php:76
-msgid "Trial period (days)"
-msgstr ""
-
-#: Backend/Settings/view/modal/general_settings.php:80
-msgid "Plan for the expired tenants"
-msgstr ""
-
-#: Backend/Settings/view/modal/general_settings.php:80
-msgid ""
-"If the plan that the tenant subscribed to is expired and the Tenant does not "
-"pay for the next cycle, the Tenant's permissions will automatically be "
-"limited according to the plan you choose here."
-msgstr ""
-
-#: Backend/Settings/view/modal/general_settings.php:93
+#: Backend/Settings/view/modal/general_settings.php:69
 msgid "Enable the Language switcher for tenants"
 msgstr ""
 
-#: Backend/Settings/view/modal/general_settings.php:101
+#: Backend/Settings/view/modal/general_settings.php:77
 msgid "Select languages"
 msgstr ""
 
@@ -2042,6 +2026,18 @@ msgstr ""
 
 #: Backend/Settings/view/modal/payments_settings.php:88
 msgid "Price number of decimals"
+msgstr ""
+
+#: Backend/Settings/view/modal/plan_settings.php:34
+msgid "Trial plan"
+msgstr ""
+
+#: Backend/Settings/view/modal/plan_settings.php:48
+msgid "Trial period (days)"
+msgstr ""
+
+#: Backend/Settings/view/modal/plan_settings.php:57
+msgid "Plan for expired tenants"
 msgstr ""
 
 #: Backend/Settings/view/modal/sms_settings.php:18

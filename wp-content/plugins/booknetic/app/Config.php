@@ -2,20 +2,23 @@
 
 namespace BookneticApp;
 
+use BookneticApp\Backend\Appearance\AppearanceModule;
 use BookneticApp\Backend\Appointments\AppointmentsModule;
 use BookneticApp\Backend\Appointments\Helpers\AppointmentChangeStatus;
 use BookneticApp\Backend\Customers\CustomerModule;
 use BookneticApp\Backend\Locations\LocationsModule;
-use BookneticApp\Backend\Appearance\AppearanceModule;
 use BookneticApp\Backend\Mobile\Clients\FSCodeMobileAppClient;
 use BookneticApp\Backend\Mobile\MobileAppModule;
+use BookneticApp\Backend\Notifications\NotificationsModule;
 use BookneticApp\Backend\Payments\PaymentsModule;
 use BookneticApp\Backend\Services\ServiceModule;
 use BookneticApp\Backend\Settings\Helpers\LocalizationService;
 use BookneticApp\Backend\Staff\StaffModule;
+use BookneticApp\Backend\Workflow\Actions\InAppNotification;
 use BookneticApp\Backend\Workflow\Actions\SetBookingStatusAction;
 use BookneticApp\Backend\Workflow\Actions\SetCustomerCategory;
 use BookneticApp\Models\Appointment;
+use BookneticApp\Models\Customer;
 use BookneticApp\Models\Staff;
 use BookneticApp\Providers\Common\Divi\includes\BookneticDivi;
 use BookneticApp\Providers\Common\Elementor\BookneticElementor;
@@ -30,6 +33,7 @@ use BookneticApp\Providers\Core\Capabilities;
 use BookneticApp\Providers\Core\Notifications;
 use BookneticApp\Providers\Core\Permission;
 use BookneticApp\Providers\Core\Route;
+use BookneticApp\Providers\Data\WorkflowEventFilterData;
 use BookneticApp\Providers\Core\Tasks\LicenseSyncTask;
 use BookneticApp\Providers\FSCode\Clients\FSCodeAPIClient;
 use BookneticApp\Providers\FSCode\Clients\FSCodeAPIClientFactory;
@@ -136,6 +140,7 @@ class Config
         self::registerCoreTenantCapabilities();
         self::registerCoreShortCodes();
         self::registerCoreWorkflowEvents();
+        NotificationsModule::registerNotificationWorkflowEvents();
         self::registerCoreWorkflowActions();
         self::registerLocalPaymentGateway();
         self::registerCorePricesName();
@@ -233,6 +238,7 @@ class Config
         Capabilities::register('page_settings', bkntc__('Pages'), 'settings');
         Capabilities::register('settings_payments', bkntc__('Payment settings'), 'settings');
         Capabilities::register('settings_payment_gateways', bkntc__('Payment methods'), 'settings');
+        Capabilities::register('settings_deposit', bkntc__('Deposit settings'), 'settings');
         Capabilities::register('settings_company', bkntc__('Company details'), 'settings');
         Capabilities::register('settings_business_hours', bkntc__('Business Hours'), 'settings');
         Capabilities::register('settings_holidays', bkntc__('Holidays'), 'settings');
@@ -277,6 +283,7 @@ class Config
         Capabilities::registerTenantCapability('page_settings', bkntc__('Pages'), 'settings');
         Capabilities::registerTenantCapability('settings_payments', bkntc__('Payment settings'), 'settings');
         Capabilities::registerTenantCapability('settings_payment_gateways', bkntc__('Payment methods'), 'settings');
+        Capabilities::registerTenantCapability('settings_deposit', bkntc__('Deposit settings'), 'settings');
         Capabilities::registerTenantCapability('settings_company', bkntc__('Company details'), 'settings');
         Capabilities::registerTenantCapability('settings_business_hours', bkntc__('Business Hours'), 'settings');
         Capabilities::registerTenantCapability('settings_holidays', bkntc__('Holidays'), 'settings');
@@ -508,14 +515,17 @@ class Config
               ->setTitle(bkntc__('New customer created'))
               ->setEditAction('workflow_events', 'event_customer_created_view')
               ->setAvailableParams(['customer_id', 'customer_password']);
+
         self::$workflowEventsManager
             ->get('customer_forgot_password')
             ->setTitle(bkntc__('Customer forgot password'))
             ->setAvailableParams([ 'customer_id' ]);
+
         self::$workflowEventsManager
             ->get('customer_reset_password')
             ->setTitle(bkntc__('Customer reset password'))
             ->setAvailableParams([ 'customer_id' ]);
+
         self::$workflowEventsManager->get('appointment_paid')
                                     ->setTitle(bkntc__('Appointment Paid'))
                                     ->setEditAction('workflow_events', 'event_appointment_paid_view')
@@ -573,7 +583,8 @@ class Config
         });
 
         add_action('bkntc_payment_confirmed', function ($appointmentId, $fromSource = '') {
-            $appointment = Appointment::get($appointmentId);
+            $appointment = Appointment::query()->get($appointmentId);
+            $customer = Customer::query()->get($appointment->customer_id);
 
             if ($fromSource !== 'payment_link') {
                 self::$workflowEventsManager->trigger('booking_new', [
@@ -582,41 +593,44 @@ class Config
                     'service_id' => $appointment->service_id,
                     'staff_id' => $appointment->staff_id,
                     'customer_id' => $appointment->customer_id
-                ], function ($event) use ($appointment) {
+                ], function ($event) use ($appointment, $customer) {
                     if (empty($event['data'])) {
                         return true;
                     }
 
-                    $data = json_decode($event['data'], true);
+                    $eventData = WorkflowEventFilterData::fromArray(json_decode($event['data'], true));
 
-                    if (! empty($data[ 'locale' ]) && $data['locale'] !== $appointment->locale) {
+                    if ($eventData->hasLocale() && $eventData->getLocale() !== $appointment->locale) {
                         return false;
                     }
 
-                    if (count($data['locations']) > 0 && !in_array($appointment->location_id, $data['locations'])) {
+                    if ($eventData->hasLocations() && !$eventData->matchesLocation($appointment->location_id)) {
                         return false;
                     }
 
-                    if (count($data['services']) > 0 && !in_array($appointment->service_id, $data['services'])) {
+                    if ($eventData->hasCategories() && !$eventData->matchesCategory($customer->category_id)) {
                         return false;
                     }
 
-                    if (count($data['staffs']) > 0 && !in_array($appointment->staff_id, $data['staffs'])) {
+                    if ($eventData->hasServices() && !$eventData->matchesService($appointment->service_id)) {
                         return false;
                     }
 
-                    if (isset($data['statuses']) && is_countable($data['statuses']) && count($data['statuses']) > 0 && !in_array($appointment->status, $data['statuses'])) {
+                    if ($eventData->hasStaffs() && !$eventData->matchesStaff($appointment->staff_id)) {
                         return false;
                     }
 
-                    if (
-                        ! empty($data['called_from']) &&
-                        (
-                            ($data['called_from'] === 'backend' && !Permission::isBackEnd()) ||
-                            ($data['called_from'] === 'frontend' && Permission::isBackEnd())
-                        )
-                    ) {
+                    if ($eventData->hasStatuses() && !$eventData->matchesStatus($appointment->status)) {
                         return false;
+                    }
+
+                    if ($eventData->hasCalledFrom()) {
+                        if ($eventData->isCalledFromBackend() && !Permission::isBackEnd()) {
+                            return false;
+                        }
+                        if ($eventData->isCalledFromFrontend() && Permission::isBackEnd()) {
+                            return false;
+                        }
                     }
 
                     return true;
@@ -651,9 +665,10 @@ class Config
 
         add_action('bkntc_appointment_after_mutation', function ($id) use ($oldAppointmentInfObj) {
             $oldAppointmentInf = $oldAppointmentInfObj->inf;
-            $newAppointmentInf = is_null($id) ? null : Appointment::get($id);
+            $newAppointmentInf = is_null($id) ? null : Appointment::query()->get($id);
+            $customerInf = $newAppointmentInf === null ? null : Customer::query()->get($newAppointmentInf->customer_id);
 
-            if (empty($oldAppointmentInf) || empty($newAppointmentInf)) {
+            if (empty($oldAppointmentInf) || $newAppointmentInf === null) {
                 return;
             }
 
@@ -665,45 +680,48 @@ class Config
                     'service_id' => $newAppointmentInf->service_id,
                     'staff_id' => $newAppointmentInf->staff_id,
                     'customer_id' => $newAppointmentInf->customer_id
-                ], function ($event) use ($oldAppointmentInf, $newAppointmentInf) {
+                ], function ($event) use ($oldAppointmentInf, $newAppointmentInf, $customerInf) {
                     if (empty($event['data'])) {
                         return true;
                     }
 
-                    $data = json_decode($event['data'], true);
+                    $eventData = WorkflowEventFilterData::fromArray(json_decode($event['data'], true));
 
-                    if (! empty($data[ 'locale' ]) && $data['locale'] !== $newAppointmentInf->locale) {
+                    if ($eventData->hasLocale() && $eventData->getLocale() !== $newAppointmentInf->locale) {
                         return false;
                     }
 
-                    if (is_countable($data['statuses']) && count($data['statuses']) > 0 && !in_array($newAppointmentInf->status, $data['statuses'])) {
+                    if ($eventData->hasStatuses() && !$eventData->matchesStatus($newAppointmentInf->status)) {
                         return false;
                     }
 
-                    if (array_key_exists('prev_statuses', $data) && is_countable($data['prev_statuses']) && count($data['prev_statuses']) > 0 && !in_array($oldAppointmentInf->status, $data['prev_statuses'])) {
+                    if ($eventData->hasCategories() && !$eventData->matchesCategory($customerInf->category_id)) {
                         return false;
                     }
 
-                    if (is_countable($data['locations']) && count($data['locations']) > 0 && !in_array($newAppointmentInf->location_id, $data['locations'])) {
+                    if ($eventData->hasPrevStatuses() && !$eventData->matchesPrevStatus($oldAppointmentInf->status)) {
                         return false;
                     }
 
-                    if (is_countable($data['services']) && count($data['services']) > 0 && !in_array($newAppointmentInf->service_id, $data['services'])) {
+                    if ($eventData->hasLocations() && !$eventData->matchesLocation($newAppointmentInf->location_id)) {
                         return false;
                     }
 
-                    if (is_countable($data['staffs']) && count($data['staffs']) > 0 && !in_array($newAppointmentInf->staff_id, $data['staffs'])) {
+                    if ($eventData->hasServices() && !$eventData->matchesService($newAppointmentInf->service_id)) {
                         return false;
                     }
 
-                    if (
-                        ! empty($data['called_from']) &&
-                        (
-                            ($data['called_from'] === 'backend' && !Permission::isBackEnd()) ||
-                            ($data['called_from'] === 'frontend' && Permission::isBackEnd())
-                        )
-                    ) {
+                    if ($eventData->hasStaffs() && !$eventData->matchesStaff($newAppointmentInf->staff_id)) {
                         return false;
+                    }
+
+                    if ($eventData->hasCalledFrom()) {
+                        if ($eventData->isCalledFromBackend() && !Permission::isBackEnd()) {
+                            return false;
+                        }
+                        if ($eventData->isCalledFromFrontend() && Permission::isBackEnd()) {
+                            return false;
+                        }
                     }
 
                     return true;
@@ -727,32 +745,31 @@ class Config
                         return true;
                     }
 
-                    $data = json_decode($event['data'], true);
+                    $eventData = WorkflowEventFilterData::fromArray(json_decode($event['data'], true));
 
-                    if (! empty($data[ 'locale' ]) && $data['locale'] !== $newAppointmentInf->locale) {
+                    if ($eventData->hasLocale() && $eventData->getLocale() !== $newAppointmentInf->locale) {
                         return false;
                     }
 
-                    if (count($data['locations']) > 0 && !in_array($newAppointmentInf->location_id, $data['locations'])) {
+                    if ($eventData->hasLocations() && !$eventData->matchesLocation($newAppointmentInf->location_id)) {
                         return false;
                     }
 
-                    if (count($data['services']) > 0 && !in_array($newAppointmentInf->service_id, $data['services'])) {
+                    if ($eventData->hasServices() && !$eventData->matchesService($newAppointmentInf->service_id)) {
                         return false;
                     }
 
-                    if (count($data['staffs']) > 0 && !in_array($newAppointmentInf->staff_id, $data['staffs'])) {
+                    if ($eventData->hasStaffs() && !$eventData->matchesStaff($newAppointmentInf->staff_id)) {
                         return false;
                     }
 
-                    if (
-                        ! empty($data['called_from']) &&
-                        (
-                            ($data['called_from'] === 'backend' && !Permission::isBackEnd()) ||
-                            ($data['called_from'] === 'frontend' && Permission::isBackEnd())
-                        )
-                    ) {
-                        return false;
+                    if ($eventData->hasCalledFrom()) {
+                        if ($eventData->isCalledFromBackend() && !Permission::isBackEnd()) {
+                            return false;
+                        }
+                        if ($eventData->isCalledFromFrontend() && Permission::isBackEnd()) {
+                            return false;
+                        }
                     }
 
                     return true;
@@ -796,6 +813,7 @@ class Config
         $drivers = self::getWorkflowDriversManager();
         $drivers->register(new SetBookingStatusAction());
         $drivers->register(new SetCustomerCategory());
+        $drivers->register(new InAppNotification());
     }
 
     public static function registerCoreShortCodes(): void
@@ -1136,7 +1154,8 @@ class Config
         $shortCodeService->registerShortCode('staff_name', [
             'name'      =>  bkntc__('Staff name'),
             'category'  =>  'staff_info',
-            'depends'   =>  'staff_id'
+            'depends'   =>  'staff_id',
+            'kind'   =>  'staff_id',
         ]);
         $shortCodeService->registerShortCode('staff_email', [
             'name'      =>  bkntc__('Staff email'),
@@ -1344,6 +1363,7 @@ class Config
         StaffModule::registerDependencies();
         PaymentsModule::registerDependencies();
         ServiceModule::registerDependencies();
+        NotificationsModule::registerDependencies();
 
         Container::add(FSCodeAPIClient::class, [new FSCodeAPIClientFactory(), 'make']);
         Container::add(FSCodeMobileAppClient::class);

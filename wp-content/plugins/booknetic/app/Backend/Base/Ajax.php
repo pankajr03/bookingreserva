@@ -15,6 +15,7 @@ use BookneticApp\Providers\Core\Controller;
 use BookneticApp\Providers\Core\Templates\Applier;
 use BookneticApp\Providers\FSCode\Clients\FSCodeAPIClient;
 use BookneticApp\Providers\Helpers\Helper;
+use BookneticApp\Providers\Helpers\NotificationHelper;
 use BookneticApp\Providers\Helpers\Session;
 use BookneticApp\Providers\IoC\Container;
 use BookneticApp\Providers\Request\Post;
@@ -117,7 +118,7 @@ class Ajax extends Controller
         $columnName   = Helper::_post('column_name', '', 'string');
         $rowID        = Helper::_post('row_id', 0, 'int');
 
-        if (empty($translations) || ! is_array($translations) || empty($tableName) || empty($columnName)) {
+        if (! is_array($translations) || empty($tableName) || empty($columnName)) {
             return $this->response(false, [
                 'message' => 'Please fill in all required fields correctly',
             ]);
@@ -316,6 +317,27 @@ class Ajax extends Controller
         }
 
         Helper::setOption('joined_beta', false);
+
+        return $this->response(true);
+    }
+
+    public function dismiss_notification()
+    {
+        $slug = Post::string('slug');
+
+        if (empty($slug)) {
+            return $this->response(true);
+        }
+
+        $notifications = NotificationHelper::getAll();
+
+        if (empty($notifications) || empty($notifications[ $slug ])) {
+            return $this->response(true);
+        }
+
+        $notifications[ $slug ][ 'visible' ] = false;
+
+        NotificationHelper::save($notifications);
 
         return $this->response(true);
     }

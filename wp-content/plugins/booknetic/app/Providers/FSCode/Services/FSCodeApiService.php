@@ -6,7 +6,6 @@ use BookneticApp\Providers\Core\Bootstrap;
 use BookneticApp\Providers\FSCode\Clients\FSCodeAPIClient;
 use BookneticApp\Providers\FSCode\Clients\RequestDTOs\ActivateRequestDTO;
 use BookneticApp\Providers\Helpers\Helper;
-use RuntimeException;
 
 class FSCodeApiService
 {
@@ -45,11 +44,15 @@ class FSCodeApiService
         ]);
 
         if (!$response->getStatus()) {
-            throw new RuntimeException($response->getErrorMessage(), $response->getCode());
+            return [];
         }
 
         $response = $response->getData();
         $responseData = $response['data'] ?? [];
+
+        if (empty($responseData)) {
+            return [];
+        }
 
         if (isset($responseData['unowned_addons']) && is_array($responseData['unowned_addons'])) {
             $this->handleUnownedAddonUsage($responseData['unowned_addons']);

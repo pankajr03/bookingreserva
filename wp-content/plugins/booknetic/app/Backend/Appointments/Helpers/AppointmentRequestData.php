@@ -895,24 +895,20 @@ class AppointmentRequestData extends \stdClass
      */
     public function getDepositPrice($sumForAllRecurringAppointments = false)
     {
-        if ($this->serviceStaffInf == null || $this->serviceStaffInf['price'] == -1) {
-            $deposit		= $this->serviceInf['deposit'];
-            $deposit_type	= $this->serviceInf['deposit_type'];
-        } else {
-            $deposit		= $this->serviceStaffInf['deposit'];
-            $deposit_type	= $this->serviceStaffInf['deposit_type'];
+        [$deposit, $deposit_type] = $this->getEffectiveDeposit();
+
+        if ($deposit <= 0) {
+            return 0;
         }
 
         $subTotal = $this->getSubTotal($sumForAllRecurringAppointments);
 
-        if ($deposit_type == 'price') {
-            $result =  $sumForAllRecurringAppointments ? Math::floor($deposit * $this->getPayableAppointmentsCount() * $this->totalCustomerCount) : Math::floor($deposit * $this->totalCustomerCount);
+        if ($deposit_type === 'price') {
+            $result = $sumForAllRecurringAppointments
+                ? Math::floor($deposit * $this->getPayableAppointmentsCount() * $this->totalCustomerCount)
+                : Math::floor($deposit * $this->totalCustomerCount);
         } else {
             $result = Math::floor($subTotal * $deposit / 100);
-        }
-
-        if ($result > $subTotal) {
-            $result = $subTotal;
         }
 
         return $result;
@@ -929,31 +925,72 @@ class AppointmentRequestData extends \stdClass
             return false;
         }
 
-        if ($this->serviceStaffInf == null || $this->serviceStaffInf['price'] == -1) {
-            $deposit		= $this->serviceInf['deposit'];
-            $deposit_type	= $this->serviceInf['deposit_type'];
-        } else {
-            $deposit		= $this->serviceStaffInf['deposit'];
-            $deposit_type	= $this->serviceStaffInf['deposit_type'];
-        }
+        [$deposit, $deposit_type] = $this->getEffectiveDeposit();
 
-        if ($deposit == 0) {
+        if ($deposit <= 0) {
             return false;
         }
 
-        if ($deposit_type == 'price' && $deposit == $this->getServicePrice()) {
+        if ($deposit_type === 'price' && $deposit == $this->getServicePrice()) {
             return false;
         }
 
-        if ($deposit_type == 'percent' && ($deposit <= 0 || $deposit >= 100)) {
+        if ($deposit_type === 'percent' && ($deposit <= 0 || $deposit >= 100)) {
             return false;
         }
 
-        if (Helper::_post('deposit_full_amount', 0, 'int', [ 0, 1 ]) === 1 && Helper::getOption('deposit_can_pay_full_amount', 'on') == 'on') {
+        if (
+            Helper::_post('deposit_full_amount', 0, 'int', [0, 1]) === 1 &&
+            Helper::getOption('deposit_can_pay_full_amount', 'on') == 'on'
+        ) {
             return false;
         }
 
         return true;
+    }
+
+    private function getEffectiveDeposit(): array
+    {
+        if ($this->serviceStaffInf == null || $this->serviceStaffInf['price'] == -1) {
+            $deposit      = $this->serviceInf['deposit'];
+            $deposit_type = $this->serviceInf['deposit_type'];
+        } else {
+            $deposit      = $this->serviceStaffInf['deposit'];
+            $deposit_type = $this->serviceStaffInf['deposit_type'];
+        }
+
+        if ($deposit > 0) {
+            return [$deposit, $deposit_type];
+        }
+
+        if (
+            (Helper::isRegular() || Capabilities::tenantCannot('disable_deposit_payments')) &&
+            Capabilities::tenantCan('settings_deposit')
+        ) {
+            $globalDepositSettings = $this->calculateGlobalDeposit();
+
+            if (!empty($globalDepositSettings)) {
+                return $globalDepositSettings;
+            }
+        }
+
+        return [0, null];
+    }
+
+    private function calculateGlobalDeposit(): array
+    {
+        if (Helper::getOption('deposit_enabled', '0') != '1') {
+            return [];
+        }
+
+        $deposit = (float) Helper::getOption('deposit_value', 0);
+        $type    = Helper::getOption('deposit_type', 'percent');
+
+        if ($deposit <= 0) {
+            return [];
+        }
+
+        return [$deposit, $type === 'fixed' ? 'price' : 'percent'];
     }
 
     /**

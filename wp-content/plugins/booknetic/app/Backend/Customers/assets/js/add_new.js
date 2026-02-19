@@ -7,6 +7,12 @@
 
 		let current_modal = $('#addCustomerSave').closest('.fs-modal');
 
+		$('#input_category_id').select2({
+			theme: 'bootstrap',
+			placeholder: booknetic.__('select'),
+			allowClear: true
+		});
+
 		$('.fs-modal').on('click', '#addCustomerSave', function ()
 		{
 			let iti 						= $("#input_phone").data('iti');

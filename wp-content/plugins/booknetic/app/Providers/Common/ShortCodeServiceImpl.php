@@ -148,6 +148,8 @@ class ShortCodeServiceImpl
             $staffInf = Staff::query()->get($data['staff_id']);
 
             $arr = [
+                '{staff_id}' => $staffInf->id,
+                '{staff_user_id}' => $staffInf->user_id ?? null,
                 '{staff_name}' => $staffInf->name,
                 '{staff_email}' => $staffInf->email,
                 '{staff_phone}' => $staffInf->phone_number,

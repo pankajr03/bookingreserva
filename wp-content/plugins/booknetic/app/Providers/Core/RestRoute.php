@@ -6,6 +6,7 @@ use BookneticApp\Backend\Appointments\AppointmentsModule;
 use BookneticApp\Backend\Base\Controllers\LoginRestController;
 use BookneticApp\Backend\Customers\CustomerModule;
 use BookneticApp\Backend\Locations\LocationsModule;
+use BookneticApp\Backend\Notifications\NotificationsModule;
 use BookneticApp\Backend\Payments\PaymentsModule;
 use BookneticApp\Backend\Services\ServiceModule;
 use BookneticApp\Backend\Staff\StaffModule;
@@ -36,6 +37,7 @@ class RestRoute
         StaffModule::registerRestRoutes();
         PaymentsModule::registerRestRoutes();
         ServiceModule::registerRestRoutes();
+        NotificationsModule::registerRestRoutes();
     }
 
     public static function get($route, $fn, $args = []): void
@@ -70,11 +72,12 @@ class RestRoute
                 'methods'             => $method,
                 'callback'            => function (WP_REST_Request $request) use ($fn) {
                     try {
+                        Permission::setAsBackEnd();
                         Permission::setIsMobile(self::isAppPasswordRequest());
                         $restRequest = new RestRequest($request);
                         $res         = $fn($restRequest);
 
-                        return is_array($res) ? $res : [ 'error_msg' => bkntc__('Error') ];
+                        return is_array($res) || is_object($res) ? $res : [ 'error_msg' => bkntc__('Error') ];
                     } catch (\Exception $e) {
                         $statusCode = self::getStatusCode($e->getCode());
 

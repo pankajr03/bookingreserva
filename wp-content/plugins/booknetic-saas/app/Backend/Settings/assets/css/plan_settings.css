@@ -1,0 +1,37 @@
+.form-control.dropdown-toggle > .filter-option {
+    padding-top: 5px;
+}
+
+.popover {
+    max-width: 600px;
+}
+
+.do_tooltip {
+    color: #8f9ca7;
+    padding: 5px;
+}
+
+.popover a {
+    color: #44759D;
+}
+
+/* Payment cycle switcher */
+.payment_cycle_switcher_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-inline: 20px;
+}
+
+.current-color{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    bottom: 12px;
+    right: 24px;
+}
+
+.payment_cycle {
+    font-size: 14px;
+}
+

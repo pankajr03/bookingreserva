@@ -36,5 +36,5 @@ use BookneticApp\Providers\Helpers\Helper;
 
 <div class="modal-footer">
     <button type="button" class="btn btn-lg btn-outline-secondary" data-dismiss="modal"><?php echo bkntc__('CANCEL')?></button>
-    <button type="button" class="btn btn-lg btn-primary" id="addActionNextBtn"><?php echo bkntc__('NEXT')?></button>
+    <button type="button" class="btn btn-lg btn-primary" data-event="<?php echo $parameters['event'] ?>" id="addActionNextBtn"><?php echo bkntc__('NEXT')?></button>
 </div>

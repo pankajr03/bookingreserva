@@ -19,7 +19,8 @@
 				enable_language_switcher		= $("#input_enable_language_switcher").is(':checked')?'on':'off',
 				active_languages		        = $("#input_active_languages").val(),
 				new_wp_user_on_new_booking 		= $("#input_new_wp_user_on_new_booking").is(':checked')?'on':'off',
-                disallow_tenants_to_enter_wp_dashboard  = $("#input_disallow_tenants_to_enter_wp_dashboard").is(':checked')?'on':'off';
+                disallow_tenants_to_enter_wp_dashboard  = $("#input_disallow_tenants_to_enter_wp_dashboard").is(':checked')?'on':'off',
+				default_interval_on_pricing = $("#input_default_interval_on_pricing").is(':checked')?'annually':'monthly';
 
 			booknetic.ajax('save_general_settings', {
 				google_maps_api_key: google_maps_api_key,
@@ -35,6 +36,7 @@
 				active_languages: active_languages,
 				new_wp_user_on_new_booking: new_wp_user_on_new_booking,
                 disallow_tenants_to_enter_wp_dashboard: disallow_tenants_to_enter_wp_dashboard,
+				default_interval_on_pricing: default_interval_on_pricing,
 			}, function ()
 			{
 				booknetic.toast(booknetic.__('saved_successfully'), 'success');

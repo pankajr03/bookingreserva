@@ -160,6 +160,7 @@ class EventsAjax extends \BookneticApp\Providers\Core\Controller
             'offsetValue' => Post::string('offset_value'),
             'inputTime' => Post::string('input_time'),
             'categories' => Post::json('categories'),
+            'locale' => Post::string('locale'),
         ], SaveCustomerBirthdayEventRequest::class);
 
         $this->customerBirthdayEventService->saveEventData($id, $request);

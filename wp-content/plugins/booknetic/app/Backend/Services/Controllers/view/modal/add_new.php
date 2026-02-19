@@ -43,7 +43,7 @@ use BookneticApp\Providers\Helpers\Helper;
                                 class="required-star">*</span></label>
                     <input type="text" class="form-control"
                            value="<?php echo $parameters->getServiceCategory()->getName() ?>" data-multilang="true"
-                           data-multilang-fk="0" id="new_category_name">
+                           data-multilang-fk="<?php echo $parameters->getServiceCategory()->getId() ?>" id="new_category_name">
                 </div>
             </div>
 

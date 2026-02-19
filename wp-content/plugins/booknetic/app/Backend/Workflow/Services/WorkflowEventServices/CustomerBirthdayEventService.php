@@ -28,6 +28,8 @@ class CustomerBirthdayEventService extends BaseEventService
             'month' => $data['month'] ?? [],
             'selected_time' => $data['input_time'] ?? '',
             'categories' => $selectionData['categories'] ?? [],
+            'locale' => $data['locale'] ?? '',
+            'locales' => $this->getLocales(),
         ];
     }
 
@@ -41,7 +43,8 @@ class CustomerBirthdayEventService extends BaseEventService
             'offset_value' => $request->offsetValue,
             'offset_type' => 'day',
             'input_time' => $request->inputTime,
-            'categories' => $request->categories
+            'categories' => $request->categories,
+            'locale' => $request->locale,
         ]);
     }
 }

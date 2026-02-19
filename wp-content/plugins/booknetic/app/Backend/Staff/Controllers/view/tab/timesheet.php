@@ -44,10 +44,10 @@ foreach ($weekDays as $dayNum => $weekDay) {
                 </div>
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 px-0">
                 <div class="day_off_checkbox">
                     <input type="checkbox" class="dayy_off_checkbox" id="dayy_off_checkbox_<?php echo ($dayNum + 1)?>"<?php echo ($editInfo['day_off'] ? ' checked' : '')?>>
-                    <label for="dayy_off_checkbox_<?php echo ($dayNum + 1)?>"><?php echo bkntc__('Add day off')?></label>
+                    <label for="dayy_off_checkbox_<?php echo ($dayNum + 1)?>" class="pl-1 align-middle"><?php echo bkntc__('Add day off')?></label>
                 </div>
             </div>
         </div>

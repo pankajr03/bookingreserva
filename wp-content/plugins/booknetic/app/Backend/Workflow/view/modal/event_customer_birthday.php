@@ -141,6 +141,18 @@ foreach ($months as $num => $name) {
             </div>
         </div>
 
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="input_locale"><?php print bkntc__('Locale filter'); ?></label>
+
+                <select class="form-control" name="locale" id="input_locale">
+                    <?php foreach ($parameters[ 'locales' ] as $lang): ?>
+                        <option value="<?php echo htmlspecialchars($lang[ 'language' ]); ?>" lang="<?php echo htmlspecialchars(current($lang[ 'iso' ])); ?>" <?php echo $parameters[ 'locale' ] == $lang[ 'language' ] ? 'selected' : ''; ?>><?php echo htmlspecialchars($lang[ 'native_name' ]); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+
     </div>
 </div>
 

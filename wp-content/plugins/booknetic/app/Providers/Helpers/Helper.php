@@ -1052,6 +1052,11 @@ class Helper
         return defined('DOING_AJAX') && DOING_AJAX;
     }
 
+    public static function isRest(): bool
+    {
+        return defined('REST_REQUEST') && REST_REQUEST;
+    }
+
     public static function isUpdateProcess(): bool
     {
         $isUpdate = self::_post('action', '', 'string') === 'update-plugin';

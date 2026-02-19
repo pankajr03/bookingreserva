@@ -5,6 +5,7 @@ namespace BookneticSaaS\Backend\Billing;
 use BookneticApp\Providers\DB\DB;
 use BookneticSaaS\Models\Plan;
 use BookneticSaaS\Models\TenantBilling;
+use BookneticSaaS\Providers\Helpers\Helper;
 use BookneticSaaS\Providers\UI\DataTableUI;
 use BookneticSaaS\Providers\Helpers\Date;
 use BookneticApp\Providers\Core\Permission;
@@ -77,6 +78,27 @@ class Controller extends \BookneticApp\Providers\Core\Controller
             ->where('is_active', 1)
             ->fetchAll();
 
+        foreach ($plans as $plan) {
+            $discountMultiplier = $plan->annually_price_discount > 0
+            && empty($plan->actual_annually_discount)
+                ? (100 - $plan->annually_price_discount) / 100
+                : 1;
+
+            $annualPrice = $plan->annually_price * $discountMultiplier;
+
+            $plan->annual_monthly_breakdown = round($annualPrice / 12, 2);
+        }
+
+        $showMonthlyBreakdownOnAnnual =
+            Helper::getOption(
+                'show_monthly_breakdown_on_annual',
+                'off'
+            ) === 'on';
+
+        $isAnnualPlanBadgeEnabled = Helper::getOption('is_annual_plan_badge_enabled', 0) == 1;
+        $annualPlanBadgeText = Helper::getOption('annual_plan_badge_text', '');
+        $annualPlanBadgeColor = Helper::getOption('annual_plan_badge_color', '');
+
         $this->view('index', [
             'table'                     =>  $table,
             'plans'                     =>  $plans,
@@ -85,7 +107,11 @@ class Controller extends \BookneticApp\Providers\Core\Controller
             'has_expired'               =>  $hasExpired,
             'expires_in'                =>  $expiresIn,
             'active_subscription'       =>  $tenantInf->active_subscription,
-            'money_balance'             =>  $tenantInf->money_balance
+            'money_balance'             =>  $tenantInf->money_balance,
+            'show_monthly_breakdown_on_annual' => $showMonthlyBreakdownOnAnnual,
+            'is_annual_plan_badge_enabled' => $isAnnualPlanBadgeEnabled,
+            'annual_plan_badge_text' => $annualPlanBadgeText,
+            'annual_plan_badge_color' => $annualPlanBadgeColor
         ]);
     }
 }

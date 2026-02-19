@@ -73,6 +73,11 @@
         {
             booking_panel_js.find('.booknetic_selected_time').removeClass('booknetic_selected_time');
             $(this).addClass('booknetic_selected_time');
+            const $nextStep = booknetic.stepManager.getNextStep();
+
+            if ($nextStep.length === 0) {
+                return
+            }
 
             if( booking_panel_js.find('#booknetic_bring_someone_section').length == 0 )
             {

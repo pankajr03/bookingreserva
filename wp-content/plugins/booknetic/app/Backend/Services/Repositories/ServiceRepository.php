@@ -9,11 +9,11 @@ use BookneticApp\Models\Staff;
 class ServiceRepository
 {
     /**
-     * @param $search
-     * @param $category
+     * @param string $search
+     * @param int $category
      * @return array
      */
-    public function getServices($search, $category): array
+    public function getServices(string $search, int $category = 0): array
     {
         $allowedStaffIDs = array_column(Staff::query()->fetchAll(), 'id');
 
@@ -50,5 +50,10 @@ class ServiceRepository
         }
 
         return $data;
+    }
+
+    public function getAllByIds(array $ids): array
+    {
+        return Service::query()->where('id', 'in', $ids)->fetchAll();
     }
 }

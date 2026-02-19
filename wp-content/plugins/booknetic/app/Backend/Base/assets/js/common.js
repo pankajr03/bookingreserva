@@ -342,7 +342,8 @@ var booknetic = {
     okButtonTxt,
     cancelButtonTxt,
     afterClose,
-    fnCancelButton
+    fnCancelButton,
+    options
   ) {
     var t = this;
     if (typeof icon === "undefined" || icon == "") icon = "trash";
@@ -382,7 +383,7 @@ var booknetic = {
                   ${okButtonTxt}
                 </button>
               </div>`,
-        { type: "center" }
+        { type: "center", ...options }
     );
 
     $(modalNumber[2] + " .yes_btn").on("click", function () {
@@ -916,6 +917,29 @@ var booknetic = {
       clearTimeout(timeout);
       timeout = setTimeout(() => func.apply(this, args), wait);
     };
+  },
+
+  timeAgo: function (createdAt) {
+    const isoLike = createdAt.replace(" ", "T")
+    const created = new Date(isoLike)
+    const now = new Date()
+
+    const diffMs = now.getTime() - created.getTime()
+    const diffSec = Math.floor(diffMs / 1000)
+    const diffMin = Math.floor(diffSec / 60)
+    const diffHours = Math.floor(diffMin / 60)
+    const diffDays = Math.floor(diffHours / 24)
+    const diffWeeks = Math.floor(diffDays / 7)
+    const diffMonths = Math.floor(diffDays / 30)
+    const diffYears = Math.floor(diffDays / 365)
+
+    if (diffSec < 60) return "now"
+    if (diffMin < 60) return `${diffMin}m ago`
+    if (diffHours < 24) return `${diffHours}h ago`
+    if (diffDays < 7) return `${diffDays}d ago`
+    if (diffWeeks < 5) return `${diffWeeks}w ago`
+    if (diffMonths < 12) return `${diffMonths}mo ago`
+    return `${diffYears}y ago`
   },
 
   ajax: function (url, params, func, noLoading) {

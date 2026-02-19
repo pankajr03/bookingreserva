@@ -120,8 +120,11 @@ class Ajax extends \BookneticApp\Providers\Core\Controller
                 $subscriptionId = Permission::tenantInf()->active_subscription;
 
                 if ($subscriptionId) {
-                    $agreementId = TenantBilling::where('agreement_id', $subscriptionId)->fetch()->agreement_id;
-                    Helpers\Helper::gatewayUnsubscribe(new Stripe(), $agreementId);
+                    $agreement = TenantBilling::where('agreement_id', $subscriptionId)->fetch();
+
+                    if ($agreement !== null) {
+                        Helpers\Helper::gatewayUnsubscribe(new Stripe(), $agreement->agreement_id);
+                    }
                 }
 
                 return $this->response(true, [ 'id' => $checkoutResult['id'] ]);

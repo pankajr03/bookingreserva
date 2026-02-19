@@ -158,7 +158,8 @@ class Stripe
         return [
             'status'        => true,
             'subscription'  => $sessionInf->subscription,
-            'billing_id'    => $subscriptionInf->metadata->billing_id
+            'billing_id'    => $subscriptionInf->metadata->billing_id,
+            'invoice_id'    => $subscriptionInf->latest_invoice
         ];
     }
 
@@ -275,7 +276,12 @@ class Stripe
             exit;
         }
 
-        if (!Tenant::paymentSucceded($subscriptionId, $billingId)) {
+        $invoiceItem = $invoice->lines->data[0];
+
+        $invoiceId = isset($invoiceItem) ? $invoiceItem->invoice : null;
+        $expireDate = isset($invoiceItem) ? $invoiceItem->period->end : null;
+
+        if (!Tenant::paymentSucceded($subscriptionId, $billingId, $expireDate, $invoiceId)) {
             http_response_code(400);
             exit;
         }

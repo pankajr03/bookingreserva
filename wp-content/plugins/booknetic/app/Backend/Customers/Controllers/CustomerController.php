@@ -30,10 +30,22 @@ class CustomerController extends Controller
     {
         Capabilities::must('customers');
 
-        $lastAppDateSubQuery = Appointment::where('customer_id', '=', DB::field('id', 'customers'))->select('created_at', true)->orderBy('created_at desc')->limit(1);
-        $category = CustomerCategory::where('id', '=', DB::field('category_id', 'customers'))->select('name as category', true)->limit(1);
+        $lastAppDateSubQuery = Appointment::query()
+            ->where('customer_id', '=', DB::field('id', 'customers'))
+            ->select('created_at', true)
+            ->orderBy('created_at desc')
+            ->limit(1);
+        $category = CustomerCategory::query()
+            ->where('id', '=', DB::field('category_id', 'customers'))
+            ->select('name as category', true)
+            ->limit(1);
 
-        $dataTable = new DataTableUI(Customer::select('*')->selectSubQuery($lastAppDateSubQuery, 'last_appointment_date')->selectSubQuery($category, 'category'));
+        $dataTable = new DataTableUI(
+            Customer::query()
+            ->select('*')
+            ->selectSubQuery($lastAppDateSubQuery, 'last_appointment_date')
+            ->selectSubQuery($category, 'category')
+        );
 
         $dataTable->setTitle(bkntc__('Customers'));
         $dataTable->addNewBtn(bkntc__('ADD CUSTOMER'));

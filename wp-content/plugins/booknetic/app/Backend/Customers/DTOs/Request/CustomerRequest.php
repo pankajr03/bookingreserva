@@ -17,8 +17,8 @@ class CustomerRequest
     private ?string $profileImage = null;
     private string $createdBy;
     private string $createdAt;
-    private int $categoryId = 0;
-    private string $wpUserPassword;
+    private ?int $categoryId = null;
+    private ?string $wpUserPassword = null;
 
     /**
      * @param string $firstName
@@ -239,7 +239,7 @@ class CustomerRequest
      * @param int|null $categoryId
      * @return CustomerRequest
      */
-    public function setCategoryId(int $categoryId): CustomerRequest
+    public function setCategoryId(?int $categoryId): CustomerRequest
     {
         $this->categoryId = $categoryId;
 
@@ -249,7 +249,7 @@ class CustomerRequest
     /**
      * @return int|null
      */
-    public function getCategoryId(): int
+    public function getCategoryId(): ?int
     {
         return $this->categoryId;
     }
@@ -261,7 +261,7 @@ class CustomerRequest
         return $this;
     }
 
-    public function getWpUserPassword(): string
+    public function getWpUserPassword(): ?string
     {
         return $this->wpUserPassword;
     }

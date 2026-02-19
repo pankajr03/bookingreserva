@@ -93,6 +93,23 @@ class StaffService
         if (empty($dto->locations) || count(array_filter($dto->locations)) === 0) {
             throw new StaffValidationException(bkntc__('Please select at least one location.'));
         }
+
+        if ($dto->allowToLogin) {
+            $email = $dto->email;
+
+            $user = get_user_by('email', $email);
+
+            if ($user) {
+                $disallowedRoles = [
+                    'administrator',
+                    'booknetic_saas_tenant'
+                ];
+
+                if (!empty(array_intersect($user->roles, $disallowedRoles))) {
+                    throw new StaffValidationException(bkntc__('Login access cannot be enabled for staff with this email address. Please change the email address.'));
+                }
+            }
+        }
     }
 
     /**
@@ -484,5 +501,21 @@ class StaffService
     public function getStaffList(string $search = '', int $location = 0, int $service = 0): array
     {
         return $this->repository->getAll($search, $location, $service);
+    }
+
+    public function getStaffForSelect(string $search): array
+    {
+        $staff = $this->repository->getAll($search);
+
+        $data   = [];
+
+        foreach ($staff as $staffInf) {
+            $data[] = [
+                'id'				=>	(int)$staffInf['id'],
+                'text'				=>	htmlspecialchars($staffInf['name'])
+            ];
+        }
+
+        return $data;
     }
 }

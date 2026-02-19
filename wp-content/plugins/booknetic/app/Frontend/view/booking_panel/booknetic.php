@@ -32,6 +32,10 @@ if (! \BookneticApp\Providers\Core\Capabilities::tenantCan('receive_appointments
 $showPoweredByBadge = Helper::isSaaSVersion() && !(Permission::tenantInf() && Capabilities::tenantCan('remove_branding') && Helper::getOption('remove_branding', 'off') == 'on');
 ?>
 
+<script>
+    var restNonce =  "<?php echo wp_create_nonce('wp_rest')?>";
+</script>
+
 <div class="booknetic_appointment<?php echo Helper::isRTLLanguage(Permission::tenantId()) ? " rtl" : "" ?>" id="booknetic_theme_<?php echo $themeId;?>" data-info="<?php echo $info ?>" data-steps="<?php print htmlspecialchars(json_encode($stepsArr))?>">
 	<div class="booknetic_appointment_steps <?php echo Capabilities::tenantCan('upload_logo_to_booking_panel') && Helper::getOption('display_logo_on_booking_panel', 'off') == 'on' ? 'has-logo' : ''; ?>">
 		<?php if (Capabilities::tenantCan('upload_logo_to_booking_panel') && Helper::getOption('display_logo_on_booking_panel', 'off') == 'on'):?>

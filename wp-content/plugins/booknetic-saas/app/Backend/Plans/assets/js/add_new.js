@@ -58,10 +58,7 @@
 			});
 		}).on('click', '#input_color, .plan_color', function ()
 		{
-			let x = parseInt( $(".fs-modal .fs-modal-content").outerWidth() ) / 2 - $("#plan_color_panel").outerWidth()/2,
-				y = parseInt( $(this).offset().top ) + 60;
-
-			$("#plan_color_panel").css({top: y+'px', left: x+'px'}).fadeIn(200);
+			$("#plan_color_panel").css({top: '84px', left: '11px'}).fadeIn(200);
 		}).on('click', '#plan_color_panel .color-rounded', function ()
 		{
 			$("#plan_color_panel .color-rounded.selected-color").removeClass('selected-color');
@@ -98,6 +95,29 @@
 			{
 				$(this).closest('.form-group').next('.form-groups-list').find('input:checked').click();
 			}
+		});
+
+		$(document).on('input', '#input_color', function () {
+			let color = $(this).val().trim();
+
+			if (color && color[0] !== '#') {
+				color = '#' + color;
+			}
+
+			if (!/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(color)) {
+				return;
+			}
+
+			$(".fs-modal .plan_color").css('background-color', color);
+			$("#input_color_hex").val(color);
+
+			$("#plan_color_panel .color-rounded.selected-color").removeClass('selected-color');
+			$("#plan_color_panel .color-rounded").each(function ()
+			{
+				if ($(this).data('color') === color) {
+					$(this).addClass('selected-color');
+				}
+			});
 		});
 
 		let current_color = $('#input_color').val();

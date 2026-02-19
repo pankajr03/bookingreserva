@@ -9,6 +9,8 @@ $openSetting = Helper::_get('setting', '');
 
 <link rel="stylesheet" href="<?php echo Helper::assets('css/settings.css', 'Settings')?>">
 <link rel="stylesheet" href="<?php echo Helper::assets('css/bootstrap-year-calendar.min.css')?>">
+<link rel="stylesheet" href="<?php echo Helper::assets('css/bootstrap-colorpicker.min.css', 'Plans')?>">
+<script type="application/javascript" src="<?php echo Helper::assets('js/bootstrap-colorpicker.min.js', 'Plans')?>"></script>
 <script type="application/javascript" src="<?php echo Helper::assets('js/bootstrap-year-calendar.min.js')?>"></script>
 <script type="application/javascript" src="<?php echo Helper::assets('js/settings.js', 'Settings')?>" id="settingsJS" <?php if (!empty($openSetting)) {
     echo 'data-goto="'.htmlspecialchars($openSetting).'"';

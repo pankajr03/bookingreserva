@@ -260,7 +260,9 @@ final class ReminderService
         try {
             if (!empty($workflow['data'])) {
                 $data = json_decode($workflow['data'], true);
-                $offset = $data['offset_value'] * 60;
+                $offsetValue = $data['offset_value'] ?: 0;
+
+                $offset = (int) $offsetValue * 60;
                 $offset *= $data['offset_sign'] === 'before' ? 1 : -1;
 
                 if ($data['offset_type'] === 'hour') {
@@ -279,7 +281,7 @@ final class ReminderService
                     ->setYears($data['years'] ?? [])
                     ->setMonths($data['month'] ?? [])
                     ->setTime($data['input_time'] ?? '')
-                    ->setLocale($data['locale'] ?: null);
+                    ->setLocale(!empty($data['locale']) ? $data['locale'] : null);
             }
         } catch (Exception $e) {
         }

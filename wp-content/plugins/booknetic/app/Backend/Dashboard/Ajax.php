@@ -10,7 +10,6 @@ use BookneticApp\Providers\Core\Controller;
 use BookneticApp\Providers\Helpers\Date;
 use BookneticApp\Providers\DB\DB;
 use BookneticApp\Providers\Helpers\Helper;
-use BookneticApp\Providers\Helpers\NotificationHelper;
 use BookneticApp\Providers\Request\Post;
 
 class Ajax extends Controller
@@ -108,26 +107,5 @@ class Ajax extends Controller
         }
 
         return $this->modalView('svg', compact('startDate', 'endDate'));
-    }
-
-    public function dismiss_notification()
-    {
-        $slug = Post::string('slug');
-
-        if (empty($slug)) {
-            return $this->response(true);
-        }
-
-        $notifications = NotificationHelper::getAll();
-
-        if (empty($notifications) || empty($notifications[ $slug ])) {
-            return $this->response(true);
-        }
-
-        $notifications[ $slug ][ 'visible' ] = false;
-
-        NotificationHelper::save($notifications);
-
-        return $this->response(true);
     }
 }

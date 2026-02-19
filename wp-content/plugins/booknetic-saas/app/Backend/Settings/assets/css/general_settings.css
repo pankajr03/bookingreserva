@@ -18,3 +18,9 @@
 {
     color: #44759D;
 }
+
+.payment_cycle_switcher_container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

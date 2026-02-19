@@ -9,6 +9,9 @@
 
 		let useLocalFont = 0;
         editFontFamily.on('click', function () {
+			if (!$('#select-font-family').val()) {
+				return;
+			}
 			const useLocalFont = $('#use_local_font').is(':checked') ? 1 : 0;
             const modalContent =
                 `<div class="">
@@ -41,7 +44,7 @@
 		let timeoutRef = null;
 
         function checkFontStatus() {
-            if ($('#use-local-font') && $('#use-local-font').is(':checked')) {
+            if ($('#use-local-font') && $('#use-local-font').is(':checked') && $('#select-font-family').val()) {
                 $('.save-btn').prop('disabled', true);
                 booknetic.ajax('checkFontDownloaded', {
                     "font_name": $('#select-font-family').val(),

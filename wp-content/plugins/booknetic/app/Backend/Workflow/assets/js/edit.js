@@ -16,7 +16,8 @@
             });
         }).on('click', '#addBtn', function ()
         {
-            booknetic.loadModal('add_new_action', {}, {'type':'center'});
+            let event= $(this).data('parameter-event');
+            booknetic.loadModal('add_new_action', {event : event}, {'type':'center'});
         }).on( 'click', '.delete_action', function ()
         {
 

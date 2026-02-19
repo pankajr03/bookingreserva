@@ -12,4 +12,5 @@ class SaveCustomerBirthdayEventRequest
     public string $inputTime;
 
     public array $categories;
+    public string $locale;
 }

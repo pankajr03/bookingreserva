@@ -64,7 +64,7 @@ $workflowEventsManager = $parameters['events_manager'];
                 </div>
 
             <div class="mt-1">
-                <button id="addBtn" class="workflow_card--btn btn btn-primary mx-auto"><?php echo bkntc__('Add')?></button>
+                <button id="addBtn" data-parameter-event="<?php echo $parameters['workflow_info']->when ?>" class="workflow_card--btn btn btn-primary mx-auto"><?php echo bkntc__('Add')?></button>
             </div>
         </div>
     </div>
