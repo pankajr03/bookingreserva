@@ -56,38 +56,58 @@
 
         console.log('Service Collaborative: Multi-select mode validation');
 
-        // Get selected services with assignments
-        var selectedServices = [];
-        var checkedBoxes = booking_panel_js.find('.booknetic_collab_service_checkbox input:checked');
+        // Use the selectedServices that were populated when checkboxes were checked
+        var selectedServices = JSON.parse(JSON.stringify(collaborativeService.selectedServices)) || [];
 
-        console.log('Found checked boxes:', checkedBoxes.length);
+        console.log('✓ Using selectedServices from collaborative service state:', selectedServices);
+        console.log('Found services count:', selectedServices.length);
 
-        // If no checkboxes are checked (e.g., user selected from individual category), use default validation
-        if (checkedBoxes.length === 0) {
-            console.log('Service Collaborative: No multi-select checkboxes checked, using default validation');
-            return result;
-        }
+        // If selectedServices is empty, try to rebuild from checkboxes (fallback)
+        if (selectedServices.length === 0) {
+            console.log('⚠️ selectedServices is empty, rebuilding from checked checkboxes...');
+            var checkedBoxes = booking_panel_js.find('.booknetic_collab_service_checkbox input:checked');
 
-        checkedBoxes.each(function () {
-            var serviceId = parseInt($(this).data('service-id'));
-            var card = $(this).closest('.booknetic_service_card');
-            var assignedTo = card.find('input[name="assign_to_' + serviceId + '"]:checked').val();
-            var categoryId = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
+            console.log('Found checked boxes:', checkedBoxes.length);
 
-            console.log('Service ID:', serviceId, 'Assigned to:', assignedTo, 'Category ID:', categoryId);
-
-            if (!assignedTo) {
-                assignedTo = 'me'; // Default to "me"
+            // If no checkboxes are checked (e.g., user selected from individual category), use default validation
+            if (checkedBoxes.length === 0) {
+                console.log('Service Collaborative: No multi-select checkboxes checked, using default validation');
+                return result;
             }
 
-            selectedServices.push({
-                service_id: serviceId,
-                assigned_to: assignedTo,
-                category_id: categoryId
-            });
-        });
+            checkedBoxes.each(function () {
+                var serviceId = parseInt($(this).data('service-id'));
+                var card = $(this).closest('.booknetic_service_card');
+                var assignedTo = card.find('input[name="assign_to_' + serviceId + '"]:checked').val();
+                var categoryId = card.data('category') || card.attr('data-category') || card.data('category-id') || card.attr('data-category-id');
 
-        console.log('Selected services:', selectedServices);
+                console.log('Service ID:', serviceId, 'Assigned to:', assignedTo, 'Category ID:', categoryId);
+
+                if (!assignedTo) {
+                    assignedTo = 'me'; // Default to "me"
+                }
+
+                selectedServices.push({
+                    service_id: serviceId,
+                    assigned_to: assignedTo,
+                    category_id: categoryId,
+                    custom_duration: null // Will be set from collaborativeService.selectedServices
+                });
+            });
+        } else {
+            // Update assigned_to from current radio button state (user may have changed it)
+            selectedServices.forEach(function (service) {
+                var card = booking_panel_js.find('.booknetic_service_card[data-id="' + service.service_id + '"]');
+                if (card.length > 0) {
+                    var currentAssignment = card.find('input[name="assign_to_' + service.service_id + '"]:checked').val();
+                    if (currentAssignment) {
+                        service.assigned_to = currentAssignment;
+                    }
+                }
+            });
+        }
+
+        console.log('Selected services after validation prep:', selectedServices);
 
         // Check if all selected services are from the same category
         if (selectedServices.length > 0) {
@@ -219,14 +239,25 @@
 
     // Hook to save selected services array to cart
     bookneticHooks.addFilter('bkntc_cart', function (cartItem, booknetic) {
-        if (collaborativeService.isMultiSelectMode && collaborativeService.selectedServices && collaborativeService.selectedServices.length > 0) {
-            cartItem.selected_services = collaborativeService.selectedServices;
+        console.log('=== bkntc_cart FILTER: Cart item before modification ===');
+        console.log('isMultiSelectMode:', collaborativeService.isMultiSelectMode);
+        console.log('selectedServices:', collaborativeService.selectedServices);
+        console.log('cartItem:', cartItem);
 
-            // For backward compatibility, set the first service as the main service
+        if (collaborativeService.isMultiSelectMode && collaborativeService.selectedServices && collaborativeService.selectedServices.length > 0) {
+            // Save all selected services to cart
+            cartItem.selected_services = JSON.parse(JSON.stringify(collaborativeService.selectedServices));
+
+            // CRITICAL: Set the first service as the main service for this cart item
             cartItem.service = collaborativeService.selectedServices[0].service_id;
             cartItem.assigned_to = collaborativeService.selectedServices[0].assigned_to;
 
-            console.log('Saved to cart - selected_services:', cartItem.selected_services);
+            console.log('✓ Cart item updated with selectedServices');
+            console.log('✓ Set main service to:', cartItem.service);
+            console.log('✓ Selected services array length:', cartItem.selected_services.length);
+            console.log('✓ Modified cartItem:', cartItem);
+        } else {
+            console.log('⚠️ Skipping collaborative modifications (not in multi-select mode or no services selected)');
         }
 
         return cartItem;
@@ -1001,9 +1032,50 @@
                 if ($(this).is(':checked')) {
                     card.addClass('booknetic_card_selected');
                     card.find('.booknetic_collab_assignment').slideDown(200);
+
+                    // CRITICAL: Add service to selectedServices immediately when checked
+                    var existingIndex = collaborativeService.selectedServices.findIndex(function (s) {
+                        return s.service_id === serviceId;
+                    });
+
+                    var assignedTo = card.find('input[name="assign_to_' + serviceId + '"]:checked').val() || 'me';
+
+                    if (existingIndex === -1) {
+                        // Not yet in list, add it
+                        console.log('✓ Adding service ' + serviceId + ' to selectedServices (assigned to: ' + assignedTo + ')');
+                        collaborativeService.selectedServices.push({
+                            service_id: serviceId,
+                            assigned_to: assignedTo,
+                            category_id: card.data('category'),
+                            custom_duration: null
+                        });
+                    } else {
+                        // Already in list, just update assignment
+                        collaborativeService.selectedServices[existingIndex].assigned_to = assignedTo;
+                        console.log('✓ Updated service ' + serviceId + ' assignment to: ' + assignedTo);
+                    }
+
+                    console.log('selectedServices now:', collaborativeService.selectedServices);
+
+                    // Check if service has custom durations
+                    var hasCustomDuration = window.servicesWithCustomDuration && window.servicesWithCustomDuration.some(function (row) {
+                        return row.service_id === serviceId.toString();
+                    });
+
+                    if (hasCustomDuration) {
+                        // Show custom duration popup for this service
+                        showCustomDurationPopup(booknetic, serviceId, card);
+                    }
                 } else {
                     card.removeClass('booknetic_card_selected');
                     card.find('.booknetic_collab_assignment').slideUp(200);
+
+                    // CRITICAL: Remove from selectedServices when unchecked
+                    var initialLength = collaborativeService.selectedServices.length;
+                    collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
+                        return s.service_id !== serviceId;
+                    });
+                    console.log('✓ Removed service ' + serviceId + ' from selectedServices (was ' + initialLength + ', now ' + collaborativeService.selectedServices.length + ')');
                 }
 
                 updateSelectedCount(panel);
@@ -1120,6 +1192,99 @@
                 card.find('input[name="assign_to_' + item.service_id + '"][value="' + item.assigned_to + '"]').prop('checked', true);
             }
         });
+    }
+
+    // Function to show custom duration popup for a specific service
+    function showCustomDurationPopup(booknetic, serviceId, card) {
+        console.log('Showing custom duration popup for service:', serviceId);
+
+        // Create a temporary cart item with just this service for the AJAX call
+        var tempCartItem = JSON.parse(JSON.stringify(booknetic.cartArr[booknetic.cartCurrentIndex]));
+        tempCartItem.service = serviceId;
+
+        // Add overlay if not exists
+        if (!booknetic.panel_js.find('.booknetic_appointment_container').find('.popup-overlay').length > 0) {
+            booknetic.panel_js.find('.booknetic_appointment_container').append($('<div>', {
+                class: 'popup-overlay',
+            }));
+        }
+
+        // Call AJAX to get custom duration popup using temp item data
+        var tempCart = JSON.parse(JSON.stringify(booknetic.cartArr));
+        tempCart[booknetic.cartCurrentIndex] = tempCartItem;
+
+        // Build AJAX parameters with temp cart
+        var ajaxParams = {
+            cart: JSON.stringify(tempCart),
+            current: booknetic.cartCurrentIndex
+        };
+
+        // Add any other parameters that might be needed
+        if (BookneticCollabFrontend && BookneticCollabFrontend.nonce) {
+            ajaxParams.nonce = BookneticCollabFrontend.nonce;
+        }
+
+        booknetic.ajax('get_custom_duration', ajaxParams, function (result) {
+            console.log('Custom duration AJAX response:', result);
+            booknetic.panel_js.find('.popup-overlay').addClass('enter');
+
+            $(result['custom-durations']).appendTo(booknetic.panel_js.find('.booknetic_appointment_container')).queue(function () {
+                setTimeout(function () {
+                    booknetic.panel_js.find('.booknetic_custom_duration_popup').addClass('enter');
+                }, 0);
+            });
+
+            // Handle duration selection
+            booknetic.panel_js.find('.bkntc_custom_durations, .bkntc_custom_durations_labels').on('click', function (e) {
+                var durationId = $(e.currentTarget).data('duration-id');
+                console.log('Duration selected:', durationId, 'for service:', serviceId);
+
+                // Update the service in selectedServices with the custom duration
+                var serviceIndex = collaborativeService.selectedServices.findIndex(function (s) {
+                    return s.service_id === serviceId;
+                });
+
+                if (serviceIndex !== -1) {
+                    collaborativeService.selectedServices[serviceIndex].custom_duration = durationId;
+                    console.log('✓ Updated custom_duration for service ' + serviceId + ':', durationId);
+                    console.log('Updated selectedServices:', collaborativeService.selectedServices);
+                } else {
+                    console.warn('⚠️ Service ' + serviceId + ' not found in selectedServices!');
+                }
+
+                // Close popup
+                booknetic.panel_js.find('.popup-overlay').removeClass('enter');
+                booknetic.panel_js.find('.booknetic_custom_duration_popup').remove();
+            });
+
+            // Handle close button
+            booknetic.panel_js.find('.bkntc_popup-x').on('click', function () {
+                console.log('Duration popup closed without selection for service:', serviceId);
+                booknetic.panel_js.find('.booknetic_custom_duration_popup').remove();
+                booknetic.panel_js.find('.popup-overlay').removeClass('enter');
+            });
+
+            // Handle continue without selection (optional)
+            booknetic.panel_js.find('#bkntc_custom_duration_continue').off('click').on('click', function () {
+                console.log('Continue without duration selection for service:', serviceId);
+
+                // Update the service to have empty duration (skip this duration)
+                var serviceIndex = collaborativeService.selectedServices.findIndex(function (s) {
+                    return s.service_id === serviceId;
+                });
+
+                if (serviceIndex !== -1) {
+                    collaborativeService.selectedServices[serviceIndex].custom_duration = '';
+                    console.log('✓ Service ' + serviceId + ' set to continue without duration (duration cleared)');
+                } else {
+                    console.warn('⚠️ Service ' + serviceId + ' not found in selectedServices!');
+                }
+
+                booknetic.panel_js.find('.popup-overlay').removeClass('enter');
+                booknetic.panel_js.find('.booknetic_custom_duration_popup').remove();
+            });
+
+        }, false);
     }
 
     // Inject custom styles for multi-select
