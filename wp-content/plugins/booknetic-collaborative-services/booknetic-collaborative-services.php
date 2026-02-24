@@ -102,6 +102,9 @@ final class BookneticCollaborativeServices {
 
         $this->backend_init();
         
+        // Register frontend booking panel assets early (before wp_enqueue_scripts)
+        add_filter('bkntc_booking_panel_assets', [$this, 'register_frontend_booking_assets']);
+        
         // Register AJAX handlers directly
         add_action('wp_ajax_bkntc_collab_get_staff_list', [$this, 'ajax_get_staff_list']);
         
@@ -1192,125 +1195,102 @@ final class BookneticCollaborativeServices {
 
     }
 
-    public function enqueue_frontend_booking_assets() {
-        // Load on all frontend pages (Booknetic can be loaded via shortcode, popup, iframe, etc.)
-        $tenant_id = $this->get_frontend_tenant_id();
-        global $wpdb;
-        if ( $tenant_id > 0 ) {
-            $tenants_table = $wpdb->prefix . 'bkntc_tenants';
-            $collaborative_enabled = $wpdb->get_var($wpdb->prepare("SELECT collaborative_enabled FROM {$tenants_table} WHERE id = %d LIMIT 1", $tenant_id));
-            if ( ! $collaborative_enabled ) {
-                if (function_exists('bkntc_cs_log')) {
-                    bkntc_cs_log('enqueue_frontend_booking_assets: collaborative disabled for tenant ' . $tenant_id );
-                }
-                return;
-            }
-        } 
-        
-        if (!is_admin()) {
-            // Gate by tenant plan: do not load collaborative assets if plan disallows
-            if (class_exists('BookneticApp\\Providers\\Core\\Capabilities') &&
-                ! \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services')) {
-                if (function_exists('bkntc_cs_log')) bkntc_cs_log('enqueue_frontend_booking_assets: gated by tenant capability');
-                return;
-            }
-            
+    public function register_frontend_booking_assets($assets) {
+        // Gate by tenant plan: do not load collaborative assets if plan disallows
+        if (class_exists('BookneticApp\\Providers\\Core\\Capabilities') &&
+            ! \BookneticApp\Providers\Core\Capabilities::tenantCan('collaborative_services')) {
             if (function_exists('bkntc_cs_log')) {
-                bkntc_cs_log('Enqueuing frontend booking assets on page');
+                bkntc_cs_log('register_frontend_booking_assets: gated by tenant capability');
             }
-            
-            // Enqueue main frontend booking handler FIRST
-            // Load in footer with high priority to ensure it loads after Booknetic's scripts
-            wp_enqueue_script(
-                'bkntc-collab-frontend-booking',
-                BKNTCCS_PLUGIN_URL . 'assets/js/frontend-booking-collaborative.js',
-                ['jquery'],
-                time(), // Use timestamp for development
-                true
-            );
-            
-            // Enqueue step-based service handler for multi-service selection
-            wp_enqueue_script(
-                'bkntc-collab-service-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_service_collaborative.js',
-                ['jquery', 'bkntc-collab-frontend-booking'],
-                time(), // Use timestamp for development
-                true
-            );
-            
-            // NEW: Enqueue COMBINED datetime-staff step handler (single unified step)
-            // This intercepts date_time step and converts it to combined view in multi-service mode
-            wp_enqueue_script(
-                'bkntc-collab-combined-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_date_time_staff_combined.js',
-                ['jquery', 'bkntc-collab-service-step'],
-                time(), // Use timestamp for development
-                true
-            );
-            
-            // LEGACY: Old datetime-staff handler (kept for compatibility, but combined step takes priority)
-            wp_enqueue_script(
-                'bkntc-collab-datetime-staff-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_datetime_staff_collaborative.js',
-                ['jquery', 'bkntc-collab-combined-step'],
-                time(), // Use timestamp for development
-                true
-            );
-            
-            // Enqueue step-based staff handler (follows Booknetic pattern)
-            wp_enqueue_script(
-                'bkntc-collab-staff-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_staff_collaborative.js',
-                ['jquery', 'bkntc-collab-datetime-staff-step'],
-                time(), // Use timestamp for development
-                true
-            );
-            
-            // Enqueue step-based information handler for multi-guest fields
-            wp_enqueue_script(
-                'bkntc-collab-information-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_information_collaborative.js',
-                ['jquery', 'bkntc-collab-staff-step'],
-                time(), // Use timestamp for development
-                true
-            );
-
-            // Enqueue step-based confirm handler to display all selected staff
-            wp_enqueue_script(
-                'bkntc-collab-confirm-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_confirm_collaborative.js',
-                ['jquery'],
-                time(), // Use timestamp for development
-                true
-            );
-
-            // Enqueue step-based cart handler to display all selected staff in cart
-            wp_enqueue_script(
-                'bkntc-collab-cart-step',
-                BKNTCCS_PLUGIN_URL . 'assets/js/steps/step_cart_collaborative.js',
-                ['jquery'],
-                time(), // Use timestamp for development
-                true
-            );
-            
-            wp_localize_script('bkntc-collab-frontend-booking', 'BookneticCollabFrontend', array(
-                'ajaxurl' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('bkntc_collab_frontend_nonce')
-            ));
-            
-            // Add inline script to verify loading
-            wp_add_inline_script('bkntc-collab-frontend-booking', '
-                console.log("=== Booknetic Collaborative Services - Frontend ===");
-                console.log("Script loaded at:", new Date().toISOString());
-                console.log("jQuery available:", typeof jQuery !== "undefined");
-                console.log("bookneticHooks available:", typeof bookneticHooks !== "undefined");
-                console.log("BookneticCollabFrontend:", typeof BookneticCollabFrontend !== "undefined" ? BookneticCollabFrontend : "NOT DEFINED");
-            ', 'before');
-            
-            if (function_exists('bkntc_cs_log')) {
-                bkntc_cs_log('Frontend booking assets enqueued');
-            }
+            return $assets;
         }
+
+        if (function_exists('bkntc_cs_log')) {
+            bkntc_cs_log('Registering frontend booking assets via bkntc_booking_panel_assets filter');
+        }
+
+        $plugin_url = plugin_dir_url(__FILE__);
+
+        // Main frontend booking handler FIRST
+        $assets[] = [
+            'id'    => 'bkntc-collab-frontend-booking',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/frontend-booking-collaborative.js',
+        ];
+        
+        // Service step handler for multi-service selection
+        $assets[] = [
+            'id'    => 'bkntc-collab-service-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_service_collaborative.js',
+        ];
+        
+        // Combined datetime-staff step handler
+        $assets[] = [
+            'id'    => 'bkntc-collab-combined-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_date_time_staff_combined.js',
+        ];
+        
+        // Legacy datetime-staff handler (for compatibility)
+        $assets[] = [
+            'id'    => 'bkntc-collab-datetime-staff-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_datetime_staff_collaborative.js',
+        ];
+        
+        // Staff step handler
+        $assets[] = [
+            'id'    => 'bkntc-collab-staff-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_staff_collaborative.js',
+        ];
+        
+        // Information step handler
+        $assets[] = [
+            'id'    => 'bkntc-collab-information-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_information_collaborative.js',
+        ];
+        
+        // Confirm step handler
+        $assets[] = [
+            'id'    => 'bkntc-collab-confirm-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_confirm_collaborative.js',
+        ];
+        
+        // Cart step handler
+        $assets[] = [
+            'id'    => 'bkntc-collab-cart-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_cart_collaborative.js',
+        ];
+        
+        // Frontend object initialization script
+        $assets[] = [
+            'id'    => 'bkntc-collab-frontend-booking',
+            'type'  => 'script',
+            'src'   => 'window.BookneticCollabFrontend = {ajaxurl: "' . admin_url('admin-ajax.php') . '", nonce: "' . wp_create_nonce('bkntc_collab_frontend_nonce') . '"};'
+        ];
+        
+        // Console logging script
+        $assets[] = [
+            'id'    => 'bkntc-collab-frontend-booking',
+            'type'  => 'script',
+            'src'   => 'console.log("=== Booknetic Collaborative Services - Frontend ==="); console.log("Script loaded at:", new Date().toISOString()); console.log("jQuery available:", typeof jQuery !== "undefined"); console.log("bookneticHooks available:", typeof bookneticHooks !== "undefined"); console.log("BookneticCollabFrontend:", typeof BookneticCollabFrontend !== "undefined" ? BookneticCollabFrontend : "NOT DEFINED");'
+        ];
+        
+        if (function_exists('bkntc_cs_log')) {
+            bkntc_cs_log('Frontend booking assets registered successfully');
+        }
+
+        return $assets;
+    }
+
+    public function enqueue_frontend_booking_assets() {
+        // This method remains for backward compatibility but is no longer needed
+        // Assets are now registered via register_frontend_booking_assets() in the filter
     }
     
     public function ajax_get_frontend_category_rules() {
