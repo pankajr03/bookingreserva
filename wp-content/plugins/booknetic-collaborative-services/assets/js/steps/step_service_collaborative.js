@@ -53,11 +53,40 @@
     bookneticHooks.addFilter('step_validation_service', function (result, booknetic) {
         let booking_panel_js = booknetic.panel_js;
 
-        // CRITICAL CHECK: Only apply collaborative validation if multi-select is explicitly enabled
-        // Don't check for selected_services in cart - it hasn't been added yet
-        if (!collaborativeService.isMultiSelectMode) {
-            console.log('Service Collaborative: Not in multi-select mode - using default Booknetic validation');
-            return result;  // Use Booknetic's default validation
+        // CRITICAL CHECK: Only apply collaborative validation when the selected
+        // service's category actually allows multi-select. Note that
+        // `collaborativeService.isMultiSelectMode` is true if ANY category on
+        // the page allows multi-select. We must check the category of the
+        // currently selected services instead of the global flag.
+        console.log('Service Collaborative: Validating service step');
+        console.log('Current selectedServices:', collaborativeService);
+        if (!collaborativeService.selectedServices || collaborativeService.selectedServices.length === 0) {
+            console.log('Service Collaborative: No selectedServices present, using default Booknetic validation');
+            return result;
+        }
+
+        // Use the LAST selected service's category when deciding whether to
+        // apply collaborative (multi-select) validation. This makes
+        // `allow_multi_select` follow the most recent user selection.
+        var lastIndexCheck = collaborativeService.selectedServices.length - 1;
+        var categoryKeyCheck = collaborativeService.selectedServices[lastIndexCheck].category_id;
+        var categorySettingsCheck = collaborativeService.categorySettings[categoryKeyCheck];
+        if (!categorySettingsCheck || !categorySettingsCheck.settings || categorySettingsCheck.settings.allow_multi_select != 1) {
+            console.log('Service Collaborative: Selected service category does not allow multi-select - using default Booknetic validation');
+            return result; // use default validation when category doesn't allow multi-select
+        }
+
+        // If the main Booknetic-selected cart item (single-service selection)
+        // exists and its category differs from the collaborative selected
+        // services' category, then the user is mixing individual and
+        // collaborative selections. In that case skip collaborative
+        // validation and let Booknetic's default validation handle it.
+        if (booknetic.cartArr && booknetic.cartArr.length > 0) {
+            var currentCart = booknetic.cartArr[booknetic.cartCurrentIndex] || booknetic.cartArr[0];
+            if (currentCart && currentCart.service_category && String(currentCart.service_category) !== String(categoryKeyCheck)) {
+                console.log('Service Collaborative: Mixed categories detected (cart item category differs). Skipping collaborative validation.');
+                return result;
+            }
         }
 
         console.log('Service Collaborative: Multi-select mode validation (allow_multi_select = 1)');
@@ -79,10 +108,11 @@
 
         console.log('Selected services after validation prep:', selectedServices);
 
-        // Get the category ID from first service
-        var categoryKey = selectedServices[0].category_id;
+        // Use the LAST selected service's category for the remaining checks
+        var lastIndex = selectedServices.length - 1;
+        var categoryKey = selectedServices[lastIndex].category_id;
         var categorySettings = collaborativeService.categorySettings[categoryKey];
-
+        console.log('Category settings for selected services:', categorySettings);
         if (!categorySettings || !categorySettings.settings) {
             return {
                 status: false,
@@ -90,15 +120,14 @@
             };
         }
 
-        // Check if all selected services are from the same category
+        // If selected services span multiple categories, use the last
+        // selected service's category to decide whether collaborative
+        // validation applies; otherwise fall back to default validation.
         if (selectedServices.length > 0) {
-            var firstCategory = selectedServices[0].category_id;
-            for (var i = 1; i < selectedServices.length; i++) {
-                if (selectedServices[i].category_id !== firstCategory) {
-                    return {
-                        status: false,
-                        errorMsg: 'Please select services from the same category.'
-                    };
+            for (var i = 0; i < selectedServices.length; i++) {
+                if (String(selectedServices[i].category_id) !== String(categoryKey)) {
+                    console.log('Service Collaborative: Detected selected services from multiple categories; skipping collaborative validation.');
+                    return result; // mixed categories — defer to Booknetic default
                 }
             }
         }
@@ -215,8 +244,10 @@
         console.log('selectedServices:', collaborativeService.selectedServices);
         console.log('cartItem:', cartItem);
 
-        if (collaborativeService.isMultiSelectMode && collaborativeService.selectedServices && collaborativeService.selectedServices.length > 0) {
-            // Save all selected services to cart
+        // If collaborative selections exist, always attach them to the cart
+        // item. This guarantees every selected service will be carried through
+        // to the server side for expansion (e.g. service 50 won't be lost).
+        if (collaborativeService.selectedServices && collaborativeService.selectedServices.length > 0) {
             cartItem.selected_services = JSON.parse(JSON.stringify(collaborativeService.selectedServices));
 
             // CRITICAL: Set the first service as the main service for this cart item
@@ -228,11 +259,12 @@
             console.log('✓ Selected services array length:', cartItem.selected_services.length);
             console.log('✓ Modified cartItem:', cartItem);
         } else {
-            console.log('⚠️ Skipping collaborative modifications (not in multi-select mode or no services selected)');
+            console.log('⚠️ No collaborative selected services found - leaving cartItem unchanged');
         }
 
         return cartItem;
     });
+
 
     // Hook after information step to expand cart into individual service items
     bookneticHooks.addAction('before_next_step_information', function (booknetic) {
@@ -332,7 +364,25 @@
 
     // Function to expand cart into individual service items
     function expandCartForMultiService(booknetic) {
-        if (!collaborativeService.isMultiSelectMode || !collaborativeService.selectedServices || collaborativeService.selectedServices.length <= 1) {
+        // Determine the list of services to expand. Prefer the in-memory
+        // `collaborativeService.selectedServices`; if that's empty (for
+        // example after a page reload), fall back to the cart item's
+        // `selected_services` payload.
+        var servicesToExpand = [];
+
+        if (collaborativeService.selectedServices && collaborativeService.selectedServices.length > 0) {
+            servicesToExpand = collaborativeService.selectedServices;
+        }
+
+        // If nothing in memory, inspect the current cart item for an attached
+        // `selected_services` array (this is the payload set earlier by the
+        // bkntc_cart filter).
+        var currentCartItemCheck = (booknetic.cartArr && booknetic.cartArr[booknetic.cartCurrentIndex]) ? booknetic.cartArr[booknetic.cartCurrentIndex] : null;
+        if ((!servicesToExpand || servicesToExpand.length === 0) && currentCartItemCheck && currentCartItemCheck.selected_services && currentCartItemCheck.selected_services.length > 1) {
+            servicesToExpand = currentCartItemCheck.selected_services;
+        }
+
+        if (!servicesToExpand || servicesToExpand.length <= 1) {
             return; // Single service, no need to expand
         }
 
@@ -382,8 +432,8 @@
         booknetic.cartArr.splice(booknetic.cartCurrentIndex, 1);
 
         // Create individual cart items for each service
-        collaborativeService.selectedServices.forEach(function (service, index) {
-            console.log('🔄 Processing service ' + (index + 1) + '/' + collaborativeService.selectedServices.length + ': Service ID ' + service.service_id);
+        servicesToExpand.forEach(function (service, index) {
+            console.log('🔄 Processing service ' + (index + 1) + '/' + servicesToExpand.length + ': Service ID ' + service.service_id);
 
             var newItem = JSON.parse(JSON.stringify(originalItem));
             console.log('📋 New item created for service ' + service.service_id + ', has customer_data:', !!newItem.customer_data);
@@ -397,7 +447,12 @@
             newItem.is_collaborative_booking = true;
             newItem.collaborative_group_id = groupId;
             newItem.collaborative_service_index = index + 1;
-            newItem.collaborative_total_services = collaborativeService.selectedServices.length;
+            newItem.collaborative_total_services = servicesToExpand.length;
+
+            // Preserve extras selected on the extras step (if provided)
+            if (service.service_extras && service.service_extras.length) {
+                newItem.service_extras = JSON.parse(JSON.stringify(service.service_extras));
+            }
 
             // CRITICAL: Clear any cached service-specific data that might interfere with backend processing
             // This forces the backend to fetch fresh data for each service
@@ -405,6 +460,11 @@
             delete newItem.service_price;
             delete newItem.service_duration;
             delete newItem.service_name;
+
+            // Preserve a human-friendly service name for UI headings
+            if (service.service_name) {
+                newItem.collaborative_service_name = service.service_name;
+            }
 
             // CRITICAL: Ensure date and time are preserved for all items
             // All services share the same date/time in collaborative booking
@@ -547,7 +607,7 @@
             }
 
             // Keep selected_services for reference but mark as expanded
-            newItem.selected_services = collaborativeService.selectedServices;
+            newItem.selected_services = servicesToExpand;
             newItem._cart_expanded = true;
 
             // Insert at the position
@@ -616,9 +676,15 @@
 
         // CRITICAL: Re-expand cart if it was somehow collapsed
         // This handles the case where cart might have been cleared between confirm_details load and actual confirmation
-        if (collaborativeService.isMultiSelectMode &&
-            collaborativeService.selectedServices &&
-            collaborativeService.selectedServices.length > 1) {
+        // Re-expand only when selected services exist and the category allows multi-select
+        var shouldReExpand = false;
+        if (collaborativeService.selectedServices && collaborativeService.selectedServices.length > 1) {
+            var reCat = collaborativeService.selectedServices[0].category_id;
+            var reCatSettings = collaborativeService.categorySettings[reCat];
+            shouldReExpand = reCatSettings && reCatSettings.settings && reCatSettings.settings.allow_multi_select == 1;
+        }
+
+        if (shouldReExpand) {
 
             // Check if cart needs expansion
             if (!booknetic.cartArr || booknetic.cartArr.length === 0) {
@@ -983,7 +1049,7 @@
                     '<label style="font-size: 12px; font-weight: 600; display: block; margin-bottom: 5px;">Assign to:</label>' +
                     '<div style="display: flex; gap: 15px;">' +
                     '<label style="display: flex; align-items: center; font-size: 13px; cursor: pointer;">' +
-                    '<input type="checkbox" class="booknetic_assign_me" data-service-id="' + serviceId + '" value="me" checked style="margin-right: 6px;">' +
+                    '<input type="checkbox" class="booknetic_assign_me" data-service-id="' + serviceId + '" value="me" style="margin-right: 6px;">' +
                     'Me' +
                     '</label>' +
                     '<label style="display: flex; align-items: center; font-size: 13px; cursor: pointer;">' +
@@ -998,7 +1064,7 @@
                 // Handle assignment checkbox changes
                 card.find('.booknetic_assign_me, .booknetic_assign_guest').off('change').on('change', function () {
                     console.log('Assignment checkbox changed for service ' + serviceId);
-                    rebuildServiceAssignments(serviceId, card);
+                    rebuildServiceAssignments(booknetic, serviceId, card, panel);
                 });
             }
 
@@ -1006,13 +1072,13 @@
             card.find('.booknetic_collab_service_checkbox input').off('change').on('change', function (e) {
                 e.stopPropagation();
                 e.preventDefault();
-
+                console.log('Service checkbox changed for service ' + serviceId + ':', $(this).is(':checked'));
                 if ($(this).is(':checked')) {
                     card.addClass('booknetic_card_selected');
                     card.find('.booknetic_collab_assignment').slideDown(200);
 
                     // CRITICAL: Add entries for both selected assignments
-                    rebuildServiceAssignments(serviceId, card);
+                    rebuildServiceAssignments(booknetic, serviceId, card, panel);
 
                     // Check if service has custom durations
                     var hasCustomDuration = window.servicesWithCustomDuration && window.servicesWithCustomDuration.some(function (row) {
@@ -1031,7 +1097,9 @@
                     // CRITICAL: Remove ALL entries for this service when unchecked
                     var initialLength = collaborativeService.selectedServices.length;
                     collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
-                        return s.service_id !== serviceId;
+                        var sid = (s.service_id !== undefined && s.service_id !== null) ? s.service_id : s.service;
+                        if (sid === undefined || sid === null) return true;
+                        return String(sid).trim() !== String(serviceId).trim();
                     });
                     console.log('✓ Removed service ' + serviceId + ' from selectedServices (was ' + initialLength + ', now ' + collaborativeService.selectedServices.length + ')');
                 }
@@ -1180,7 +1248,7 @@
     }
 
     // Function to rebuild service assignments when Me/Guest checkboxes change
-    function rebuildServiceAssignments(serviceId, card) {
+    function rebuildServiceAssignments(booknetic, serviceId, card, panel) {
         console.log('Rebuilding assignments for service ' + serviceId);
 
         // Get which assignments are checked
@@ -1189,46 +1257,150 @@
 
         console.log('Service ' + serviceId + ' - Me: ' + isMe + ', Guest: ' + isGuest);
 
-        // Validate: At least one must be selected
-        if (!isMe && !isGuest) {
-            console.warn('⚠️ At least one assignment must be selected!');
-            // Auto-select "Me" as default
-            card.find('.booknetic_assign_me[data-service-id="' + serviceId + '"]').prop('checked', true);
-            isMe = true;
-            console.log('Auto-selected "Me" as default');
-        }
+        // If neither Me nor Guest is selected, add a placeholder entry so
+        // validation can require assignment selection explicitly.
+        // Do NOT auto-select any option by default.
 
         // Remove all existing entries for this service
         var beforeCount = collaborativeService.selectedServices.length;
         var categoryId = card.data('category');
+        var serviceName = normalizeServiceName(getServiceNameFromCard(card, serviceId));
+
+        // Enforce single-category selection: clear all other categories first
+        if (panel && categoryId) {
+            clearSelectionsFromOtherCategories(panel, categoryId, serviceId);
+        }
 
         collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
-            return s.service_id !== serviceId;
+            return String(s.service_id) !== String(serviceId);
         });
         console.log('Removed existing entries for service ' + serviceId + ' (was ' + beforeCount + ', now ' + collaborativeService.selectedServices.length + ')');
 
-        // Add new entries based on checked assignments
+        // Add new entries based on checked assignments. If none are checked
+        // we push a placeholder with empty assigned_to so the validation
+        // step can prompt the user to choose an assignment.
         if (isMe) {
             collaborativeService.selectedServices.push({
-                service_id: serviceId,
+                service_id: String(serviceId),
                 assigned_to: 'me',
                 category_id: categoryId,
-                custom_duration: null
+                custom_duration: null,
+                service_name: serviceName
             });
             console.log('✓ Added entry: Service ' + serviceId + ' → Me');
         }
 
         if (isGuest) {
             collaborativeService.selectedServices.push({
-                service_id: serviceId,
+                service_id: String(serviceId),
                 assigned_to: 'guest',
                 category_id: categoryId,
-                custom_duration: null
+                custom_duration: null,
+                service_name: serviceName
             });
             console.log('✓ Added entry: Service ' + serviceId + ' → Guest');
         }
 
+        if (!isMe && !isGuest) {
+            collaborativeService.selectedServices.push({
+                service_id: String(serviceId),
+                assigned_to: '',
+                category_id: categoryId,
+                custom_duration: null,
+                service_name: serviceName
+            });
+            console.log('✓ Added placeholder entry for service ' + serviceId + ' with no assignment');
+        }
+
         console.log('Updated selectedServices:', collaborativeService.selectedServices);
+
+        // If both Me and Guest are selected, expand cart immediately
+        if (isMe && isGuest && booknetic && typeof expandCartForMultiService === 'function') {
+            var currentItem = booknetic.cartArr && booknetic.cartArr[booknetic.cartCurrentIndex];
+            var hasDateTime = currentItem && currentItem.date && currentItem.time;
+            if (hasDateTime) {
+                console.log('Both Me and Guest selected - expanding cart immediately');
+                expandCartForMultiService(booknetic);
+            } else {
+                console.log('Both Me and Guest selected - skipping immediate expansion (date/time not selected yet)');
+            }
+        }
+    }
+
+    function getServiceNameFromCard(card, serviceId) {
+        if (!card || card.length === 0) {
+            return '';
+        }
+
+        var titleEl = card.find('.booknetic_service_card_title, .booknetic_service_card_name, .booknetic_card_title, .booknetic_card_name').first();
+        var title = titleEl.length > 0 ? titleEl.text().trim() : '';
+        return title || ('Service #' + serviceId);
+    }
+
+    function normalizeServiceName(name) {
+        if (!name) {
+            return '';
+        }
+
+        var normalized = String(name).replace(/\s+/g, ' ').trim();
+        // Prefer the first line if the name contains line breaks
+        var firstLine = String(name).split(/\r?\n/).map(function (line) {
+            return line.trim();
+        }).filter(function (line) {
+            return line.length > 0;
+        })[0];
+
+        return firstLine ? firstLine : normalized;
+    }
+
+    // Clear selections that belong to other categories
+    function clearSelectionsFromOtherCategories(panel, activeCategoryId, activeServiceId) {
+        if (!activeCategoryId) {
+            return;
+        }
+
+        var activeCategoryStr = String(activeCategoryId);
+
+        // Remove entries from selectedServices that are not in the active category
+        var beforeCount = collaborativeService.selectedServices.length;
+        collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
+            if (!s || !s.category_id) {
+                return true;
+            }
+            return String(s.category_id) === activeCategoryStr;
+        });
+
+        if (beforeCount !== collaborativeService.selectedServices.length) {
+            console.log('Cleared selections from other categories (was ' + beforeCount + ', now ' + collaborativeService.selectedServices.length + ')');
+        }
+
+        // Uncheck and reset UI for cards that are not in the active category
+        panel.find('.booknetic_service_card').each(function () {
+            var card = $(this);
+            var cardCategory = card.data('category');
+            var cardServiceId = card.data('id');
+
+            if (!cardCategory) {
+                return;
+            }
+
+            if (String(cardCategory) !== activeCategoryStr) {
+                // Uncheck service checkbox
+                card.removeClass('booknetic_card_selected');
+                card.find('.booknetic_collab_service_checkbox input').prop('checked', false);
+
+                // Uncheck assignments and hide the assignment block
+                card.find('.booknetic_assign_me, .booknetic_assign_guest').prop('checked', false);
+                card.find('.booknetic_collab_assignment').hide();
+
+                // Remove any leftover entries for this service from selectedServices
+                if (cardServiceId !== undefined && cardServiceId !== null) {
+                    collaborativeService.selectedServices = collaborativeService.selectedServices.filter(function (s) {
+                        return String(s.service_id) !== String(cardServiceId);
+                    });
+                }
+            }
+        });
     }
 
     // Function to show custom duration popup for a specific service

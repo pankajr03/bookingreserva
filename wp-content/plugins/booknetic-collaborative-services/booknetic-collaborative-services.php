@@ -1224,6 +1224,13 @@ final class BookneticCollaborativeServices {
             'type'  => 'js',
             'src'   => $plugin_url . 'assets/js/steps/step_service_collaborative.js',
         ];
+
+        // Service extras step handler for multi-service selection
+        $assets[] = [
+            'id'    => 'bkntc-collab-service-extras-step',
+            'type'  => 'js',
+            'src'   => $plugin_url . 'assets/js/steps/step_service_extras_collaborative.js',
+        ];
         
         // Combined datetime-staff step handler
         $assets[] = [
